@@ -72,8 +72,6 @@ At a high-level, we need to support two scenarios, one to upload videos and the 
 
 ## Database Schema:
 
-> Defining the DB schema in the early stages of the interview would help to understand the data flow among various components and later would guide towards data partitioning.
-
 ```
 Table Product
 ProductID: int, PK
@@ -94,9 +92,6 @@ LastLogin: datetime
 
 ## What kind of database should we use?
 
-Please see [SQL vs NoSQL](https://www.xplenty.com/blog/the-sql-vs-nosql-difference/) for more details.
-
-https://www.digitalocean.com/community/tutorials/understanding-database-sharding
 
 # 7. Data Size Estimation
 
