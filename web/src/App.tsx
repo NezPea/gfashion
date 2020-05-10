@@ -4,6 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from './pages/Home';
+import GFashion from './pages/GFashion';
+import GMall from './pages/GMall';
+import GClub from './pages/GClub';
 import Login from './pages/Login';
 
 const NotFound = () => {
@@ -22,6 +25,9 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/login' component={Login} />
+          <Route path='/gfashion' component={GFashion} />
+          <Route path='/gmall' component={GMall} />
+          <Route path='/gclub' component={GClub} />
           <Route component={NotFound} />
         </Switch>
       </div>

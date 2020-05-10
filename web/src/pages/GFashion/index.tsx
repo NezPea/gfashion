@@ -23,8 +23,8 @@ export default () => {
   return (
     <MainFrame>
       <div className={classes.root}>
-        <h1>Home page</h1>
-        <Link to='/login' className={classes.link}>login</Link>
+        <h1>Gfashion page</h1>
+        <Link to='/' className={classes.link}>go to home</Link>
       </div>
     </MainFrame>
   )
