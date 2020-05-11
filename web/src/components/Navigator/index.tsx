@@ -40,7 +40,7 @@ export default () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5" className={classes.title}>
-                      <Link className={classes.link} href='/gfashion'>Gfashion</Link>
+                      <Link className={classes.link} href='/'>Gfashion</Link>
                       <Link className={classes.link} href='/gmall'>Gmall</Link>
                       <Link className={classes.link} href='/gclub'>Gclub</Link>
                     </Typography>
