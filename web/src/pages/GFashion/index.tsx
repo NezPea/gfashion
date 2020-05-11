@@ -25,10 +25,10 @@ export default () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      if (!isDataLoaded) {
-        dispatch(fetchRecommendations())
-        setIsDataLoaded(true)
-      }
+    if (!isDataLoaded) {
+      dispatch(fetchRecommendations())
+      setIsDataLoaded(true)
+    }
   }, [isDataLoaded])
 
   return (
