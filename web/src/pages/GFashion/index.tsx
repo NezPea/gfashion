@@ -1,8 +1,9 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MainFrame from '../../components/MainFrame';
+import { selectRecommendations, fetchRecommendations } from '../../app/slices/recommendationsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,7 +19,17 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default () => {
-  const classes =  useStyles()
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const classes =  useStyles();
+  const recommendations = useSelector(selectRecommendations);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      if (!isDataLoaded) {
+        dispatch(fetchRecommendations())
+        setIsDataLoaded(true)
+      }
+  }, [isDataLoaded])
 
   return (
     <MainFrame>
