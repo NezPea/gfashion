@@ -24,7 +24,7 @@ ps:等待安装完成就可以访问,以下都是演示数据,配置修改等内
 
 ### Sample data
 
-3.安装演示数据(推荐不安装,可能会出现问题)
+3.安装演示数据(安装时间比较长,切勿中断否则重头来过!)
 ~~~
 $ docker exec -it docker-magento2 install-sampledata
 ~~~
@@ -36,7 +36,7 @@ $ docker-compose down -v
 
 
 For admin username and password, please refer to the file `env`. You can also change the file `env` to update those configurations. Below are the default configurations.
-
+配置文件:包含各种默认密码账号, 语言 货币等配置
 ~~~
 MYSQL_HOST=db
 MYSQL_ROOT_PASSWORD=myrootpassword
@@ -60,9 +60,21 @@ MAGENTO_ADMIN_USERNAME=admin
 MAGENTO_ADMIN_PASSWORD=magentorocks1
 ~~~
 
+### Why accessing http://local.magento?
+修改本地host, 重定向localhost   用local.magento    magento官方推荐使用域名访问.
+
+For development and testing in the local environment, using `localhost` as Magento 2 URL has some issues. The default `env` file use `http://local.magento` as the value of `MAGENTO_URL`. You need to [edit your `hosts` file](https://support.rackspace.com/how-to/modify-your-hosts-file/) to add the mapping from `local.magento` to `localhost`. You can use any domain names as long as it looks like a real domain, not `localhost`.
+
+If `localhost` doesn't work, try using `127.0.0.1`.
+
+```
+127.0.0.1    local.magento
+```
+
 For example, if you want to change the default currency, just update the variable `MAGENTO_DEFAULT_CURRENCY`, e.g. `MAGENTO_DEFAULT_CURRENCY=USD`.
 
 To get all the possible values of `MAGENTO_LANGUAGE`, `MAGENTO_TIMEZONE` and `MAGENTO_DEFAULT_CURRENCY`, run the corresponding command shown below:
+进阶操作:可执行一些非常规操作,参考magento2文档.
 
 * `MAGENTO_LANGUAGE` - `bin/magento info:language:list`
 * `MAGENTO_TIMEZONE` - `bin/magento info:timezone:list`
@@ -74,13 +86,8 @@ For example, to get all possible values of `MAGENTO_LANGUAGE`, run
 $ docker run --rm -it alexcheng/magento2 bin/magento info:language:list
 ```
 
-You can find all available options in the official [setup guide](http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento). If you need more options, fork this repo and add them in `bin\install-magento`.
-
-Please see the following video for a quick demo.
-
-[![Use Magento 2 with Docker](https://img.youtube.com/vi/18tOf_cuQKg/hqdefault.jpg)](https://www.youtube.com/watch?v=18tOf_cuQKg "Use Magento 2 with Docker")
-
 ### Database
+需要数据持久化的同学可以参考,不建议持久化数据.
 
 The default `docker-compose.yml` uses MySQL as the database and starts [phpMyAdmin](https://www.phpmyadmin.net/). The default URL for phpMyAdmin is `http://localhost:8580`. Use MySQL username and password to log in.
 
@@ -122,15 +129,7 @@ volumes:
 
 Magento 2 cannot run without a database. This image is for Magento 2 only. It doesn't contain MySQL server. MySQL server should be started in another container and linked with Magento 2 container. It's recommended to use Docker Compose to start both containers. You can also use [Kubernetes](https://kubernetes.io/) or other tools.
 
-### Why accessing http://local.magento?
 
-For development and testing in the local environment, using `localhost` as Magento 2 URL has some issues. The default `env` file use `http://local.magento` as the value of `MAGENTO_URL`. You need to [edit your `hosts` file](https://support.rackspace.com/how-to/modify-your-hosts-file/) to add the mapping from `local.magento` to `localhost`. You can use any domain names as long as it looks like a real domain, not `localhost`.
-
-If `localhost` doesn't work, try using `127.0.0.1`.
-
-```
-127.0.0.1    local.magento
-```
 
 ### How to update Magento 2 installation configurations?
 
