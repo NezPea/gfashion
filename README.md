@@ -30,6 +30,7 @@ $ docker exec -it docker-magento2 install-sampledata
 ~~~
 
 4.删除容器清空数据(如果有问题无法解决可使用该命令,然后从第一步开始.)
+
 ~~~
 $ docker-compose down -v
 ~~~
@@ -60,7 +61,9 @@ MAGENTO_ADMIN_USERNAME=admin
 MAGENTO_ADMIN_PASSWORD=magentorocks1
 ~~~
 
+
 ### Why accessing http://local.magento?
+
 修改本地host, 重定向localhost   用local.magento    magento官方推荐使用域名访问.
 
 For development and testing in the local environment, using `localhost` as Magento 2 URL has some issues. The default `env` file use `http://local.magento` as the value of `MAGENTO_URL`. You need to [edit your `hosts` file](https://support.rackspace.com/how-to/modify-your-hosts-file/) to add the mapping from `local.magento` to `localhost`. You can use any domain names as long as it looks like a real domain, not `localhost`.
@@ -74,6 +77,7 @@ If `localhost` doesn't work, try using `127.0.0.1`.
 For example, if you want to change the default currency, just update the variable `MAGENTO_DEFAULT_CURRENCY`, e.g. `MAGENTO_DEFAULT_CURRENCY=USD`.
 
 To get all the possible values of `MAGENTO_LANGUAGE`, `MAGENTO_TIMEZONE` and `MAGENTO_DEFAULT_CURRENCY`, run the corresponding command shown below:
+
 进阶操作:可执行一些非常规操作,参考magento2文档.
 
 * `MAGENTO_LANGUAGE` - `bin/magento info:language:list`
@@ -87,12 +91,14 @@ $ docker run --rm -it alexcheng/magento2 bin/magento info:language:list
 ```
 
 ### Database
-需要数据持久化的同学可以参考,不建议持久化数据.
+配置了phpmyadmin     http://localhost:8580
 
 The default `docker-compose.yml` uses MySQL as the database and starts [phpMyAdmin](https://www.phpmyadmin.net/). The default URL for phpMyAdmin is `http://localhost:8580`. Use MySQL username and password to log in.
 
 
 ## Backup and restore of volume data
+
+需要数据持久化的同学可以参考,不建议持久化数据.
 
 After starting the container, you'll see the setup page of Magento 2. If you want to skip installation you can restore existing installation data.
 
