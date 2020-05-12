@@ -20,14 +20,20 @@ After starting the container, you'll see the setup page of Magento 2. You can us
 $ docker exec -it docker-magento2 install-magento
 ~~~
 
+ps:等待安装完成就可以访问,以下都是演示数据,配置修改等内容
+
 ### Sample data
 
-3.安装演示数据
+3.安装演示数据(推荐不安装,可能会出现问题)
 ~~~
 $ docker exec -it docker-magento2 install-sampledata
 ~~~
 
-ps:等待安装完成就可以访问,以下都是配置修改等内容
+4.删除容器清空数据(如果有问题无法解决可使用该命令,然后从第一步开始.)
+~~~
+$ docker-compose down -v
+~~~
+
 
 For admin username and password, please refer to the file `env`. You can also change the file `env` to update those configurations. Below are the default configurations.
 
