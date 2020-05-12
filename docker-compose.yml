@@ -1,0 +1,32 @@
+version: '3.0'
+services:
+  web:
+    image: registry.cn-hangzhou.aliyuncs.com/magento2/docker-magento2:dev
+    container_name: docker-magento2
+    ports:
+      - "80:80"
+    links:
+      - db
+    volumes: 
+      - magento-data:/var/www/html  
+    env_file:
+      - env
+  db:
+    image: mysql:5.7.29
+    container_name: mysql
+    volumes:
+      - db-data:/var/lib/mysql
+      - db-log-data:/var/log/mysql
+    env_file:
+      - env
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "8580:80"
+    links:
+      - db     
+volumes:
+  magento-data:
+  db-data:
+  db-log-data:
