@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-
+// TODO: read language settings. maybe from redux
+const lang = 'cn';
 
 export default () => {
     const classes = useStyles();
@@ -40,9 +41,9 @@ export default () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5" className={classes.title}>
-                      <Link className={classes.link} href='/'>Gfashion</Link>
-                      <Link className={classes.link} href='/gmall'>Gmall</Link>
-                      <Link className={classes.link} href='/gclub'>Gclub</Link>
+                      <Link className={classes.link} href={`/${lang}/`}>Gfashion</Link>
+                      <Link className={classes.link} href={`/${lang}/gmall`}>Gmall</Link>
+                      <Link className={classes.link} href={`/${lang}/gclub`}>Gclub</Link>
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
