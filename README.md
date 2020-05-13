@@ -2,6 +2,10 @@
 
 ## Quick start
 
+`docker安装https://docs.docker.com/get-docker/`
+
+`docker-compose安装https://docs.docker.com/compose/install/`
+
 The easiest way to start Magento 2 with MySQL is using [Docker Compose](https://docs.docker.com/compose/). Just clone this repo and run following command in the root directory. The default `docker-compose.yml` uses MySQL and phpMyAdmin.
 
 1.进入目录运行以下命令(确保正确安装docker 和 docker-compose)
@@ -91,7 +95,10 @@ $ docker run --rm -it alexcheng/magento2 bin/magento info:language:list
 ```
 
 ### Database
-配置了phpmyadmin     http://localhost:8580
+管理员登陆           `http://localhost/admin`
+
+配置了phpmyadmin     `http://localhost:8580`
+
 
 The default `docker-compose.yml` uses MySQL as the database and starts [phpMyAdmin](https://www.phpmyadmin.net/). The default URL for phpMyAdmin is `http://localhost:8580`. Use MySQL username and password to log in.
 
