@@ -22,9 +22,9 @@ tags:
   - name: "order"
     description: "Access to GFashion Store orders"
   - name: "cart"
-    description: "Access to user's cart"
-  - name: "user"
-    description: "Operations about user"
+    description: "Access to customer's cart"
+  - name: "customer"
+    description: "Operations about customer"
   - name: "designer"
     description: "Recommended desginer"
 schemes:
@@ -350,20 +350,20 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
-  /order/ordersOfUser/{userId}:
+  /order/ordersOfCustomer/{customerId}:
     get:
       tags:
         - "order"
-      summary: "Find purchase orders by UserId"
+      summary: "Find purchase orders by CustomerId"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
-      operationId: "getOrdersByUserId"
+      operationId: "getOrdersByCustomerId"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "userId"
+        - name: "customerId"
           in: "path"
-          description: "ID of user whose orders needs to be fetched"
+          description: "ID of customer whose orders needs to be fetched"
           required: true
           type: "integer"
           maximum: 10.0
@@ -381,18 +381,18 @@ paths:
         "404":
           description: "Order not found"
 
-  /cart/itemsOf/{userId}:
+  /cart/itemsOf/{customerId}:
     get:
       tags:
         - "cart"
-      summary: "Find all items in the shopping cart by userId"
+      summary: "Find all items in the shopping cart by customerId"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
-      operationId: "getItemsinCartByUserId"
+      operationId: "getItemsinCartByCustomerId"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "userId"
+        - name: "customerId"
           in: "path"
           description: "ID of product that needs to be fetched"
           required: true
@@ -411,18 +411,18 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
-  /cart/{userId}/{productId}:
+  /cart/{customerId}/{productId}:
     delete:
       tags:
         - "cart"
-      summary: "Delete item in cart by UserId"
+      summary: "Delete item in cart by CustomerId"
       description: "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors"
       operationId: "deleteItemInCart"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "userId"
+        - name: "customerId"
           in: "path"
           description: "ID of the order that needs to be deleted"
           required: true
@@ -443,20 +443,20 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
-  /cart/addTo/{userId}/cart/{productId}:
+  /cart/addTo/{customerId}/cart/{productId}:
     post:
       tags:
         - "cart"
-      summary: "Add an item to the shopping cart of a user with userId"
+      summary: "Add an item to the shopping cart of a customer with customerId"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
-      operationId: "addItemtoCartByUserId"
+      operationId: "addItemtoCartByCustomerId"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "userId"
+        - name: "customerId"
           in: "path"
-          description: "ID of user to whose cart the product needs to be added"
+          description: "ID of customer to whose cart the product needs to be added"
           required: true
           type: "integer"
           maximum: 10.0
@@ -478,84 +478,84 @@ paths:
         "404":
           description: "Product not found"
 
-  /user:
+  /customer:
     post:
       tags:
-        - "user"
-      summary: "Create user"
-      description: "This can only be done by the logged in user."
-      operationId: "createUser"
+        - "customer"
+      summary: "Create customer"
+      description: "This can only be done by the logged in customer."
+      operationId: "createCustomer"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
         - in: "body"
           name: "body"
-          description: "Created user object"
+          description: "Created customer object"
           required: true
           schema:
-            $ref: "#/definitions/UserRegisration"
+            $ref: "#/definitions/CustomerRegisration"
       responses:
         default:
           description: "successful operation"
-  /user/createWithArray:
+  /customer/createWithArray:
     post:
       tags:
-        - "user"
-      summary: "Creates list of users with given input array"
-      description: ""
-      operationId: "createUsersWithArrayInput"
+        - "customer"
+      summary: "Creates list of customers with given input array"
+      description: "not sure when this api is needed"
+      operationId: "createCustomersWithArrayInput"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
         - in: "body"
           name: "body"
-          description: "List of user object"
-          required: true
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/User"
-      responses:
-        default:
-          description: "successful operation"
-  /user/createWithList:
-    post:
-      tags:
-        - "user"
-      summary: "Creates list of users with given input array"
-      description: ""
-      operationId: "createUsersWithListInput"
-      produces:
-        - "application/xml"
-        - "application/json"
-      parameters:
-        - in: "body"
-          name: "body"
-          description: "List of user object"
+          description: "List of customer object"
           required: true
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/User"
+              $ref: "#/definitions/CustomerRegisration"
       responses:
         default:
           description: "successful operation"
-  /user/login:
+  /customer/createWithList:
+    post:
+      tags:
+        - "customer"
+      summary: "Creates list of customers with given input array"
+      description: "not sure when this api is needed"
+      operationId: "createCustomersWithListInput"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "List of customer object"
+          required: true
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/CustomerRegisration"
+      responses:
+        default:
+          description: "successful operation"
+  /customer/login:
     get:
       tags:
-        - "user"
-      summary: "Logs user into the system"
+        - "customer"
+      summary: "Logs customer into the system"
       description: ""
-      operationId: "loginUser"
+      operationId: "loginCustomer"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "username"
+        - name: "customername"
           in: "query"
-          description: "The user name for login"
+          description: "The customer name for login"
           required: true
           type: "string"
         - name: "password"
@@ -572,20 +572,20 @@ paths:
             X-Rate-Limit:
               type: "integer"
               format: "int32"
-              description: "calls per hour allowed by the user"
+              description: "calls per hour allowed by the customer"
             X-Expires-After:
               type: "string"
               format: "date-time"
               description: "date in UTC when token expires"
         "400":
-          description: "Invalid username/password supplied"
-  /user/logout:
+          description: "Invalid customername/password supplied"
+  /customer/logout:
     get:
       tags:
-        - "user"
-      summary: "Logs out current logged in user session"
+        - "customer"
+      summary: "Logs out current logged in customer session"
       description: ""
-      operationId: "logoutUser"
+      operationId: "logoutCustomer"
       produces:
         - "application/xml"
         - "application/json"
@@ -593,77 +593,77 @@ paths:
       responses:
         default:
           description: "successful operation"
-  /user/{username}:
+  /customer/{customername}:
     get:
       tags:
-        - "user"
-      summary: "Get user by user name"
+        - "customer"
+      summary: "Get customer by customer name"
       description: ""
-      operationId: "getUserByName"
+      operationId: "getCustomerByName"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "username"
+        - name: "customername"
           in: "path"
-          description: "The name that needs to be fetched. Use user1 for testing. "
+          description: "The name that needs to be fetched. Use customer1 for testing. "
           required: true
           type: "string"
       responses:
         "200":
           description: "successful operation"
           schema:
-            $ref: "#/definitions/User"
+            $ref: "#/definitions/Customer"
         "400":
-          description: "Invalid username supplied"
+          description: "Invalid customername supplied"
         "404":
-          description: "User not found"
+          description: "Customer not found"
     put:
       tags:
-        - "user"
-      summary: "Updated user"
-      description: "This can only be done by the logged in user."
-      operationId: "updateUser"
+        - "customer"
+      summary: "Updated customer"
+      description: "This can only be done by the logged in customer."
+      operationId: "updateCustomer"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "username"
+        - name: "customername"
           in: "path"
           description: "name that need to be updated"
           required: true
           type: "string"
         - in: "body"
           name: "body"
-          description: "Updated user object"
+          description: "Updated customer object"
           required: true
           schema:
-            $ref: "#/definitions/User"
+            $ref: "#/definitions/Customer"
       responses:
         "400":
-          description: "Invalid user supplied"
+          description: "Invalid customer supplied"
         "404":
-          description: "User not found"
+          description: "Customer not found"
     delete:
       tags:
-        - "user"
-      summary: "Delete user"
-      description: "This can only be done by the logged in user."
-      operationId: "deleteUser"
+        - "customer"
+      summary: "Delete customer"
+      description: "This can only be done by the logged in customer."
+      operationId: "deleteCustomer"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "username"
+        - name: "customername"
           in: "path"
           description: "The name that needs to be deleted"
           required: true
           type: "string"
       responses:
         "400":
-          description: "Invalid username supplied"
+          description: "Invalid customername supplied"
         "404":
-          description: "User not found"
+          description: "Customer not found"
 
   /designer:
     post:
@@ -905,7 +905,7 @@ definitions:
       productId:
         type: "integer"
         format: "int64"
-      userId:
+      customerId:
         type: "integer"
         format: "int64"
       quantity:
@@ -936,7 +936,7 @@ definitions:
       productId:
         type: "integer"
         format: "int64"
-      userId:
+      customerId:
         type: "integer"
         format: "int64"
       quantity:
@@ -956,13 +956,13 @@ definitions:
     xml:
       name: "Category"
 
-  User:
+  Customer:
     type: "object"
     properties:
       id:
         type: "integer"
         format: "int64"
-      username:
+      customername:
         type: "string"
       firstName:
         type: "string"
@@ -974,30 +974,30 @@ definitions:
         type: "string"
       phone:
         type: "string"
-      userStatus:
+      customerStatus:
         type: "integer"
         format: "int32"
-        description: "User Status"
+        description: "Customer Status"
       cart:
         $ref: "#/definitions/Cart"
           
     xml:
-      name: "User"
+      name: "Customer"
       
-  UserRegisration:
+  CustomerRegisration:
     type: "object"
     properties:
       id:
         type: "integer"
         format: "int64"
-      username:
+      customername:
         type: "string"
       email:
         type: "string"
       password:
         type: "string"
     xml:
-      name: "User"
+      name: "Customer"
 
   Designer:
     type: "object"
