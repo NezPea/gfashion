@@ -354,7 +354,7 @@ paths:
     get:
       tags:
         - "order"
-      summary: "Find purchase orders by CustomerId"
+      summary: "Find purchase orders by customerId"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
       operationId: "getOrdersByCustomerId"
       produces:
@@ -381,13 +381,13 @@ paths:
         "404":
           description: "Order not found"
 
-  /cart/itemsOf/{customerId}:
+  /cart/productsOf/{customerId}:
     get:
       tags:
         - "cart"
-      summary: "Find all items in the shopping cart by customerId"
+      summary: "Find all products in the shopping cart by customerId"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
-      operationId: "getItemsinCartByCustomerId"
+      operationId: "getProductsinCartByCustomerId"
       produces:
         - "application/xml"
         - "application/json"
@@ -415,9 +415,9 @@ paths:
     delete:
       tags:
         - "cart"
-      summary: "Delete item in cart by CustomerId"
-      description: "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors"
-      operationId: "deleteItemInCart"
+      summary: "Delete product in cart by customerId"
+      description: "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors"
+      operationId: "deleteProductInCart"
       produces:
         - "application/xml"
         - "application/json"
@@ -443,13 +443,13 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
-  /cart/addTo/{customerId}/cart/{productId}:
+  /cart/deleteFrom/{customerId}/cart/{productId}:
     post:
       tags:
         - "cart"
-      summary: "Add an item to the shopping cart of a customer with customerId"
+      summary: "Add an product to the shopping cart of a customer with customerId"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
-      operationId: "addItemtoCartByCustomerId"
+      operationId: "addProducttoCartByCustomerId"
       produces:
         - "application/xml"
         - "application/json"
@@ -464,7 +464,40 @@ paths:
           format: "int64"
         - name: "productId"
           in: "path"
-          description: "ID of product that needs to be added for the"
+          description: "ID of product that needs to be added for the customer"
+          required: true
+          type: "integer"
+          maximum: 10.0
+          minimum: 1.0
+          format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Product not found"
+    delete:
+      tags:
+        - "cart"
+      summary: "Delete an product From the shopping cart of a customer with customerId"
+      description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
+      operationId: "deleteProducttoCartByCustomerId"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "customerId"
+          in: "path"
+          description: "ID of customer from whose cart the product needs to be delete"
+          required: true
+          type: "integer"
+          maximum: 10.0
+          minimum: 1.0
+          format: "int64"
+        - name: "productId"
+          in: "path"
+          description: "ID of product that needs to be deleted for the customer"
           required: true
           type: "integer"
           maximum: 10.0
