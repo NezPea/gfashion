@@ -593,7 +593,7 @@ paths:
       responses:
         default:
           description: "successful operation"
-  /customer/{customername}:
+  /customer/{customerid}:
     get:
       tags:
         - "customer"
@@ -604,7 +604,7 @@ paths:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "customername"
+        - name: "customerid"
           in: "path"
           description: "The name that needs to be fetched. Use customer1 for testing. "
           required: true
@@ -628,7 +628,7 @@ paths:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "customername"
+        - name: "customerid"
           in: "path"
           description: "name that need to be updated"
           required: true
@@ -654,7 +654,7 @@ paths:
         - "application/xml"
         - "application/json"
       parameters:
-        - name: "customername"
+        - name: "customerid"
           in: "path"
           description: "The name that needs to be deleted"
           required: true
