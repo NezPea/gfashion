@@ -101,13 +101,13 @@ To get all the possible values of `MAGENTO_LANGUAGE`, `MAGENTO_TIMEZONE` and `MA
 For example, to get all possible values of `MAGENTO_LANGUAGE`, run
 
 ```bash
-$ docker run --rm -it alexcheng/magento2 bin/magento info:language:list
+$ docker run --rm -it docker-magento2 bin/magento info:language:list
 ```
 
 ### Database
-管理员登陆           `http://localhost/admin`
+管理员登陆           `http://local.magento/admin`
 
-配置了phpmyadmin     `http://localhost:8580`
+配置了phpmyadmin     `http://local.magento:8580`
 
 
 The default `docker-compose.yml` uses MySQL as the database and starts [phpMyAdmin](https://www.phpmyadmin.net/). The default URL for phpMyAdmin is `http://localhost:8580`. Use MySQL username and password to log in.
