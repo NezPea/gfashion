@@ -477,39 +477,6 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Product not found"
-    delete:
-      tags:
-        - "cart"
-      summary: "Delete an product From the shopping cart of a customer with customerId"
-      description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
-      operationId: "deleteProducttoCartByCustomerId"
-      produces:
-        - "application/xml"
-        - "application/json"
-      parameters:
-        - name: "customerId"
-          in: "path"
-          description: "ID of customer from whose cart the product needs to be delete"
-          required: true
-          type: "integer"
-          maximum: 10.0
-          minimum: 1.0
-          format: "int64"
-        - name: "productId"
-          in: "path"
-          description: "ID of product that needs to be deleted for the customer"
-          required: true
-          type: "integer"
-          maximum: 10.0
-          minimum: 1.0
-          format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Product not found"
 
   /customer:
     post:
