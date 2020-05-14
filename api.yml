@@ -654,7 +654,7 @@ paths:
     put:
       tags:
         - "customer"
-      summary: "Updated customer"
+      summary: "Update customer"
       description: "This can only be done by the logged in customer."
       operationId: "updateCustomer"
       produces:
