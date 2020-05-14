@@ -1,13 +1,11 @@
 import { combineReducers, configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice';
-import recommendationsReducer from './slices/recommendationsSlice';
 import logger from 'redux-logger';
 
 const middleware = [...getDefaultMiddleware(), logger]
 
 const rootReducer = combineReducers({
-  user: userReducer,
-  recommendations: recommendationsReducer
+  user: userReducer
 })
 
 export const store = configureStore({

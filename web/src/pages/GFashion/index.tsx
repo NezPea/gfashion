@@ -20,22 +20,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default () => {
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const classes = useStyles();
-  const recommendations = useSelector(selectRecommendations);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!isDataLoaded) {
-      dispatch(fetchRecommendations())
-      setIsDataLoaded(true)
-    }
-  }, [isDataLoaded])
 
   return (
     <MainFrame>
       <div className={classes.root}>
         <Slogan></Slogan>
+        <DesignerCarousel designers={designers} />
       </div>
     </MainFrame>
   )
