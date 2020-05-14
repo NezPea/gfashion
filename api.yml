@@ -412,38 +412,6 @@ paths:
         "404":
           description: "Order not found"
   /cart/{customerId}/{productId}:
-    delete:
-      tags:
-        - "cart"
-      summary: "Delete product in cart by customerId"
-      description: "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors"
-      operationId: "deleteProductInCart"
-      produces:
-        - "application/xml"
-        - "application/json"
-      parameters:
-        - name: "customerId"
-          in: "path"
-          description: "ID of the order that needs to be deleted"
-          required: true
-          type: "integer"
-          minimum: 1.0
-          format: "int64"
-        - name: "productId"
-          in: "path"
-          description: "ID of the product that in cart need to be deleted"
-          required: true
-          type: "integer"
-          minimum: 1.0
-          format: "int64"
-      responses:
-        "200":
-          description: "product not found or product deleted successfully"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Order not found"
-  /cart/deleteFrom/{customerId}/cart/{productId}:
     post:
       tags:
         - "cart"
@@ -465,6 +433,39 @@ paths:
         - name: "productId"
           in: "path"
           description: "ID of product that needs to be added for the customer"
+          required: true
+          type: "integer"
+          maximum: 10.0
+          minimum: 1.0
+          format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Product not found"
+    delete:
+      tags:
+        - "cart"
+      summary: "Delete an product From the shopping cart of a customer with customerId"
+      description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
+      operationId: "deleteProducttoCartByCustomerId"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "customerId"
+          in: "path"
+          description: "ID of customer from whose cart the product needs to be delete"
+          required: true
+          type: "integer"
+          maximum: 10.0
+          minimum: 1.0
+          format: "int64"
+        - name: "productId"
+          in: "path"
+          description: "ID of product that needs to be deleted for the customer"
           required: true
           type: "integer"
           maximum: 10.0
