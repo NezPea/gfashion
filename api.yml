@@ -979,8 +979,6 @@ definitions:
         type: "integer"
         format: "int32"
         description: "Customer Status"
-      cart:
-        $ref: "#/definitions/Cart"
           
     xml:
       name: "Customer"
@@ -1032,13 +1030,14 @@ definitions:
       id:
         type: "integer"
         format: "int64"
-      category:
+      categories:
         type: "array"
         items:
           $ref: "#/definitions/Category"
         description: "One product may belong to multiple categories. One category could be Gmall or GFashion."
-      designer:
-          $ref: "#/definitions/Designer"
+      designerId:
+          type: "integer"
+          format: "int64"
       name:
         type: "string"
         example: "glasses"
