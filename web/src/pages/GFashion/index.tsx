@@ -1,10 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MainFrame from '../../components/MainFrame';
 import Slogan from './slogan';
-import { selectRecommendations, fetchRecommendations } from '../../app/slices/recommendationsSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { DesignerCarousel } from './designerCarousel';
+
+interface Designer {
+  name: string;
+  avatar: string;
+}
+
+const designers: Array<Designer> = [
+  {
+    name: 'Miles',
+    avatar: ''
+  },
+  {
+    name: 'Luther',
+    avatar: ''
+  },
+  {
+    name: 'Pence',
+    avatar: ''
+  },
+  {
+    name: 'Ivanka',
+    avatar: ''
+  },
+  {
+    name: 'Trump',
+    avatar: ''
+  }
+]
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
