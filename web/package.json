@@ -35,7 +35,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock:API": "json-server mock-db.json --watch --port 5005"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,5 +53,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "json-server": "^0.16.1"
+  }
 }
