@@ -2,13 +2,20 @@
 
 ## Quick start
 
-`docker安装https://docs.docker.com/get-docker/`
+docker install 
 
-`docker-compose安装https://docs.docker.com/compose/install/`
+`https://docs.docker.com/get-docker/`
 
-The easiest way to start Magento 2 with MySQL is using [Docker Compose](https://docs.docker.com/compose/). Just clone this repo and run following command in the root directory. The default `docker-compose.yml` uses MySQL and phpMyAdmin.
+docker-compose install 
+
+`https://docs.docker.com/compose/install/`
+
+大陆用户添加镜像加速地址,说明 
+
+`https://www.runoob.com/docker/docker-mirror-acceleration.html`
 
 1.进入目录运行以下命令(确保正确安装docker 和 docker-compose)
+
 ~~~
 $ docker-compose up -d
 ~~~
@@ -19,7 +26,9 @@ $ docker-compose up -d
 After starting the container, you'll see the setup page of Magento 2. You can use the script `install-magento` to quickly install Magento 2. The installation script uses the variables in the `env` file.
 
 ### Magento 2
+
 2.初始化magento
+
 ~~~
 $ docker exec -it docker-magento2 install-magento
 ~~~
@@ -29,6 +38,7 @@ ps:等待安装完成就可以访问,以下都是演示数据,配置修改等内
 ### Sample data
 
 3.安装演示数据(安装时间比较长,切勿中断否则重头来过!)
+
 ~~~
 $ docker exec -it docker-magento2 install-sampledata
 ~~~
