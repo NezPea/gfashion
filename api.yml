@@ -17,14 +17,14 @@ tags:
     externalDocs:
       description: "Find out more"
       url: "http://swagger.io"
+  - name: "product"
+    description: "Recommended product"
   - name: "order"
     description: "Access to GFashion Store orders"
   - name: "cart"
     description: "Access to user's cart"
   - name: "user"
     description: "Operations about user"
-  - name: "product"
-    description: "Recommended product"
   - name: "designer"
     description: "Recommended desginer"
 schemes:
@@ -104,6 +104,35 @@ paths:
           description: "Query string that need to be considered for filter(TBC)"
           required: true
           type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
+        "400":
+          description: "Invalid status value"
+      security:
+        - gfashionstore_auth:
+            - "write:products"
+            - "read:products"
+  /product/searchByDesigner/{designerId}:
+    get:
+      tags:
+        - "product"
+      summary: "Searches Products by Designer Id"
+      operationId: "searchProductsByDesigner"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "designerId"
+          in: "path"
+          description: "Designer Id"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -275,7 +304,7 @@ paths:
     get:
       tags:
         - "order"
-      summary: "Find purchase order by ID"
+      summary: "Find purchase order by orderID"
       description: "For valid response try integer IDs with value >= 1 and <= 10. Other values will generate exceptions"
       operationId: "getOrderById"
       produces:
@@ -302,7 +331,7 @@ paths:
     delete:
       tags:
         - "order"
-      summary: "Delete purchase order by ID"
+      summary: "Delete purchase order by orderID"
       description: "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors"
       operationId: "deleteOrder"
       produces:
@@ -321,7 +350,7 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
-  /order/ordersofuser/{userId}:
+  /order/ordersOfUser/{userId}:
     get:
       tags:
         - "order"
@@ -344,13 +373,15 @@ paths:
         "200":
           description: "successful operation"
           schema:
-            $ref: "#/definitions/ArrayOfOrders"
+            type: "array"
+            items:
+              $ref: "#/definitions/Order"
         "400":
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
 
-  /cart/{userId}:
+  /cart/itemsOf/{userId}:
     get:
       tags:
         - "cart"
@@ -373,7 +404,9 @@ paths:
         "200":
           description: "successful operation"
           schema:
-            $ref: "#/definitions/ArrayOfProducts"
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
         "400":
           description: "Invalid ID supplied"
         "404":
@@ -410,7 +443,7 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Order not found"
-  /cart/addto/{userId}/cart/{productId}:
+  /cart/addTo/{userId}/cart/{productId}:
     post:
       tags:
         - "cart"
@@ -893,11 +926,6 @@ definitions:
         default: false
     xml:
       name: "Order"
-  ArrayOfOrders:
-    type: "object"
-    items:
-      $ref: "#/definitions/Order"
-    description: "An array of orders"
 
   Cart:
     type: "object"
@@ -1029,11 +1057,6 @@ definitions:
           - "sold"
     xml:
       name: "Product"
-  ArrayOfProducts:
-    type: "object"
-    items:
-      $ref: "#/definitions/Product"
-    description: "An array of products"
 
   ApiResponse:
     type: "object"
