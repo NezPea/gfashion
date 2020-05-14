@@ -1,35 +1,15 @@
 import React from 'react';
 import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import GFashion from './pages/GFashion';
-import GMall from './pages/GMall';
-import GClub from './pages/GClub';
-import Login from './pages/Login';
-
-const NotFound = () => {
-  return (
-    <div>
-      <h1>Notfound page</h1>
-    </div>
-  )
-}
+import AppRouter from './routers/AppRouter';
 
 function App() {
   return (
-    <Router>
       <div>
         <CssBaseline />
-        <Switch>
-          <Route exact path='/' component={GFashion} />
-          <Route path='/login' component={Login} />
-          <Route path='/gmall' component={GMall} />
-          <Route path='/gclub' component={GClub} />
-          <Route component={NotFound} />
-        </Switch>
+        <AppRouter />
       </div>
-    </Router>
   );
 }
 
