@@ -72,5 +72,6 @@
         <module>g-fashion-domain</module>
         <module>g-fashion-security</module>
         <module>g-fashion-app</module>
+        <module>g-fashion-client</module>
     </modules>
 </project>
