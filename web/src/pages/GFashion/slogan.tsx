@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     paper: {
       padding: theme.spacing(2),
-      color: theme.palette.text.secondary,
+      color: theme.palette.primary[theme.palette.type],
       height: 300,
       minWidth: 800,
       display: 'flex',

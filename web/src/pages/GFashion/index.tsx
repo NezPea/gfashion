@@ -32,8 +32,8 @@ const designers: Array<Designer> = [
   }
 ]
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles((theme: Theme) => {
+  return createStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       margin: theme.spacing(1)
     }
-  }),
-);
+  })
+})
 
 export default () => {
   const classes = useStyles();
