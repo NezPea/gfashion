@@ -28,5 +28,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.gfashion</groupId>
+            <artifactId>g-fashion-data</artifactId>
+            <version>${gfashion.version}</version>
+        </dependency>
+
     </dependencies>
 </project>

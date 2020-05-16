@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface GfDesignerRepository extends JpaRepository<GfDesignerEntity, Integer> {
+
 }
