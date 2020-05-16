@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { ButtonBase } from '@material-ui/core';
 import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -31,23 +30,23 @@ const useStyles = makeStyles((theme: Theme) =>
 const lang = 'cn';
 
 export default () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            <AppBar>
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h5" className={classes.title}>
-                      <Link className={classes.link} href={`/${lang}/`}>Gfashion</Link>
-                      <Link className={classes.link} href={`/${lang}/gmall`}>Gmall</Link>
-                      <Link className={classes.link} href={`/${lang}/gclub`}>Gclub</Link>
-                    </Typography>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-        </div>
-    )
+  return (
+    <div className={classes.root}>
+      <AppBar>
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h5" className={classes.title}>
+            <Link className={classes.link} href={`/${lang}/`}>Gfashion</Link>
+            <Link className={classes.link} href={`/${lang}/gmall`}>Gmall</Link>
+            <Link className={classes.link} href={`/${lang}/gclub`}>Gclub</Link>
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
 }

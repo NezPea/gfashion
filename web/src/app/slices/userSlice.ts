@@ -43,12 +43,12 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    loginRequest: (state, action) => {
+    loginRequest: () => {
       return {
         isLoggingIn: true
       }
     },
-    loginSuccess: (state, action: PayloadAction<UserInfo>) => {
+    loginSuccess: (_, action: PayloadAction<UserInfo>) => {
       return {
         isLoggingIn: false,
         isLoggedOut: false,
@@ -56,16 +56,17 @@ export const userSlice = createSlice({
         email: action.payload.email
       }
     },
-    loginFailure: (state, action: PayloadAction<UserError>) => {
+    loginFailure: (_, action: PayloadAction<UserError>) => {
       return {
         loggingError: action.payload.error
       }
     },
-    logout: (state, action) => {
+    logout: () => {
       return {
         isLoggedOut: true
       }
-    }}
+    }
+  }
 })
 
 export const { loginRequest, loginSuccess, loginFailure, logout } = userSlice.actions;
@@ -76,9 +77,9 @@ interface LoginRequestPayload {
 }
 
 export const userLogin = (payload: LoginRequestPayload): AppThunk => dispatch => {
-  dispatch(loginRequest({}))
+  dispatch(loginRequest())
   setTimeout(() => {
-    dispatch(loginSuccess({name: payload.username, email: 'shit@x.com'}));
+    dispatch(loginSuccess({ name: payload.username, email: 'moon@x.com' }));
   }, 2000);
 };
 
