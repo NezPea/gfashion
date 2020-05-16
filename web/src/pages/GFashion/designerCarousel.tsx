@@ -4,6 +4,7 @@ import { Typography, Grid, Box } from '@material-ui/core';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
+import { designersProps } from './types';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -57,15 +58,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   }),
 );
-
-interface Designer {
-  name: string;
-  avatar: string;
-}
-
-interface designersProps {
-  designers: Array<Designer>;
-}
 
 export const DesignerCarousel: React.FunctionComponent<designersProps> = ({ designers = [] }) => {
   const classes = useStyles();

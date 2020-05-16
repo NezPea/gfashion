@@ -3,11 +3,7 @@ import MainFrame from '../../components/MainFrame';
 import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
 import GclubGate from './gclubGate';
-
-interface Designer {
-  name: string;
-  avatar: string;
-}
+import { Designer } from './types';
 
 const designers: Array<Designer> = [
   {
