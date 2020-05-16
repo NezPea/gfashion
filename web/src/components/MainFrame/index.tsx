@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       paddingTop: theme.spacing(8),
-    }
+    },
+    bodyWrapper: {}
   }),
 );
 
@@ -17,7 +18,7 @@ export default (props: any) => {
   return (
     <Container maxWidth='lg' className={classes.root}>
       <Navigator />
-      <div className='page-content-wrapper'>
+      <div className={classes.bodyWrapper}>
         {props.children}
       </div>
     </Container>

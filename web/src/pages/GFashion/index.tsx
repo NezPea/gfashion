@@ -1,5 +1,4 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MainFrame from '../../components/MainFrame';
 import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
@@ -32,28 +31,12 @@ const designers: Array<Designer> = [
   }
 ]
 
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    },
-    link: {
-      margin: theme.spacing(1)
-    }
-  })
-})
-
 export default () => {
-  const classes = useStyles();
 
   return (
     <MainFrame>
-      <div className={classes.root}>
-        <Slogan></Slogan>
-        <DesignerCarousel designers={designers} />
-      </div>
+      <Slogan></Slogan>
+      <DesignerCarousel designers={designers} />
     </MainFrame>
   )
 }
