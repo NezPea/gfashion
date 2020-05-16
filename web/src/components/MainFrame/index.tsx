@@ -1,14 +1,13 @@
 import React from 'react';
 import Navigator from '../Navigator';
-import Container from '@material-ui/core/Container';
+import { Container, Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       paddingTop: theme.spacing(8),
-    },
-    bodyWrapper: {}
+    }
   }),
 );
 
@@ -18,9 +17,9 @@ export default (props: any) => {
   return (
     <Container maxWidth='lg' className={classes.root}>
       <Navigator />
-      <div className={classes.bodyWrapper}>
+      <Grid container spacing={3} direction={"column"}>
         {props.children}
-      </div>
+      </Grid>
     </Container>
   )
 }

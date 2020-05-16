@@ -25,9 +25,11 @@ export default () => {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={3}>
-      <Grid xs={12} alignContent='center' alignItems='center'>
-        <Paper className={classes.paper}>Gfashion slogan</Paper>
+    <Grid item spacing={3}>
+      <Grid container spacing={3}>
+        <Grid xs={12} alignContent='center' alignItems='center'>
+          <Paper className={classes.paper}>Gfashion slogan</Paper>
+        </Grid>
       </Grid>
     </Grid>
   )
