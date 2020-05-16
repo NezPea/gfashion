@@ -2,6 +2,7 @@ import React from 'react';
 import MainFrame from '../../components/MainFrame';
 import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
+import GclubGate from './gclubGate';
 
 interface Designer {
   name: string;
@@ -55,7 +56,8 @@ export default () => {
 
   return (
     <MainFrame>
-      <Slogan></Slogan>
+      <GclubGate />
+      <Slogan />
       <DesignerCarousel designers={designers} />
     </MainFrame>
   )
