@@ -9,7 +9,7 @@ import java.util.List;
 
 @Component
 public class GfDesignerConverter {
-    public static GfDesigner toDesignerDto(GfDesignerEntity entity){
+    public GfDesigner toDesignerDto(GfDesignerEntity entity){
         GfDesigner designer = new GfDesigner();
         designer.setId(entity.getId());
         designer.setName(entity.getName());
@@ -18,7 +18,7 @@ public class GfDesignerConverter {
         return designer;
     }
 
-    public static List<GfDesigner> toDesignersDto(List<GfDesignerEntity> entities){
+    public List<GfDesigner> toDesignersDto(List<GfDesignerEntity> entities){
         List<GfDesigner> designers = new ArrayList<GfDesigner>();
         if (entities != null){
             for ( GfDesignerEntity entity: entities) {
