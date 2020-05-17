@@ -4,9 +4,10 @@ import productReducer from './slices/productsSlice'
 import logger from 'redux-logger';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
+import configs from './configs';
 
-const client = axios.create({ //all axios can be used, shown in axios documentation
-  baseURL: 'http://localhost:5005',
+const client = axios.create({
+  baseURL: configs()?.api_address,
   responseType: 'json'
 });
 
