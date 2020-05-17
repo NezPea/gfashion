@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { useLocation, BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import ModuleRouter from './ModuleRouter';
 
 const LangRedirect = () => {
+  const location = useLocation();
   // TODO: detect language or use pre-selected language
-  return <Redirect to={`/cn/`} />
+  return <Redirect to={`/cn${location.pathname}`} />
 }
 
 function AppRouter() {
