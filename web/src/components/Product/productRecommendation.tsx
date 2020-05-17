@@ -1,46 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, Image, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
-const recommendations = [
-  {
-    url: 'https://via.placeholder.com/400x400',
-    title: '商品标题',
-    price: 500,
-    currency: '$'
-  },
-  {
-    url: 'https://via.placeholder.com/400x400',
-    title: '商品标题',
-    price: 500,
-    currency: '$'
-  },
-  {
-    url: 'https://via.placeholder.com/400x400',
-    title: '商品标题',
-    price: 500,
-    currency: '$'
-  },
-  {
-    url: 'https://via.placeholder.com/400x400',
-    title: '商品标题',
-    price: 500,
-    currency: '$'
-  },
-  {
-    url: 'https://via.placeholder.com/400x400',
-    title: '商品标题',
-    price: 500,
-    currency: '$'
-  },
-  {
-    url: 'https://via.placeholder.com/400x400',
-    title: '商品标题',
-    price: 500,
-    currency: '$'
-  },
-]
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -48,6 +11,7 @@ const useStyles = makeStyles(() =>
       marginTop: 0
     },
     slider: {
+      backgroundColor: '#F0F0F0',
       width: '100%'
     },
     carousel: {
@@ -72,12 +36,13 @@ const useStyles = makeStyles(() =>
 
 const ProductRecommendation = () => {
   const classes = useStyles();
+  let product = useSelector(selectProduct);
 
   const buildSlides = () => {
-    return recommendations.map((m, i) => {
+    return product.detail?.product_links.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <Image src={m.url} hasMasterSpinner={true} className={classes.slide}/>
+          <Image src={m.image} alt={m.name} hasMasterSpinner={true} className={classes.slide}/>
         </Slide>
       )
     })
@@ -89,7 +54,7 @@ const ProductRecommendation = () => {
       <CarouselProvider
         naturalSlideWidth={450}
         naturalSlideHeight={350}
-        totalSlides={recommendations.length}
+        totalSlides={product.detail?.product_links.length!}
         visibleSlides={4}
         infinite={true}
         className={classes.carousel}
