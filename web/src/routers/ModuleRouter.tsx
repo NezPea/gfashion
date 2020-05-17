@@ -5,7 +5,7 @@ import GFashion from '../pages/GFashion';
 import GMall from '../pages/GMall';
 import GClub from '../pages/GClub';
 import Login from '../pages/Login';
-import Gtrash from '../pages/Trash'
+import Gtrash from '../pages/Trash/Article'
 const NotFound = () => {
   return (
     <div>
