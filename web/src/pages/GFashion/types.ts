@@ -3,6 +3,6 @@ export interface Designer {
   avatar: string;
 }
 
-export interface designersProps {
+export interface DesignersProps {
   designers: Array<Designer>;
 }

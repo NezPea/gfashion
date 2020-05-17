@@ -4,7 +4,7 @@ import { Typography, Grid, Box } from '@material-ui/core';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import { designersProps } from './types';
+import { DesignersProps } from './types';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const DesignerCarousel: React.FunctionComponent<designersProps> = ({ designers = [] }) => {
+export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ designers = [] }) => {
   const classes = useStyles();
 
   const buildSlides = () => {
@@ -81,8 +81,8 @@ export const DesignerCarousel: React.FunctionComponent<designersProps> = ({ desi
         魅力设计师
       </Typography>
       <CarouselProvider
-        naturalSlideWidth={200}
-        naturalSlideHeight={300}
+        naturalSlideWidth={125}
+        naturalSlideHeight={160}
         totalSlides={designers.length}
         visibleSlides={5}
         orientation="horizontal"
