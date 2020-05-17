@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-const product = {
+const productFallback = {
   name: "Amulettes Equestre耳环",
   price: 2141.23,
   currency: '$',
@@ -79,17 +81,18 @@ const useStyles = makeStyles(() =>
 
 const ProductPanel = () => {
   const classes = useStyles();
+  let product = useSelector(selectProduct);
 
   return (
     <div>
-      <h1>{product.name}</h1>
-      <div><span style={{ fontSize: '22px', fontWeight: 'bold' }}>{product.currency}{product.price}</span> <span>GClub</span></div>
-      <div className={`${classes.panelItem}`}>设计师: <a href={product.designerUrl}>{product.designer}</a></div>
+      <h1>{product.detail?.name}</h1>
+      <div><span style={{ fontSize: '22px', fontWeight: 'bold' }}>{productFallback.currency}{product.detail?.price}</span> <span>GClub</span></div>
+      <div className={`${classes.panelItem}`}>设计师: <a href={productFallback.designerUrl}>{productFallback.designer}</a></div>
       <hr className={`${classes.panelItem} ${classes.line}`} />
       <div className={`${classes.panelItem} ${classes.options}`}>
         <label>颜色</label>
         {
-          product.color.map((item, index) => (
+          productFallback.color.map((item, index) => (
             <div key={index} className={classes.option}>
               <button className={classes.optionButton} style={{ backgroundColor: item.color }}></button>
               <span className={classes.optionText}>{item.title}</span>
@@ -100,7 +103,7 @@ const ProductPanel = () => {
       <div className={`${classes.panelItem} ${classes.options}`}>
         <label>尺码</label>
         {
-          product.size.map((item, index) => (
+          productFallback.size.map((item, index) => (
             <div key={index} className={classes.option}>
               <button className={classes.optionButton} >{item.size}</button>
             </div>
@@ -108,7 +111,7 @@ const ProductPanel = () => {
         }
       </div>
       <div className={`${classes.panelItem} ${classes.purchaseLimit}`}>
-        每个账号至多购买{product.purcahseLimit}件
+        每个账号至多购买{productFallback.purcahseLimit}件
       </div>
       <div className={classes.buttonContainer}>
         <button className={`${classes.panelItem} ${classes.button} ${classes.primary}`}>加入购物车</button>

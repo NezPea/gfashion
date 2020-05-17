@@ -1,28 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, ImageWithZoom, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
-const images = [{
-  file: 'https://via.placeholder.com/800x600',
-  title: 'Miles'
-},
-{
-  file: 'https://via.placeholder.com/800x600',
-  title: 'Luther'
-},
-{
-  file: 'https://via.placeholder.com/800x600',
-  title: 'Pence'
-},
-{
-  file: 'https://via.placeholder.com/800x600',
-  title: 'Ivanka'
-},
-{
-  file: 'https://via.placeholder.com/800x600',
-  title: 'Trump'
-}];
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -39,11 +20,15 @@ const useStyles = makeStyles(() =>
       }
     },
     thumbnail: {
+      backgroundColor: '#F0F0F0',
       maxWidth: '80px',
       maxHeight: '60px'
     },
     slider: {
       width: 'calc(100% - 110px)'
+    },
+    image: {
+      backgroundColor: '#F0F0F0',
     },
     carousel: {
       display: 'flex',
@@ -65,22 +50,23 @@ const useStyles = makeStyles(() =>
 
 const ProductImageCarousel = () => {
   const classes = useStyles();
+  let product = useSelector(selectProduct);
 
   const buildPreview = () => {
-    return images.map((m, i) => {
+    return product.detail?.images.map((m, i) => {
       return (
-        <Dot slide={i}>
-          <img src={m.file} alt={m.title} className={classes.thumbnail} />
+        <Dot key={i} slide={i}>
+          <img src={m.file} alt={m.label} className={classes.thumbnail} />
         </Dot>
       )
     })
   }
 
   const buildSlides = () => {
-    return images.map((m, i) => {
+    return product.detail?.images.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <ImageWithZoom src={m.file} />
+          <ImageWithZoom src={m.file} className={classes.image}/>
         </Slide>
       )
     })
@@ -90,7 +76,7 @@ const ProductImageCarousel = () => {
     <CarouselProvider
       naturalSlideWidth={450}
       naturalSlideHeight={350}
-      totalSlides={images.length}
+      totalSlides={product.detail?.images.length!}
       visibleSlides={1}
       infinite={true}
       className={classes.carousel}
