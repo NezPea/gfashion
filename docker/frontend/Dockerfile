@@ -1,3 +1,3 @@
 FROM nginx:stable
-COPY web/build/* /var/www/html/
+COPY web/build/* /usr/share/nginx/html/
 
