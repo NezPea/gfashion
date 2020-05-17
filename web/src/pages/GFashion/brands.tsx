@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, GridList } from '@material-ui/core';
-import { Brand, BrandsProps } from './types';
+import { Grid, Typography, GridList, GridListTile } from '@material-ui/core';
+import { BrandsProps } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,25 +18,18 @@ const useStyles = makeStyles((theme: Theme) =>
       transform: 'translateZ(0)',
       width: '100%'
     },
-    gridItem: {
+    tile: {
       display: 'flex',
-      alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: theme.palette.background.default,
-      margin: '0 15px'
+      margin: '0 15px',
+      '& div': {
+        display: 'flex',
+        alignItems: 'center'
+      }
     }
   }),
 );
-
-const buildBrands = (brands: Array<Brand>, classes: any) => {
-  return brands.map((b) => {
-    return (
-      <Grid item sm={3} className={classes.gridItem}>
-        <Typography variant='subtitle1'>{b.name}</Typography>
-      </Grid>
-    )
-  })
-}
 
 export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) => {
   const classes = useStyles();
@@ -47,8 +40,16 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
         <Grid xs={12} alignContent='center' alignItems='center'>
           <Typography variant='h3' align='center'>潮流品牌</Typography>
         </Grid>
-        <GridList className={classes.gridList}>
-          {buildBrands(brands, classes)}
+        <GridList className={classes.gridList} cols={4}>
+          {
+            brands.map((b) => {
+              return (
+                <GridListTile className={classes.tile}>
+                  <Typography variant='subtitle1'>{b.name}</Typography>
+                </GridListTile>
+              )
+            })
+          }
         </GridList>
       </Grid>
     </Grid>
