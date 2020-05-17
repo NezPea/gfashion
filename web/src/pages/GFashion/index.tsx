@@ -4,7 +4,8 @@ import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
 import GclubGate from './gclubGate';
 import { Brands } from './brands';
-import { Designer, Brand } from './types';
+import { RecommendedProducts } from './recommendedProducts';
+import { Designer, Brand, RecommendedProduct } from './types';
 
 const designers: Array<Designer> = [
   {
@@ -64,6 +65,29 @@ const brands: Array<Brand> = [
   }
 ]
 
+const products: Array<RecommendedProduct> = [
+  {
+    name: 'Ladymay',
+    isFeatured: true
+  },
+  {
+    name: 'Air Force One',
+    isFeatured: false,
+  },
+  {
+    name: 'Tiger Skin',
+    isFeatured: false
+  },
+  {
+    name: 'Shark Skin',
+    isFeatured: false
+  },
+  {
+    name: 'Cullian',
+    isFeatured: false
+  }
+]
+
 export default () => {
 
   return (
@@ -72,6 +96,7 @@ export default () => {
       <Slogan />
       <DesignerCarousel designers={designers} />
       <Brands brands={brands}></Brands>
+      <RecommendedProducts products={products} />
     </MainFrame>
   )
 }

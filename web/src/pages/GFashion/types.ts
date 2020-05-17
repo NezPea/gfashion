@@ -14,3 +14,12 @@ export interface Brand {
 export interface BrandsProps {
   brands: Array<Brand>
 }
+
+export interface RecommendedProduct {
+  name: string;
+  isFeatured: boolean;
+}
+
+export interface RecommendedProductProps {
+  products: Array<RecommendedProduct>
+}
