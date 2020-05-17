@@ -21,6 +21,7 @@
     "@typescript-eslint/parser": "^2.31.0",
     "add": "^2.0.6",
     "axios": "^0.19.2",
+    "env-cmd": "^10.1.0",
     "formik": "^2.1.4",
     "pure-react-carousel": "^1.27.1",
     "react": "^16.13.1",
@@ -37,6 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:staging": "env-cmd -f .env.staging npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "mock:API": "json-server mock-db.json --watch --port 5005"

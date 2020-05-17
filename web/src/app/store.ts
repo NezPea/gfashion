@@ -4,10 +4,9 @@ import productReducer from './slices/productsSlice'
 import logger from 'redux-logger';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
-import configs from './configs';
 
 const client = axios.create({
-  baseURL: configs()?.api_address,
+  baseURL: process.env.REACT_APP_API_ADDRESS_OVERRIDE || process.env.REACT_APP_API_ADDRESS,
   responseType: 'json'
 });
 
