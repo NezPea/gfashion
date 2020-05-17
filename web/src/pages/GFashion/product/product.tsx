@@ -32,8 +32,8 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchProductDetail({
-      url: '/product' // local mock data
-      // url: '/gfashion/productdetail/24-MB04'
+      // url: '/product' // local mock data
+      url: '/gfashion/productdetail/24-MB04'
     }))
   }, [dispatch]);
 
