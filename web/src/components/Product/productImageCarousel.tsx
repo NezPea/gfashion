@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, ImageWithZoom, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     thumbnailContainer: {
       display: 'flex',
@@ -20,7 +20,7 @@ const useStyles = makeStyles(() =>
       }
     },
     thumbnail: {
-      backgroundColor: '#F0F0F0',
+      backgroundColor: theme.palette.action.disabledBackground,
       maxWidth: '80px',
       maxHeight: '60px'
     },
@@ -28,7 +28,7 @@ const useStyles = makeStyles(() =>
       width: 'calc(100% - 110px)'
     },
     image: {
-      backgroundColor: '#F0F0F0',
+      backgroundColor: theme.palette.action.disabledBackground,
     },
     carousel: {
       display: 'flex',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const productFallback = {
   name: "Amulettes Equestre耳环",
@@ -28,10 +28,17 @@ const productFallback = {
   purcahseLimit: 10
 }
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    infoPanel: {
+      backgroundColor: theme.palette.background.paper,
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      padding: `0 ${theme.spacing(2)}px`
+    },
     panelItem: {
-      marginTop: '20px'
+      marginTop: theme.spacing(2)
     },
     line: {
       border: 0,
@@ -45,7 +52,7 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      marginLeft: '20px'
+      marginLeft: theme.spacing(2)
     },
     optionButton: {
       border: 0,
@@ -73,8 +80,8 @@ const useStyles = makeStyles(() =>
       width: '70%'
     },
     primary: {
-      backgroundColor: '#555555',
-      color: '#F0F0F0'
+      backgroundColor: theme.palette.primary.light,
+      color: theme.palette.background.paper
     }
   }),
 );
@@ -84,7 +91,7 @@ const ProductPanel = () => {
   let product = useSelector(selectProduct);
 
   return (
-    <div>
+    <div className={classes.infoPanel}>
       <h1>{product.detail?.name}</h1>
       <div><span style={{ fontSize: '22px', fontWeight: 'bold' }}>{productFallback.currency}{product.detail?.price}</span> <span>GClub</span></div>
       <div className={`${classes.panelItem}`}>设计师: <a href={productFallback.designerUrl}>{productFallback.designer}</a></div>
