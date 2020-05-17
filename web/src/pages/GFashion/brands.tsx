@@ -37,14 +37,14 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
   return (
     <Grid item className={classes.root}>
       <Grid container spacing={3}>
-        <Grid xs={12} alignContent='center' alignItems='center'>
+        <Grid item xs={12}>
           <Typography variant='h3' align='center'>潮流品牌</Typography>
         </Grid>
         <GridList className={classes.gridList} cols={4}>
           {
-            brands.map((b) => {
+            brands.map((b, i) => {
               return (
-                <GridListTile className={classes.tile}>
+                <GridListTile key={i} className={classes.tile}>
                   <Typography variant='subtitle1'>{b.name}</Typography>
                 </GridListTile>
               )

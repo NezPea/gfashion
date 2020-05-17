@@ -37,15 +37,15 @@ export const RecommendedProducts: React.FunctionComponent<RecommendedProductProp
   return (
     <Grid item className={classes.root}>
       <Grid container spacing={3}>
-        <Grid xs={12} alignContent='center' alignItems='center'>
+        <Grid item xs={12}>
           <Typography variant='h3' align='center'>时尚品鉴</Typography>
         </Grid>
         <Grid container spacing={2} alignItems='stretch' justify="space-around">
           <GridList cols={1} cellHeight={400} className={classes.productsFeatured}>
             {
-              featuredProducts.map((fp) => {
+              featuredProducts.map((fp, i) => {
                 return (
-                  <GridListTile>
+                  <GridListTile key={i}>
                     <div className={classes.tileContent}>
                       <Typography>{fp.name}</Typography>
                     </div>
@@ -56,9 +56,9 @@ export const RecommendedProducts: React.FunctionComponent<RecommendedProductProp
           </GridList>
           <GridList cols={2} cellHeight={200} className={classes.products}>
             {
-              otherProducts.map((op) => {
+              otherProducts.map((op, i) => {
                 return (
-                  <GridListTile>
+                  <GridListTile key={i}>
                     <div className={classes.tileContent}>
                       <Typography>{op.name}</Typography>
                     </div>

@@ -26,7 +26,7 @@ export default () => {
   return (
     <Grid item className={classes.root}>
       <Grid container spacing={3} direction='column' justify='space-around'>
-        <Grid xs={12} alignContent='center' alignItems='center'>
+        <Grid item xs={12}>
           <Typography variant='h2' align='center'>Gclub</Typography>
         </Grid>
         <Grid container direction='row' alignItems='center' justify='center'>

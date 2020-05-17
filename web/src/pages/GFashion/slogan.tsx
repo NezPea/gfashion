@@ -28,7 +28,7 @@ export default () => {
   return (
     <Grid item className={classes.root}>
       <Grid container spacing={3}>
-        <Grid xs={12} alignContent='center' alignItems='center'>
+        <Grid item xs={12}>
           <Typography variant='h5' align='center'>Gfashion宣传图片</Typography>
         </Grid>
       </Grid>
