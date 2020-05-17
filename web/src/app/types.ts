@@ -1,3 +1,20 @@
+export interface UserInfo {
+  name: string;
+  email: string;
+}
+
+export interface UserError {
+  error: string;
+}
+
+export interface UserState {
+  name?: string;
+  email?: string;
+  isLoggingIn?: boolean;
+  loggingError?: string;
+  isLoggedOut?: boolean;
+}
+
 export interface ProductImage {
   types: Array<string>;
   file: string;
