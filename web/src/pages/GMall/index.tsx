@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MainFrame from '../../components/MainFrame';
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default () => {
-  const classes =  useStyles()
+  const classes = useStyles()
 
   return (
     <MainFrame>

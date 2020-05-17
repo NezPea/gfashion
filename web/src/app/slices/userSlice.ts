@@ -1,22 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from '../store';
-
-interface UserState {
-  name?: string;
-  email?: string;
-  isLoggingIn?: boolean;
-  loggingError?: string;
-  isLoggedOut?: boolean;
-}
-
-interface UserInfo {
-  name: string;
-  email: string;
-}
-
-interface UserError {
-  error: string;
-}
+import { UserState, UserError, UserInfo } from '../types';
 
 const initialState: UserState = {
   name: '',
@@ -26,29 +10,16 @@ const initialState: UserState = {
   isLoggedOut: true
 }
 
-// const loginRequest = createAction('user/login');
-// const loginSuccess = createAction('user/login/success', function prepare(info: UserInfo) {
-//   return {
-//     payload: info
-//   }
-// });
-// const loginFailure = createAction('user/login/failure', function prepare(error: UserError) {
-//   return {
-//     payload: error
-//   }
-// });
-// const logout = createAction('user/logout');
-
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    loginRequest: (state, action) => {
+    loginRequest: () => {
       return {
         isLoggingIn: true
       }
     },
-    loginSuccess: (state, action: PayloadAction<UserInfo>) => {
+    loginSuccess: (_, action: PayloadAction<UserInfo>) => {
       return {
         isLoggingIn: false,
         isLoggedOut: false,
@@ -56,16 +27,17 @@ export const userSlice = createSlice({
         email: action.payload.email
       }
     },
-    loginFailure: (state, action: PayloadAction<UserError>) => {
+    loginFailure: (_, action: PayloadAction<UserError>) => {
       return {
         loggingError: action.payload.error
       }
     },
-    logout: (state, action) => {
+    logout: () => {
       return {
         isLoggedOut: true
       }
-    }}
+    }
+  }
 })
 
 export const { loginRequest, loginSuccess, loginFailure, logout } = userSlice.actions;
@@ -76,9 +48,9 @@ interface LoginRequestPayload {
 }
 
 export const userLogin = (payload: LoginRequestPayload): AppThunk => dispatch => {
-  dispatch(loginRequest({}))
+  dispatch(loginRequest())
   setTimeout(() => {
-    dispatch(loginSuccess({name: payload.username, email: 'shit@x.com'}));
+    dispatch(loginSuccess({ name: payload.username, email: 'moon@x.com' }));
   }, 2000);
 };
 

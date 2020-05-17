@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navigator from '../Navigator';
-import Container from '@material-ui/core/Container';
+import { Container, Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { userSlice } from '../../app/slices/userSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      paddingTop: theme.spacing(8),
+      paddingTop: theme.spacing(12),
     }
   }),
 );
@@ -18,9 +17,9 @@ export default (props: any) => {
   return (
     <Container maxWidth='lg' className={classes.root}>
       <Navigator />
-      <div className='page-content-wrapper'>
-        { props.children }
-      </div>
+      <Grid container spacing={3} direction={"column"}>
+        {props.children}
+      </Grid>
     </Container>
   )
 }

@@ -1,13 +1,11 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MainFrame from '../../components/MainFrame';
 import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
-
-interface Designer {
-  name: string;
-  avatar: string;
-}
+import GclubGate from './gclubGate';
+import { Brands } from './brands';
+import { RecommendedProducts } from './recommendedProducts';
+import { Designer, Brand, RecommendedProduct } from './types';
 
 const designers: Array<Designer> = [
   {
@@ -29,31 +27,76 @@ const designers: Array<Designer> = [
   {
     name: 'Trump',
     avatar: ''
+  },
+  {
+    name: 'Miles2',
+    avatar: ''
+  },
+  {
+    name: 'Luther2',
+    avatar: ''
+  },
+  {
+    name: 'Pence2',
+    avatar: ''
+  },
+  {
+    name: 'Ivanka2',
+    avatar: ''
+  },
+  {
+    name: 'Trump2',
+    avatar: ''
   }
 ]
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    },
-    link: {
-      margin: theme.spacing(1)
-    }
-  }),
-);
+const brands: Array<Brand> = [
+  {
+    name: 'HERMES'
+  },
+  {
+    name: 'LV'
+  },
+  {
+    name: 'GUCCI'
+  },
+  {
+    name: 'ARMANI'
+  }
+]
+
+const products: Array<RecommendedProduct> = [
+  {
+    name: 'Ladymay',
+    isFeatured: true
+  },
+  {
+    name: 'Air Force One',
+    isFeatured: false,
+  },
+  {
+    name: 'Tiger Skin',
+    isFeatured: false
+  },
+  {
+    name: 'Shark Skin',
+    isFeatured: false
+  },
+  {
+    name: 'Cullian',
+    isFeatured: false
+  }
+]
 
 export default () => {
-  const classes = useStyles();
 
   return (
     <MainFrame>
-      <div className={classes.root}>
-        <Slogan></Slogan>
-        <DesignerCarousel designers={designers} />
-      </div>
+      <GclubGate />
+      <Slogan />
+      <DesignerCarousel designers={designers} />
+      <Brands brands={brands}></Brands>
+      <RecommendedProducts products={products} />
     </MainFrame>
   )
 }

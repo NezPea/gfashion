@@ -1,36 +1,12 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import MainFrame from '../../../components/MainFrame';
 import ProductImageCarousel from '../../../components/Product/productImageCarousel';
 import ProductPanel from '../../../components/Product/productPanel';
 import ProductRecommendation from '../../../components/Product/productRecommendation';
-import { ProductImage } from '../../../app/types';
 import { Grid } from '@material-ui/core';
 
-const images: Array<ProductImage> = [
-  {
-    url: 'https://via.placeholder.com/800x600',
-    title: 'Miles'
-  },
-  {
-    url: 'https://via.placeholder.com/800x600',
-    title: 'Luther'
-  },
-  {
-    url: 'https://via.placeholder.com/800x600',
-    title: 'Pence'
-  },
-  {
-    url: 'https://via.placeholder.com/800x600',
-    title: 'Ivanka'
-  },
-  {
-    url: 'https://via.placeholder.com/800x600',
-    title: 'Trump'
-  }
-]
-
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       paddingTop: "40px"
@@ -54,10 +30,10 @@ export default () => {
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={7}>
-            <ProductImageCarousel images={images} />
+            <ProductImageCarousel/>
           </Grid>
           <Grid item xs={12} md={5}>
-            <ProductPanel type="gfashion" />
+            <ProductPanel/>
           </Grid>
         </Grid>
         <Grid container spacing={3} className={classes.row}>

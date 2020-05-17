@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 const product = {
   name: "Amulettes Equestre耳环",
@@ -26,7 +26,7 @@ const product = {
   purcahseLimit: 10
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     panelItem: {
       marginTop: '20px'
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const ProductPanel = ({ type }: { type: string }) => {
+const ProductPanel = () => {
   const classes = useStyles();
 
   return (

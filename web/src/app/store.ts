@@ -1,11 +1,21 @@
 import { combineReducers, configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice';
+import productReducer from './slices/productsSlice'
 import logger from 'redux-logger';
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
+import configs from './configs';
 
-const middleware = [...getDefaultMiddleware(), logger]
+const client = axios.create({
+  baseURL: configs()?.api_address,
+  responseType: 'json'
+});
+
+const middleware = [...getDefaultMiddleware(), logger, axiosMiddleware(client)]
 
 const rootReducer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  product: productReducer
 })
 
 export const store = configureStore({

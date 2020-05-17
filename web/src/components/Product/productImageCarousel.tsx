@@ -1,10 +1,30 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, ImageWithZoom, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import { ProductImageList } from '../../app/types';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const useStyles = makeStyles((theme: Theme) =>
+const images = [{
+  file: 'https://via.placeholder.com/800x600',
+  title: 'Miles'
+},
+{
+  file: 'https://via.placeholder.com/800x600',
+  title: 'Luther'
+},
+{
+  file: 'https://via.placeholder.com/800x600',
+  title: 'Pence'
+},
+{
+  file: 'https://via.placeholder.com/800x600',
+  title: 'Ivanka'
+},
+{
+  file: 'https://via.placeholder.com/800x600',
+  title: 'Trump'
+}];
+
+const useStyles = makeStyles(() =>
   createStyles({
     thumbnailContainer: {
       display: 'flex',
@@ -43,14 +63,14 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const ProductImageCarousel: React.FunctionComponent<ProductImageList> = ({ images = [] }) => {
+const ProductImageCarousel = () => {
   const classes = useStyles();
 
   const buildPreview = () => {
     return images.map((m, i) => {
       return (
         <Dot slide={i}>
-          <img src={m.url} className={classes.thumbnail} />
+          <img src={m.file} alt={m.title} className={classes.thumbnail} />
         </Dot>
       )
     })
@@ -60,7 +80,7 @@ const ProductImageCarousel: React.FunctionComponent<ProductImageList> = ({ image
     return images.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <ImageWithZoom src={m.url} />
+          <ImageWithZoom src={m.file} />
         </Slide>
       )
     })
@@ -82,7 +102,7 @@ const ProductImageCarousel: React.FunctionComponent<ProductImageList> = ({ image
         {buildSlides()}
       </Slider>
       <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
-        <ButtonNext className={classes.slideNext}>next</ButtonNext>
+      <ButtonNext className={classes.slideNext}>next</ButtonNext>
     </CarouselProvider>
   )
 }
