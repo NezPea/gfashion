@@ -24,7 +24,7 @@ export default () => {
   const classes = useStyles();
 
   return (
-    <Grid item spacing={3} className={classes.root}>
+    <Grid item className={classes.root}>
       <Grid container spacing={3} direction='column' justify='space-around'>
         <Grid xs={12} alignContent='center' alignItems='center'>
           <Typography variant='h2' align='center'>Gclub</Typography>

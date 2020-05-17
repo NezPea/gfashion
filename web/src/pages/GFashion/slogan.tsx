@@ -26,7 +26,7 @@ export default () => {
   const classes = useStyles();
 
   return (
-    <Grid item spacing={3} className={classes.root}>
+    <Grid item className={classes.root}>
       <Grid container spacing={3}>
         <Grid xs={12} alignContent='center' alignItems='center'>
           <Typography variant='h5' align='center'>Gfashion宣传图片</Typography>
