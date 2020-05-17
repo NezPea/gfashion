@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import './index.css';
-import { useField, FormikProps, Formik  } from "formik";
+import { useField, FormikProps, Formik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from 'react-redux';
 
 import { userLogin, selectUser } from '../../app/slices/userSlice';
+import { selectProduct, fetchProductDetail } from '../../app/slices/productsSlice';
 
 import Button from '@material-ui/core/Button';
 import { Input } from '@material-ui/core';
@@ -35,6 +36,7 @@ export default () => {
   const user = useSelector(selectUser);
   console.log(user)
   const dispatch = useDispatch();
+  const product = useSelector(selectProduct);
 
   console.log(user)
   useEffect(() => {
@@ -45,10 +47,14 @@ export default () => {
   const handleLoginSubmit = async (values: Values) => {
     console.log('on submit')
     dispatch(userLogin(values))
+    dispatch(fetchProductDetail({
+      url: '/product'
+    }))
   }
 
   return (
     <div className='login-container'>
+      <div>{JSON.stringify(product)}</div>
       <Formik
         initialValues={{
           username: '',
@@ -65,10 +71,10 @@ export default () => {
         {(props: FormikProps<Values>) => {
           console.log(props)
           const {
-              values,
-              handleChange,
-              handleSubmit,
-            } = props;
+            values,
+            handleChange,
+            handleSubmit,
+          } = props;
           return (
             <form onSubmit={handleSubmit}>
               <MyTextField name="username" type="text" label="User Name" onChange={handleChange} value={values.username} />
