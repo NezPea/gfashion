@@ -25,7 +25,7 @@ export const productSlice = createSlice({
     },
     fail: (_, action: PayloadAction<AxiosError>) => {
       return {
-        error: action.payload.toJSON()
+        error: action.payload ? action.payload.toJSON() : 'No response or empty payload'
       }
     }
   }
