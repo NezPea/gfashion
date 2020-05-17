@@ -25,6 +25,10 @@ export interface ProductImage {
   position: number;
 }
 
+export interface ProductImageList {
+  images: Array<ProductImage>;
+}
+
 export interface ProductAttribute {
   value: string;
   attribute_code: string;
