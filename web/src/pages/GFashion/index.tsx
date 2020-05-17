@@ -3,7 +3,8 @@ import MainFrame from '../../components/MainFrame';
 import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
 import GclubGate from './gclubGate';
-import { Designer } from './types';
+import { Brands } from './brands';
+import { Designer, Brand } from './types';
 
 const designers: Array<Designer> = [
   {
@@ -48,6 +49,21 @@ const designers: Array<Designer> = [
   }
 ]
 
+const brands: Array<Brand> = [
+  {
+    name: 'HERMES'
+  },
+  {
+    name: 'LV'
+  },
+  {
+    name: 'GUCCI'
+  },
+  {
+    name: 'ARMANI'
+  }
+]
+
 export default () => {
 
   return (
@@ -55,6 +71,7 @@ export default () => {
       <GclubGate />
       <Slogan />
       <DesignerCarousel designers={designers} />
+      <Brands brands={brands}></Brands>
     </MainFrame>
   )
 }
