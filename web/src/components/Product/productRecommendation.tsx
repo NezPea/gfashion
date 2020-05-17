@@ -1,17 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, Image, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     title: {
       marginTop: 0
     },
     slider: {
-      backgroundColor: '#F0F0F0',
       width: '100%'
     },
     carousel: {
@@ -20,7 +19,9 @@ const useStyles = makeStyles(() =>
       position: 'relative'
     },
     slide: {
-      padding: '0 20px',
+      backgroundColor: theme.palette.action.disabledBackground,
+      width: 'calc(100% - 20px)',
+      marginRight: '20px',
     },
     slidePrev: {
       position: 'absolute',

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { selectProduct, fetchProductDetail } from '../../../app/slices/productsSlice';
 import MainFrame from '../../../components/MainFrame';
 import ProductImageCarousel from '../../../components/Product/productImageCarousel';
@@ -8,19 +8,19 @@ import ProductPanel from '../../../components/Product/productPanel';
 import ProductRecommendation from '../../../components/Product/productRecommendation';
 import { Grid } from '@material-ui/core';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      paddingTop: "40px",
-      paddingBottom: "60px"
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(7)
     },
     description: {
-      backgroundColor: '#F0F0F0',
-      color: '#7F7F7F',
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
       padding: '20px 40px',
     },
     row: {
-      marginTop: '40px'
+      marginTop: theme.spacing(5)
     },
   }),
 );
@@ -40,27 +40,29 @@ export default () => {
   return (
     <MainFrame>
       {!product.isLoading && (
-        <div className={classes.root}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={7}>
-              <ProductImageCarousel />
+        product.detail ? (
+          <div className={classes.root}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={7}>
+                <ProductImageCarousel />
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <ProductPanel />
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={5}>
-              <ProductPanel />
+            <Grid container spacing={3} className={classes.row}>
+              <Grid item xs={12}>
+                <div className={classes.description} dangerouslySetInnerHTML={{ __html: product.detail?.description! }}>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={3} className={classes.row}>
-            <Grid item xs={12}>
-              <div className={classes.description} dangerouslySetInnerHTML={{ __html: product.detail?.description! }}>
-              </div>
+            <Grid container spacing={3} className={classes.row}>
+              <Grid item xs={12}>
+                <ProductRecommendation />
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={3} className={classes.row}>
-            <Grid item xs={12}>
-              <ProductRecommendation />
-            </Grid>
-          </Grid>
-        </div>
+          </div>
+        ) : 'Failed to load data'
       )}
     </MainFrame>
   )
