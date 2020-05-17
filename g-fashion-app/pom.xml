@@ -24,12 +24,12 @@
         <!-- g-fashion dependencies -->
         <dependency>
             <groupId>com.gfashion</groupId>
-            <artifactId>g-fashion-data</artifactId>
+            <artifactId>g-fashion-domain</artifactId>
             <version>${gfashion.version}</version>
         </dependency>
         <dependency>
             <groupId>com.gfashion</groupId>
-            <artifactId>g-fashion-domain</artifactId>
+            <artifactId>g-fashion-data</artifactId>
             <version>${gfashion.version}</version>
         </dependency>
 <!--        <dependency>-->
