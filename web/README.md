@@ -1,4 +1,23 @@
 ## Guides
+### docker deploy to staging environment
+```
+//(REACT_APP_API_ADDRESS_OVERRIDE is optional, otherwise read from .env.staging
+REACT_APP_API_ADDRESS_OVERRIDE=http://example.com yarn run build:staging
+
+// build the image
+docker build -t (any tag name) .
+
+// start the container
+docker run --name gf-staging -d -p 8080:80 gf:1.0.0
+```
+
+### docker-compose deploy
+```
+// if you want to change the value of variable REACT_APP_API_ADDRESS_OVERRIDE, edit docker-compose.yaml
+docker-compose up -d
+docker-compose up -d --build
+```
+
 
 ### `yarn run mock:API`
 
