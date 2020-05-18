@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, ImageWithZoom, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import LoadingFailed from '../../components/Common/loadingFailed';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
     carousel: {
       display: 'flex',
       width: '100%',
+      height: '100%',
       position: 'relative'
     },
     slidePrev: {
@@ -66,30 +68,35 @@ const ProductImageCarousel = () => {
     return product.detail?.images.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <ImageWithZoom src={m.file} className={classes.image}/>
+          <ImageWithZoom src={m.file} className={classes.image} />
         </Slide>
       )
     })
   }
 
   return (
-    <CarouselProvider
-      naturalSlideWidth={450}
-      naturalSlideHeight={350}
-      totalSlides={product.detail?.images.length!}
-      visibleSlides={1}
-      infinite={true}
-      className={classes.carousel}
-    >
-      <div className={classes.thumbnailContainer}>
-        {buildPreview()}
-      </div>
-      <Slider className={classes.slider}>
-        {buildSlides()}
-      </Slider>
-      <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
-      <ButtonNext className={classes.slideNext}>next</ButtonNext>
-    </CarouselProvider>
+    (product.detail && product.detail?.images && product.detail?.images.length) ?
+      (
+        <CarouselProvider
+          naturalSlideWidth={450}
+          naturalSlideHeight={350}
+          totalSlides={product.detail?.images.length!}
+          visibleSlides={1}
+          infinite={true}
+          className={classes.carousel}
+        >
+          <div className={classes.thumbnailContainer}>
+            {buildPreview()}
+          </div>
+          <Slider className={classes.slider}>
+            {buildSlides()}
+          </Slider>
+          <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
+          <ButtonNext className={classes.slideNext}>next</ButtonNext>
+        </CarouselProvider>
+      ) : (
+        <LoadingFailed />
+      )
   )
 }
 
