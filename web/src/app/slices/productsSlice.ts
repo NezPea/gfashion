@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
-import { ProductState } from '../types';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { ProductState, AxiosMiddlewareActionMeta, AxiosMiddlewareActionError } from '../types';
 
 const initialState: ProductState = {
   detail: null,
@@ -18,14 +18,32 @@ export const productSlice = createSlice({
         isLoading: true
       }
     },
-    success: (_, action: PayloadAction<AxiosResponse>) => {
-      return {
-        detail: action.payload.data
+    success: {
+      reducer: (_, action: PayloadAction<AxiosResponse, string, AxiosMiddlewareActionMeta, AxiosMiddlewareActionError>) => {
+        return {
+          detail: action.payload.data
+        }
+      },
+      prepare: (payload, meta, error) => {
+        return {
+          payload,
+          meta,
+          error
+        }
       }
     },
-    fail: (_, action: PayloadAction<AxiosError>) => {
-      return {
-        error: action.payload ? action.payload.toJSON() : 'No response or empty payload'
+    fail: {
+      reducer: (_, action: PayloadAction<AxiosResponse, string, AxiosMiddlewareActionMeta, AxiosMiddlewareActionError>) => {
+        return {
+          error: action.error
+        }
+      },
+      prepare: (payload, meta, error) => {
+        return {
+          payload,
+          meta,
+          error
+        }
       }
     }
   }

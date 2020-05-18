@@ -1,3 +1,5 @@
+import { PayloadAction } from '@reduxjs/toolkit';
+
 export interface UserInfo {
   name: string;
   email: string;
@@ -62,4 +64,13 @@ export interface ProductState {
   detail?: ProductDetail | null;
   isLoading?: boolean;
   error?: object | string;
+}
+
+export interface AxiosMiddlewareActionMeta {
+  previousAction: PayloadAction;
+}
+
+export interface AxiosMiddlewareActionError {
+  data: any;
+  status: number
 }
