@@ -1,4 +1,11 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+/**
+ *  gclub
+ */
+export interface gclub {
+  name: string;
+  email: string;
+}
 
 export interface UserInfo {
   name: string;

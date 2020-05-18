@@ -1,6 +1,7 @@
 import { combineReducers, configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice';
 import productReducer from './slices/productsSlice'
+import gclubReducer from './slices/gclubSlice'
 import logger from 'redux-logger';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
@@ -14,7 +15,8 @@ const middleware = [...getDefaultMiddleware(), logger, axiosMiddleware(client)]
 
 const rootReducer = combineReducers({
   user: userReducer,
-  product: productReducer
+  product: productReducer,
+  gclub: gclubReducer
 })
 
 export const store = configureStore({

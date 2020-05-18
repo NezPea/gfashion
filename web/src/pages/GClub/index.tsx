@@ -1,31 +1,21 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core'
 import MainFrame from '../../components/MainFrame';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    },
-    link: {
-      margin: theme.spacing(1)
-    }
-  }),
-);
+import Banner from './banner'
+import Stories from './stories'
+import Farm from './farm'
+import Joinus from './joinus'
 
 export default () => {
-  const classes = useStyles()
 
   return (
     <MainFrame >
-      <div className={classes.root}>
-        <h1>Gclub page</h1>
-        <Link to='/' className={classes.link}>go to home</Link>
-        <Link to={`/cn/trash`} className={classes.link}>go to trash article </Link>
-      </div>
+      <Container >
+        <Banner></Banner>
+        <Stories></Stories>
+        <Farm></Farm>
+        <Joinus></Joinus>
+      </Container>
     </MainFrame>
   )
 }
