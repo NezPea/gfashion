@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { match } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { selectProduct, fetchProductDetail } from '../../../app/slices/productsSlice';
@@ -25,16 +26,19 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default () => {
+const GFashionProduct = ({ match }: { match: match }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const productId = match && match.params && (match.params as any).productId;
   let product = useSelector(selectProduct);
 
   useEffect(() => {
-    dispatch(fetchProductDetail({
-      // url: '/product' // local mock data
-      url: '/gfashion/productdetail/24-MB04'
-    }))
+    if (productId) {
+      dispatch(fetchProductDetail({
+        //url: '/product' // local mock data
+        url: `/gfashion/productdetail/${productId}`
+      }));
+    }
   }, [dispatch]);
 
   return (
@@ -67,3 +71,5 @@ export default () => {
     </MainFrame>
   )
 }
+
+export default GFashionProduct
