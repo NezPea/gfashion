@@ -4,7 +4,7 @@ import { Typography, Grid, Box } from '@material-ui/core';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import { DesignersProps } from './types';
+import { DesignersProps } from '../../app/types';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -67,7 +67,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <Box className={classes.slideBox}>
-            <Avatar src={m.avatar} className={classes.avatar} />
+            <Avatar src={m.photoUrl} className={classes.avatar} />
             <Typography>{m.name}</Typography>
           </Box>
         </Slide>
@@ -83,7 +83,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
       <CarouselProvider
         naturalSlideWidth={125}
         naturalSlideHeight={160}
-        totalSlides={designers.length}
+        totalSlides={designers ? designers.length : 5}
         visibleSlides={5}
         orientation="horizontal"
         className={classes.carouselProvider}
