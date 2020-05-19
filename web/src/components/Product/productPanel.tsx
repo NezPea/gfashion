@@ -2,10 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import LoadingFailed from '../../components/Common/loadingFailed';
 
 const productFallback = {
-  name: "Amulettes Equestre耳环",
-  price: 2141.23,
   currency: '$',
   designer: 'kekey',
   designerUrl: '#',
@@ -35,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
+      minHeight: '475px',
       padding: `0 ${theme.spacing(2)}px`
     },
     panelItem: {
@@ -91,40 +91,45 @@ const ProductPanel = () => {
   let product = useSelector(selectProduct);
 
   return (
-    <div className={classes.infoPanel}>
-      <h1>{product.detail?.name}</h1>
-      <div><span style={{ fontSize: '22px', fontWeight: 'bold' }}>{productFallback.currency}{product.detail?.price}</span> <span>GClub</span></div>
-      <div className={`${classes.panelItem}`}>设计师: <a href={productFallback.designerUrl}>{productFallback.designer}</a></div>
-      <hr className={`${classes.panelItem} ${classes.line}`} />
-      <div className={`${classes.panelItem} ${classes.options}`}>
-        <label>颜色</label>
-        {
-          productFallback.color.map((item, index) => (
-            <div key={index} className={classes.option}>
-              <button className={classes.optionButton} style={{ backgroundColor: item.color }}></button>
-              <span className={classes.optionText}>{item.title}</span>
-            </div>
-          ))
-        }
-      </div>
-      <div className={`${classes.panelItem} ${classes.options}`}>
-        <label>尺码</label>
-        {
-          productFallback.size.map((item, index) => (
-            <div key={index} className={classes.option}>
-              <button className={classes.optionButton} >{item.size}</button>
-            </div>
-          ))
-        }
-      </div>
-      <div className={`${classes.panelItem} ${classes.purchaseLimit}`}>
-        每个账号至多购买{productFallback.purcahseLimit}件
-      </div>
-      <div className={classes.buttonContainer}>
-        <button className={`${classes.panelItem} ${classes.button} ${classes.primary}`}>加入购物车</button>
-        <button className={`${classes.panelItem} ${classes.button}`}>加入心愿单</button>
-      </div>
-    </div>
+    (product.detail && product.detail?.name) ?
+      (
+        <div className={classes.infoPanel}>
+          <h1>{product.detail?.name}</h1>
+          <div><span style={{ fontSize: '22px', fontWeight: 'bold' }}>{productFallback.currency}{product.detail?.price}</span> <span>GClub</span></div>
+          <div className={`${classes.panelItem}`}>设计师: <a href={productFallback.designerUrl}>{productFallback.designer}</a></div>
+          <hr className={`${classes.panelItem} ${classes.line}`} />
+          <div className={`${classes.panelItem} ${classes.options}`}>
+            <label>颜色</label>
+            {
+              productFallback.color.map((item, index) => (
+                <div key={index} className={classes.option}>
+                  <button className={classes.optionButton} style={{ backgroundColor: item.color }}></button>
+                  <span className={classes.optionText}>{item.title}</span>
+                </div>
+              ))
+            }
+          </div>
+          <div className={`${classes.panelItem} ${classes.options}`}>
+            <label>尺码</label>
+            {
+              productFallback.size.map((item, index) => (
+                <div key={index} className={classes.option}>
+                  <button className={classes.optionButton} >{item.size}</button>
+                </div>
+              ))
+            }
+          </div>
+          <div className={`${classes.panelItem} ${classes.purchaseLimit}`}>
+            每个账号至多购买{productFallback.purcahseLimit}件
+          </div>
+          <div className={classes.buttonContainer}>
+            <button className={`${classes.panelItem} ${classes.button} ${classes.primary}`}>加入购物车</button>
+            <button className={`${classes.panelItem} ${classes.button}`}>加入心愿单</button>
+          </div>
+        </div>
+      ) : (
+        <LoadingFailed />
+      )
   )
 }
 

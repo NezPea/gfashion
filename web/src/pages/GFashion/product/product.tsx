@@ -25,45 +25,54 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default () => {
+const GFashionProduct = ({ match }: { match: any }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const productId = match && match.params && match.params.productId;
   let product = useSelector(selectProduct);
 
   useEffect(() => {
-    dispatch(fetchProductDetail({
-      // url: '/product' // local mock data
-      url: '/gfashion/productdetail/24-MB04'
-    }))
-  }, [dispatch]);
+    if (productId) {
+      dispatch(fetchProductDetail({
+        //url: '/product' // local mock data
+        url: `/gfashion/productdetail/${productId}`
+      }));
+    }
+  }, [dispatch, productId]);
 
   return (
     <MainFrame>
-      {!product.isLoading && (
-        product.detail ? (
-          <div className={classes.root}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={7}>
-                <ProductImageCarousel />
+      {
+        !product.isLoading && (
+          product.detail ? (
+            <div className={classes.root}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={7}>
+                  <ProductImageCarousel />
+                </Grid>
+                <Grid item xs={12} md={5}>
+                  <ProductPanel />
+                </Grid>
               </Grid>
-              <Grid item xs={12} md={5}>
-                <ProductPanel />
+              {
+                product.detail?.description &&
+                <Grid container spacing={3} className={classes.row}>
+                  <Grid item xs={12}>
+                    <div className={classes.description} dangerouslySetInnerHTML={{ __html: product.detail?.description! }}></div>
+                  </Grid>
+                </Grid>
+              }
+              <Grid container spacing={3} className={classes.row}>
+                <Grid item xs={12}>
+                  <ProductRecommendation />
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container spacing={3} className={classes.row}>
-              <Grid item xs={12}>
-                <div className={classes.description} dangerouslySetInnerHTML={{ __html: product.detail?.description! }}>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={3} className={classes.row}>
-              <Grid item xs={12}>
-                <ProductRecommendation />
-              </Grid>
-            </Grid>
-          </div>
-        ) : 'Failed to load data'
-      )}
+            </div>
+          ) : 'Failed to load data'
+        )
+      }
     </MainFrame>
   )
 }
+
+export default GFashionProduct
