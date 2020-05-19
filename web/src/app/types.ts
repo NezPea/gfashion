@@ -81,3 +81,51 @@ export interface AxiosMiddlewareActionError {
   data: any;
   status: number
 }
+
+export interface HomepageProduct {
+  id: BigInt;
+  name: string;
+  photoUrl: string;
+  isFeatured: boolean;
+}
+
+export interface HomepageDesigner {
+  id: BigInt;
+  name: string;
+  country?: string;
+  photoUrl: string;
+}
+
+export interface HomepageBrand {
+  id: BigInt;
+  name: string;
+  country?: string;
+  photoUrl: string;
+  link: string;
+}
+
+export interface HomeRecommendations {
+  customerId: BigInt;
+  recommendedProducts: Array<HomepageProduct>;
+  recommendedDesigners: Array<HomepageDesigner>;
+  recommendedBrands: Array<HomepageBrand>;
+  followingDesigners: Array<HomepageDesigner>;
+  followingBrands: Array<HomepageBrand>;
+}
+
+export interface HomeRecommendationsState {
+  recommendations?: HomeRecommendations | null;
+  isLoading?: boolean;
+  error?: object | string;
+}
+
+export interface DesignersProps {
+  designers: Array<HomepageDesigner> | undefined;
+}
+
+export interface BrandsProps {
+  brands: Array<HomepageBrand> | undefined;
+}
+export interface RecommendedProductProps {
+  products: Array<HomepageProduct> | undefined;
+}
