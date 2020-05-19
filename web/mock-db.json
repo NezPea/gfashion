@@ -1,25 +1,145 @@
 {
   "recommendations": {
-    "designers": [
+    "customerId": 123,
+    "recommendedProducts": [
       {
+        "id": 1,
+        "name": "product1",
+        "photoUrl": "http://image1.gf.com",
+        "isFeatured": true
+      },
+      {
+        "id": 2,
+        "name": "product1",
+        "photoUrl": "http://image2.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 3,
+        "name": "product1",
+        "photoUrl": "http://image3.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 4,
+        "name": "product1",
+        "photoUrl": "http://image4.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 5,
+        "name": "product1",
+        "photoUrl": "http://image5.gf.com",
+        "isFeatured": false
+      }
+    ],
+    "recommendedDesigners": [
+      {
+        "id": 1,
         "name": "Miles",
-        "avatar": ""
+        "country": "HUAXIA",
+        "pothoUrl": "http://image6.gf.com"
       },
       {
-        "name": "Luther",
-        "avatar": ""
+        "id": 2,
+        "name": "Snow",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image7.gf.com"
       },
       {
-        "name": "Pence",
-        "avatar": ""
-      },
-      {
-        "name": "Ivanka",
-        "avatar": ""
-      },
-      {
+        "id": 3,
         "name": "Trump",
-        "avatar": ""
+        "country": "USA",
+        "pothoUrl": "http://image8.gf.com"
+      },
+      {
+        "id": 4,
+        "name": "Banon",
+        "country": "USA",
+        "pothoUrl": "http://image9.gf.com"
+      },
+      {
+        "id": 5,
+        "name": "Pompeo",
+        "country": "USA",
+        "pothoUrl": "http://image10.gf.com"
+      },
+      {
+        "id": 6,
+        "name": "Luther",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image11.gf.com"
+      },
+      {
+        "id": 7,
+        "name": "Pence",
+        "country": "USA",
+        "pothoUrl": "http://imag12.gf.com"
+      },
+      {
+        "id": 8,
+        "name": "Ivanka",
+        "country": "USA",
+        "pothoUrl": "http://image13.gf.com"
+      }
+    ],
+    "recommendedBrands": [
+      {
+        "id": 1,
+        "name": "Gucci",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      },
+      {
+        "id": 2,
+        "name": "HERMES",
+        "country": "France",
+        "photoUrl": "http://image2.gf.com",
+        "link": "http://hermes.com"
+      },
+      {
+        "id": 3,
+        "name": "LV",
+        "country": "France",
+        "photoUrl": "http://image3.gf.com",
+        "link": "http://lv.com"
+      },
+      {
+        "id": 4,
+        "name": "ARMANI",
+        "country": "Italy",
+        "photoUrl": "http://image4.gf.com",
+        "link": "http://armani.com"
+      }
+    ],
+    "followingDesigners": [
+      {
+        "id": 1,
+        "name": "Miles",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image6.gf.com"
+      },
+      {
+        "id": 2,
+        "name": "Snow",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image7.gf.com"
+      },
+      {
+        "id": 3,
+        "name": "Trump",
+        "country": "USA",
+        "pothoUrl": "http://image8.gf.com"
+      }
+    ],
+    "followingBrands": [
+      {
+        "id": 1,
+        "name": "Gucci",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
       }
     ]
   },
