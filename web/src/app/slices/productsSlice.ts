@@ -53,7 +53,7 @@ export const { request, success, fail } = productSlice.actions;
 
 export const fetchProductDetail = (payload: AxiosRequestConfig) => (dispatch: any) => {
   dispatch({
-    types: ['product/request', 'product/success', 'product/fail'],
+    types: [request, success, fail],
     payload: {
       request: payload
     }
