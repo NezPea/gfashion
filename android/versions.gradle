@@ -1,5 +1,6 @@
 ext.deps = [:]
 def versions = [:]
+versions.activity = '1.1.0'
 versions.android_gradle_plugin = '3.6.3'
 versions.annotations = "1.0.0"
 versions.appcompat = "1.1.0"
@@ -14,6 +15,8 @@ versions.dagger = "2.16"
 versions.fragment = "1.2.1"
 versions.glide = "4.8.0"
 versions.kotlin = "1.3.61"
+versions.lifecycle = "2.2.0"
+versions.material = "1.0.0"
 versions.paging = "2.1.1"
 versions.recyclerview = "1.0.0"
 versions.retrofit = "2.3.0"
@@ -35,6 +38,11 @@ build_versions.build_tools = "29.0.3"
 ext.build_versions = build_versions
 
 def deps = [:]
+
+def activity = [:]
+activity.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
+deps.activity = activity
+
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 
 deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
@@ -88,6 +96,16 @@ kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
 deps.kotlin = kotlin
+
+def lifecycle = [:]
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+deps.material = "com.google.android.material:material:$versions.material"
 
 def retrofit = [:]
 retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
