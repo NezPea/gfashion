@@ -4,7 +4,7 @@ import { Typography, Grid, Box } from '@material-ui/core';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import { DesignersProps } from '../../app/types';
+import { DesignersProps } from '../../../app/types';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 

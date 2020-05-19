@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import GFashionProduct from "../pages/GFashion/product/product";
-import GFashion from "../pages/GFashion";
+import GFashion from "../pages/GFashion/Home";
 import GMall from "../pages/GMall";
 import GClub from "../pages/GClub";
 import Test from "../pages/Test";

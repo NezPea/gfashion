@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import MainFrame from '../../components/MainFrame';
+import MainFrame from '../../../components/MainFrame';
 import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
 import GclubGate from './gclubGate';
 import { Brands } from './brands';
 import { RecommendedProducts } from './recommendedProducts';
-import { selectHomeRecommendations, fetchHomeRecommendations } from '../../app/slices/homeRecommendationsSlice';
+import { selectHomeRecommendations, fetchHomeRecommendations } from '../../../app/slices/homeRecommendationsSlice';
 
 export default () => {
   const home = useSelector(selectHomeRecommendations);

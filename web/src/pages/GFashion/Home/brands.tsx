@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, GridList, GridListTile } from '@material-ui/core';
-import { BrandsProps } from '../../app/types';
+import { BrandsProps } from '../../../app/types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
