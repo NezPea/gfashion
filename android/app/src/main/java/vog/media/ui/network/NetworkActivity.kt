@@ -28,7 +28,7 @@ class NetworkActivity : AppCompatActivity(), Injectable {
             if (it is ApiSuccessResponse) {
                 Timber.d(it.body.toString())
             } else {
-                Timber.e("fetch failed.")
+                Timber.e("fetch failed. ")
             }
         })
     }
