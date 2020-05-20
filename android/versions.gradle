@@ -44,7 +44,7 @@ activity.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
 deps.activity = activity
 
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
-
+deps.multidex = 'androidx.multidex:multidex:2.0.1'
 deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
 deps.annotations = "androidx.annotation:annotation:$versions.annotations"
 

@@ -13,6 +13,7 @@ android {
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -53,6 +54,7 @@ dependencies {
     implementation deps.cardview
     implementation deps.fragment.runtime_ktx
     implementation deps.paging_ktx
+    implementation deps.multidex
 
     // Architecture components
     implementation deps.lifecycle.runtime
