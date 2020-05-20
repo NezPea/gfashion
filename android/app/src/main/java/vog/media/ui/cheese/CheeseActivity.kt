@@ -6,16 +6,22 @@ import android.view.inputmethod.EditorInfo
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_cheese.*
 import vog.media.R
+import vog.media.di.Injectable
+import javax.inject.Inject
 
 /**
  * Yalin on 2020/5/19
  */
-class CheeseActivity : AppCompatActivity() {
-    private val viewModel by viewModels<CheeseViewModel>()
+class CheeseActivity : AppCompatActivity(), Injectable {
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel: CheeseViewModel by viewModels { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

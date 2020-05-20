@@ -12,7 +12,7 @@ import vog.media.executor.ioThread
  */
 
 @Database(entities = [User::class, Cheese::class], version = 1)
-abstract class GfashionDatabase : RoomDatabase() {
+abstract class GDatabase : RoomDatabase() {
     private lateinit var context: Context
 
     abstract fun userDao(): UserDao
@@ -20,9 +20,9 @@ abstract class GfashionDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: GfashionDatabase? = null
+        private var INSTANCE: GDatabase? = null
 
-        fun getInstance(context: Context): GfashionDatabase =
+        fun getInstance(context: Context): GDatabase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context).also {
                     it.context = context
@@ -33,7 +33,7 @@ abstract class GfashionDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
-                GfashionDatabase::class.java, "Gfashion.db"
+                GDatabase::class.java, "Gfashion.db"
             ).addCallback(object : Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     fillInDb(context)

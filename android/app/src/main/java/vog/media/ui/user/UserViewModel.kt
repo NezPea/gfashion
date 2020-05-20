@@ -5,11 +5,12 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import vog.media.persistence.User
 import vog.media.persistence.UserDao
+import javax.inject.Inject
 
 /**
  * Yalin on 2020/5/19
  */
-class UserViewModel(private val dataSource: UserDao) : ViewModel() {
+class UserViewModel @Inject constructor(private val dataSource: UserDao) : ViewModel() {
 
     /**
      * Get the user name of the user.

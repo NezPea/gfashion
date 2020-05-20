@@ -2,7 +2,7 @@ package vog.media
 
 import android.content.Context
 import vog.media.persistence.UserDao
-import vog.media.persistence.GfashionDatabase
+import vog.media.persistence.GDatabase
 import vog.media.ui.user.ViewModelFactory
 
 /**
@@ -11,7 +11,7 @@ import vog.media.ui.user.ViewModelFactory
 object Injection {
 
     fun provideUserDataSource(context: Context): UserDao {
-        val database = GfashionDatabase.getInstance(context)
+        val database = GDatabase.getInstance(context)
         return database.userDao()
     }
 

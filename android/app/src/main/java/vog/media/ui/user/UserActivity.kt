@@ -1,21 +1,25 @@
 package vog.media.ui.user
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_user.*
-import vog.media.Injection
+import timber.log.Timber
 import vog.media.R
+import vog.media.di.Injectable
+import javax.inject.Inject
 
 /**
  * Yalin on 2020/5/19
  */
-class UserActivity : AppCompatActivity() {
-    private lateinit var viewModelFactory: ViewModelFactory
+class UserActivity : AppCompatActivity(), Injectable {
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
     private val viewModel: UserViewModel by viewModels { viewModelFactory }
     private val disposable = CompositeDisposable()
 
@@ -23,7 +27,6 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
 
-        viewModelFactory = Injection.provideViewModelFactory(this)
         update_user_button.setOnClickListener { updateUserName() }
     }
 
@@ -34,7 +37,7 @@ class UserActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ this.user_name.text = it },
-                    { error -> Log.e(TAG, "Unable to get username", error) })
+                    { error -> Timber.e(error, "Unable to get username") })
         )
     }
 
@@ -52,7 +55,7 @@ class UserActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ update_user_button.isEnabled = true },
-                    { error -> Log.e(TAG, "Unable to update username", error) })
+                    { error -> Timber.e(error, "Unable to update username") })
         )
     }
 

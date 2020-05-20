@@ -6,13 +6,14 @@ import androidx.paging.Config
 import androidx.paging.toLiveData
 import vog.media.executor.ioThread
 import vog.media.persistence.Cheese
-import vog.media.persistence.GfashionDatabase
+import vog.media.persistence.GDatabase
+import javax.inject.Inject
 
 /**
  * Yalin on 2020/5/19
  */
-class CheeseViewModel(app: Application) : AndroidViewModel(app) {
-    val dao = GfashionDatabase.getInstance(app).cheeseDao()
+class CheeseViewModel @Inject constructor(app: Application) : AndroidViewModel(app) {
+    val dao = GDatabase.getInstance(app).cheeseDao()
 
     /**
      * We use -ktx Kotlin extension functions here, otherwise you would use LivePagedListBuilder(),
