@@ -3,7 +3,7 @@ package vog.media.ui
 import androidx.paging.PageKeyedDataSource
 import vog.media.persistence.Demo
 import vog.media.ui.cheese.CheeseActivity
-import vog.media.ui.githubrepo.RepoActivity
+import vog.media.ui.image.ImageActivity
 import vog.media.ui.user.UserActivity
 
 /**
@@ -18,7 +18,7 @@ class DemoDataSource : PageKeyedDataSource<Int, Demo>() {
             arrayListOf(
                 UserActivity::class.java,
                 CheeseActivity::class.java,
-                RepoActivity::class.java
+                ImageActivity::class.java
             ).map { Demo(it.name, it) },
             0,
             -1

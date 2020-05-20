@@ -24,16 +24,16 @@ android {
             }
         }
     }
-
+    dataBinding {
+        enabled = true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -59,12 +59,15 @@ dependencies {
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
     implementation deps.gson
+    
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.java8
 
     implementation deps.dagger.runtime
     implementation deps.dagger.android
     implementation deps.dagger.android_support
 
-    implementation deps.lifecycle.runtime
     implementation deps.room.runtime
     implementation deps.room.rxjava2
 
