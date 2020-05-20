@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import vog.media.ui.cheese.CheeseActivity
 import vog.media.ui.image.ImageActivity
+import vog.media.ui.network.NetworkActivity
 import vog.media.ui.user.UserActivity
 
 /**
@@ -21,4 +22,7 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector
     abstract fun contributeImageActivity(): ImageActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributeNetworkActivity(): NetworkActivity
 }

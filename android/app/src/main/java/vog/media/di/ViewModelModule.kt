@@ -9,6 +9,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import vog.media.ui.cheese.CheeseViewModel
 import vog.media.ui.image.ImageViewModel
+import vog.media.ui.network.NetworkViewModel
 import vog.media.ui.user.UserViewModel
 import vog.media.viewmodel.GViewModelFactory
 
@@ -29,6 +30,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ImageViewModel::class)
     abstract fun bindImageViewModel(imageViewModel: ImageViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NetworkViewModel::class)
+    abstract fun bindNetworkViewModel(networkViewModel: NetworkViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: GViewModelFactory): ViewModelProvider.Factory

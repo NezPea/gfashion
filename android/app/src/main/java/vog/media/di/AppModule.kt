@@ -18,7 +18,7 @@ class AppModule {
     @Provides
     fun provideGService(): GService {
         return Retrofit.Builder()
-            .baseUrl("https://api.vog.media/")
+            .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .build()
@@ -28,10 +28,7 @@ class AppModule {
     @Singleton
     @Provides
     fun provideDb(app: Application): GDatabase {
-        return Room
-            .databaseBuilder(app, GDatabase::class.java, "github.db")
-            .fallbackToDestructiveMigration()
-            .build()
+        return GDatabase.getInstance(app)
     }
 
     @Singleton

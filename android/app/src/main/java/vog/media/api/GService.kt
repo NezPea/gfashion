@@ -15,4 +15,7 @@ import vog.media.persistence.User
 interface GService {
     @GET("users/{login}")
     fun getUser(@Path("login") login: String): LiveData<ApiResponse<User>>
+
+    @GET("search/repositories")
+    fun searchRepos(@Query("q") query: String): LiveData<ApiResponse<RepoSearchResponse>>
 }

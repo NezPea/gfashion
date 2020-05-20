@@ -1,8 +1,11 @@
 package vog.media.ui
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import vog.media.R
 import vog.media.persistence.Demo
 
 /**
@@ -10,7 +13,14 @@ import vog.media.persistence.Demo
  */
 class DemoAdapter : PagedListAdapter<Demo, DemoViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DemoViewHolder =
-        DemoViewHolder(parent)
+        DemoViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.demo_item,
+                parent,
+                false
+            )
+        )
 
     override fun onBindViewHolder(holder: DemoViewHolder, position: Int) {
         holder.bindTo(getItem(position))

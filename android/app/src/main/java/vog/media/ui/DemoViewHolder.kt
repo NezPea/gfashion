@@ -1,27 +1,21 @@
 package vog.media.ui
 
 import android.content.Intent
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import vog.media.R
+import vog.media.databinding.DemoItemBinding
 import vog.media.persistence.Demo
 
 /**
  * Yalin on 2020/5/19
  */
-class DemoViewHolder(val parent: ViewGroup) : RecyclerView.ViewHolder(
-    LayoutInflater.from(parent.context).inflate(R.layout.cheese_item, parent, false)
-) {
-    private val nameView = itemView.findViewById<TextView>(R.id.name)
-
+class DemoViewHolder(val binding: DemoItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bindTo(demo: Demo?) {
-        nameView.text = demo?.name
-        nameView.setOnClickListener {
-            demo?.apply {
-                val intent = Intent(parent.context, clazz)
-                parent.context.startActivity(intent)
+        binding.demo = demo
+        binding.callback = object : DemoClickCallback {
+            override fun onClick(clazz: Class<out AppCompatActivity>) {
+                val intent = Intent(binding.root.context, clazz)
+                binding.root.context.startActivity(intent)
             }
         }
     }

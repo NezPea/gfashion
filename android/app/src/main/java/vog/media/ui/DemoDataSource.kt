@@ -1,9 +1,11 @@
 package vog.media.ui
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.paging.PageKeyedDataSource
 import vog.media.persistence.Demo
 import vog.media.ui.cheese.CheeseActivity
 import vog.media.ui.image.ImageActivity
+import vog.media.ui.network.NetworkActivity
 import vog.media.ui.user.UserActivity
 
 /**
@@ -15,10 +17,11 @@ class DemoDataSource : PageKeyedDataSource<Int, Demo>() {
         callback: LoadInitialCallback<Int, Demo>
     ) {
         callback.onResult(
-            arrayListOf(
+            arrayListOf<Class<out AppCompatActivity>>(
                 UserActivity::class.java,
                 CheeseActivity::class.java,
-                ImageActivity::class.java
+                ImageActivity::class.java,
+                NetworkActivity::class.java
             ).map { Demo(it.name, it) },
             0,
             -1
