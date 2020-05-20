@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 /**
- * Yalin on 2020/5/20
+ * Allen on 2020/5/20
  */
 class ImageViewModel @Inject constructor() : ViewModel() {
     fun image(): LiveData<String> {

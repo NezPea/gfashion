@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import vog.media.executor.ioThread
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 
 @Database(entities = [User::class, Cheese::class], version = 1)

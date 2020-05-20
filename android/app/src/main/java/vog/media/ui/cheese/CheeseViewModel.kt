@@ -10,7 +10,7 @@ import vog.media.persistence.GDatabase
 import javax.inject.Inject
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 class CheeseViewModel @Inject constructor(app: Application) : AndroidViewModel(app) {
     val dao = GDatabase.getInstance(app).cheeseDao()

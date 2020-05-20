@@ -3,7 +3,7 @@ package vog.media.executor
 import java.util.concurrent.Executors
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 
 private val IO_EXECUTOR = Executors.newSingleThreadExecutor()

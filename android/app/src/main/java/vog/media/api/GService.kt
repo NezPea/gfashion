@@ -8,7 +8,7 @@ import retrofit2.http.Query
 import vog.media.persistence.User
 
 /**
- * Yalin on 2020/5/20
+ * Allen on 2020/5/20
  *
  * REST API access points
  */

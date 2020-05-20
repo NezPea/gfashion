@@ -8,7 +8,7 @@ import vog.media.ui.network.NetworkActivity
 import vog.media.ui.user.UserActivity
 
 /**
- * Yalin on 2020/5/20
+ * Allen on 2020/5/20
  */
 
 @Suppress("unused")

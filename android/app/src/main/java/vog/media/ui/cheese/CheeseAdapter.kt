@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import vog.media.persistence.Cheese
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 class CheeseAdapter : PagedListAdapter<Cheese, CheeseViewHolder>(diffCallback) {
     override fun onBindViewHolder(holder: CheeseViewHolder, position: Int) {

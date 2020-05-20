@@ -8,7 +8,7 @@ import vog.media.R
 import vog.media.persistence.Cheese
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 
 class CheeseViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(

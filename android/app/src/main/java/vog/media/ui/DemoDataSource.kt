@@ -9,7 +9,7 @@ import vog.media.ui.network.NetworkActivity
 import vog.media.ui.user.UserActivity
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 class DemoDataSource : PageKeyedDataSource<Int, Demo>() {
     override fun loadInitial(

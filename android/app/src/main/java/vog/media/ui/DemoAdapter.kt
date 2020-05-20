@@ -9,7 +9,7 @@ import vog.media.R
 import vog.media.persistence.Demo
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 class DemoAdapter : PagedListAdapter<Demo, DemoViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DemoViewHolder =

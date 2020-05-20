@@ -15,7 +15,7 @@ import vog.media.di.Injectable
 import javax.inject.Inject
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 class CheeseActivity : AppCompatActivity(), Injectable {
     @Inject

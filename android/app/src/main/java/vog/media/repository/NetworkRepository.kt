@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Yalin on 2020/5/20
+ * Allen on 2020/5/20
  */
 @Singleton
 class NetworkRepository @Inject constructor(

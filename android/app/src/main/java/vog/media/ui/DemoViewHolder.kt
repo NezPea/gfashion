@@ -7,7 +7,7 @@ import vog.media.databinding.DemoItemBinding
 import vog.media.persistence.Demo
 
 /**
- * Yalin on 2020/5/19
+ * Allen on 2020/5/19
  */
 class DemoViewHolder(val binding: DemoItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bindTo(demo: Demo?) {
