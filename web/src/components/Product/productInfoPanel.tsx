@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import LoadingFailed from '../../components/Common/loadingFailed';
+import LoadingFailed from '../Common/loadingFailed';
 
 const productFallback = {
   currency: '$',
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const ProductPanel = () => {
+const ProductInfoPanel = () => {
   const classes = useStyles();
   let product = useSelector(selectProduct);
 
@@ -133,4 +133,4 @@ const ProductPanel = () => {
   )
 }
 
-export default ProductPanel;
+export default ProductInfoPanel;

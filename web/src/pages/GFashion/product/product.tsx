@@ -4,7 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { selectProduct, fetchProductDetail } from '../../../app/slices/productsSlice';
 import MainFrame from '../../../components/MainFrame';
 import ProductImageCarousel from '../../../components/Product/productImageCarousel';
-import ProductPanel from '../../../components/Product/productPanel';
+import ProductInfoPanel from '../../../components/Product/productInfoPanel';
 import ProductRecommendation from '../../../components/Product/productRecommendation';
 import { Grid } from '@material-ui/core';
 
@@ -51,7 +51,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
                   <ProductImageCarousel />
                 </Grid>
                 <Grid item xs={12} md={5}>
-                  <ProductPanel />
+                  <ProductInfoPanel />
                 </Grid>
               </Grid>
               {
