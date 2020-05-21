@@ -12,7 +12,7 @@ const client = axios.create({
   responseType: 'json'
 });
 
-const middleware = [...getDefaultMiddleware(), logger, axiosMiddleware(client)]
+const middleware = [...getDefaultMiddleware({ serializableCheck: false }), logger, axiosMiddleware(client)]
 
 const rootReducer = combineReducers({
   user: userReducer,

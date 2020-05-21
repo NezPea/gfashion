@@ -55,7 +55,7 @@ const ProductImageCarousel = () => {
   let product = useSelector(selectProduct);
 
   const buildPreview = () => {
-    return product.detail?.images.map((m, i) => {
+    return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Dot key={i} slide={i}>
           <img src={m.file} alt={m.label} className={classes.thumbnail} />
@@ -65,7 +65,7 @@ const ProductImageCarousel = () => {
   }
 
   const buildSlides = () => {
-    return product.detail?.images.map((m, i) => {
+    return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Slide key={i} index={i}>
           <ImageWithZoom src={m.file} className={classes.image} />
@@ -75,12 +75,12 @@ const ProductImageCarousel = () => {
   }
 
   return (
-    (product.detail && product.detail?.images && product.detail?.images.length) ?
+    (product.detail && product.detail?.media_gallery_entries && product.detail?.media_gallery_entries.length) ?
       (
         <CarouselProvider
           naturalSlideWidth={450}
           naturalSlideHeight={350}
-          totalSlides={product.detail?.images.length!}
+          totalSlides={product.detail?.media_gallery_entries.length!}
           visibleSlides={1}
           infinite={true}
           className={classes.carousel}
