@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigator from '../Navigator';
+import Footer from '../Footer';
 import { Container, Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
@@ -20,6 +21,7 @@ export default (props: any) => {
       <Grid container spacing={3} direction={"column"}>
         {props.children}
       </Grid>
+      <Footer />
     </Container>
   )
 }
