@@ -35,7 +35,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
     if (productId) {
       dispatch(fetchProductDetail({
         //url: '/product' // local mock data
-        url: `/gfashion/productdetail/${productId}`
+        url: `/gfashion/v1/products/${productId}`
       }));
     }
   }, [dispatch, productId]);
@@ -55,10 +55,10 @@ const GFashionProduct = ({ match }: { match: any }) => {
                 </Grid>
               </Grid>
               {
-                product.detail?.description &&
+                false &&
                 <Grid container spacing={3} className={classes.row}>
                   <Grid item xs={12}>
-                    <div className={classes.description} dangerouslySetInnerHTML={{ __html: product.detail?.description! }}></div>
+                    <div className={classes.description} ></div>
                   </Grid>
                 </Grid>
               }
