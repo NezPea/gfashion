@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
     },
     test: {
       backgroundColor: theme.palette.background.paper,
