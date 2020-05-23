@@ -73,6 +73,27 @@ export interface ProductState {
   error?: object | string;
 }
 
+export interface FilterDetail {
+  link_type: string;
+  image: string;
+  linked_product_sku: string;
+  linked_product_type: string;
+  name: string;
+  position: number;
+  sku: string;
+}
+
+export interface ProductListAttribute {
+  avavilable_filters: any;
+  items: Array<ProductDetail>;
+}
+
+export interface ProductListState {
+  detail?: ProductListAttribute | null;
+  isLoading?: boolean;
+  error?: object | string;
+}
+
 export interface AxiosMiddlewareActionMeta {
   previousAction: PayloadAction;
 }

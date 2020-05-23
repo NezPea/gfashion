@@ -26,7 +26,7 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     <Route path={`/${lang}/login`} component={Login} />
     <Route path={`/${lang}/register`} component={Register} />
     <Route path={`/${lang}/find-password`} component={FindPassword} />
-    <Route exact path={`/${lang}/product`} component={GFashionProductListing} />
+    <Route path={`/${lang}/category/:categoryId`} component={GFashionProductListing} />
     <Route path={`/${lang}/product/:productId`} component={GFashionProduct} />
     <Route component={NotFound} />
   </Switch>

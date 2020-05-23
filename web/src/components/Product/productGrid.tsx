@@ -1,58 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectProductList } from '../../app/slices/productListSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import ProductCard from './productCard';
 import LoadingFailed from '../Common/loadingFailed';
-
-const productList = [{
-  sku: "sku",
-  name: "Product Name",
-  image: "https://via.placeholder.com/280x280",
-  price: "2,500",
-  currency: "$",
-  shopName: "Shop Name"
-}, {
-  sku: "sku",
-  name: "Product Name",
-  image: "https://via.placeholder.com/280x280",
-  price: "2,500",
-  currency: "$",
-  shopName: "Shop Name"
-}, {
-  sku: "sku",
-  name: "Product Name",
-  image: "https://via.placeholder.com/280x280",
-  price: "2,500",
-  currency: "$",
-  shopName: "Shop Name"
-}, {
-  sku: "sku",
-  name: "Product Name",
-  image: "https://via.placeholder.com/280x280",
-  price: "2,500",
-  currency: "$",
-  shopName: "Shop Name"
-}, {
-  sku: "sku",
-  name: "Product Name",
-  image: "https://via.placeholder.com/280x280",
-  price: "2,500",
-  currency: "$",
-  shopName: "Shop Name"
-}, {
-  sku: "sku",
-  name: "Product Name",
-  image: "https://via.placeholder.com/280x280",
-  price: "2,500",
-  currency: "$",
-  shopName: "Shop Name"
-}]
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
     },
     test: {
       backgroundColor: theme.palette.background.paper,
@@ -62,13 +20,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const ProductGrid = () => {
   const classes = useStyles();
+  let productList = useSelector(selectProductList);
 
   return (
-    (productList && productList.length) ?
+    (productList.detail && productList.detail.items && productList.detail.items.length) ?
       (
         <div className={classes.root}>
           {
-            productList.map((item, index) => (
+            productList.detail.items.map((item, index) => (
               <ProductCard key={index} product={item} />
             ))
           }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectProductList } from '../../app/slices/productListSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -37,66 +39,13 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const availableFilters = [{
-  name: "材质",
-  code: "material",
-  options: [{
-    name: '山羊绒',
-    value: 'cashmere',
-    isSelected: true,
-  }, {
-    name: '羊毛',
-    value: 'wool',
-    isSelected: false,
-  }, {
-    name: '棉',
-    value: 'cotton',
-    isSelected: false,
-  }]
-}, {
-  name: "尺寸",
-  code: "material",
-  options: [{
-    name: '大号',
-    value: "size-l",
-    isSelected: false,
-  }, {
-    name: '中号',
-    value: "size-m",
-    isSelected: true,
-  }, {
-    name: '小号',
-    value: "size-s",
-    isSelected: false,
-  }]
-}, {
-  name: "颜色",
-  code: "material",
-  options: [{
-    name: "红色",
-    value: 'red',
-    isSelected: false,
-  }, {
-    name: "绿色",
-    value: 'green',
-    isSelected: false,
-  }, {
-    name: "橙色",
-    value: 'orange',
-    isSelected: true,
-  }, {
-    name: "蓝色",
-    value: 'blue',
-    isSelected: true,
-  }]
-}];
-
 const removeFilter = () => {
   console.info('You clicked the delete icon.');
 };
 
 const Filter = () => {
   const classes = useStyles();
+  let productList = useSelector(selectProductList);
 
   return (
     <div className={classes.root}>
@@ -105,8 +54,8 @@ const Filter = () => {
       </div>
       <div className={classes.filterContainer}>
         {
-          availableFilters && availableFilters.length &&
-          availableFilters.map((filter, index) => (
+          productList.detail && productList.detail.avavilable_filters && productList.detail.avavilable_filters.length &&
+          productList.detail.avavilable_filters.map((filter: any, index: any) => (
             <ExpansionPanel key={index}>
               <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -119,9 +68,9 @@ const Filter = () => {
                 <div className={classes.filter}>
                   <div>
                     {
-                      filter.options.filter((option) => {
-                        return option.isSelected
-                      }).map((option, index) => (
+                      filter.options.filter((option: any) => {
+                        return option.isChecked
+                      }).map((option: any, index: any) => (
                         <Chip
                           key={index}
                           label={option.name}
@@ -137,14 +86,14 @@ const Filter = () => {
                   </div>
                   <div className={classes.options}>
                     {
-                      filter.options.filter((option) => {
-                        return !option.isSelected
-                      }).map((option, index) => (
+                      filter.options.filter((option: any) => {
+                        return !option.isChecked
+                      }).map((option: any, index: any) => (
                         <FormControlLabel
                           key={index}
                           control={
                             <Checkbox
-                              name={option.value}
+                              name={option.id}
                               color="primary"
                             />
                           }

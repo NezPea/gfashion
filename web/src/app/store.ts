@@ -1,6 +1,7 @@
 import { combineReducers, configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice';
 import productReducer from './slices/productsSlice';
+import productListReducer from './slices/productListSlice';
 import gclubReducer from './slices/gclubSlice';
 import homeRecommendationsReducer from './slices/homeRecommendationsSlice';
 import logger from 'redux-logger';
@@ -17,6 +18,7 @@ const middleware = [...getDefaultMiddleware({ serializableCheck: false }), logge
 const rootReducer = combineReducers({
   user: userReducer,
   product: productReducer,
+  productList: productListReducer,
   gclub: gclubReducer,
   homeRecommendations: homeRecommendationsReducer
 })

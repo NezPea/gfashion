@@ -330,5 +330,291 @@
     "purchase_number_limit": null,
     "options": [],
     "tier_prices": []
+  },
+  "product-list": {
+    "items": [{
+        "id": 1260,
+        "sku": "WJ04-XS-Red",
+        "name": "Ingrid Running Jacket-XS-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1266,
+        "sku": "WJ04-M-Red",
+        "name": "Ingrid Running Jacket-M-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1272,
+        "sku": "WJ04-XL-Red",
+        "name": "Ingrid Running Jacket-XL-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1263,
+        "sku": "WJ04-S-Red",
+        "name": "Ingrid Running Jacket-S-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1269,
+        "sku": "WJ04-L-Red",
+        "name": "Ingrid Running Jacket-L-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1221,
+        "sku": "WJ01-M-Red",
+        "name": "Stellar Solar Jacket-M-Red",
+        "price": 75,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1218,
+        "sku": "WJ01-S-Red",
+        "name": "Stellar Solar Jacket-S-Red",
+        "price": 75,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1224,
+        "sku": "WJ01-L-Red",
+        "name": "Stellar Solar Jacket-L-Red",
+        "price": 75,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1277,
+        "sku": "WJ05-XS-Red",
+        "name": "Riona Full Zip Jacket-XS-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1283,
+        "sku": "WJ05-M-Red",
+        "name": "Riona Full Zip Jacket-M-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1289,
+        "sku": "WJ05-XL-Red",
+        "name": "Riona Full Zip Jacket-XL-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1280,
+        "sku": "WJ05-S-Red",
+        "name": "Riona Full Zip Jacket-S-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1286,
+        "sku": "WJ05-L-Red",
+        "name": "Riona Full Zip Jacket-L-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1299,
+        "sku": "WJ07-M-Red",
+        "name": "Inez Full Zip Jacket-M-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1305,
+        "sku": "WJ07-XL-Red",
+        "name": "Inez Full Zip Jacket-XL-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1296,
+        "sku": "WJ07-S-Red",
+        "name": "Inez Full Zip Jacket-S-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1302,
+        "sku": "WJ07-L-Red",
+        "name": "Inez Full Zip Jacket-L-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1293,
+        "sku": "WJ07-XS-Red",
+        "name": "Inez Full Zip Jacket-XS-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1248,
+        "sku": "WJ03-S-Red",
+        "name": "Augusta Pullover Jacket-S-Red",
+        "price": 57,
+        "file": "/w/j/wj03-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1254,
+        "sku": "WJ03-L-Red",
+        "name": "Augusta Pullover Jacket-L-Red",
+        "price": 57,
+        "file": "/w/j/wj03-red_main_2.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      }
+    ],
+    "search_criteria": {
+      "filter_groups": [{
+          "filters": [{
+            "field": "category_id",
+            "value": "23",
+            "condition_type": "eq"
+          }]
+        },
+        {
+          "filters": [{
+            "field": "color",
+            "value": "5485",
+            "condition_type": "eq"
+          }]
+        }
+      ],
+      "sort_orders": [{
+        "field": "price",
+        "direction": "DESC"
+      }],
+      "page_size": 20,
+      "current_page": 0
+    },
+    "total_count": 23,
+    "avavilable_filters": [{
+        "code": "size",
+        "name": "Size",
+        "options": [{
+            "id": "5593",
+            "name": "XS",
+            "isChecked": false
+          },
+          {
+            "id": "5594",
+            "name": "S",
+            "isChecked": false
+          },
+          {
+            "id": "5595",
+            "name": "M",
+            "isChecked": false
+          },
+          {
+            "id": "5596",
+            "name": "L",
+            "isChecked": false
+          },
+          {
+            "id": "5597",
+            "name": "XL",
+            "isChecked": false
+          }
+        ]
+      },
+      {
+        "code": "color",
+        "name": "Color",
+        "options": [{
+          "name": "Red",
+          "isChecked": true
+        }]
+      }
+    ]
   }
 }
