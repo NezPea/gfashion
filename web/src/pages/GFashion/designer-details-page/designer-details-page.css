@@ -1,0 +1,154 @@
+.designer-details-page {
+    position: relative;
+    width: 100vw;
+    background-color: #a0a0a0;
+}
+
+.top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.header {
+    position: relative;
+    height: 4.27vw;
+}
+
+.designer-profile {
+    position: relative;
+    background-color: #c0c0c0;
+    height: 28.13vw;
+}
+
+.row-1 {
+    position: relative;
+    height: 17.97vw;
+    background-color: #909090;
+}
+
+.text-profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    top: 10.10vw;
+    left: 25.68vw;
+    width: 36.51vw;
+    height: 5.78vw;
+    background-color: #404040;
+}
+
+.designer-name {
+    font-family: Montserrat;
+    font-size: 2.08vw;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.space-between {
+    flex-grow: 1;
+    background-color: #707070;
+}
+
+.designer-description {
+    font-family: SFUIDisplay;
+    font-size: 0.78vw;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.row-2 {
+    position: relative;
+    height: 10.16vw;
+}
+
+.brands {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    left: 25.73vw;
+    top: 2.19vw;
+    width: 36.51vw;
+    height: 6.30vw;
+    background-color: #707070;
+}
+
+.brand {
+    position: relative;
+    width: 4.38vw;
+    background-color: #606060;
+}
+
+.brand-logo-container {
+    position: relative;
+    width: 4.38vw;
+    height: 4.38vw;
+    background-color: #404040;
+}
+
+.brand-name {
+    position: relative;
+    width: 4.38vw;
+    height: 1.92vw;
+    background-color: #303030;
+}
+
+.photo-frame {
+    position: absolute;
+    top: 8.02vw;
+    left: 11.30vw;
+    width: 12.50vw;
+    height: 12.50vw;
+    background-color: #404040;
+    border-radius: 100%;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer {
+    position: relative;
+    height: 298px;
+}
+
+.designer-stories {
+    position: relative;
+    width: 72.92vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.designer-story-container {
+    position: relative;
+    margin-top: 4.16vw;
+    height: 36.46vw;
+    background-color: #909090;
+}
+
+.featured-products {
+    position: relative;
+    height: 699px;
+}
