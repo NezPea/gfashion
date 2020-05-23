@@ -33,7 +33,22 @@ function App() {
         },
         background: gfBackground,
         // ... and we will overrides more default colors at here
-        type: isDarkModePrefered ? 'dark' : 'light'
+        type: isDarkModePrefered ? 'dark' : 'light',
+      },
+      typography: {
+        fontFamily: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          'Lobster 1.4',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+        ].join(','),
       },
     })
   }, [isDarkModePrefered])
