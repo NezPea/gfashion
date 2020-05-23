@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProductList } from '../../app/slices/productListSlice';
+import { FilterDetail, FilterOptionDetail } from '../../app/types';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -55,7 +56,7 @@ const Filter = () => {
       <div className={classes.filterContainer}>
         {
           productList.detail && productList.detail.avavilable_filters && productList.detail.avavilable_filters.length &&
-          productList.detail.avavilable_filters.map((filter: any, index: any) => (
+          productList.detail.avavilable_filters.map((filter: FilterDetail, index: number) => (
             <ExpansionPanel key={index}>
               <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -68,14 +69,14 @@ const Filter = () => {
                 <div className={classes.filter}>
                   <div>
                     {
-                      filter.options.filter((option: any) => {
-                        return option.isChecked
-                      }).map((option: any, index: any) => (
+                      filter.options.filter((option: FilterOptionDetail) => {                        
+                        return option.isChecked === "true"
+                      }).map((option: FilterOptionDetail, index: number) => (
                         <Chip
                           key={index}
                           label={option.name}
                           onDelete={removeFilter}
-                          color="primary"
+                          color="secondary"
                           variant="outlined"
                           classes={{
                             root: classes.appliedOption
@@ -86,9 +87,9 @@ const Filter = () => {
                   </div>
                   <div className={classes.options}>
                     {
-                      filter.options.filter((option: any) => {
-                        return !option.isChecked
-                      }).map((option: any, index: any) => (
+                      filter.options.filter((option: FilterOptionDetail) => {
+                        return option.isChecked !== "true"
+                      }).map((option: FilterOptionDetail, index: number) => (
                         <FormControlLabel
                           key={index}
                           control={
