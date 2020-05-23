@@ -69,7 +69,7 @@ const Filter = () => {
                   <div>
                     {
                       filter.options.filter((option: any) => {
-                        return option.isChecked
+                        return option.isChecked == "true"
                       }).map((option: any, index: any) => (
                         <Chip
                           key={index}
@@ -87,7 +87,7 @@ const Filter = () => {
                   <div className={classes.options}>
                     {
                       filter.options.filter((option: any) => {
-                        return !option.isChecked
+                        return option.isChecked != "true"
                       }).map((option: any, index: any) => (
                         <FormControlLabel
                           key={index}
