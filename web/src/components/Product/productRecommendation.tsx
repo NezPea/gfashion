@@ -51,7 +51,7 @@ const ProductRecommendation = () => {
   }
 
   return (
-    (product.detail && product.detail?.images && product.detail?.images.length) ?
+    (product.detail && product.detail?.media_gallery_entries && product.detail?.media_gallery_entries.length) ?
       (
         <div>
           <h2 className={classes.title}>相关推荐</h2>
