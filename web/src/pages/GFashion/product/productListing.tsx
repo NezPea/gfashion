@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { selectProductList, fetchProductList } from '../../../app/slices/productListSlice';
 import { Grid } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -57,8 +59,20 @@ const handleSort = (event: React.ChangeEvent<{ value: unknown }>) => {
   console.log(event.target.value as string);
 };
 
-const GFashionProductListing = () => {
+const GFashionProductListing = ({ match }: { match: any }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const categoryId = match && match.params && match.params.categoryId;
+  let productList = useSelector(selectProductList);
+
+  useEffect(() => {
+    if (categoryId) {
+      dispatch(fetchProductList({
+        // url: '/product-list' // local mock data
+        url: `/gfashion/v1/channelProducts/?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]=23&searchCriteria[filter_groups][0][filters][0][condition_type]=eq&searchCriteria[filter_groups][3][filters][0][field]=color&searchCriteria[filter_groups][3][filters][0][value]=5485&searchCriteria[filter_groups][3][filters][0][condition_type]=eq&searchCriteria[pageSize]=20&searchCriteria[currentPage]=0&searchCriteria[sortOrders][0][field]=price&searchCriteria[sortOrders][0][direction]=desc`
+      }));
+    }
+  }, [dispatch, categoryId]);
 
   return (
     <MainFrameFullWidth>
@@ -69,7 +83,7 @@ const GFashionProductListing = () => {
             <h2>家具</h2>
           </Grid>
           <Grid item xs={9} className={classes.productHeader}>
-            128 Products found
+            {(productList.detail && productList.detail.items) ? productList.detail.items.length : 0} Products found
             <FormControl variant="outlined" className={classes.dropdownControl}>
               <Select
                 labelId="demo-simple-select-outlined-label"

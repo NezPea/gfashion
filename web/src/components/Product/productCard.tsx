@@ -8,16 +8,20 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       marginBottom: '40px',
+      width: '280px',
       '& div': {
         marginBottom: '10px'
       }
     },
     image: {
+      height: '280px',
+      width: '280px',
       backgroundColor: theme.palette.action.disabledBackground,
     },
     title: {
       fontSize: '18px',
-      margin: '30px 0 10px'
+      margin: '30px 0 10px',
+      textAlign: 'center'
     }
   }),
 );
@@ -29,10 +33,13 @@ const ProductCard = ({ product }: { product: any }) => {
     product &&
     (
       <div className={classes.root}>
-        <img src={product.image} alt={product.name} className={classes.image}></img>
+        <img
+          src={product.media_gallery_entries ? product.media_gallery_entries[0].file : ''}
+          alt={product.name}
+          className={classes.image}>
+        </img>
         <h2 className={classes.title}>{product.name}</h2>
-        <div>{product.shopName}</div>
-        <div>{product.currency}{product.price}</div>
+        <div>${product.price}</div>
       </div>
     )
   )
