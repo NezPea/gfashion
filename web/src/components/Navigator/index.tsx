@@ -1,19 +1,11 @@
 import React from 'react';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import Link from '@material-ui/core/Link';
+import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, Link, SwipeableDrawer } from '@material-ui/core';
+import { AccountCircle, ShoppingCart } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import DrawerList from './drawerList';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -92,6 +84,7 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -173,6 +166,7 @@ export default function PrimarySearchAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={() => { setIsDrawerOpen(true) }}
           >
             <MenuIcon />
           </IconButton>
@@ -229,6 +223,14 @@ export default function PrimarySearchAppBar() {
           </div>
         </Toolbar>
       </AppBar>
+      <SwipeableDrawer
+        anchor={"left"}
+        open={isDrawerOpen}
+        onClose={() => { setIsDrawerOpen(false) }}
+        onOpen={() => { console.log('opened') }}
+      >
+        <DrawerList />
+      </SwipeableDrawer>
       {renderMobileMenu}
       {renderMenu}
     </div>

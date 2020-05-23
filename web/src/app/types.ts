@@ -1,4 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { TypeBackground } from '@material-ui/core/styles/createPalette';
 /**
  *  gclub
  */
@@ -149,4 +150,11 @@ export interface BrandsProps {
 }
 export interface RecommendedProductProps {
   products: Array<HomepageProduct> | undefined;
+}
+
+export interface GfBackground extends TypeBackground {
+  productDetail: string;
+  footer: string;
+  designerHeaderLighter: string;
+  designerHeaderDeeper: string;
 }
