@@ -74,18 +74,20 @@ export interface ProductState {
   error?: object | string;
 }
 
-export interface FilterDetail {
-  link_type: string;
-  image: string;
-  linked_product_sku: string;
-  linked_product_type: string;
+export interface FilterOptionDetail {
+  id: string;
   name: string;
-  position: number;
-  sku: string;
+  isChecked: string;
+}
+
+export interface FilterDetail {
+  code: string;
+  name: string;
+  options: Array<FilterOptionDetail>;
 }
 
 export interface ProductListAttribute {
-  avavilable_filters: any;
+  avavilable_filters: Array<FilterDetail>;
   items: Array<ProductDetail>;
 }
 
