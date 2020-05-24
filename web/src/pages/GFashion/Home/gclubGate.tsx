@@ -1,6 +1,10 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import { Typography, Avatar } from '@material-ui/core';
+import GIcon from '../../../assets/images/g-icon.png';
+import HIcon from '../../../assets/images/h-icon.png';
+import JoinGclub from '../../../assets/images/join-gclub.svg';
+import Banner from '../../../assets/images/banner.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -9,6 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      overflow: 'hidden',
+      position: 'relative',
       [theme.breakpoints.up("xl")]: {
         height: 946
       },
@@ -19,13 +25,40 @@ const useStyles = makeStyles((theme: Theme) =>
         height: 500
       }
     },
+    banner: {
+      position: 'relative',
+      zIndex: 0,
+      width: '100%'
+    },
     sectionTitle: {
-      marginBottom: 50
+      position: 'absolute',
+      zIndex: 5,
+      width: '450px',
+      [theme.breakpoints.up("xl")]: {
+        top: 350
+      },
+      [theme.breakpoints.up('lg')]: {
+        top: 250
+      },
+      [theme.breakpoints.up("md")]: {
+        top: 150
+      }
     },
     gates: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      position: 'absolute',
+      zIndex: 5,
+      [theme.breakpoints.up("xl")]: {
+        top: 450
+      },
+      [theme.breakpoints.up('lg')]: {
+        top: 350
+      },
+      [theme.breakpoints.up("md")]: {
+        top: 250
+      }
     },
     gateBox: {
       border: '1px solid #be9c63',
@@ -72,6 +105,9 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .gDollar': {
         fontFamily: `'Georgia'`
       }
+    },
+    gateIcon: {
+      marginRight: theme.spacing(2)
     }
   })
 );
@@ -81,12 +117,15 @@ export default () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant='h2' align='center' className={classes.sectionTitle}>Join Gclub</Typography>
+      <img src={Banner} className={classes.banner} />
+      <img src={JoinGclub} className={classes.sectionTitle} />
       <div className={classes.gates}>
         <div className={classes.gateBox}>
+          <Avatar src={HIcon} className={classes.gateIcon}></Avatar>
           <Typography align='center' className='himaCoin'>Himalaya Coin</Typography>
         </div>
         <div className={classes.gateBox}>
+          <Avatar src={GIcon} className={classes.gateIcon}></Avatar>
           <Typography align='center' className='gDollar'>G-dollar</Typography>
         </div>
       </div>
