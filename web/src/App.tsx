@@ -36,6 +36,13 @@ function App() {
         type: isDarkModePrefered ? 'dark' : 'light',
       },
       typography: {
+        homeSectionTitle: {
+          fontSize: 30,
+          fontFamily: 'Georgia',
+          fontWeight: 'bold',
+          letterSpacing: 5,
+          color: '#222'
+        },
         fontFamily: [
           '-apple-system',
           'BlinkMacSystemFont',
@@ -43,6 +50,7 @@ function App() {
           'Roboto',
           '"Helvetica Neue"',
           'Arial',
+          'Georgia',
           'Lobster 1.4',
           'sans-serif',
           '"Apple Color Emoji"',
