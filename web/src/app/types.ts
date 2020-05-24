@@ -47,7 +47,7 @@ export interface ProductAttribute {
 
 export interface ProductLink {
   link_type: string;
-  image: string;
+  file: string;
   linked_product_sku: string;
   linked_product_type: string;
   name: string;
@@ -60,11 +60,10 @@ export interface ProductDetail {
   media_gallery_entries: Array<ProductImage>;
   price: string;
   name: string;
-  // description: string;
   designer_name: string;
   brand_name: string;
   brand_link: string;
-  // attribute: Array<ProductAttribute>;
+  custom_attributes: Array<ProductAttribute>;
   designer_link: string;
   product_links: Array<ProductLink>;
 }

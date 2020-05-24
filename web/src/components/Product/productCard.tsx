@@ -46,7 +46,7 @@ const ProductCard = ({ product }: { product: any }) => {
       <div className={classes.root}>
         <div className={classes.imageContainer}>
           <img
-            src={product.media_gallery_entries ? product.media_gallery_entries[0].file : ''}
+            src={product.file ? 'https://www.gfashion2020.tk/media/catalog/product' + product.file : ''}
             alt={product.name}
             className={classes.image}>
           </img>
