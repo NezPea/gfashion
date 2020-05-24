@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: '40px',
       width: '280px',
       '& div': {
-        marginBottom: '10px'
+        marginBottom: theme.spacing(1)
       }
     },
     imageContainer: {
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       height: '280px',
       width: '280px',
-      backgroundColor: theme.palette.action.disabledBackground,
     },
     image: {
       maxHeight: '280px',
