@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Grid, Box } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
@@ -10,6 +10,36 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      backgroundColor: theme.palette.background.paper,
+      [theme.breakpoints.up("xl")]: {
+        padding: theme.spacing(20, 0)
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding: theme.spacing(16, 0)
+      },
+      [theme.breakpoints.up("md")]: {
+        padding: theme.spacing(12, 0)
+      }
+    },
+    headline: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    surroundingLine: {
+      height: 0,
+      width: 50,
+      border: '1px solid #000'
+    },
+    sectionTitle: {
+      ...theme.typography.homeSectionTitle,
+      margin: theme.spacing(0, 5)
+    },
+    sectionDescription: {
+      ...theme.typography.homeSectionDescription,
+      textAlign: 'center'
+    },
     carouselProvider: {
       width: '100%',
       height: '300px',
@@ -76,10 +106,15 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
   }
 
   return (
-    <Grid item>
-      <Typography variant="h2" component="h2" align='center'>
-        魅力设计师
-      </Typography>
+    <div className={classes.root}>
+      <div className={classes.headline}>
+        <div className={classes.surroundingLine}></div>
+        <Typography className={classes.sectionTitle} align='center'>
+          Genius DESIGNERS
+        </Typography>
+        <div className={classes.surroundingLine}></div>
+      </div>
+      <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
       <CarouselProvider
         naturalSlideWidth={125}
         naturalSlideHeight={160}
@@ -94,6 +129,6 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
         <ButtonBack className={`${classes.slideButton} prev`}><ChevronLeft /></ButtonBack>
         <ButtonNext className={`${classes.slideButton} next`}><ChevronRight /></ButtonNext>
       </CarouselProvider>
-    </Grid >
+    </div >
   )
 }
