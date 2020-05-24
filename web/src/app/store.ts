@@ -1,6 +1,7 @@
 import { combineReducers, configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice';
 import productReducer from './slices/productsSlice';
+import productListReducer from './slices/productListSlice';
 import gclubReducer from './slices/gclubSlice';
 import homeRecommendationsReducer from './slices/homeRecommendationsSlice';
 import logger from 'redux-logger';
@@ -12,11 +13,12 @@ const client = axios.create({
   responseType: 'json'
 });
 
-const middleware = [...getDefaultMiddleware(), logger, axiosMiddleware(client)]
+const middleware = [...getDefaultMiddleware({ serializableCheck: false }), logger, axiosMiddleware(client)]
 
 const rootReducer = combineReducers({
   user: userReducer,
   product: productReducer,
+  productList: productListReducer,
   gclub: gclubReducer,
   homeRecommendations: homeRecommendationsReducer
 })
