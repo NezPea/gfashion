@@ -9,6 +9,8 @@ import Select from '@material-ui/core/Select';
 import MainFrameFullWidth from '../../../components/MainFrame';
 import ProductGrid from '../../../components/Product/productGrid';
 import Filter from '../../../components/Filter/filter';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import banner from '../../../assets/images/banner.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,17 +18,25 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: theme.spacing(7)
     },
     banner: {
-      backgroundColor: theme.palette.warning.light,
+      backgroundImage: `url(${banner})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
       width: 'calc(100vw - (100vw - 100%))',
-      height: '300px',
+      height: '400px',
       position: 'absolute',
       left: 0,
       marginTop: '-22px'
     },
     header: {
-      marginTop: '300px'
+      marginTop: '400px'
+    },
+    categoryTitle: {
+      color: theme.palette.secondary.main,
+      fontSize: '28px',
+      margin: 0
     },
     productHeader: {
+      color: theme.palette.text.secondary,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -35,6 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: '30px'
     },
     dropdownControl: {
+      background: 'transparent',
       margin: theme.spacing(1),
       minWidth: 120,
     },
@@ -80,7 +91,7 @@ const GFashionProductListing = ({ match }: { match: any }) => {
         <div className={classes.banner}></div>
         <Grid container spacing={3} className={classes.header}>
           <Grid item xs={3}>
-            <h2>家具</h2>
+            <h2 className={classes.categoryTitle}>家具</h2>
           </Grid>
           <Grid item xs={9} className={classes.productHeader}>
             {(productList.detail && productList.detail.items) ? productList.detail.items.length : 0} Products found
@@ -89,6 +100,7 @@ const GFashionProductListing = ({ match }: { match: any }) => {
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
                 value="popularity"
+                IconComponent={ExpandMoreIcon}
                 onChange={handleSort}
                 className={classes.dropdown}
                 classes={{
