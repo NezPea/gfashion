@@ -1,7 +1,8 @@
 {
   "recommendations": {
     "customerId": 123,
-    "recommendedProducts": [{
+    "recommendedProducts": [
+      {
         "id": 1,
         "name": "product1",
         "photoUrl": "http://image1.gf.com",
@@ -32,56 +33,58 @@
         "isFeatured": false
       }
     ],
-    "recommendedDesigners": [{
+    "recommendedDesigners": [
+      {
         "id": 1,
         "name": "Miles",
         "country": "HUAXIA",
-        "pothoUrl": "http://image6.gf.com"
+        "photoUrl": "../../../assets/images/designer1.png"
       },
       {
         "id": 2,
         "name": "Snow",
         "country": "HUAXIA",
-        "pothoUrl": "http://image7.gf.com"
+        "photoUrl": "../../../assets/images/designer2.png"
       },
       {
         "id": 3,
         "name": "Trump",
         "country": "USA",
-        "pothoUrl": "http://image8.gf.com"
+        "photoUrl": "../../../assets/images/designer3.png"
       },
       {
         "id": 4,
         "name": "Banon",
         "country": "USA",
-        "pothoUrl": "http://image9.gf.com"
+        "photoUrl": "../../../assets/images/designer4.png"
       },
       {
         "id": 5,
         "name": "Pompeo",
         "country": "USA",
-        "pothoUrl": "http://image10.gf.com"
+        "photoUrl": "../../../assets/images/designer5.png"
       },
       {
         "id": 6,
         "name": "Luther",
         "country": "HUAXIA",
-        "pothoUrl": "http://image11.gf.com"
+        "photoUrl": "../../../assets/images/designer6.png"
       },
       {
         "id": 7,
         "name": "Pence",
         "country": "USA",
-        "pothoUrl": "http://imag12.gf.com"
+        "photoUrl": "../../../assets/images/designer1.png"
       },
       {
         "id": 8,
         "name": "Ivanka",
         "country": "USA",
-        "pothoUrl": "http://image13.gf.com"
+        "photoUrl": "../../../assets/images/designer2.png"
       }
     ],
-    "recommendedBrands": [{
+    "recommendedBrands": [
+      {
         "id": 1,
         "name": "Gucci",
         "country": "France",
@@ -110,32 +113,35 @@
         "link": "http://armani.com"
       }
     ],
-    "followingDesigners": [{
+    "followingDesigners": [
+      {
         "id": 1,
         "name": "Miles",
         "country": "HUAXIA",
-        "pothoUrl": "http://image6.gf.com"
+        "photoUrl": "http://image6.gf.com"
       },
       {
         "id": 2,
         "name": "Snow",
         "country": "HUAXIA",
-        "pothoUrl": "http://image7.gf.com"
+        "photoUrl": "http://image7.gf.com"
       },
       {
         "id": 3,
         "name": "Trump",
         "country": "USA",
-        "pothoUrl": "http://image8.gf.com"
+        "photoUrl": "http://image8.gf.com"
       }
     ],
-    "followingBrands": [{
-      "id": 1,
-      "name": "Gucci",
-      "country": "France",
-      "photoUrl": "http://image1.gf.com",
-      "link": "http://gucci.com"
-    }]
+    "followingBrands": [
+      {
+        "id": 1,
+        "name": "Gucci",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      }
+    ]
   },
   "product": {
     "id": 2,
@@ -149,169 +155,187 @@
     "created_at": "2020-05-09 12:01:36",
     "updated_at": "2020-05-16 20:00:34",
     "weight": null,
-    "media_gallery_entries": [{
-      "id": 2,
-      "media_type": "image",
-      "label": "Image",
-      "position": 1,
-      "disabled": false,
-      "types": [],
-      "file": "/m/b/mb04-black-0.jpg",
-      "content": null,
-      "extension_attributes": null
-    }, {
-      "id": 3,
-      "media_type": "image",
-      "label": "Image",
-      "position": 2,
-      "disabled": false,
-      "types": [],
-      "file": "/m/b/mb04-black-0_alt1.jpg",
-      "content": null,
-      "extension_attributes": null
-    }],
+    "media_gallery_entries": [
+      {
+        "id": 2,
+        "media_type": "image",
+        "label": "Image",
+        "position": 1,
+        "disabled": false,
+        "types": [],
+        "file": "/m/b/mb04-black-0.jpg",
+        "content": null,
+        "extension_attributes": null
+      },
+      {
+        "id": 3,
+        "media_type": "image",
+        "label": "Image",
+        "position": 2,
+        "disabled": false,
+        "types": [],
+        "file": "/m/b/mb04-black-0_alt1.jpg",
+        "content": null,
+        "extension_attributes": null
+      }
+    ],
     "custom_attributes": null,
-    "product_links": [{
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "crosssell",
-      "linked_product_sku": "24-UG04",
-      "linked_product_type": "simple",
-      "position": 4,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "crosssell",
-      "linked_product_sku": "24-UG05",
-      "linked_product_type": "simple",
-      "position": 2,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "crosssell",
-      "linked_product_sku": "24-UG03",
-      "linked_product_type": "simple",
-      "position": 1,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "crosssell",
-      "linked_product_sku": "24-WG080",
-      "linked_product_type": "bundle",
-      "position": 3,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-MB01",
-      "linked_product_type": "simple",
-      "position": 1,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-MB03",
-      "linked_product_type": "simple",
-      "position": 3,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-MB05",
-      "linked_product_type": "simple",
-      "position": 4,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-MB06",
-      "linked_product_type": "simple",
-      "position": 5,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-MB02",
-      "linked_product_type": "simple",
-      "position": 2,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-UB02",
-      "linked_product_type": "simple",
-      "position": 6,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-WB06",
-      "linked_product_type": "simple",
-      "position": 9,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-WB03",
-      "linked_product_type": "simple",
-      "position": 7,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-WB07",
-      "linked_product_type": "simple",
-      "position": 10,
-      "extension_attributes": null
-    }, {
-      "sku": "24-MB04",
-      "name": null,
-      "price": 0.0,
-      "image": null,
-      "link_type": "upsell",
-      "linked_product_sku": "24-WB04",
-      "linked_product_type": "simple",
-      "position": 8,
-      "extension_attributes": null
-    }],
+    "product_links": [
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "crosssell",
+        "linked_product_sku": "24-UG04",
+        "linked_product_type": "simple",
+        "position": 4,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "crosssell",
+        "linked_product_sku": "24-UG05",
+        "linked_product_type": "simple",
+        "position": 2,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "crosssell",
+        "linked_product_sku": "24-UG03",
+        "linked_product_type": "simple",
+        "position": 1,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "crosssell",
+        "linked_product_sku": "24-WG080",
+        "linked_product_type": "bundle",
+        "position": 3,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-MB01",
+        "linked_product_type": "simple",
+        "position": 1,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-MB03",
+        "linked_product_type": "simple",
+        "position": 3,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-MB05",
+        "linked_product_type": "simple",
+        "position": 4,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-MB06",
+        "linked_product_type": "simple",
+        "position": 5,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-MB02",
+        "linked_product_type": "simple",
+        "position": 2,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-UB02",
+        "linked_product_type": "simple",
+        "position": 6,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-WB06",
+        "linked_product_type": "simple",
+        "position": 9,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-WB03",
+        "linked_product_type": "simple",
+        "position": 7,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-WB07",
+        "linked_product_type": "simple",
+        "position": 10,
+        "extension_attributes": null
+      },
+      {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
+        "link_type": "upsell",
+        "linked_product_sku": "24-WB04",
+        "linked_product_type": "simple",
+        "position": 8,
+        "extension_attributes": null
+      }
+    ],
     "extension_attributes": {
       "id": null,
       "media_type": null,
@@ -332,7 +356,8 @@
     "tier_prices": []
   },
   "product-list": {
-    "items": [{
+    "items": [
+      {
         "id": 1260,
         "sku": "WJ04-XS-Red",
         "name": "Ingrid Running Jacket-XS-Red",
@@ -554,33 +579,42 @@
       }
     ],
     "search_criteria": {
-      "filter_groups": [{
-          "filters": [{
-            "field": "category_id",
-            "value": "23",
-            "condition_type": "eq"
-          }]
+      "filter_groups": [
+        {
+          "filters": [
+            {
+              "field": "category_id",
+              "value": "23",
+              "condition_type": "eq"
+            }
+          ]
         },
         {
-          "filters": [{
-            "field": "color",
-            "value": "5485",
-            "condition_type": "eq"
-          }]
+          "filters": [
+            {
+              "field": "color",
+              "value": "5485",
+              "condition_type": "eq"
+            }
+          ]
         }
       ],
-      "sort_orders": [{
-        "field": "price",
-        "direction": "DESC"
-      }],
+      "sort_orders": [
+        {
+          "field": "price",
+          "direction": "DESC"
+        }
+      ],
       "page_size": 20,
       "current_page": 0
     },
     "total_count": 23,
-    "avavilable_filters": [{
+    "avavilable_filters": [
+      {
         "code": "size",
         "name": "Size",
-        "options": [{
+        "options": [
+          {
             "id": "5593",
             "name": "XS",
             "isChecked": false
@@ -610,10 +644,12 @@
       {
         "code": "color",
         "name": "Color",
-        "options": [{
-          "name": "Red",
-          "isChecked": true
-        }]
+        "options": [
+          {
+            "name": "Red",
+            "isChecked": true
+          }
+        ]
       }
     ]
   }
