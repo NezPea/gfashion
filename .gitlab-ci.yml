@@ -7,7 +7,7 @@ build:
   image: node:lts
   stage: build
   script: 
-  - cd web && yarn && REACT_APP_API_ADDRESS_OVERRIDE=http://dev2.magento-java-proxy.gfashion2020.tk yarn run build:staging
+  - cd web && yarn && REACT_APP_API_ADDRESS_OVERRIDE=http://api.dev2.gfashion.gfashion2020.tk yarn run build:staging
   artifacts:
     paths:
     - web/build
