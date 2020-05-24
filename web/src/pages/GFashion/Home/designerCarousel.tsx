@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box, Button } from '@material-ui/core';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
@@ -13,13 +13,16 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       backgroundColor: theme.palette.background.paper,
       [theme.breakpoints.up("xl")]: {
-        padding: theme.spacing(20, 0)
+        padding: theme.spacing(20, 0),
+        height: 1046
       },
       [theme.breakpoints.up("lg")]: {
-        padding: theme.spacing(16, 0)
+        padding: theme.spacing(16, 0),
+        height: 800
       },
       [theme.breakpoints.up("md")]: {
-        padding: theme.spacing(12, 0)
+        padding: theme.spacing(12, 0),
+        height: 600
       }
     },
     headline: {
@@ -42,9 +45,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     carouselProvider: {
       width: '100%',
-      height: '300px',
       position: 'relative',
-      padding: '0 30px'
+      padding: theme.spacing(8, 0)
     },
     slide: {
       '& > div': {
@@ -55,23 +57,24 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     avatar: {
-      width: theme.spacing(14),
-      height: theme.spacing(14),
-      marginBottom: theme.spacing(2)
+      width: '100%',
+      height: '100%',
+      marginBottom: theme.spacing(2),
+      overflow: 'visible',
+      filter: `grayscale(100%)`
     },
     slideButton: {
-      borderRadius: 20,
       width: theme.spacing(5),
       height: theme.spacing(5),
-      position: 'absolute',
-      marginTop: '-30px',
-      top: '50%',
+      backgroundColor: theme.palette.common.white,
+      border: '1px solid #e4e4e4',
       outline: 'none',
       '&.prev': {
-        left: 0
+        marginTop: theme.spacing(5),
+        marginLeft: 'calc(50% - 64px)'
       },
       '&.next': {
-        right: 0
+        marginLeft: theme.spacing(6)
       }
     },
     slideBox: {
@@ -80,11 +83,40 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       height: '100%',
-      width: '90%',
+      width: '100%',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: theme.palette.background.paper,
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
+      position: 'relative',
+      zIndex: 2,
+      '& .designer-name': {
+        visibility: 'hidden',
+        position: 'absolute',
+        color: theme.palette.common.white
+      },
+      '& .action-forrow': {
+        visibility: 'hidden',
+        position: 'absolute',
+        bottom: 0,
+        height: '13%',
+        width: '100%',
+        fontSize: 12,
+        padding: 0,
+        borderRadius: 0
+      },
+      '&:hover': {
+        zIndex: 3,
+        transform: `scale(1.25, 1.25)`
+      },
+      '&:hover .designer-name': {
+        visibility: 'visible',
+        cursor: `default`
+      },
+      '&:hover .action-forrow': {
+        visibility: 'visible',
+      },
+      '&:hover .avatar': {
+        filter: `none`
+      }
     }
   }),
 );
@@ -94,11 +126,14 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
 
   const buildSlides = () => {
     return designers.map((m, i) => {
+      console.log(m);
+
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <Box className={classes.slideBox}>
-            <Avatar src={m.photoUrl} className={classes.avatar} />
-            <Typography>{m.name}</Typography>
+            <Avatar src={require(`../../../assets/images/designer${i % 6 + 1}.png`)} variant='rounded' className={`${classes.avatar} avatar`} />
+            <Typography className='designer-name'>{m.name}</Typography>
+            <Button variant='contained' color='secondary' className='action-forrow'>Forrow</Button>
           </Box>
         </Slide>
       )
@@ -116,14 +151,14 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
       </div>
       <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
       <CarouselProvider
-        naturalSlideWidth={125}
-        naturalSlideHeight={160}
+        naturalSlideWidth={320}
+        naturalSlideHeight={320}
         totalSlides={designers ? designers.length : 5}
-        visibleSlides={5}
+        visibleSlides={6}
         orientation="horizontal"
         className={classes.carouselProvider}
       >
-        <Slider>
+        <Slider style={{ overflow: 'visible' }}>
           {buildSlides()}
         </Slider>
         <ButtonBack className={`${classes.slideButton} prev`}><ChevronLeft /></ButtonBack>
