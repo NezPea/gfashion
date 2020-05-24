@@ -47,9 +47,9 @@ const GFashionProduct = ({ match }: { match: any }) => {
         switch(item.attribute_code) {
           case 'description':
             productDesc = item.value;
-            return;
+            return null;
           default:
-            return;
+            return null;
         }
       })
   }
