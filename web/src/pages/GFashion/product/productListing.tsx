@@ -80,7 +80,7 @@ const GFashionProductListing = ({ match }: { match: any }) => {
     if (categoryId) {
       dispatch(fetchProductList({
         // url: '/product-list' // local mock data
-        url: `/gfashion/v1/channelProducts/%3FsearchCriteria[filter_groups][0][filters][0][field]%3Dcategory_id%26searchCriteria[filter_groups][0][filters][0][value]%3D23%26searchCriteria[filter_groups][0][filters][0][condition_type]%3Deq%26searchCriteria[filter_groups][3][filters][0][field]%3Dcolor%26searchCriteria[filter_groups][3][filters][0][value]%3D5485%26searchCriteria[filter_groups][3][filters][0][condition_type]%3Deq%26searchCriteria[pageSize]%3D20%26searchCriteria[currentPage]%3D0%26searchCriteria[sortOrders][0][field]%3Dprice%26searchCriteria[sortOrders][0][direction]%3Ddesc`
+        url: '/gfashion/v1/channelProducts/%3FsearchCriteria%5Bfilter_groups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bfield%5D%3Dcategory_id%26searchCriteria%5Bfilter_groups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bvalue%5D%3D23%26searchCriteria%5Bfilter_groups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bcondition_type%5D%3Deq%26searchCriteria%5Bfilter_groups%5D%5B3%5D%5Bfilters%5D%5B0%5D%5Bfield%5D%3Dcolor%26searchCriteria%5Bfilter_groups%5D%5B3%5D%5Bfilters%5D%5B0%5D%5Bvalue%5D%3D5485%26searchCriteria%5Bfilter_groups%5D%5B3%5D%5Bfilters%5D%5B0%5D%5Bcondition_type%5D%3Deq%26searchCriteria%5BpageSize%5D%3D20%26searchCriteria%5BcurrentPage%5D%3D0%26searchCriteria%5BsortOrders%5D%5B0%5D%5Bfield%5D%3Dprice%26searchCriteria%5BsortOrders%5D%5B0%5D%5Bdirection%5D%3Ddesc'
       }));
     }
   }, [dispatch, categoryId]);
