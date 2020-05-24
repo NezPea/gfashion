@@ -37,10 +37,17 @@ function App() {
       },
       typography: {
         homeSectionTitle: {
-          fontSize: 30,
+          fontSize: '1.875rem',
           fontFamily: 'Georgia',
           fontWeight: 'bold',
           letterSpacing: 5,
+          color: '#222'
+        },
+        homeSectionDescription: {
+          fontSize: '1rem',
+          fontFamily: 'Georgia',
+          fontWeight: "normal",
+          letterSpacing: 1,
           color: '#222'
         },
         fontFamily: [
