@@ -4,8 +4,9 @@ import { TypeBackground } from '@material-ui/core/styles/createPalette';
  *  gclub
  */
 export interface gclub {
-  name: string;
+  name?: string;
   email: string;
+  isLoading: boolean,
 }
 
 export interface UserInfo {
