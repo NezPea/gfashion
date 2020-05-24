@@ -3,23 +3,16 @@ import './App.css';
 import AppRouter from './routers/AppRouter';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { GfBackground } from './app/types';
+import { ThemeProvider } from '@material-ui/core/styles';
+import createGfashionTheme from './styles/createGfashionTheme';
 
-let gfBackground: GfBackground = {
-  default: '#fbf7f4',
-  paper: '#fff',
-  productDetail: '#fbf8f4',
-  footer: '#f7f5f1',
-  designerHeaderLighter: '#978a80',
-  designerHeaderDeeper: '#7b6e64'
-}
 
 function App() {
   const isDarkModePrefered = useMediaQuery('(prefers-color-scheme: dark)');
 
   const theme = React.useMemo(() => {
-    return createMuiTheme({
+    return createGfashionTheme({
+      appDrawer: { width: 20 },
       palette: {
         primary: {
           light: '#fbf7f4',
@@ -31,16 +24,25 @@ function App() {
           main: '#be9c63',
           contrastText: '#fff'
         },
-        text: {
-          primary: '#222222',
-          secondary: '#888888'
+        background: {
+          default: '#fbf7f4',
+          paper: '#fff',
+          productDetail: '#fbf8f4',
+          footer: '#f7f5f1',
+          designerHeaderLighter: '#978a80',
+          designerHeaderDeeper: '#7b6e64'
         },
-        divider: '#e6e6e6',
-        background: gfBackground,
         // ... and we will overrides more default colors at here
         type: isDarkModePrefered ? 'dark' : 'light',
       },
       typography: {
+        homeSectionTitle: {
+          fontSize: 30,
+          fontFamily: 'Georgia',
+          fontWeight: 'bold',
+          letterSpacing: 5,
+          color: '#222'
+        },
         fontFamily: [
           '-apple-system',
           'BlinkMacSystemFont',
@@ -48,6 +50,7 @@ function App() {
           'Roboto',
           '"Helvetica Neue"',
           'Arial',
+          'Georgia',
           'Lobster 1.4',
           'sans-serif',
           '"Apple Color Emoji"',
@@ -55,7 +58,7 @@ function App() {
           '"Segoe UI Symbol"',
         ].join(','),
       },
-    })
+    });
   }, [isDarkModePrefered])
 
   return (
