@@ -9,7 +9,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,6 +43,20 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     filterSummary: {
       fontSize: '16px',
+      '& .add': {
+        display: 'block'
+      },
+      '& .remove': {
+        display: 'none'
+      }
+    },
+    filterSummaryExpanded: {
+      '& .add': {
+        display: 'none'
+      },
+      '& .remove': {
+        display: 'block'
+      }
     },
     filterDetails: {
       display: 'flex',
@@ -110,11 +125,15 @@ const Filter = () => {
               }}
             >
               <CompactExpansionPanelSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+                expandIcon={
+                  <div>
+                    <AddIcon className="add"/>
+                    <RemoveIcon className="remove"/>
+                  </div>
+                }
                 classes={{
-                  root: classes.filterSummary
+                  root: classes.filterSummary,
+                  expanded: classes.filterSummaryExpanded
                 }}
               >
                 <div>{filter.name}</div>
