@@ -30,6 +30,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
   const dispatch = useDispatch();
   const productId = match && match.params && match.params.productId;
   let product = useSelector(selectProduct);
+  let productDesc = ''
 
   useEffect(() => {
     if (productId) {
@@ -40,6 +41,19 @@ const GFashionProduct = ({ match }: { match: any }) => {
     }
   }, [dispatch, productId]);
 
+  if (product.detail && product.detail.custom_attributes && product.detail.custom_attributes.length) {
+    product.detail.custom_attributes
+      .map((item) => {
+        switch(item.attribute_code) {
+          case 'description':
+            productDesc = item.value;
+            return null;
+          default:
+            return null;
+        }
+      })
+  }
+  
   return (
     <MainFrame>
       {
@@ -55,10 +69,10 @@ const GFashionProduct = ({ match }: { match: any }) => {
                 </Grid>
               </Grid>
               {
-                false &&
+                productDesc && productDesc.length &&
                 <Grid container spacing={3} className={classes.row}>
                   <Grid item xs={12}>
-                    <div className={classes.description} ></div>
+                    <div className={classes.description} >{productDesc}</div>
                   </Grid>
                 </Grid>
               }

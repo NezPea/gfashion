@@ -58,7 +58,7 @@ const ProductImageCarousel = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Dot key={i} slide={i}>
-          <img src={m.file} alt={m.label} className={classes.thumbnail} />
+          <img src={'https://www.gfashion2020.tk/media/catalog/product' + m.file} alt={m.label} className={classes.thumbnail} />
         </Dot>
       )
     })
@@ -68,7 +68,7 @@ const ProductImageCarousel = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <ImageWithZoom src={m.file} className={classes.image} />
+          <ImageWithZoom src={'https://www.gfashion2020.tk/media/catalog/product' + m.file} className={classes.image} />
         </Slide>
       )
     })

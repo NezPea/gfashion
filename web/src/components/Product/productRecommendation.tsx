@@ -44,7 +44,7 @@ const ProductRecommendation = () => {
     return product.detail?.product_links.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <Image src={m.image} alt={m.name} hasMasterSpinner={true} className={classes.slide} />
+          <Image src={'https://www.gfashion2020.tk/media/catalog/product' + m.file} alt={m.name} hasMasterSpinner={true} className={classes.slide} />
         </Slide>
       )
     })
