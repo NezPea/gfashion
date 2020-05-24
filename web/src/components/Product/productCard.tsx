@@ -13,14 +13,25 @@ const useStyles = makeStyles((theme: Theme) =>
         marginBottom: '10px'
       }
     },
-    image: {
+    imageContainer: {
+      display: 'flex',
+      alignItems: 'center',
       height: '280px',
       width: '280px',
       backgroundColor: theme.palette.action.disabledBackground,
     },
+    image: {
+      maxHeight: '280px',
+      maxWidth: '280px',
+      margin: 'auto'
+    },
     title: {
       fontSize: '18px',
       margin: '30px 0 10px',
+      textAlign: 'center'
+    },
+    price: {
+      fontSize: '18px',
       textAlign: 'center'
     }
   }),
@@ -33,13 +44,15 @@ const ProductCard = ({ product }: { product: any }) => {
     product &&
     (
       <div className={classes.root}>
-        <img
-          src={product.media_gallery_entries ? product.media_gallery_entries[0].file : ''}
-          alt={product.name}
-          className={classes.image}>
-        </img>
+        <div className={classes.imageContainer}>
+          <img
+            src={product.media_gallery_entries ? product.media_gallery_entries[0].file : ''}
+            alt={product.name}
+            className={classes.image}>
+          </img>
+        </div>
         <h2 className={classes.title}>{product.name}</h2>
-        <div>${product.price}</div>
+        <div className={classes.price}>${product.price}</div>
       </div>
     )
   )

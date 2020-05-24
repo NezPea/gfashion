@@ -31,6 +31,11 @@ function App() {
           main: '#be9c63',
           contrastText: '#fff'
         },
+        text: {
+          primary: '#222222',
+          secondary: '#888888'
+        },
+        divider: '#e6e6e6',
         background: gfBackground,
         // ... and we will overrides more default colors at here
         type: isDarkModePrefered ? 'dark' : 'light',
