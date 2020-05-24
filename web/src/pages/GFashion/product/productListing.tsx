@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
       height: '400px',
       position: 'absolute',
       left: 0,
-      marginTop: '-22px'
+      top: '65px'
     },
     header: {
-      marginTop: '400px'
+      marginTop: '420px'
     },
     categoryTitle: {
       color: theme.palette.secondary.main,
