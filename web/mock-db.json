@@ -37,48 +37,72 @@
       {
         "id": 1,
         "name": "Miles",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "HUAXIA",
         "photoUrl": "../../../assets/images/designer1.png"
       },
       {
         "id": 2,
         "name": "Snow",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "HUAXIA",
         "photoUrl": "../../../assets/images/designer2.png"
       },
       {
         "id": 3,
         "name": "Trump",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "USA",
         "photoUrl": "../../../assets/images/designer3.png"
       },
       {
         "id": 4,
         "name": "Banon",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "USA",
         "photoUrl": "../../../assets/images/designer4.png"
       },
       {
         "id": 5,
         "name": "Pompeo",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "USA",
         "photoUrl": "../../../assets/images/designer5.png"
       },
       {
         "id": 6,
         "name": "Luther",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "HUAXIA",
         "photoUrl": "../../../assets/images/designer6.png"
       },
       {
         "id": 7,
         "name": "Pence",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "USA",
         "photoUrl": "../../../assets/images/designer1.png"
       },
       {
         "id": 8,
         "name": "Ivanka",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
         "country": "USA",
         "photoUrl": "../../../assets/images/designer2.png"
       }

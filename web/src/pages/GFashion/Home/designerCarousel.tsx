@@ -88,12 +88,22 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       position: 'relative',
       zIndex: 2,
-      '& .designer-name': {
+      '& .designer-info': {
         visibility: 'hidden',
         position: 'absolute',
-        color: theme.palette.common.white
+        color: theme.palette.common.white,
+        textAlign: 'center',
+        '& .designer-name': {
+          fontFamily: `Montserrat`,
+          fontSize: '1.75rem',
+          fontWeight: `bold`
+        },
+        '& .designer-brand': {
+          fontFamily: `Helvetica`,
+          fontSize: `1.125rem`
+        }
       },
-      '& .action-forrow': {
+      '& .action-follow': {
         visibility: 'hidden',
         position: 'absolute',
         bottom: 0,
@@ -107,11 +117,11 @@ const useStyles = makeStyles((theme: Theme) =>
         zIndex: 3,
         transform: `scale(1.25, 1.25)`
       },
-      '&:hover .designer-name': {
+      '&:hover .designer-info': {
         visibility: 'visible',
         cursor: `default`
       },
-      '&:hover .action-forrow': {
+      '&:hover .action-follow': {
         visibility: 'visible',
       },
       '&:hover .avatar': {
@@ -132,8 +142,11 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
         <Slide key={i} index={i} className={classes.slide}>
           <Box className={classes.slideBox}>
             <Avatar src={require(`../../../assets/images/designer${i % 6 + 1}.png`)} variant='rounded' className={`${classes.avatar} avatar`} />
-            <Typography className='designer-name'>{m.name}</Typography>
-            <Button variant='contained' color='secondary' className='action-forrow'>Forrow</Button>
+            <div className='designer-info'>
+              <Typography className='designer-name'>{m.name}</Typography>
+              <Typography className='designer-brand'>{m.cooperatingBrands[0]}</Typography>
+            </div>
+            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
           </Box>
         </Slide>
       )
