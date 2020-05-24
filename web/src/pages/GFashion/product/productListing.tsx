@@ -80,7 +80,7 @@ const GFashionProductListing = ({ match }: { match: any }) => {
     if (categoryId) {
       dispatch(fetchProductList({
         // url: '/product-list' // local mock data
-        url: `/gfashion/v1/channelProducts/?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]=23&searchCriteria[filter_groups][0][filters][0][condition_type]=eq&searchCriteria[filter_groups][3][filters][0][field]=color&searchCriteria[filter_groups][3][filters][0][value]=5485&searchCriteria[filter_groups][3][filters][0][condition_type]=eq&searchCriteria[pageSize]=20&searchCriteria[currentPage]=0&searchCriteria[sortOrders][0][field]=price&searchCriteria[sortOrders][0][direction]=desc`
+        url: `/gfashion/v1/channelProducts/%3FsearchCriteria[filter_groups][0][filters][0][field]%3Dcategory_id%26searchCriteria[filter_groups][0][filters][0][value]%3D23%26searchCriteria[filter_groups][0][filters][0][condition_type]%3Deq%26searchCriteria[filter_groups][3][filters][0][field]%3Dcolor%26searchCriteria[filter_groups][3][filters][0][value]%3D5485%26searchCriteria[filter_groups][3][filters][0][condition_type]%3Deq%26searchCriteria[pageSize]%3D20%26searchCriteria[currentPage]%3D0%26searchCriteria[sortOrders][0][field]%3Dprice%26searchCriteria[sortOrders][0][direction]%3Ddesc`
       }));
     }
   }, [dispatch, categoryId]);
