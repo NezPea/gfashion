@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
-      display: 'none',
+      display: 'block',
       fontFamily: `'Lobster 1.4'`,
-      [theme.breakpoints.up('sm')]: {
-        display: 'block',
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
       },
     },
     search: {
@@ -31,11 +31,11 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       color: '#888',
       marginRight: theme.spacing(2),
-      marginLeft: 0,
-      width: '100%',
-      [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(3),
-        width: 'auto',
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+      [theme.breakpoints.down('sm')]: {
+        marginLeft: 0,
+        width: '100%',
       },
     },
     searchIcon: {
@@ -64,21 +64,21 @@ const useStyles = makeStyles((theme: Theme) =>
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
       transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '20ch',
+      width: '20ch',
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
       },
     },
     sectionDesktop: {
-      display: 'none',
-      [theme.breakpoints.up('md')]: {
-        display: 'flex',
+      display: 'flex',
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
       },
     },
     sectionMobile: {
-      display: 'flex',
-      [theme.breakpoints.up('md')]: {
-        display: 'none',
+      display: 'none',
+      [theme.breakpoints.down('md')]: {
+        display: 'flex',
       },
     },
   }),

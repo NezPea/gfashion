@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       overflow: 'hidden',
       position: 'relative',
-      [theme.breakpoints.up("xl")]: {
-        height: 946
+      [theme.breakpoints.down("xl")]: {
+        height: 850
       },
-      [theme.breakpoints.up('lg')]: {
-        height: 700
+      [theme.breakpoints.down('lg')]: {
+        height: 650
       },
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.down("md")]: {
         height: 500
       }
     },
@@ -34,13 +34,13 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       zIndex: 5,
       width: '450px',
-      [theme.breakpoints.up("xl")]: {
+      [theme.breakpoints.down("xl")]: {
         top: 350
       },
-      [theme.breakpoints.up('lg')]: {
+      [theme.breakpoints.down('lg')]: {
         top: 250
       },
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.down("md")]: {
         top: 150
       }
     },
@@ -50,19 +50,19 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       position: 'absolute',
       zIndex: 5,
-      [theme.breakpoints.up("xl")]: {
+      [theme.breakpoints.down("xl")]: {
         top: 450
       },
-      [theme.breakpoints.up('lg')]: {
+      [theme.breakpoints.down('lg')]: {
         top: 350
       },
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.down("md")]: {
         top: 250
       }
     },
     gateBox: {
       border: '1px solid #be9c63',
-      [theme.breakpoints.up("xl")]: {
+      [theme.breakpoints.down("xl")]: {
         width: 440,
         height: theme.spacing(20) - 5,
         '& .himaCoin': {
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
           fontSize: 40
         }
       },
-      [theme.breakpoints.up("lg")]: {
+      [theme.breakpoints.down("lg")]: {
         width: 380,
         height: theme.spacing(15),
         '& .himaCoin': {
@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme: Theme) =>
           fontSize: 32
         }
       },
-      [theme.breakpoints.up('md')]: {
+      [theme.breakpoints.down('md')]: {
         width: 300,
         height: theme.spacing(12),
         '& .himaCoin': {

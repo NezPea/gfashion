@@ -12,15 +12,15 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       backgroundColor: theme.palette.background.paper,
-      [theme.breakpoints.up("xl")]: {
+      [theme.breakpoints.down("xl")]: {
         padding: theme.spacing(20, 0),
         height: 1046
       },
-      [theme.breakpoints.up("lg")]: {
+      [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(16, 0),
         height: 800
       },
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.down("md")]: {
         padding: theme.spacing(12, 0),
         height: 600
       }
