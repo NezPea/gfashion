@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       marginBottom: '40px',
-      width: '280px',
+      width: '300px',
       '& div': {
         marginBottom: theme.spacing(1)
       }
@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme: Theme) =>
     imageContainer: {
       display: 'flex',
       alignItems: 'center',
-      height: '280px',
-      width: '280px',
+      height: '310px',
+      width: '310px',
     },
     image: {
-      maxHeight: '280px',
-      maxWidth: '280px',
+      maxHeight: '300px',
+      maxWidth: '300px',
       margin: 'auto'
     },
     title: {

@@ -10,12 +10,19 @@ import MainFrameFullWidth from '../../../components/MainFrame';
 import ProductGrid from '../../../components/Product/productGrid';
 import Filter from '../../../components/Filter/filter';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import LoadingSpinner from '../../../components/Common/loadingSpinner';
 import banner from '../../../assets/images/banner.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       paddingBottom: theme.spacing(7)
+    },
+    spinner: {
+      display: 'inline-block',
+      margin: `${theme.spacing(10)}px auto`,
+      position: 'relative',
+      left: 'calc(50% - 50px)'
     },
     banner: {
       backgroundImage: `url(${banner})`,
@@ -26,6 +33,10 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       left: 0,
       top: '65px'
+    },
+    contentContainer: {
+      maxWidth: '1400px',
+      margin: 'auto'
     },
     header: {
       marginTop: '420px'
@@ -87,41 +98,51 @@ const GFashionProductListing = ({ match }: { match: any }) => {
 
   return (
     <MainFrameFullWidth>
-      <div className={classes.root}>
-        <div className={classes.banner}></div>
-        <Grid container spacing={3} className={classes.header}>
-          <Grid item xs={3}>
-            <h2 className={classes.categoryTitle}>家具</h2>
-          </Grid>
-          <Grid item xs={9} className={classes.productHeader}>
-            {(productList.detail && productList.detail.items) ? productList.detail.items.length : 0} Products found
-            <FormControl variant="outlined" className={classes.dropdownControl}>
-              <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                value="popularity"
-                IconComponent={ExpandMoreIcon}
-                onChange={handleSort}
-                className={classes.dropdown}
-                classes={{
-                  root: classes.dropdownInput
-                }}
-              >
-                <MenuItem value="popularity">按销量</MenuItem>
-                <MenuItem value="price">按价格</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
-        <Grid container spacing={3} className={classes.content}>
-          <Grid item xs={3}>
-            <Filter />
-          </Grid>
-          <Grid item xs={9}>
-            <ProductGrid />
-          </Grid>
-        </Grid>
-      </div>
+      {
+        !productList.isLoading ? (
+          <div className={classes.root}>
+            <div className={classes.banner}></div>
+            <div className={classes.contentContainer}>
+              <Grid container spacing={3} justify="center" className={classes.header}>
+                <Grid item xs={3}>
+                  <h2 className={classes.categoryTitle}>家具</h2>
+                </Grid>
+                <Grid item xs={9} className={classes.productHeader}>
+                  {(productList.detail && productList.detail.items) ? productList.detail.items.length : 0} Products found
+                    <FormControl variant="outlined" className={classes.dropdownControl}>
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      value="popularity"
+                      IconComponent={ExpandMoreIcon}
+                      onChange={handleSort}
+                      className={classes.dropdown}
+                      classes={{
+                        root: classes.dropdownInput
+                      }}
+                    >
+                      <MenuItem value="popularity">按销量</MenuItem>
+                      <MenuItem value="price">按价格</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </Grid>
+              <Grid container spacing={3} justify="center" className={classes.content}>
+                <Grid item xs={3}>
+                  <Filter />
+                </Grid>
+                <Grid item xs={9}>
+                  <ProductGrid />
+                </Grid>
+              </Grid>
+            </div>
+          </div>
+        ) : (
+          <div className={classes.spinner}>
+            <LoadingSpinner />
+          </div>
+        )
+      }
     </MainFrameFullWidth>
   )
 }
