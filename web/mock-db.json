@@ -110,7 +110,7 @@
     "recommendedBrands": [
       {
         "id": 1,
-        "name": "Gucci",
+        "name": "Balmain",
         "country": "France",
         "photoUrl": "http://image1.gf.com",
         "link": "http://gucci.com"
@@ -124,17 +124,45 @@
       },
       {
         "id": 3,
-        "name": "LV",
+        "name": "CHANEL",
         "country": "France",
         "photoUrl": "http://image3.gf.com",
         "link": "http://lv.com"
       },
       {
         "id": 4,
-        "name": "ARMANI",
+        "name": "CHAUMET",
+        "country": "France",
+        "photoUrl": "http://image4.gf.com",
+        "link": "http://armani.com"
+      },
+      {
+        "id": 5,
+        "name": "Brioni",
         "country": "Italy",
         "photoUrl": "http://image4.gf.com",
         "link": "http://armani.com"
+      },
+      {
+        "id": 1,
+        "name": "Balmain",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      },
+      {
+        "id": 2,
+        "name": "HERMES",
+        "country": "France",
+        "photoUrl": "http://image2.gf.com",
+        "link": "http://hermes.com"
+      },
+      {
+        "id": 3,
+        "name": "CHANEL",
+        "country": "France",
+        "photoUrl": "http://image3.gf.com",
+        "link": "http://lv.com"
       }
     ],
     "followingDesigners": [
