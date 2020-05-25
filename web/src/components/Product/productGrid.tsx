@@ -8,12 +8,9 @@ import LoadingFailed from '../Common/loadingFailed';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-    },
-    test: {
-      backgroundColor: theme.palette.background.paper,
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gridGap: theme.spacing(2)
     }
   }),
 );
