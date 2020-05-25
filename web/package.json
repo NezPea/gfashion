@@ -60,5 +60,6 @@
   },
   "devDependencies": {
     "json-server": "^0.16.1"
-  }
+  },
+  "proxy": "http://api.dev2.gfashion.gfashion2020.tk"
 }
