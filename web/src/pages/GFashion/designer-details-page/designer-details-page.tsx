@@ -1,5 +1,6 @@
 import React from 'react';
 import './designer-details-page.css'
+import LeftPrimaryPictureStory from './components/left-primary-picture-story';
 
 class DesignerDetailsPageDesktop extends React.Component<any, any> {
 
@@ -40,6 +41,9 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                 <div className="content">
                     <div className="designer-stories">
                         <div className="designer-story-container">
+                            <div>
+                                <LeftPrimaryPictureStory />
+                            </div>
                         </div>
                     </div>
                     <div className="featured-products"></div>

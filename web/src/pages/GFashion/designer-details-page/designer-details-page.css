@@ -143,6 +143,9 @@
 
 .designer-story-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     margin-top: 4.16vw;
     height: 36.46vw;
     background-color: #909090;
