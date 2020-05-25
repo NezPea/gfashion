@@ -11,6 +11,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
       [theme.breakpoints.down("xl")]: {
         padding: theme.spacing(20, 0),

@@ -6,6 +6,7 @@ import { RecommendedProductProps } from '../../../app/types';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
