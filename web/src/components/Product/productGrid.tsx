@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectProductList } from '../../app/slices/productListSlice';
+import { ProductDetail } from '../../app/types';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import ProductCard from './productCard';
 import LoadingFailed from '../Common/loadingFailed';
@@ -15,16 +14,15 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const ProductGrid = () => {
+const ProductGrid = ({ products }: {products: ProductDetail[]}) => {
   const classes = useStyles();
-  let productList = useSelector(selectProductList);
 
   return (
-    (productList.detail && productList.detail.items && productList.detail.items.length) ?
+    (products.length) ?
       (
         <div className={classes.root}>
           {
-            productList.detail.items.map((item, index) => (
+            products.map((item, index) => (
               <ProductCard key={index} product={item} />
             ))
           }
