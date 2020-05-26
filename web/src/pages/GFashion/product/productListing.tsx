@@ -205,7 +205,7 @@ const GFashionProductListing = ({ match, location }: { match: any, location: any
                   <Filter />
                 </Grid>
                 <Grid item xs={9}>
-                  <ProductGrid />
+                  <ProductGrid products={productArray}/>
                   {
                     (productListResult.detail?.total_count! > productListResult.detail?.search_criteria.page_size! * (productListResult.detail?.search_criteria.current_page! + 1)) &&
                     <button className={classes.loadMore} onClick={handleLoadMore}>Load more</button>
