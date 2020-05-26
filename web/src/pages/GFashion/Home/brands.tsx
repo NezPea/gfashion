@@ -5,7 +5,7 @@ import { BrandsProps } from '../../../app/types';
 import { Slide, CarouselProvider, Slider, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import { ChevronRight, ChevronLeft } from '@material-ui/icons';
 import MockVideo from '../../../assets/images/mock_video.jpg';
-import models from './models';
+import { Models } from './imageAssets';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -206,7 +206,7 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
       </div>
       <div className={classes.models}>
         {
-          models.map((m, i) => {
+          Models.map((m, i) => {
             return (
               <img src={m} alt='model' key={i} />
             )

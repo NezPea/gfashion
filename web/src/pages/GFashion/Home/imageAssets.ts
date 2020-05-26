@@ -5,7 +5,7 @@ import Model4 from '../../../assets/images/model4.jpg';
 import Model5 from '../../../assets/images/model5.jpg';
 import Model6 from '../../../assets/images/model6.jpg';
 
-export default [
+export const Models = [
   Model1,
   Model2,
   Model3,
