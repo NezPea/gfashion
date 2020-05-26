@@ -1,0 +1,778 @@
+{
+  "recommendations": {
+    "customerId": 123,
+    "recommendedProducts": [
+      {
+        "id": 1,
+        "name": "product1",
+        "photoUrl": "http://image1.gf.com",
+        "isFeatured": true
+      },
+      {
+        "id": 2,
+        "name": "product1",
+        "photoUrl": "http://image2.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 3,
+        "name": "product1",
+        "photoUrl": "http://image3.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 4,
+        "name": "product1",
+        "photoUrl": "http://image4.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 5,
+        "name": "product1",
+        "photoUrl": "http://image5.gf.com",
+        "isFeatured": false
+      }
+    ],
+    "recommendedDesigners": [
+      {
+        "id": 1,
+        "name": "Miles",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image6.gf.com"
+      },
+      {
+        "id": 2,
+        "name": "Snow",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image7.gf.com"
+      },
+      {
+        "id": 3,
+        "name": "Trump",
+        "country": "USA",
+        "pothoUrl": "http://image8.gf.com"
+      },
+      {
+        "id": 4,
+        "name": "Banon",
+        "country": "USA",
+        "pothoUrl": "http://image9.gf.com"
+      },
+      {
+        "id": 5,
+        "name": "Pompeo",
+        "country": "USA",
+        "pothoUrl": "http://image10.gf.com"
+      },
+      {
+        "id": 6,
+        "name": "Luther",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image11.gf.com"
+      },
+      {
+        "id": 7,
+        "name": "Pence",
+        "country": "USA",
+        "pothoUrl": "http://imag12.gf.com"
+      },
+      {
+        "id": 8,
+        "name": "Ivanka",
+        "country": "USA",
+        "pothoUrl": "http://image13.gf.com"
+      }
+    ],
+    "recommendedBrands": [
+      {
+        "id": 1,
+        "name": "Gucci",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      },
+      {
+        "id": 2,
+        "name": "HERMES",
+        "country": "France",
+        "photoUrl": "http://image2.gf.com",
+        "link": "http://hermes.com"
+      },
+      {
+        "id": 3,
+        "name": "LV",
+        "country": "France",
+        "photoUrl": "http://image3.gf.com",
+        "link": "http://lv.com"
+      },
+      {
+        "id": 4,
+        "name": "ARMANI",
+        "country": "Italy",
+        "photoUrl": "http://image4.gf.com",
+        "link": "http://armani.com"
+      }
+    ],
+    "followingDesigners": [
+      {
+        "id": 1,
+        "name": "Miles",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image6.gf.com"
+      },
+      {
+        "id": 2,
+        "name": "Snow",
+        "country": "HUAXIA",
+        "pothoUrl": "http://image7.gf.com"
+      },
+      {
+        "id": 3,
+        "name": "Trump",
+        "country": "USA",
+        "pothoUrl": "http://image8.gf.com"
+      }
+    ],
+    "followingBrands": [
+      {
+        "id": 1,
+        "name": "Gucci",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      }
+    ]
+  },
+  "products": [
+    {
+      "id": 15,
+      "sku": "24-UG06",
+      "name": "Affirm Water Bottle ",
+      "attribute_set_id": 11,
+      "price": 7,
+      "status": 1,
+      "visibility": 4,
+      "type_id": "simple",
+      "created_at": "2020-05-09 12:01:37",
+      "updated_at": "2020-05-17 20:10:45",
+      "weight": null,
+      "media_gallery_entries": [
+        {
+          "id": 19,
+          "media_type": "image",
+          "label": "Image",
+          "position": 1,
+          "disabled": false,
+          "types": ["image", "small_image", "thumbnail"],
+          "file": "/u/g/ug06-lb-0.jpg",
+          "content": null,
+          "extension_attributes": null
+        }
+      ],
+      "custom_attributes": [
+        {
+          "attribute_code": "description",
+          "value": "<p>You'll stay hydrated with ease with the Affirm Water Bottle by your side or in hand. Measurements on the outside help you keep track of how much you're drinking, while the screw-top lid prevents spills. A metal carabiner clip allows you to attach it to the outside of a backpack or bag for easy access.</p>\r\n<ul>\r\n<li>Made of plastic.</li>\r\n<li>Grooved sides for an easy grip.</li>\r\n</ul>"
+        },
+        {
+          "attribute_code": "image",
+          "value": "/u/g/ug06-lb-0.jpg"
+        },
+        {
+          "attribute_code": "url_key",
+          "value": "affirm-water-bottle"
+        },
+        {
+          "attribute_code": "gift_message_available",
+          "value": "0"
+        },
+        {
+          "attribute_code": "small_image",
+          "value": "/u/g/ug06-lb-0.jpg"
+        },
+        {
+          "attribute_code": "thumbnail",
+          "value": "/u/g/ug06-lb-0.jpg"
+        },
+        {
+          "attribute_code": "options_container",
+          "value": "container2"
+        },
+        {
+          "attribute_code": "tax_class_id",
+          "value": "2"
+        },
+        {
+          "attribute_code": "msrp_display_actual_price_type",
+          "value": "0"
+        },
+        {
+          "attribute_code": "category_ids",
+          "value": [
+            {
+              "id": 3,
+              "parent_id": 2,
+              "name": "Gear",
+              "is_active": true,
+              "position": 5,
+              "level": 2,
+              "children": "4,5,6",
+              "created_at": "2020-05-09 12:01:35",
+              "updated_at": "2020-05-17 19:59:37",
+              "path": "1/2/3",
+              "include": null,
+              "custom_attributes": [
+                {
+                  "attribute_code": "display_mode",
+                  "value": "PAGE"
+                },
+                {
+                  "attribute_code": "is_anchor",
+                  "value": "0"
+                },
+                {
+                  "attribute_code": "path",
+                  "value": "1/2/3"
+                },
+                {
+                  "attribute_code": "children_count",
+                  "value": "3"
+                },
+                {
+                  "attribute_code": "url_key",
+                  "value": "gear"
+                },
+                {
+                  "attribute_code": "url_path",
+                  "value": "gear"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "parent_id": 3,
+              "name": "Fitness Equipment",
+              "is_active": true,
+              "position": 2,
+              "level": 3,
+              "children": "",
+              "created_at": "2020-05-09 12:01:35",
+              "updated_at": "2020-05-09 12:01:35",
+              "path": "1/2/3/5",
+              "include": null,
+              "custom_attributes": [
+                {
+                  "attribute_code": "is_anchor",
+                  "value": "1"
+                },
+                {
+                  "attribute_code": "path",
+                  "value": "1/2/3/5"
+                },
+                {
+                  "attribute_code": "children_count",
+                  "value": "0"
+                },
+                {
+                  "attribute_code": "url_key",
+                  "value": "fitness-equipment"
+                },
+                {
+                  "attribute_code": "url_path",
+                  "value": "gear/fitness-equipment"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attribute_code": "required_options",
+          "value": "0"
+        },
+        {
+          "attribute_code": "has_options",
+          "value": "0"
+        },
+        {
+          "attribute_code": "image_label",
+          "value": "Image"
+        },
+        {
+          "attribute_code": "activity",
+          "value": "5435,5436,5444,5438"
+        },
+        {
+          "attribute_code": "small_image_label",
+          "value": "Image"
+        },
+        {
+          "attribute_code": "material",
+          "value": {
+            "id": "5471",
+            "name": "Plastic",
+            "isChecked": "true"
+          }
+        },
+        {
+          "attribute_code": "thumbnail_label",
+          "value": "Image"
+        },
+        {
+          "attribute_code": "color",
+          "value": {
+            "id": "5476",
+            "name": "Black",
+            "isChecked": "true"
+          }
+        },
+        {
+          "attribute_code": "eco_collection",
+          "value": {
+            "id": "0",
+            "name": "No",
+            "isChecked": "true"
+          }
+        },
+        {
+          "attribute_code": "performance_fabric",
+          "value": {
+            "id": "0",
+            "name": "No",
+            "isChecked": "true"
+          }
+        },
+        {
+          "attribute_code": "erin_recommends",
+          "value": {
+            "id": "0",
+            "name": "No",
+            "isChecked": "true"
+          }
+        },
+        {
+          "attribute_code": "new",
+          "value": {
+            "id": "0",
+            "name": "No",
+            "isChecked": "true"
+          }
+        },
+        {
+          "attribute_code": "sale",
+          "value": {
+            "id": "0",
+            "name": "No",
+            "isChecked": "true"
+          }
+        }
+      ],
+      "product_links": [
+        {
+          "sku": "24-UG06",
+          "name": "Dual Handle Cardio Ball",
+          "price": 12,
+          "file": "/u/g/ug07-bk-0.jpg",
+          "link_type": "related",
+          "linked_product_sku": "24-UG07",
+          "linked_product_type": "simple",
+          "position": 4,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Zing Jump Rope",
+          "price": 12,
+          "file": "/u/g/ug04-bk-0.jpg",
+          "link_type": "related",
+          "linked_product_sku": "24-UG04",
+          "linked_product_type": "simple",
+          "position": 1,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Sprite Stasis Ball 75 cm",
+          "price": 32,
+          "file": "/l/u/luma-stability-ball.jpg",
+          "link_type": "related",
+          "linked_product_sku": "24-WG083-blue",
+          "linked_product_type": "simple",
+          "position": 3,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Sprite Yoga Strap 8 foot",
+          "price": 17,
+          "file": "/l/u/luma-yoga-strap.jpg",
+          "link_type": "related",
+          "linked_product_sku": "24-WG086",
+          "linked_product_type": "simple",
+          "position": 2,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Dual Handle Cardio Ball",
+          "price": 12,
+          "file": "/u/g/ug07-bk-0.jpg",
+          "link_type": "crosssell",
+          "linked_product_sku": "24-UG07",
+          "linked_product_type": "simple",
+          "position": 3,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Harmony Lumaflex&trade; Strength Band Kit ",
+          "price": 22,
+          "file": "/u/g/ug03-bk-0.jpg",
+          "link_type": "crosssell",
+          "linked_product_sku": "24-UG03",
+          "linked_product_type": "simple",
+          "position": 4,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Sprite Yoga Strap 10 foot",
+          "price": 21,
+          "file": "/l/u/luma-yoga-strap.jpg",
+          "link_type": "crosssell",
+          "linked_product_sku": "24-WG087",
+          "linked_product_type": "simple",
+          "position": 2,
+          "extension_attributes": null
+        },
+        {
+          "sku": "24-UG06",
+          "name": "Sprite Yoga Companion Kit",
+          "price": 0,
+          "file": "/l/u/luma-yoga-kit-2.jpg",
+          "link_type": "crosssell",
+          "linked_product_sku": "24-WG080",
+          "linked_product_type": "bundle",
+          "position": 1,
+          "extension_attributes": null
+        }
+      ],
+      "extension_attributes": {
+        "id": null,
+        "media_type": null,
+        "label": null,
+        "position": null,
+        "disabled": null,
+        "types": null,
+        "file": null,
+        "content": null,
+        "extension_attributes": null
+      },
+      "designer_name": null,
+      "designer_link": null,
+      "brand_name": null,
+      "brand_link": null,
+      "purchase_number_limit": null,
+      "options": [],
+      "tier_prices": []
+    }
+  ],
+  "product-list": {
+    "items": [
+      {
+        "id": 1272,
+        "sku": "WJ04-XL-Red",
+        "name": "Ingrid Running Jacket-XL-Red",
+        "price": 84.0,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1263,
+        "sku": "WJ04-S-Red",
+        "name": "Ingrid Running Jacket-S-Red",
+        "price": 84.0,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1269,
+        "sku": "WJ04-L-Red",
+        "name": "Ingrid Running Jacket-L-Red",
+        "price": 84.0,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1260,
+        "sku": "WJ04-XS-Red",
+        "name": "Ingrid Running Jacket-XS-Red",
+        "price": 84.0,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1266,
+        "sku": "WJ04-M-Red",
+        "name": "Ingrid Running Jacket-M-Red",
+        "price": 84.0,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1218,
+        "sku": "WJ01-S-Red",
+        "name": "Stellar Solar Jacket-S-Red",
+        "price": 75.0,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1224,
+        "sku": "WJ01-L-Red",
+        "name": "Stellar Solar Jacket-L-Red",
+        "price": 75.0,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1221,
+        "sku": "WJ01-M-Red",
+        "name": "Stellar Solar Jacket-M-Red",
+        "price": 75.0,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1280,
+        "sku": "WJ05-S-Red",
+        "name": "Riona Full Zip Jacket-S-Red",
+        "price": 60.0,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1286,
+        "sku": "WJ05-L-Red",
+        "name": "Riona Full Zip Jacket-L-Red",
+        "price": 60.0,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1277,
+        "sku": "WJ05-XS-Red",
+        "name": "Riona Full Zip Jacket-XS-Red",
+        "price": 60.0,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1283,
+        "sku": "WJ05-M-Red",
+        "name": "Riona Full Zip Jacket-M-Red",
+        "price": 60.0,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1289,
+        "sku": "WJ05-XL-Red",
+        "name": "Riona Full Zip Jacket-XL-Red",
+        "price": 60.0,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1296,
+        "sku": "WJ07-S-Red",
+        "name": "Inez Full Zip Jacket-S-Red",
+        "price": 59.0,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1302,
+        "sku": "WJ07-L-Red",
+        "name": "Inez Full Zip Jacket-L-Red",
+        "price": 59.0,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1293,
+        "sku": "WJ07-XS-Red",
+        "name": "Inez Full Zip Jacket-XS-Red",
+        "price": 59.0,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1299,
+        "sku": "WJ07-M-Red",
+        "name": "Inez Full Zip Jacket-M-Red",
+        "price": 59.0,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1305,
+        "sku": "WJ07-XL-Red",
+        "name": "Inez Full Zip Jacket-XL-Red",
+        "price": 59.0,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1245,
+        "sku": "WJ03-XS-Red",
+        "name": "Augusta Pullover Jacket-XS-Red",
+        "price": 57.0,
+        "file": "/w/j/wj03-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1251,
+        "sku": "WJ03-M-Red",
+        "name": "Augusta Pullover Jacket-M-Red",
+        "price": 57.0,
+        "file": "/w/j/wj03-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      }
+    ],
+    "search_criteria": {
+      "filter_groups": [
+        {
+          "filters": [
+            {
+              "field": "category_id",
+              "value": "23",
+              "condition_type": "eq"
+            }
+          ]
+        },
+        {
+          "filters": [
+            {
+              "field": "color",
+              "value": "5485",
+              "condition_type": "eq"
+            }
+          ]
+        }
+      ],
+      "sort_orders": [
+        {
+          "field": "price",
+          "direction": "DESC"
+        }
+      ],
+      "page_size": 20,
+      "current_page": 0
+    },
+    "total_count": 23,
+    "avavilable_filters": [
+      {
+        "code": "size",
+        "name": "Size",
+        "options": [
+          {
+            "id": "5597",
+            "name": "XL",
+            "isChecked": "false"
+          },
+          {
+            "id": "5594",
+            "name": "S",
+            "isChecked": "false"
+          },
+          {
+            "id": "5596",
+            "name": "L",
+            "isChecked": "false"
+          },
+          {
+            "id": "5593",
+            "name": "XS",
+            "isChecked": "false"
+          },
+          {
+            "id": "5595",
+            "name": "M",
+            "isChecked": "false"
+          }
+        ]
+      },
+      {
+        "code": "color",
+        "name": "Color",
+        "options": [
+          {
+            "id": "5485",
+            "name": "Red",
+            "isChecked": "true"
+          }
+        ]
+      }
+    ]
+  }
+}
