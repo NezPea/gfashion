@@ -24,14 +24,31 @@
     height: 5.124rem;
 }
 
+.designer-profile-container {
+    position: relative;
+    display: flex;
+    background-color: #c0c0c0;
+}
+
+.designer-profile-min-spacing {
+    position: relative;
+    flex-grow: 1;
+    width: 1.000rem;
+}
+
 .designer-profile {
     position: relative;
-    background-color: #c0c0c0;
-    height: 33.756rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-shrink: 1;
+    min-width: 46.438rem;
+    width: 61.062rem;
 }
 
 .row-1 {
     position: relative;
+    display: flex;
     height: 21.504rem;
     background-color: #909090;
 }
@@ -41,14 +58,19 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    top: 12.120rem;
-    left: 30.816rem;
+    max-width: 43.812rem;
+    margin-top: 12.120rem;
+    margin-left: 17.250rem;
+    margin-right: 3.563rem;
     width: 43.812rem;
     height: 6.936rem;
+    flex-grow: 1;
+    flex-shrink: 1;
     background-color: #404040;
 }
 
 .designer-name {
+    height: 2.500rem;
     font-family: Montserrat;
     font-size: 2.496rem;
     font-weight: bold;
@@ -65,6 +87,7 @@
 }
 
 .designer-description {
+    height: 3.125rem;
     font-family: SFUIDisplay;
     font-size: 0.936rem;
     font-weight: 500;
@@ -73,28 +96,45 @@
     line-height: 1.47;
     letter-spacing: normal;
     color: #ffffff;
+    overflow: hidden;
 }
 
 .row-2 {
     position: relative;
-    height: 12.192rem;
+    display: flex;
 }
 
 .brands {
     position: relative;
     display: flex;
+    width: 8.819rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-wrap: wrap;
     align-items: stretch;
-    left: 30.876rem;
-    top: 2.628rem;
-    width: 43.812rem;
-    height: 7.560rem;
+    margin-left: 17.250rem;
     background-color: #707070;
+}
+
+.row-2-background {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
 }
 
 .brand {
     position: relative;
+    margin-right: 3.500rem;
+    padding-top: 2.652rem;
+    padding-bottom: 1.875rem;
     width: 5.256rem;
     background-color: #606060;
+}
+
+.cancel-spacing {
+    position: relative;
+    margin-left: -3.563rem;
+    width: 0;
 }
 
 .brand-logo-container {
@@ -115,7 +155,7 @@
 .photo-frame {
     position: absolute;
     top: 9.624rem;
-    left: 13.560rem;
+    left: 0rem;
     width: 15.000rem;
     height: 15.000rem;
     background-color: #404040;
