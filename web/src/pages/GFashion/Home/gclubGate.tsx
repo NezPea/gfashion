@@ -117,8 +117,8 @@ export default () => {
 
   return (
     <div className={classes.root}>
-      <img src={Banner} className={classes.banner} />
-      <img src={JoinGclub} className={classes.sectionTitle} />
+      <img alt='banner' src={Banner} className={classes.banner} />
+      <img alt='title' src={JoinGclub} className={classes.sectionTitle} />
       <div className={classes.gates}>
         <div className={classes.gateBox}>
           <Avatar src={HIcon} className={classes.gateIcon}></Avatar>
