@@ -12,7 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       paddingTop: theme.spacing(5),
-      paddingBottom: theme.spacing(7)
+      paddingBottom: theme.spacing(7),
+      maxWidth: '1400px',
+      margin: 'auto'
     },
     description: {
       backgroundColor: theme.palette.background.paper,

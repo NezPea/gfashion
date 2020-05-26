@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     thumbnail: {
       backgroundColor: theme.palette.action.disabledBackground,
-      maxWidth: '80px',
-      maxHeight: '60px'
+      maxWidth: '65px',
+      maxHeight: '80px'
     },
     slider: {
       width: 'calc(100% - 110px)'
@@ -58,7 +58,7 @@ const ProductImageCarousel = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Dot key={i} slide={i}>
-          <img src={'https://www.gfashion2020.tk/media/catalog/product' + m.file} alt={m.label} className={classes.thumbnail} />
+          <img src={m.file} alt={m.label} className={classes.thumbnail} />
         </Dot>
       )
     })
@@ -68,7 +68,7 @@ const ProductImageCarousel = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <ImageWithZoom src={'https://www.gfashion2020.tk/media/catalog/product' + m.file} className={classes.image} />
+          <ImageWithZoom src={m.file} className={classes.image} />
         </Slide>
       )
     })
@@ -78,8 +78,8 @@ const ProductImageCarousel = () => {
     (product.detail && product.detail?.media_gallery_entries && product.detail?.media_gallery_entries.length) ?
       (
         <CarouselProvider
-          naturalSlideWidth={450}
-          naturalSlideHeight={350}
+          naturalSlideWidth={520}
+          naturalSlideHeight={640}
           totalSlides={product.detail?.media_gallery_entries.length!}
           visibleSlides={1}
           infinite={true}
