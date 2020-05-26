@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import QueryString from 'query-string'
+import QueryString from 'query-string';
 import { ProductDetail } from '../../../app/types';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { selectProductList, fetchProductList } from '../../../app/slices/productListSlice';
