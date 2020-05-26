@@ -1,9 +1,11 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Avatar, Button } from '@material-ui/core';
+import { Typography, Avatar, Button, Link } from '@material-ui/core';
 import { BrandsProps } from '../../../app/types';
 import { Slide, CarouselProvider, Slider, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import { ChevronRight, ChevronLeft } from '@material-ui/icons';
+import MockVideo from '../../../assets/images/mock_video.jpg';
+import models from './models';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -12,17 +14,17 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: 'auto',
       [theme.breakpoints.down("xl")]: {
         padding: theme.spacing(20, 0),
-        height: 1046,
+        minHeight: 1046,
         width: 1404
       },
       [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(16, 0),
-        height: 800,
+        minHeight: 800,
         width: 1200
       },
       [theme.breakpoints.down("md")]: {
         padding: theme.spacing(12, 0),
-        height: 600,
+        minHeight: 600,
         width: 800
       }
     },
@@ -106,6 +108,41 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: 12,
         borderRadius: 0
       }
+    },
+    newLaunch: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      [theme.breakpoints.down('xl')]: {
+        height: 400
+      },
+      [theme.breakpoints.down('lg')]: {
+        height: 350
+      },
+      [theme.breakpoints.down('md')]: {
+        height: 300
+      },
+      '& .text': {
+        height: `100%`,
+        width: `30%`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between'
+      },
+      '& img': {
+        height: `100%`
+      }
+    },
+    models: {
+      width: `100%`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      marginTop: theme.spacing(10),
+      '& img': {
+        width: '14%'
+      }
     }
   }),
 );
@@ -156,6 +193,26 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
         <ButtonBack className={`${classes.slideButton} prev`}><ChevronLeft /></ButtonBack>
         <ButtonNext className={`${classes.slideButton} next`}><ChevronRight /></ButtonNext>
       </CarouselProvider>
+      <div className={classes.newLaunch}>
+        <div className='text'>
+          <Typography variant='subtitle2'>New Launch</Typography>
+          <div>
+            <Typography variant='h3'>Chanel's 2020</Typography>
+            <Typography variant='body2'>“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.</Typography>
+          </div>
+          <Link color='secondary'>Shop the Collection</Link>
+        </div>
+        <img src={MockVideo} alt="mock video" />
+      </div>
+      <div className={classes.models}>
+        {
+          models.map((m, i) => {
+            return (
+              <img src={m} alt='model' key={i} />
+            )
+          })
+        }
+      </div>
     </div >
   )
 }
