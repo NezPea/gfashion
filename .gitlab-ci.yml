@@ -21,10 +21,21 @@ build:
   - docker push 939023048332.dkr.ecr.us-east-1.amazonaws.com/${REPOSITORY}:${CI_COMMIT_SHORT_SHA}
   - docker rmi 939023048332.dkr.ecr.us-east-1.amazonaws.com/${REPOSITORY}:${CI_COMMIT_SHORT_SHA}
 
-package-tokenserver:
+package-frontend:
   <<: *docker_build_tmpl
   variables:
     REPOSITORY: 'gfashion/frontend'
+    DOCKERFILE_PATH: 'web/Dockerfile'
+    BUILD_CONTEXT: 'web'
+  tags: 
+  - docker
+  only:
+  - web-dev
+
+package-frontend-dev3:
+  <<: *docker_build_tmpl
+  variables:
+    REPOSITORY: 'gfashion/frontend-dev3'
     DOCKERFILE_PATH: 'web/Dockerfile'
     BUILD_CONTEXT: 'web'
   tags: 
