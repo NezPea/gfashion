@@ -86,9 +86,16 @@ export interface FilterDetail {
   options: Array<FilterOptionDetail>;
 }
 
+export interface SearchCriteria {
+  page_size: number;
+  current_page: number;
+}
+
 export interface ProductListAttribute {
   avavilable_filters: Array<FilterDetail>;
+  search_criteria: SearchCriteria;
   items: Array<ProductDetail>;
+  total_count: number;
 }
 
 export interface ProductListState {

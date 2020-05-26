@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import QueryString from 'query-string'
+import { ProductDetail } from '../../../app/types';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { selectProductList, fetchProductList } from '../../../app/slices/productListSlice';
 import { Grid } from '@material-ui/core';
@@ -74,32 +76,103 @@ const useStyles = makeStyles((theme: Theme) =>
     row: {
       marginTop: theme.spacing(5)
     },
+    loadMore: {
+      backgroundColor: 'transparent',
+      border: `1px solid ${theme.palette.secondary.main}`,
+      color: theme.palette.secondary.main,
+      cursor: 'pointer',
+      display: 'block',
+      fontSize: '14px',
+      width: '60%',
+      margin: 'auto',
+      padding: theme.spacing(2)
+    }
   }),
 );
 
-const handleSort = (event: React.ChangeEvent<{ value: unknown }>) => {
-  console.log(event.target.value as string);
+const generateQuery = (categoryId: string, queryValues: QueryString.ParsedQuery<string>) => {
+  let query = `?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]=${categoryId}&searchCriteria[filter_groups][0][filters][0][condition_type]=eq`;
+  Object.entries(queryValues).map(([key, value]) => {
+    switch (key.toLowerCase()) {
+      case 'page':
+        query += `&searchCriteria[currentPage]=${value}`;
+        break;
+      case 'pagesize':
+        query += `&searchCriteria[pageSize]=${value}`;
+        break;
+      case 'sort':
+        let sort = (value as string).split('-');
+        if (sort.length === 2) {
+          query += `&searchCriteria[sortOrders][0][field]=${sort[0]}&searchCriteria[sortOrders][0][direction]=${sort[1]}`;
+        }
+        break;
+      default:
+        query += `&searchCriteria[filter_groups][3][filters][0][field]=${key}&searchCriteria[filter_groups][3][filters][0][value]=${value}&searchCriteria[filter_groups][3][filters][0][condition_type]=eq`
+        break;
+    }
+    return null
+  })
+
+  if (!queryValues.pageSize) {
+    query += `&searchCriteria[pageSize]=20`;
+  }
+
+  return encodeURIComponent(query)
 };
 
-const GFashionProductListing = ({ match }: { match: any }) => {
+const GFashionProductListing = ({ match, location }: { match: any, location: any }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [productArray, setProductArray] = useState<ProductDetail[]>([]);
+  const [queryState, setQueryState] = useState<QueryString.ParsedQuery<string>>(QueryString.parse(location.search));
   const categoryId = match && match.params && match.params.categoryId;
-  let productList = useSelector(selectProductList);
+  let productListResult = useSelector(selectProductList);
+
+  const handleSort = (event: React.ChangeEvent<{ value: unknown }>) => {
+    console.log(event.target.value as string);
+  };
+
+  const handleLoadMore = () => {
+    let queryRequest = generateQuery(categoryId, queryState);
+    dispatch(fetchProductList({
+      // url: `/product-list?${queryRequest}` // local mock data
+      url: `/gfashion/v1/channelProducts/${queryRequest}`
+    }));
+    if (queryState.page) {
+      setQueryState({
+        ...queryState,
+        page: (parseInt((queryState.page as string)) + 1).toString()
+      })
+    } else {
+      setQueryState({
+        ...queryState,
+        page: "1"
+      })
+    }
+  }
 
   useEffect(() => {
     if (categoryId) {
+      let queryRequest = generateQuery(categoryId, queryState);
       dispatch(fetchProductList({
-        // url: '/product-list' // local mock data
-        url: '/gfashion/v1/channelProducts/%3FsearchCriteria%5Bfilter_groups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bfield%5D%3Dcategory_id%26searchCriteria%5Bfilter_groups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bvalue%5D%3D23%26searchCriteria%5Bfilter_groups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bcondition_type%5D%3Deq%26searchCriteria%5Bfilter_groups%5D%5B3%5D%5Bfilters%5D%5B0%5D%5Bfield%5D%3Dcolor%26searchCriteria%5Bfilter_groups%5D%5B3%5D%5Bfilters%5D%5B0%5D%5Bvalue%5D%3D5485%26searchCriteria%5Bfilter_groups%5D%5B3%5D%5Bfilters%5D%5B0%5D%5Bcondition_type%5D%3Deq%26searchCriteria%5BpageSize%5D%3D20%26searchCriteria%5BcurrentPage%5D%3D0%26searchCriteria%5BsortOrders%5D%5B0%5D%5Bfield%5D%3Dprice%26searchCriteria%5BsortOrders%5D%5B0%5D%5Bdirection%5D%3Ddesc'
+        // url: `/product-list?${queryRequest}` // local mock data
+        url: `/gfashion/v1/channelProducts/${queryRequest}`
       }));
     }
-  }, [dispatch, categoryId]);
+    // eslint-disable-next-line
+  }, [categoryId]);
 
+  useEffect(() => {
+    if (productListResult.detail && productListResult.detail.items && productListResult.detail.items.length) {
+      setProductArray(productArray.concat(productListResult.detail.items));
+    }
+    // eslint-disable-next-line
+  }, [productListResult]);
+  
   return (
     <MainFrameFullWidth>
       {
-        !productList.isLoading ? (
+        productArray.length ? (
           <div className={classes.root}>
             <div className={classes.banner}></div>
             <div className={classes.contentContainer}>
@@ -108,7 +181,7 @@ const GFashionProductListing = ({ match }: { match: any }) => {
                   <h2 className={classes.categoryTitle}>家具</h2>
                 </Grid>
                 <Grid item xs={9} className={classes.productHeader}>
-                  {(productList.detail && productList.detail.items) ? productList.detail.items.length : 0} Products found
+                  {(productListResult.detail && productListResult.detail.items) ? productListResult.detail.items.length : 0} Products found
                     <FormControl variant="outlined" className={classes.dropdownControl}>
                     <Select
                       labelId="demo-simple-select-outlined-label"
@@ -133,15 +206,19 @@ const GFashionProductListing = ({ match }: { match: any }) => {
                 </Grid>
                 <Grid item xs={9}>
                   <ProductGrid />
+                  {
+                    (productListResult.detail?.total_count! > productListResult.detail?.search_criteria.page_size! * (productListResult.detail?.search_criteria.current_page! + 1)) &&
+                    <button className={classes.loadMore} onClick={handleLoadMore}>Load more</button>
+                  }
                 </Grid>
               </Grid>
             </div>
           </div>
         ) : (
-          <div className={classes.spinner}>
-            <LoadingSpinner />
-          </div>
-        )
+            <div className={classes.spinner}>
+              <LoadingSpinner />
+            </div>
+          )
       }
     </MainFrameFullWidth>
   )
