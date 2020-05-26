@@ -14,7 +14,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchHomeRecommendations({
-      url: '/recommendations'
+      url: '/gfashion/v1/homepage'
     }))
   }, [dispatch])
 

@@ -4,7 +4,7 @@ import { Typography, Avatar } from '@material-ui/core';
 import GIcon from '../../../assets/images/g-icon.png';
 import HIcon from '../../../assets/images/h-icon.png';
 import JoinGclub from '../../../assets/images/join-gclub.svg';
-import Banner from '../../../assets/images/banner.jpg';
+import Banner from '../../../assets/images/home_banner.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
