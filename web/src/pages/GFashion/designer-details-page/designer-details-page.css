@@ -1,6 +1,6 @@
 .designer-details-page {
     position: relative;
-    width: 100vw;
+    width: 100vm;
     background-color: #a0a0a0;
 }
 
@@ -21,18 +21,18 @@
 
 .header {
     position: relative;
-    height: 4.27vw;
+    height: 5.124rem;
 }
 
 .designer-profile {
     position: relative;
     background-color: #c0c0c0;
-    height: 28.13vw;
+    height: 33.756rem;
 }
 
 .row-1 {
     position: relative;
-    height: 17.97vw;
+    height: 21.504rem;
     background-color: #909090;
 }
 
@@ -41,16 +41,16 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    top: 10.10vw;
-    left: 25.68vw;
-    width: 36.51vw;
-    height: 5.78vw;
+    top: 12.120rem;
+    left: 30.816rem;
+    width: 43.812rem;
+    height: 6.936rem;
     background-color: #404040;
 }
 
 .designer-name {
     font-family: Montserrat;
-    font-size: 2.08vw;
+    font-size: 2.496rem;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -66,7 +66,7 @@
 
 .designer-description {
     font-family: SFUIDisplay;
-    font-size: 0.78vw;
+    font-size: 0.936rem;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -77,46 +77,47 @@
 
 .row-2 {
     position: relative;
-    height: 10.16vw;
+    height: 12.192rem;
 }
 
 .brands {
     position: relative;
     display: flex;
     align-items: stretch;
-    left: 25.73vw;
-    top: 2.19vw;
-    width: 36.51vw;
-    height: 6.30vw;
+    left: 30.876rem;
+    top: 2.628rem;
+    width: 43.812rem;
+    height: 7.560rem;
     background-color: #707070;
 }
 
 .brand {
     position: relative;
-    width: 4.38vw;
+    width: 5.256rem;
     background-color: #606060;
 }
 
 .brand-logo-container {
     position: relative;
-    width: 4.38vw;
-    height: 4.38vw;
+    width: 5.256rem;
+    height: 5.256rem;
     background-color: #404040;
+    border-radius: 100%;
 }
 
 .brand-name {
     position: relative;
-    width: 4.38vw;
-    height: 1.92vw;
+    width: 5.256rem;
+    height: 2.304rem;
     background-color: #303030;
 }
 
 .photo-frame {
     position: absolute;
-    top: 8.02vw;
-    left: 11.30vw;
-    width: 12.50vw;
-    height: 12.50vw;
+    top: 9.624rem;
+    left: 13.560rem;
+    width: 15.000rem;
+    height: 15.000rem;
     background-color: #404040;
     border-radius: 100%;
 }
@@ -135,7 +136,7 @@
 
 .designer-stories {
     position: relative;
-    width: 72.92vw;
+    width: 87.504rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -146,8 +147,8 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin-top: 4.16vw;
-    height: 36.46vw;
+    margin-top: 4.992rem;
+    height: 42.552rem;
     background-color: #909090;
 }
 
