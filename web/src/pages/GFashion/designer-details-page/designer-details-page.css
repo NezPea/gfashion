@@ -27,13 +27,22 @@
 .designer-profile-container {
     position: relative;
     display: flex;
+    width: 100vw;
     background-color: #c0c0c0;
 }
 
 .designer-profile-min-spacing {
     position: relative;
     flex-grow: 1;
+    flex-shrink: 0;
     width: 1.000rem;
+}
+
+.designer-profile-second-container {
+    position: relative;
+    display: flex;
+    flex-shrink: 1;
+    width: 92.875rem;
 }
 
 .designer-profile {
@@ -41,9 +50,10 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    flex-shrink: 1;
-    min-width: 46.438rem;
-    width: 61.062rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 46.438rem;
+    max-width: 61.062rem;
 }
 
 .row-1 {
@@ -53,23 +63,25 @@
     background-color: #909090;
 }
 
+.photo-space {
+    position: relative;
+    width: 17.250rem;
+}
+
 .text-profile {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    max-width: 43.812rem;
     margin-top: 12.120rem;
-    margin-left: 17.250rem;
-    margin-right: 3.563rem;
-    width: 43.812rem;
+    width: 0;
     height: 6.936rem;
     flex-grow: 1;
-    flex-shrink: 1;
     background-color: #404040;
 }
 
 .designer-name {
+    position: relative;
     height: 2.500rem;
     font-family: Montserrat;
     font-size: 2.496rem;
@@ -82,11 +94,14 @@
 }
 
 .space-between {
+    position: relative;
     flex-grow: 1;
+    flex-shrink: 0;
     background-color: #707070;
 }
 
 .designer-description {
+    position: relative;
     height: 3.125rem;
     font-family: SFUIDisplay;
     font-size: 0.936rem;
@@ -107,12 +122,9 @@
 .brands {
     position: relative;
     display: flex;
-    width: 8.819rem;
+    width: 0;
     flex-grow: 1;
-    flex-shrink: 1;
     flex-wrap: wrap;
-    align-items: stretch;
-    margin-left: 17.250rem;
     background-color: #707070;
 }
 
@@ -122,9 +134,13 @@
     height: 100%;
 }
 
-.brand-container {
+.brand-container-with-margin-right {
     position: relative;
     margin-right: 3.563rem;
+}
+
+.brand-container-without-margin-right {
+    position: relative;
 }
 
 .brand {
@@ -178,6 +194,7 @@
 .row-2-background {
     position: relative;
     flex-grow: 1;
+    flex-shrink: 0;
     height: 12.000rem;
     background-color: #909090;
 }
@@ -191,26 +208,21 @@
 .content-spacing {
     position: relative;
     flex-grow: 1;
+    flex-shrink: 0;
     width: 3.750rem;
 }
 
 .content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     flex-shrink: 1;
-    width: 43.750rem;
-    height: 10rem;
-}
-
-
-
-.footer {
-    position: relative;
-    height: 298px;
+    width: 87.500rem;
 }
 
 .designer-stories {
     position: relative;
-    width: 87.504rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -222,11 +234,15 @@
     flex-direction: column;
     align-items: stretch;
     margin-top: 4.992rem;
-    height: 42.552rem;
     background-color: #909090;
 }
 
 .featured-products {
     position: relative;
     height: 699px;
+}
+
+.footer {
+    position: relative;
+    height: 298px;
 }

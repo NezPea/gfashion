@@ -7,7 +7,7 @@ class LeftPrimaryPictureStory extends React.Component {
         return (
             <div className="story-container">
                 <div className="primary-picture-container">
-                    <img className="primary-picture" src='http://localhost:3004/grey-wide.png'></img>
+                    {/* <img className="primary-picture" src='http://localhost:3004/grey-wide.png'></img> */}
                 </div>
                 <div className="text-and-little-pictures">
                     {/* <div className="top-spacing-2"></div>

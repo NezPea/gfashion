@@ -1,21 +1,17 @@
 .story-container {
     position: relative;
     display: flex;
-    margin-top: -50%;
-    padding-top: 50%;
-    width: 100%;
+    flex-wrap: wrap;
 }
 
 .primary-picture-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    margin-left: 3.571%;
-    margin-top: -39.286%;
-    padding-top: 42.857%;
-    width: 42.857%;
-    height: 42.857%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3.125rem;
+    width: 37.500rem;
+    height: 37.500rem;
+    background-color: #000000;
 }
 
 .primary-picture {
@@ -26,7 +22,12 @@
     object-fit: cover;
 }
 
-.text-and-little-pictures-column {
+.text-and-little-pictures {
     position: relative;
-    margin-left: 9.143%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3.125rem;
+    width: 37.500rem;
+    height: 37.500rem;
+    background-color: #f00000;
 }
