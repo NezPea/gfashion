@@ -122,23 +122,22 @@
     height: 100%;
 }
 
+.brand-container {
+    position: relative;
+    margin-right: 3.563rem;
+}
+
 .brand {
     position: relative;
-    margin-right: 3.500rem;
     padding-top: 2.652rem;
     padding-bottom: 1.875rem;
     width: 5.256rem;
     background-color: #606060;
 }
 
-.cancel-spacing {
-    position: relative;
-    margin-left: -3.563rem;
-    width: 0;
-}
-
 .brand-logo-container {
     position: relative;
+    margin-bottom: 0.875rem;
     width: 5.256rem;
     height: 5.256rem;
     background-color: #404040;
@@ -162,12 +161,47 @@
     border-radius: 100%;
 }
 
-.content {
-    position: relative;
+.designer-profile-background {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
 }
+
+.row-1-background {
+    position: relative;
+    height: 21.504rem;
+}
+
+.row-2-background {
+    position: relative;
+    flex-grow: 1;
+    height: 12.000rem;
+    background-color: #909090;
+}
+
+.content-container {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.content-spacing {
+    position: relative;
+    flex-grow: 1;
+    width: 3.750rem;
+}
+
+.content {
+    position: relative;
+    flex-shrink: 1;
+    width: 43.750rem;
+    height: 10rem;
+}
+
+
 
 .footer {
     position: relative;
