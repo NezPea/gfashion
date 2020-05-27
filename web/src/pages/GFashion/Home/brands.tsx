@@ -72,12 +72,14 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.common.white,
       border: '1px solid #e4e4e4',
       outline: 'none',
+      position: 'absolute',
+      top: '50%',
+      marginTop: -20,
       '&.prev': {
-        marginTop: theme.spacing(5),
-        marginLeft: 'calc(50% - 64px)'
+        left: 0
       },
       '&.next': {
-        marginLeft: theme.spacing(6)
+        right: 0
       }
     },
     slideBox: {
@@ -94,19 +96,21 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .designer-info': {
         color: theme.palette.common.black,
         textAlign: 'center',
-        '& .designer-name': {
+        '& .brand-name': {
           fontFamily: `Montserrat`,
           fontSize: '1.75rem',
           fontWeight: `bold`
         },
-        '& .designer-brand': {
+        '& .brand-country': {
           fontFamily: `Helvetica`,
-          fontSize: `1.125rem`
+          fontSize: `1rem`,
+          color: '#999'
         }
       },
       '& .action-follow': {
         fontSize: 12,
-        borderRadius: 0
+        borderRadius: 0,
+        marginTop: theme.spacing(2)
       }
     },
     newLaunch: {
@@ -143,6 +147,18 @@ const useStyles = makeStyles((theme: Theme) =>
       '& img': {
         width: '14%'
       }
+    },
+    launchTitle: {
+      fontSize: `2.5rem`,
+      fontStyle: 'italic',
+      color: theme.palette.secondary[theme.palette.type],
+      fontFamily: 'Georgia',
+      marginBottom: theme.spacing(2)
+    },
+    launchBody: {
+      fontSize: `0.875rem`,
+      color: `#888`,
+      fontFamily: 'Helvetica'
     }
   }),
 );
@@ -159,8 +175,8 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
           <div className={classes.slideBox}>
             <Avatar src={require(`../../../assets/images/${b.name.toLowerCase()}.svg`)} className={`${classes.avatar} avatar`} />
             <div className='designer-info'>
-              <Typography className='designer-name'>{b.name}</Typography>
-              <Typography className='designer-brand'>{b.country}</Typography>
+              <Typography className='brand-name'>{b.name}</Typography>
+              <Typography className='brand-country'>{b.country}</Typography>
             </div>
             <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
           </div>
@@ -187,7 +203,7 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
         orientation="horizontal"
         className={classes.carouselProvider}
       >
-        <Slider style={{ overflow: 'hidden', height: 350 }}>
+        <Slider style={{ overflow: 'hidden', height: 300 }}>
           {buildSlides()}
         </Slider>
         <ButtonBack className={`${classes.slideButton} prev`}><ChevronLeft /></ButtonBack>
@@ -197,8 +213,8 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
         <div className='text'>
           <Typography variant='subtitle2'>New Launch</Typography>
           <div>
-            <Typography variant='h3'>Chanel's 2020</Typography>
-            <Typography variant='body2'>“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.</Typography>
+            <Typography className={classes.launchTitle}>Chanel's 2020</Typography>
+            <Typography className={classes.launchBody}>“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.</Typography>
           </div>
           <Link color='secondary'>Shop the Collection</Link>
         </div>
