@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme: Theme) =>
       zIndex: 5,
       width: '450px',
       [theme.breakpoints.down("xl")]: {
-        top: 350
-      },
-      [theme.breakpoints.down('lg')]: {
         top: 250
       },
+      [theme.breakpoints.down('lg')]: {
+        top: 200
+      },
       [theme.breakpoints.down("md")]: {
-        top: 150
+        top: 100
       }
     },
     gates: {
