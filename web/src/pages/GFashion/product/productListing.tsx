@@ -136,7 +136,7 @@ const GFashionProductListing = ({ match, location }: { match: any, location: any
     let queryRequest = generateQuery(categoryId, queryState);
     dispatch(fetchProductList({
       // url: `/product-list?${queryRequest}` // local mock data
-      url: `/gfashion/v1/channelProducts/${queryRequest}`
+      url: `/channelProducts/${queryRequest}`
     }));
     if (queryState.page) {
       setQueryState({
@@ -156,7 +156,7 @@ const GFashionProductListing = ({ match, location }: { match: any, location: any
       let queryRequest = generateQuery(categoryId, queryState);
       dispatch(fetchProductList({
         // url: `/product-list?${queryRequest}` // local mock data
-        url: `/gfashion/v1/channelProducts/${queryRequest}`
+        url: `/channelProducts/${queryRequest}`
       }));
     }
     // eslint-disable-next-line

@@ -15,7 +15,7 @@ import axios from "axios";
 import axiosMiddleware from "redux-axios-middleware";
 
 const client = axios.create({
-  baseURL: process.env.REACT_APP_API_ADDRESS_OVERRIDE || "/",
+  baseURL: "/gfashion/v1",
   responseType: "json"
 });
 

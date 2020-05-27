@@ -38,7 +38,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
     if (productId) {
       dispatch(fetchProductDetail({
         //url: '/product' // local mock data
-        url: `/gfashion/v1/products/${productId}`
+        url: `/products/${productId}`
       }));
     }
   }, [dispatch, productId]);
@@ -46,7 +46,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
   if (product.detail && product.detail.custom_attributes && product.detail.custom_attributes.length) {
     product.detail.custom_attributes
       .map((item) => {
-        switch(item.attribute_code) {
+        switch (item.attribute_code) {
           case 'description':
             productDesc = item.value;
             return null;
@@ -55,7 +55,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
         }
       })
   }
-  
+
   return (
     <MainFrame>
       {
