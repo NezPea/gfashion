@@ -116,7 +116,7 @@
     "recommendedBrands": [
       {
         "id": 1,
-        "name": "Balmain",
+        "name": "Barmain",
         "country": "France",
         "photoUrl": "http://image1.gf.com",
         "link": "http://gucci.com"
@@ -151,7 +151,7 @@
       },
       {
         "id": 1,
-        "name": "Balmain",
+        "name": "Barmain",
         "country": "France",
         "photoUrl": "http://image1.gf.com",
         "link": "http://gucci.com"
