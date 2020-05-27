@@ -10,7 +10,10 @@ import {
   CardContent,
   TextField
 } from "@material-ui/core";
+import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 import MainFrame from "../../../components/MainFrame";
+import { I18N, I18N_NS } from '../_i18n'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,32 +40,35 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 const Login: FunctionComponent = () => {
   const classes = useStyles();
-  const lang = "cn";
+  const { t, i18n } = useTranslation(I18N_NS)
   return (
     <MainFrame>
+      <Helmet>
+        <title>{t(I18N.login._self)}</title>
+      </Helmet>
       <Box display="flex" flexDirection="row-reverse">
         <Card className={classes.card}>
           <CardHeader title="Gfashion" className={classes.title} />
           <CardContent className={classes.cardContent}>
-            <h3>Sign in</h3>
+            <h3>{t(I18N.login._self)}</h3>
             <form className={classes.form} noValidate autoComplete="off">
               <TextField
                 className={classes.textField}
-                label="email or phone number"
+                label={t(I18N.login.email_or_phone_num)}
                 type="search"
                 variant="outlined"
               />
               <TextField
                 className={classes.textField}
-                label="password"
+                label={t(I18N._common.password._self)}
                 type="password"
                 variant="outlined"
               />
             </form>
-            <Link href={`/${lang}/find-password`}>Forgot Password?</Link>
+            <Link href={`/${i18n.language}/find-password`}>{t(I18N.find_pwd._self)}?</Link>
             <Divider variant="inset" />
             <Button variant="contained" color="primary" disableElevation>
-              Login
+              {t(I18N.login._self)}
             </Button>
           </CardContent>
         </Card>

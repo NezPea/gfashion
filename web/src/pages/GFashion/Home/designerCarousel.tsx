@@ -137,8 +137,6 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
 
   const buildSlides = () => {
     return designers.map((m, i) => {
-      console.log(m);
-
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <Box className={classes.slideBox}>
