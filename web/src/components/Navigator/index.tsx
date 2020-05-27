@@ -1,11 +1,13 @@
 import React from 'react';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, Link, SwipeableDrawer } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, SwipeableDrawer } from '@material-ui/core';
 import { AccountCircle, ShoppingCart } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import DrawerList from './drawerList';
+import GnewLogo from '../../assets/images/Gnews.png';
+import GtvLogo from '../../assets/images/GTV.png';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       display: 'block',
       fontFamily: `'Lobster 1.4'`,
+      fontSize: '2rem',
       [theme.breakpoints.down('sm')]: {
         display: 'none',
       },
@@ -81,6 +84,10 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'flex',
       },
     },
+    glink: {
+      marginRight: '2rem',
+      height: '1.25rem'
+    }
   }),
 );
 
@@ -110,7 +117,7 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
+  // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -192,12 +199,12 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Link className={classes.brotherLink} href="https://gtv.org" onClick={preventDefault}>
-              GTV
-            </Link>
-            <Link className={classes.brotherLink} href="https://gnews.org" onClick={preventDefault}>
-              GNEWS
-            </Link>
+            <a className={classes.brotherLink} href="https://gtv.org" target="_blank" rel="noopener noreferrer">
+              <img alt='GTV' src={GtvLogo} className={classes.glink}/>
+            </a>
+            <a className={classes.brotherLink} href="https://gnews.org" target="_blank" rel="noopener noreferrer">
+              <img alt='GNEWS' src={GnewLogo} className={classes.glink}/>
+            </a>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={6} color="secondary">
                 <ShoppingCart />
