@@ -1,6 +1,6 @@
 import React from 'react';
 import './designer-details-page.css'
-// import LeftPrimaryPictureStory from './components/left-primary-picture-story';
+import LeftPrimaryPictureStory from './components/left-primary-picture-story';
 
 class DesignerDetailsPageDesktop extends React.Component<any, any> {
 
@@ -64,7 +64,7 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                         <div className="designer-profile-min-spacing"></div>
                     </div>
                 </div>
-                {/* <div className="content-container">
+                <div className="content-container">
                     <div className="content-spacing"></div>
                     <div className="content">
                         <div className="designer-stories">
@@ -79,8 +79,8 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                         <div className="featured-products"></div>
                     </div>
                     <div className="content-spacing"></div>
-                </div> */}
-                {/* <div className="footer"></div> */}
+                </div>
+                <div className="footer"></div>
             </div>
         )
     }
