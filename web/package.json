@@ -22,10 +22,14 @@
     "add": "^2.0.6",
     "axios": "^0.19.2",
     "formik": "^2.1.4",
+    "i18next": "^19.4.5",
+    "key-path-mirror": "^1.0.5",
     "pure-react-carousel": "^1.27.1",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-i18next": "^11.5.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
@@ -60,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.0.0",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "env-cmd": "^10.1.0",
