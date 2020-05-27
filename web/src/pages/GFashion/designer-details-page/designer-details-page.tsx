@@ -84,11 +84,11 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                                 <RightPrimaryPictureStory />
                             </div>
                         </div>
-                        <div className="featured-products"></div>
+                        {/* <div className="featured-products"></div> */}
                     </div>
                     <div className="content-spacing"></div>
                 </div>
-                <div className="footer"></div>
+                {/* <div className="footer"></div> */}
             </div>
         )
     }
