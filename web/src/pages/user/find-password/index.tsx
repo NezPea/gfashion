@@ -8,7 +8,10 @@ import {
   Typography,
   TextField
 } from "@material-ui/core";
+import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 import MainFrame from "../../../components/MainFrame";
+import { I18N, I18N_NS } from '../_i18n'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -23,35 +26,38 @@ const useStyles = makeStyles(() =>
 );
 const FindPassword: FunctionComponent = () => {
   const classes = useStyles();
-  //   const lang = "cn";
+  const { t } = useTranslation(I18N_NS)
   return (
     <MainFrame>
+      <Helmet>
+        <title>{t(I18N.find_pwd._self)}</title>
+      </Helmet>
       <Box display="flex" justifyContent="center">
         <Box width="40%" display="flex" flexDirection="column">
-          <h2>忘记密码</h2>
+          <h2>{t(I18N.find_pwd._self)}</h2>
           <Tabs value={0}>
-            <Tab label="手机号码" />
-            <Tab label="邮箱" />
+            <Tab label={t(I18N._common.phone_num)} />
+            <Tab label={t(I18N._common.email)} />
           </Tabs>
           <TextField
             className={classes.textField}
-            label="phone"
+            label={t(I18N._common.phone_num)}
             variant="outlined"
           />
-          <Typography>请输入您注册时所使用的手机号码</Typography>
-          <h3>验证码</h3>
+          <Typography>{t(I18N.find_pwd.pls_enter_reg_phone)}</Typography>
+          <h3>{t(I18N._common.ver_code._self)}</h3>
           <Box display="flex" justifyContent="space-between">
             <TextField
               className={classes.captcha}
-              label="phone"
+              label={t(I18N._common.ver_code._self)}
               variant="outlined"
             />
             <Button variant="contained" color="primary" disableElevation>
-              获取验证码
+              {t(I18N._common.ver_code.send)}
             </Button>
           </Box>
           <Button variant="contained" color="primary" disableElevation>
-            提交
+            {t(I18N.find_pwd.submit)}
           </Button>
         </Box>
       </Box>
