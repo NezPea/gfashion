@@ -123,6 +123,7 @@ export interface HomepageProduct {
 export interface HomepageDesigner {
   id: BigInt;
   name: string;
+  cooperatingBrands: Array<string>;
   country?: string;
   photoUrl: string;
 }

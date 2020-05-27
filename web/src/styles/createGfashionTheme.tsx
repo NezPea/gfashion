@@ -39,7 +39,8 @@ declare module '@material-ui/core/styles/createTypography' {
     | 'caption'
     | 'button'
     | 'overline'
-    | 'homeSectionTitle';
+    | 'homeSectionTitle'
+    | 'homeSectionDescription';
 
   interface Typography extends Record<GfashionVariant, TypographyStyle>, FontStyle, TypographyUtils { }
 

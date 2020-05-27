@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import MainFrame from '../../../components/MainFrame';
-import Slogan from './slogan';
 import { DesignerCarousel } from './designerCarousel';
 import GclubGate from './gclubGate';
 import { Brands } from './brands';
@@ -15,7 +14,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchHomeRecommendations({
-      url: '/recommendations'
+      url: '/gfashion/v1/homepage'
     }))
   }, [dispatch])
 
@@ -25,7 +24,6 @@ export default () => {
         home.isLoading ? <CircularProgress color="secondary" /> :
           <React.Fragment>
             <GclubGate />
-            <Slogan />
             <DesignerCarousel designers={home.recommendations?.recommendedDesigners} />
             <Brands brands={home.recommendations?.recommendedBrands}></Brands>
             <RecommendedProducts products={home.recommendations?.recommendedProducts} />
