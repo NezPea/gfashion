@@ -17,12 +17,17 @@ const useStyles = makeStyles((theme: Theme) =>
     carousel: {
       display: 'flex',
       width: '100%',
-      position: 'relative'
+      position: 'relative',
+      '& .carousel__inner-slide': {
+        display: 'flex',
+        alignItems: 'center'
+      }
     },
     slide: {
       backgroundColor: theme.palette.action.disabledBackground,
-      width: 'calc(100% - 20px)',
+      maxWidth: 'calc(100% - 20px)',
       marginRight: '20px',
+      height: 'auto'
     },
     slidePrev: {
       position: 'absolute',
@@ -44,7 +49,7 @@ const ProductRecommendation = () => {
     return product.detail?.product_links.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <Image src={'https://www.gfashion2020.tk/media/catalog/product' + m.file} alt={m.name} hasMasterSpinner={true} className={classes.slide} />
+          <Image src={m.file} alt={m.name} hasMasterSpinner={true} className={classes.slide} />
         </Slide>
       )
     })
@@ -56,8 +61,8 @@ const ProductRecommendation = () => {
         <div>
           <h2 className={classes.title}>相关推荐</h2>
           <CarouselProvider
-            naturalSlideWidth={450}
-            naturalSlideHeight={350}
+            naturalSlideWidth={416}
+            naturalSlideHeight={512}
             totalSlides={product.detail?.product_links.length!}
             visibleSlides={4}
             infinite={true}

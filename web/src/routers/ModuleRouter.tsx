@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import GFashionProduct from "../pages/GFashion/product/product";
 import GFashionProductListing from "../pages/GFashion/product/productListing";
+import GFashionSearch from "../pages/GFashion/search/searchPage";
 import GFashion from "../pages/GFashion/Home";
 import GMall from "../pages/GMall";
 import GClub from "../pages/GClub";
@@ -26,6 +27,7 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     <Route path={`/${lang}/login`} component={Login} />
     <Route path={`/${lang}/register`} component={Register} />
     <Route path={`/${lang}/find-password`} component={FindPassword} />
+    <Route path={`/${lang}/search/:searchTerm`} component={GFashionSearch} />
     <Route path={`/${lang}/category/:categoryId`} component={GFashionProductListing} />
     <Route path={`/${lang}/product/:productId`} component={GFashionProduct} />
     <Route component={NotFound} />

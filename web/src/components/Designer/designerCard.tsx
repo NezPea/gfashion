@@ -7,54 +7,60 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      marginBottom: '30px',
-      width: '300px',
+      width: '250px',
       '& div': {
-        marginBottom: theme.spacing(1)
+        marginBottom: '30px',
       }
     },
     imageContainer: {
       display: 'flex',
       alignItems: 'center',
-      height: '310px',
-      width: '310px',
+      height: '250px',
+      width: '250px',
     },
     image: {
-      maxHeight: '300px',
-      maxWidth: '300px',
+      maxHeight: '250px',
+      maxWidth: '250px',
       margin: 'auto'
     },
     title: {
       fontSize: '18px',
-      margin: '20px 0 10px',
+      margin: '0',
       textAlign: 'center'
     },
-    price: {
-      fontSize: '18px',
+    country: {
+      color: theme.palette.text.secondary,
+      fontSize: '15px',
       textAlign: 'center'
     }
   }),
 );
 
-const ProductCard = ({ product }: { product: any }) => {
+const designer = {
+  name: "Callie Buchanan",
+  country: "France",
+  file: "http://via.placeholder.com/250x250"
+};
+
+const DesignerCard = () => {
   const classes = useStyles();
 
   return (
-    product &&
+    designer &&
     (
       <div className={classes.root}>
         <div className={classes.imageContainer}>
           <img
-            src={product.file ? 'https://www.gfashion2020.tk/media/catalog/product' + product.file : ''}
-            alt={product.name}
+            src={designer.file}
+            alt={designer.name}
             className={classes.image}>
           </img>
         </div>
-        <h2 className={classes.title}>{product.name}</h2>
-        <div className={classes.price}>${product.price}</div>
+        <h2 className={classes.title}>{designer.name}</h2>
+        <div className={classes.country}>{designer.country}</div>
       </div>
     )
   )
 }
 
-export default ProductCard;
+export default DesignerCard;

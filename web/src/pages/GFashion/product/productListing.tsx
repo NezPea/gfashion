@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
     },
     content: {
-      marginTop: '30px'
+      marginTop: '20px'
     },
     dropdownControl: {
       background: 'transparent',
@@ -168,7 +168,7 @@ const GFashionProductListing = ({ match, location }: { match: any, location: any
     }
     // eslint-disable-next-line
   }, [productListResult]);
-  
+
   return (
     <MainFrameFullWidth>
       {
@@ -181,8 +181,8 @@ const GFashionProductListing = ({ match, location }: { match: any, location: any
                   <h2 className={classes.categoryTitle}>家具</h2>
                 </Grid>
                 <Grid item xs={9} className={classes.productHeader}>
-                  {(productListResult.detail && productListResult.detail.items) ? productListResult.detail.items.length : 0} Products found
-                    <FormControl variant="outlined" className={classes.dropdownControl}>
+                  {productListResult.detail ? productListResult.detail.total_count : 0} Products found
+                  <FormControl variant="outlined" className={classes.dropdownControl}>
                     <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
@@ -205,7 +205,7 @@ const GFashionProductListing = ({ match, location }: { match: any, location: any
                   <Filter />
                 </Grid>
                 <Grid item xs={9}>
-                  <ProductGrid products={productArray}/>
+                  <ProductGrid products={productArray} />
                   {
                     (productListResult.detail?.total_count! > productListResult.detail?.search_criteria.page_size! * (productListResult.detail?.search_criteria.current_page! + 1)) &&
                     <button className={classes.loadMore} onClick={handleLoadMore}>Load more</button>
