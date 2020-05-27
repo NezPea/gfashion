@@ -110,7 +110,7 @@ const GFashionSearchListing = ({ match, location }: { match: any, location: any 
   const handleLoadMore = () => {
     let queryRequest = generateQuery(searchTerm, queryState);
     dispatch(fetchProductList({
-      url: `/gfashion/v1/channelProducts/${queryRequest}`
+      url: `/channelProducts/${queryRequest}`
     }));
     if (queryState.page) {
       setQueryState({
@@ -129,7 +129,7 @@ const GFashionSearchListing = ({ match, location }: { match: any, location: any 
     if (searchTerm) {
       let queryRequest = generateQuery(searchTerm, queryState);
       dispatch(fetchProductList({
-        url: `/gfashion/v1/channelProducts/${queryRequest}`
+        url: `/channelProducts/${queryRequest}`
       }));
     }
     // eslint-disable-next-line
