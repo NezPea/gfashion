@@ -1,19 +1,19 @@
-.story-container-3 {
+.story-container-2 {
     position: relative;
     display: flex;
     flex-wrap: wrap;
 }
 
-.primary-picture-container-3 {
+.primary-picture-container-2 {
     position: relative;
     flex-grow: 1;
     flex-shrink: 0;
-    width: 43.750rem;
+    width: 55.562rem;
     height: 43.750rem;
     background-color: #808080;
 }
 
-.primary-picture-second-container-3 {
+.primary-picture-second-container-2 {
     position: absolute;
     margin: 3.125rem;
     left: 0;
@@ -23,28 +23,28 @@
     background-color: #454545;
 }
 
-.primary-picture-3 {
+.primary-picture-2 {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.text-and-little-pictures-container-3 {
+.text-and-little-pictures-container-2 {
     position: relative;
     flex-grow: 1;
     flex-shrink: 0;
-    width: 43.750rem;
+    width: 28.812rem;
     height: 43.750rem;
     background-color: #757575;
 }
 
-.text-and-little-pictures-3 {
+.text-and-little-pictures-2 {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 3.125rem;
+    margin: 1.563rem;
     padding-left: 1.750rem;
     left: 0;
     top: 0;
@@ -53,11 +53,11 @@
     background-color: #707070;
 }
 
-.title-3 {
+.title-2 {
     position: relative;
     height: 11.250rem;
     background-color: #404040;
-    width: 420px;
+    width: 308px;
     height: 180px;
     font-family: Georgia;
     font-size: 40px;
@@ -69,7 +69,7 @@
     color: #be9c63;
 }
 
-.description-3 {
+.description-2 {
     position: relative;
     height: 5.625rem;
     background-color: #404040;
@@ -85,21 +85,21 @@
     color: #888888;
 }
 
-.little-pictures-3 {
+.little-pictures-2 {
     position: relative;
     display: flex;
     height: 6.250rem;
     background-color: #505050;
 }
 
-.little-picture-container-3 {
+.little-picture-container-2 {
     position: relative;
     width: 6.250rem;
     height: 6.250rem;
     margin-right: 1.438rem;
 }
 
-.little-picture-3 {
+.little-picture-2 {
     position: relative;
     width: 6.250rem;
     height: 6.250rem;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './designer-details-page.css'
 import LeftPrimaryPictureStory from './components/left-primary-picture-story';
+import LeftRectanglePrimaryPictureStory from './components/left-rectangle-primary-picture-story';
 
 class DesignerDetailsPageDesktop extends React.Component<any, any> {
 
@@ -68,13 +69,12 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                     <div className="content-spacing"></div>
                     <div className="content">
                         <div className="designer-stories">
-                            {
-                                Array.from(Array(4).keys()).map(_ => (
-                                    <div className="designer-story-container">
-                                        <LeftPrimaryPictureStory />
-                                    </div>
-                                ))
-                            }
+                            <div className="designer-story-container">
+                                <LeftPrimaryPictureStory />
+                            </div>
+                            <div className="designer-story-container">
+                                <LeftRectanglePrimaryPictureStory />
+                            </div>
                         </div>
                         <div className="featured-products"></div>
                     </div>
