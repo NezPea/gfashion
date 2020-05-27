@@ -3,6 +3,7 @@ import './designer-details-page.css'
 import LeftPrimaryPictureStory from './components/left-primary-picture-story';
 import LeftRectanglePrimaryPictureStory from './components/left-rectangle-primary-picture-story';
 import OneMediaStory from './components/one-media-story';
+import RightPrimaryPictureStory from './components/right-primary-picture-story';
 
 class DesignerDetailsPageDesktop extends React.Component<any, any> {
 
@@ -78,6 +79,9 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                             </div>
                             <div className="designer-story-container">
                                 <OneMediaStory />
+                            </div>
+                            <div className="designer-story-container">
+                                <RightPrimaryPictureStory />
                             </div>
                         </div>
                         <div className="featured-products"></div>
