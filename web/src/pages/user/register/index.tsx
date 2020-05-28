@@ -8,7 +8,7 @@ import {
   Typography,
   TextField
 } from "@material-ui/core";
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next'
 import MainFrame from "../../../components/MainFrame";
 import { I18N, I18N_NS } from '../_i18n'
@@ -53,7 +53,7 @@ const Register: FunctionComponent = () => {
               variant="outlined"
             />
             <Button variant="contained" color="primary" disableElevation>
-            {t(I18N._common.ver_code.send)}
+              {t(I18N._common.ver_code.send)}
             </Button>
           </Box>
           <h3>{t(I18N._common.password._self)}</h3>

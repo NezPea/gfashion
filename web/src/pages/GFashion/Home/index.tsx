@@ -7,7 +7,7 @@ import GclubGate from './gclubGate';
 import { Brands } from './brands';
 import { RecommendedProducts } from './recommendedProducts';
 import { selectHomeRecommendations, fetchHomeRecommendations } from '../../../app/slices/homeRecommendationsSlice';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { I18N, I18N_NS } from '../_i18n';
 
