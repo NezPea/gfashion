@@ -1,305 +1,707 @@
 {
   "recommendations": {
-    "designers": [
+    "customerId": 123,
+    "recommendedProducts": [
       {
+        "id": 1,
+        "name": "product1",
+        "photoUrl": "http://image1.gf.com",
+        "isFeatured": true
+      },
+      {
+        "id": 2,
+        "name": "product1",
+        "photoUrl": "http://image2.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 3,
+        "name": "product1",
+        "photoUrl": "http://image3.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 4,
+        "name": "product1",
+        "photoUrl": "http://image4.gf.com",
+        "isFeatured": false
+      },
+      {
+        "id": 5,
+        "name": "product1",
+        "photoUrl": "http://image5.gf.com",
+        "isFeatured": false
+      }
+    ],
+    "recommendedDesigners": [
+      {
+        "id": 1,
         "name": "Miles",
-        "avatar": ""
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "HUAXIA",
+        "photoUrl": "../../../assets/images/designer1.png"
       },
       {
-        "name": "Luther",
-        "avatar": ""
+        "id": 2,
+        "name": "Snow",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "HUAXIA",
+        "photoUrl": "../../../assets/images/designer2.png"
       },
       {
-        "name": "Pence",
-        "avatar": ""
-      },
-      {
-        "name": "Ivanka",
-        "avatar": ""
-      },
-      {
+        "id": 3,
         "name": "Trump",
-        "avatar": ""
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "USA",
+        "photoUrl": "../../../assets/images/designer3.png"
+      },
+      {
+        "id": 4,
+        "name": "Banon",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "USA",
+        "photoUrl": "../../../assets/images/designer4.png"
+      },
+      {
+        "id": 5,
+        "name": "Pompeo",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "USA",
+        "photoUrl": "../../../assets/images/designer5.png"
+      },
+      {
+        "id": 6,
+        "name": "Luther",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "HUAXIA",
+        "photoUrl": "../../../assets/images/designer6.png"
+      },
+      {
+        "id": 7,
+        "name": "Pence",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "USA",
+        "photoUrl": "../../../assets/images/designer1.png"
+      },
+      {
+        "id": 8,
+        "name": "Ivanka",
+        "cooperatingBrands": [
+          "BALMAIN"
+        ],
+        "country": "USA",
+        "photoUrl": "../../../assets/images/designer2.png"
+      }
+    ],
+    "recommendedBrands": [
+      {
+        "id": 1,
+        "name": "Barmain",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      },
+      {
+        "id": 2,
+        "name": "HERMES",
+        "country": "France",
+        "photoUrl": "http://image2.gf.com",
+        "link": "http://hermes.com"
+      },
+      {
+        "id": 3,
+        "name": "CHANEL",
+        "country": "France",
+        "photoUrl": "http://image3.gf.com",
+        "link": "http://lv.com"
+      },
+      {
+        "id": 4,
+        "name": "CHAUMET",
+        "country": "France",
+        "photoUrl": "http://image4.gf.com",
+        "link": "http://armani.com"
+      },
+      {
+        "id": 5,
+        "name": "Brioni",
+        "country": "Italy",
+        "photoUrl": "http://image4.gf.com",
+        "link": "http://armani.com"
+      },
+      {
+        "id": 1,
+        "name": "Barmain",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
+      },
+      {
+        "id": 2,
+        "name": "HERMES",
+        "country": "France",
+        "photoUrl": "http://image2.gf.com",
+        "link": "http://hermes.com"
+      },
+      {
+        "id": 3,
+        "name": "CHANEL",
+        "country": "France",
+        "photoUrl": "http://image3.gf.com",
+        "link": "http://lv.com"
+      }
+    ],
+    "followingDesigners": [
+      {
+        "id": 1,
+        "name": "Miles",
+        "country": "HUAXIA",
+        "photoUrl": "http://image6.gf.com"
+      },
+      {
+        "id": 2,
+        "name": "Snow",
+        "country": "HUAXIA",
+        "photoUrl": "http://image7.gf.com"
+      },
+      {
+        "id": 3,
+        "name": "Trump",
+        "country": "USA",
+        "photoUrl": "http://image8.gf.com"
+      }
+    ],
+    "followingBrands": [
+      {
+        "id": 1,
+        "name": "Gucci",
+        "country": "France",
+        "photoUrl": "http://image1.gf.com",
+        "link": "http://gucci.com"
       }
     ]
   },
   "product": {
-    "purchase_number_limit": "",
-    "images": [
+    "id": 2,
+    "sku": "24-MB04",
+    "name": null,
+    "attribute_set_id": 15,
+    "price": 0.0,
+    "status": 1,
+    "visibility": null,
+    "type_id": "simple",
+    "created_at": "2020-05-09 12:01:36",
+    "updated_at": "2020-05-16 20:00:34",
+    "weight": null,
+    "media_gallery_entries": [
       {
-        "types": [
-          "image",
-          "small_image",
-          "thumbnail"
-        ],
-        "file": "/m/b/mb04-black-0.jpg",
-        "media_type": "image",
-        "disabled": false,
         "id": 2,
+        "media_type": "image",
         "label": "Image",
-        "position": 1
+        "position": 1,
+        "disabled": false,
+        "types": [],
+        "file": "/m/b/mb04-black-0.jpg",
+        "content": null,
+        "extension_attributes": null
       },
       {
+        "id": 3,
+        "media_type": "image",
+        "label": "Image",
+        "position": 2,
+        "disabled": false,
         "types": [],
         "file": "/m/b/mb04-black-0_alt1.jpg",
-        "media_type": "image",
-        "disabled": false,
-        "id": 3,
-        "label": "Image",
-        "position": 2
+        "content": null,
+        "extension_attributes": null
       }
     ],
-    "price": "32",
-    "name": "Strive Shoulder Pack",
-    "description": "<p>Convenience is next to nothing when your day is crammed with action. So whether you're heading to class, gym, or the unbeaten path, make sure you've got your Strive Shoulder Pack stuffed with all your essentials, and extras as well.</p>\r\n<ul>\r\n<li>Zippered main compartment.</li>\r\n<li>Front zippered pocket.</li>\r\n<li>Side mesh pocket.</li>\r\n<li>Cell phone pocket on strap.</li>\r\n<li>Adjustable shoulder strap and top carry handle.</li>\r\n</ul>",
-    "designer_name": "",
-    "brand_name": "",
-    "brand_link": "",
-    "attribute": [
-      {
-        "value": "/m/b/mb04-black-0.jpg",
-        "attribute_code": "image"
-      },
-      {
-        "value": "/m/b/mb04-black-0.jpg",
-        "attribute_code": "small_image"
-      },
-      {
-        "value": "32.000000",
-        "attribute_code": "special_price"
-      },
-      {
-        "value": "/m/b/mb04-black-0.jpg",
-        "attribute_code": "thumbnail"
-      },
-      {
-        "value": "2020-05-09 00:00:00",
-        "attribute_code": "special_from_date"
-      },
-      {
-        "value": "container2",
-        "attribute_code": "options_container"
-      },
-      {
-        "value": "0",
-        "attribute_code": "msrp_display_actual_price_type"
-      },
-      {
-        "value": "strive-shoulder-pack",
-        "attribute_code": "url_key"
-      },
-      {
-        "value": "0",
-        "attribute_code": "gift_message_available"
-      },
-      {
-        "value": "0",
-        "attribute_code": "required_options"
-      },
-      {
-        "value": "0",
-        "attribute_code": "has_options"
-      },
-      {
-        "value": "Image",
-        "attribute_code": "image_label"
-      },
-      {
-        "value": "Image",
-        "attribute_code": "small_image_label"
-      },
-      {
-        "value": "Image",
-        "attribute_code": "thumbnail_label"
-      },
-      {
-        "value": "2",
-        "attribute_code": "tax_class_id"
-      },
-      {
-        "value": [
-          "3",
-          "7",
-          "4"
-        ],
-        "attribute_code": "category_ids"
-      },
-      {
-        "value": "<p>Convenience is next to nothing when your day is crammed with action. So whether you're heading to class, gym, or the unbeaten path, make sure you've got your Strive Shoulder Pack stuffed with all your essentials, and extras as well.</p>\r\n<ul>\r\n<li>Zippered main compartment.</li>\r\n<li>Front zippered pocket.</li>\r\n<li>Side mesh pocket.</li>\r\n<li>Cell phone pocket on strap.</li>\r\n<li>Adjustable shoulder strap and top carry handle.</li>\r\n</ul>",
-        "attribute_code": "description"
-      },
-      {
-        "value": "5438,5448,5450,5445",
-        "attribute_code": "activity"
-      },
-      {
-        "value": "5454,5456,5457",
-        "attribute_code": "style_bags"
-      },
-      {
-        "value": "5459,5460,5463,5465",
-        "attribute_code": "material"
-      },
-      {
-        "value": "5476",
-        "attribute_code": "color"
-      },
-      {
-        "value": "5488,5489,5492,5493,5494",
-        "attribute_code": "strap_bags"
-      },
-      {
-        "value": "5499,5501,5502,5505",
-        "attribute_code": "features_bags"
-      },
-      {
-        "value": "0",
-        "attribute_code": "eco_collection"
-      },
-      {
-        "value": "0",
-        "attribute_code": "performance_fabric"
-      },
-      {
-        "value": "1",
-        "attribute_code": "erin_recommends"
-      },
-      {
-        "value": "0",
-        "attribute_code": "new"
-      },
-      {
-        "value": "1",
-        "attribute_code": "sale"
-      }
-    ],
-    "designer_link": "",
+    "custom_attributes": null,
     "product_links": [
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "crosssell",
-        "image": "/u/g/ug04-bk-0.jpg",
         "linked_product_sku": "24-UG04",
         "linked_product_type": "simple",
-        "name": "Zing Jump Rope",
         "position": 4,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "crosssell",
-        "image": "/u/g/ug05-gr-0.jpg",
         "linked_product_sku": "24-UG05",
         "linked_product_type": "simple",
-        "name": "Go-Get'r Pushup Grips",
         "position": 2,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "crosssell",
-        "image": "/u/g/ug03-bk-0.jpg",
         "linked_product_sku": "24-UG03",
         "linked_product_type": "simple",
-        "name": "Harmony Lumaflex&trade; Strength Band Kit ",
         "position": 1,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "crosssell",
-        "image": "/l/u/luma-yoga-kit-2.jpg",
         "linked_product_sku": "24-WG080",
         "linked_product_type": "bundle",
-        "name": "Sprite Yoga Companion Kit",
         "position": 3,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/m/b/mb01-blue-0.jpg",
         "linked_product_sku": "24-MB01",
         "linked_product_type": "simple",
-        "name": "Joust Duffle Bag",
         "position": 1,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/m/b/mb03-black-0.jpg",
         "linked_product_sku": "24-MB03",
         "linked_product_type": "simple",
-        "name": "Crown Summit Backpack",
         "position": 3,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/m/b/mb05-black-0.jpg",
         "linked_product_sku": "24-MB05",
         "linked_product_type": "simple",
-        "name": "Wayfarer Messenger Bag",
         "position": 4,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/m/b/mb06-gray-0.jpg",
         "linked_product_sku": "24-MB06",
         "linked_product_type": "simple",
-        "name": "Rival Field Messenger",
         "position": 5,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/m/b/mb02-gray-0.jpg",
         "linked_product_sku": "24-MB02",
         "linked_product_type": "simple",
-        "name": "Fusion Backpack",
         "position": 2,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/u/b/ub02-black-0.jpg",
         "linked_product_sku": "24-UB02",
         "linked_product_type": "simple",
-        "name": "Impulse Duffle",
         "position": 6,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/w/b/wb06-red-0.jpg",
         "linked_product_sku": "24-WB06",
         "linked_product_type": "simple",
-        "name": "Endeavor Daytrip Backpack",
         "position": 9,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/w/b/wb03-purple-0.jpg",
         "linked_product_sku": "24-WB03",
         "linked_product_type": "simple",
-        "name": "Driven Backpack",
         "position": 7,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/w/b/wb07-brown-0.jpg",
         "linked_product_sku": "24-WB07",
         "linked_product_type": "simple",
-        "name": "Overnight Duffle",
         "position": 10,
-        "sku": "24-MB04"
+        "extension_attributes": null
       },
       {
+        "sku": "24-MB04",
+        "name": null,
+        "price": 0.0,
+        "image": null,
         "link_type": "upsell",
-        "image": "/w/b/wb04-blue-0.jpg",
         "linked_product_sku": "24-WB04",
         "linked_product_type": "simple",
-        "name": "Push It Messenger Bag",
         "position": 8,
-        "sku": "24-MB04"
+        "extension_attributes": null
+      }
+    ],
+    "extension_attributes": {
+      "id": null,
+      "media_type": null,
+      "label": null,
+      "position": null,
+      "disabled": null,
+      "types": null,
+      "file": null,
+      "content": null,
+      "extension_attributes": null
+    },
+    "designer_name": null,
+    "designer_link": null,
+    "brand_name": null,
+    "brand_link": null,
+    "purchase_number_limit": null,
+    "options": [],
+    "tier_prices": []
+  },
+  "product-list": {
+    "items": [
+      {
+        "id": 1260,
+        "sku": "WJ04-XS-Red",
+        "name": "Ingrid Running Jacket-XS-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1266,
+        "sku": "WJ04-M-Red",
+        "name": "Ingrid Running Jacket-M-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1272,
+        "sku": "WJ04-XL-Red",
+        "name": "Ingrid Running Jacket-XL-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1263,
+        "sku": "WJ04-S-Red",
+        "name": "Ingrid Running Jacket-S-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1269,
+        "sku": "WJ04-L-Red",
+        "name": "Ingrid Running Jacket-L-Red",
+        "price": 84,
+        "file": "/w/j/wj04-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1221,
+        "sku": "WJ01-M-Red",
+        "name": "Stellar Solar Jacket-M-Red",
+        "price": 75,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1218,
+        "sku": "WJ01-S-Red",
+        "name": "Stellar Solar Jacket-S-Red",
+        "price": 75,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1224,
+        "sku": "WJ01-L-Red",
+        "name": "Stellar Solar Jacket-L-Red",
+        "price": 75,
+        "file": "/w/j/wj01-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1277,
+        "sku": "WJ05-XS-Red",
+        "name": "Riona Full Zip Jacket-XS-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1283,
+        "sku": "WJ05-M-Red",
+        "name": "Riona Full Zip Jacket-M-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1289,
+        "sku": "WJ05-XL-Red",
+        "name": "Riona Full Zip Jacket-XL-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1280,
+        "sku": "WJ05-S-Red",
+        "name": "Riona Full Zip Jacket-S-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1286,
+        "sku": "WJ05-L-Red",
+        "name": "Riona Full Zip Jacket-L-Red",
+        "price": 60,
+        "file": "/w/j/wj05-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1299,
+        "sku": "WJ07-M-Red",
+        "name": "Inez Full Zip Jacket-M-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1305,
+        "sku": "WJ07-XL-Red",
+        "name": "Inez Full Zip Jacket-XL-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1296,
+        "sku": "WJ07-S-Red",
+        "name": "Inez Full Zip Jacket-S-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1302,
+        "sku": "WJ07-L-Red",
+        "name": "Inez Full Zip Jacket-L-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1293,
+        "sku": "WJ07-XS-Red",
+        "name": "Inez Full Zip Jacket-XS-Red",
+        "price": 59,
+        "file": "/w/j/wj07-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1248,
+        "sku": "WJ03-S-Red",
+        "name": "Augusta Pullover Jacket-S-Red",
+        "price": 57,
+        "file": "/w/j/wj03-red_main_1.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      },
+      {
+        "id": 1254,
+        "sku": "WJ03-L-Red",
+        "name": "Augusta Pullover Jacket-L-Red",
+        "price": 57,
+        "file": "/w/j/wj03-red_main_2.jpg",
+        "designer_name": null,
+        "designer_link": null,
+        "brand_name": null,
+        "brand_link": null
+      }
+    ],
+    "search_criteria": {
+      "filter_groups": [
+        {
+          "filters": [
+            {
+              "field": "category_id",
+              "value": "23",
+              "condition_type": "eq"
+            }
+          ]
+        },
+        {
+          "filters": [
+            {
+              "field": "color",
+              "value": "5485",
+              "condition_type": "eq"
+            }
+          ]
+        }
+      ],
+      "sort_orders": [
+        {
+          "field": "price",
+          "direction": "DESC"
+        }
+      ],
+      "page_size": 20,
+      "current_page": 0
+    },
+    "total_count": 23,
+    "avavilable_filters": [
+      {
+        "code": "size",
+        "name": "Size",
+        "options": [
+          {
+            "id": "5593",
+            "name": "XS",
+            "isChecked": false
+          },
+          {
+            "id": "5594",
+            "name": "S",
+            "isChecked": false
+          },
+          {
+            "id": "5595",
+            "name": "M",
+            "isChecked": false
+          },
+          {
+            "id": "5596",
+            "name": "L",
+            "isChecked": false
+          },
+          {
+            "id": "5597",
+            "name": "XL",
+            "isChecked": false
+          }
+        ]
+      },
+      {
+        "code": "color",
+        "name": "Color",
+        "options": [
+          {
+            "name": "Red",
+            "isChecked": true
+          }
+        ]
       }
     ]
   }

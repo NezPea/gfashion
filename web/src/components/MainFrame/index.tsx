@@ -1,12 +1,13 @@
 import React from 'react';
 import Navigator from '../Navigator';
-import { Container, Grid } from '@material-ui/core';
+import Footer from '../Footer';
+import { Container } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      paddingTop: theme.spacing(12),
+      padding: theme.spacing(8, 0),
     }
   }),
 );
@@ -15,11 +16,10 @@ export default (props: any) => {
   const classes = useStyles()
 
   return (
-    <Container maxWidth='lg' className={classes.root}>
+    <Container maxWidth={false} className={classes.root}>
       <Navigator />
-      <Grid container spacing={3} direction={"column"}>
-        {props.children}
-      </Grid>
+      {props.children}
+      <Footer />
     </Container>
   )
 }

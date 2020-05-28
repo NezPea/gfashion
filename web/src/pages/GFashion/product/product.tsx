@@ -4,7 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { selectProduct, fetchProductDetail } from '../../../app/slices/productsSlice';
 import MainFrame from '../../../components/MainFrame';
 import ProductImageCarousel from '../../../components/Product/productImageCarousel';
-import ProductPanel from '../../../components/Product/productPanel';
+import ProductInfoPanel from '../../../components/Product/productInfoPanel';
 import ProductRecommendation from '../../../components/Product/productRecommendation';
 import { Grid } from '@material-ui/core';
 
@@ -12,7 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       paddingTop: theme.spacing(5),
-      paddingBottom: theme.spacing(7)
+      paddingBottom: theme.spacing(7),
+      maxWidth: '1400px',
+      margin: 'auto'
     },
     description: {
       backgroundColor: theme.palette.background.paper,
@@ -25,45 +27,68 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default () => {
+const GFashionProduct = ({ match }: { match: any }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const productId = match && match.params && match.params.productId;
   let product = useSelector(selectProduct);
+  let productDesc = ''
 
   useEffect(() => {
-    dispatch(fetchProductDetail({
-      // url: '/product' // local mock data
-      url: '/gfashion/productdetail/24-MB04'
-    }))
-  }, [dispatch]);
+    if (productId) {
+      dispatch(fetchProductDetail({
+        //url: '/product' // local mock data
+        url: `/products/${productId}`
+      }));
+    }
+  }, [dispatch, productId]);
+
+  if (product.detail && product.detail.custom_attributes && product.detail.custom_attributes.length) {
+    product.detail.custom_attributes
+      .map((item) => {
+        switch (item.attribute_code) {
+          case 'description':
+            productDesc = item.value;
+            return null;
+          default:
+            return null;
+        }
+      })
+  }
 
   return (
     <MainFrame>
-      {!product.isLoading && (
-        product.detail ? (
-          <div className={classes.root}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={7}>
-                <ProductImageCarousel />
+      {
+        !product.isLoading && (
+          product.detail ? (
+            <div className={classes.root}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={7}>
+                  <ProductImageCarousel />
+                </Grid>
+                <Grid item xs={12} md={5}>
+                  <ProductInfoPanel />
+                </Grid>
               </Grid>
-              <Grid item xs={12} md={5}>
-                <ProductPanel />
+              {
+                productDesc && productDesc.length &&
+                <Grid container spacing={3} className={classes.row}>
+                  <Grid item xs={12}>
+                    <div className={classes.description} >{productDesc}</div>
+                  </Grid>
+                </Grid>
+              }
+              <Grid container spacing={3} className={classes.row}>
+                <Grid item xs={12}>
+                  <ProductRecommendation />
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container spacing={3} className={classes.row}>
-              <Grid item xs={12}>
-                <div className={classes.description} dangerouslySetInnerHTML={{ __html: product.detail?.description! }}>
-                </div>
-              </Grid>
-            </Grid>
-            <Grid container spacing={3} className={classes.row}>
-              <Grid item xs={12}>
-                <ProductRecommendation />
-              </Grid>
-            </Grid>
-          </div>
-        ) : 'Failed to load data'
-      )}
+            </div>
+          ) : 'Failed to load data'
+        )
+      }
     </MainFrame>
   )
 }
+
+export default GFashionProduct

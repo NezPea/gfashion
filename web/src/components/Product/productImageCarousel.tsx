@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { CarouselProvider, Slider, Slide, ImageWithZoom, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import LoadingFailed from '../../components/Common/loadingFailed';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -21,8 +22,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     thumbnail: {
       backgroundColor: theme.palette.action.disabledBackground,
-      maxWidth: '80px',
-      maxHeight: '60px'
+      maxWidth: '65px',
+      maxHeight: '80px'
     },
     slider: {
       width: 'calc(100% - 110px)'
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
     carousel: {
       display: 'flex',
       width: '100%',
+      height: '100%',
       position: 'relative'
     },
     slidePrev: {
@@ -53,7 +55,7 @@ const ProductImageCarousel = () => {
   let product = useSelector(selectProduct);
 
   const buildPreview = () => {
-    return product.detail?.images.map((m, i) => {
+    return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Dot key={i} slide={i}>
           <img src={m.file} alt={m.label} className={classes.thumbnail} />
@@ -63,33 +65,38 @@ const ProductImageCarousel = () => {
   }
 
   const buildSlides = () => {
-    return product.detail?.images.map((m, i) => {
+    return product.detail?.media_gallery_entries.map((m, i) => {
       return (
         <Slide key={i} index={i}>
-          <ImageWithZoom src={m.file} className={classes.image}/>
+          <ImageWithZoom src={m.file} className={classes.image} />
         </Slide>
       )
     })
   }
 
   return (
-    <CarouselProvider
-      naturalSlideWidth={450}
-      naturalSlideHeight={350}
-      totalSlides={product.detail?.images.length!}
-      visibleSlides={1}
-      infinite={true}
-      className={classes.carousel}
-    >
-      <div className={classes.thumbnailContainer}>
-        {buildPreview()}
-      </div>
-      <Slider className={classes.slider}>
-        {buildSlides()}
-      </Slider>
-      <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
-      <ButtonNext className={classes.slideNext}>next</ButtonNext>
-    </CarouselProvider>
+    (product.detail && product.detail?.media_gallery_entries && product.detail?.media_gallery_entries.length) ?
+      (
+        <CarouselProvider
+          naturalSlideWidth={520}
+          naturalSlideHeight={640}
+          totalSlides={product.detail?.media_gallery_entries.length!}
+          visibleSlides={1}
+          infinite={true}
+          className={classes.carousel}
+        >
+          <div className={classes.thumbnailContainer}>
+            {buildPreview()}
+          </div>
+          <Slider className={classes.slider}>
+            {buildSlides()}
+          </Slider>
+          <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
+          <ButtonNext className={classes.slideNext}>next</ButtonNext>
+        </CarouselProvider>
+      ) : (
+        <LoadingFailed />
+      )
   )
 }
 

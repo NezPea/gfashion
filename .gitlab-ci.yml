@@ -1,12 +1,13 @@
 stages:
   - build
   - package
+  - deploy
 
 build:
   image: node:lts
   stage: build
   script: 
-  - cd web && yarn && yarn build
+  - cd web && yarn && REACT_APP_API_ADDRESS_OVERRIDE=http://api.dev2.gfashion.gfashion2020.tk yarn run build:staging
   artifacts:
     paths:
     - web/build
@@ -16,14 +17,39 @@ build:
 .docker_build_tmpl: &docker_build_tmpl
   stage: package
   script:
-  - docker build -f ${DOCKERFILE_PATH} -t 939023048332.dkr.ecr.us-east-1.amazonaws.com/${REPOSITORY}:${CI_COMMIT_SHORT_SHA} .
+  - docker build -f ${DOCKERFILE_PATH} -t 939023048332.dkr.ecr.us-east-1.amazonaws.com/${REPOSITORY}:${CI_COMMIT_SHORT_SHA} ${BUILD_CONTEXT}
   - docker push 939023048332.dkr.ecr.us-east-1.amazonaws.com/${REPOSITORY}:${CI_COMMIT_SHORT_SHA}
   - docker rmi 939023048332.dkr.ecr.us-east-1.amazonaws.com/${REPOSITORY}:${CI_COMMIT_SHORT_SHA}
 
-package-tokenserver:
+package-frontend:
   <<: *docker_build_tmpl
   variables:
     REPOSITORY: 'gfashion/frontend'
-    DOCKERFILE_PATH: 'docker/frontend/Dockerfile'
+    DOCKERFILE_PATH: 'web/Dockerfile'
+    BUILD_CONTEXT: 'web'
   tags: 
   - docker
+  only:
+  - web-dev
+
+package-frontend-dev3:
+  <<: *docker_build_tmpl
+  variables:
+    REPOSITORY: 'gfashion/frontend-dev3'
+    DOCKERFILE_PATH: 'web/Dockerfile'
+    BUILD_CONTEXT: 'web'
+  tags: 
+  - docker
+  only:
+  - web-dev
+
+deploy:
+  image: curlimages/curl
+  stage: deploy
+  script:
+  - curl remotecall.dev2.gfashion2020.tk/upgrade_frontend/${CI_COMMIT_SHORT_SHA} -X POST -H TOKEN:aWTUTKfApdKiU4d -v
+  only:
+  - web-dev
+  tags:
+  - docker
+

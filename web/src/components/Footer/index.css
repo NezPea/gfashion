@@ -1,0 +1,19 @@
+.group {
+    /* margin-right: 4vw; */
+    margin-right: 4rem;
+    font-family: 'PingFangSC';
+}
+.group:last-child {
+    margin-right: 0;
+}
+
+.end {
+    font-family: 'PingFangSC';
+}
+
+.copyright {
+    margin-top: 50px;
+    font-family: 'PingFangSC';
+    font-size: 12px;
+    color: #888888;
+}

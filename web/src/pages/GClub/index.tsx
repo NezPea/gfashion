@@ -1,31 +1,51 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React, { useEffect } from 'react';
+//redex
+import { useSelector, useDispatch } from 'react-redux';
+import { selectGclub, fetchGclubData } from '../../app/slices/gclubSlice'
+
+//components
+import { Container, createStyles, makeStyles, Theme } from '@material-ui/core'
 import MainFrame from '../../components/MainFrame';
+import Banner from './banner'
+import Stories from './stories'
+import Farm from './farm'
+import Joinus from './joinus'
+import LoadingSpinner from '../../components/Common/loadingSpinner';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    },
-    link: {
-      margin: theme.spacing(1)
-    }
-  }),
-);
 
+    spinner: {
+      display: 'inline-block',
+      margin: `${theme.spacing(10)}px auto`,
+      position: 'relative',
+      left: 'calc(50% - 50px)'
+    },
+  })
+
+);
 export default () => {
-  const classes = useStyles()
+  const classes = useStyles();
+  const gclub = useSelector(selectGclub)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchGclubData({
+      url: ""
+    }))
+  }, [dispatch])
 
   return (
-    <MainFrame >
-      <div className={classes.root}>
-        <h1>Gclub page</h1>
-        <Link to='/' className={classes.link}>go to home</Link>
-        <Link to={`/cn/trash`} className={classes.link}>go to trash article </Link>
-      </div>
-    </MainFrame>
+    < MainFrame >
+      {gclub.isLoading ? <div className={classes.spinner}>
+        <LoadingSpinner />
+      </div> :
+        <Container >
+          <Banner></Banner>
+          <Stories></Stories>
+          <Farm></Farm>
+          <Joinus></Joinus>
+        </Container>}
+    </MainFrame >
   )
 }

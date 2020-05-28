@@ -13,6 +13,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^6.0.0",
     "@types/react-redux": "^7.1.7",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-logger": "^3.0.7",
@@ -21,27 +22,34 @@
     "@typescript-eslint/parser": "^2.31.0",
     "add": "^2.0.6",
     "axios": "^0.19.2",
-    "env-cmd": "^10.1.0",
     "formik": "^2.1.4",
+    "i18next": "^19.4.5",
+    "key-path-mirror": "^1.0.5",
     "pure-react-carousel": "^1.27.1",
+    "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-i18next": "^11.5.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux-axios-middleware": "^4.0.1",
     "redux-logger": "^3.0.6",
+    "serve": "^11.3.1",
     "typescript": "~3.8.2",
     "yarn": "^1.22.4",
     "yup": "^0.28.5"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:mock": "cross-env MOCK=api concurrently \"yarn run mock:API\" \"yarn run start\"",
     "build": "react-scripts build",
     "build:staging": "env-cmd -f .env.staging npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:API": "json-server mock-db.json --watch --port 5005"
+    "mock:API": "json-server ./mock/mock-db.json --routes ./mock/routes.json --watch --port 5005",
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,6 +67,11 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "env-cmd": "^10.1.0",
+    "http-proxy-middleware": "^1.0.4",
     "json-server": "^0.16.1"
-  }
+  },
+  "proxy": "http://api.dev2.gfashion.gfashion2020.tk"
 }
