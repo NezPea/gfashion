@@ -33,7 +33,7 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     <Route path={`/${lang}/test`} component={Test} />
     <Route path={`/${lang}/gmall`} component={GMall} />
     <Route path={`/${lang}/gclub/profile`} component={GClubProfile} />
-    <Route path={`/${lang}/gclub`} component={GClub} />
+    <Route exact path={`/${lang}/gclub`} component={GClub} />
     <Route path={`/${lang}/login`} component={Login} />
     <Route path={`/${lang}/register`} component={Register} />
     <Route path={`/${lang}/find-password`} component={FindPassword} />
