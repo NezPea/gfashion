@@ -5,7 +5,7 @@ import { selectGclub, fetchGclubData } from '../../app/slices/gclubSlice'
 
 //components
 import { Container, createStyles, makeStyles, Theme } from '@material-ui/core'
-import MainFrame from '../../components/MainFrame';
+import GClubFrame from '../../components/MainFrame/GClubFrame';
 import Banner from './banner'
 import Stories from './stories'
 import Farm from './farm'
@@ -36,7 +36,7 @@ export default () => {
   }, [dispatch])
 
   return (
-    < MainFrame >
+    <GClubFrame>
       {gclub.isLoading ? <div className={classes.spinner}>
         <LoadingSpinner />
       </div> :
@@ -46,6 +46,6 @@ export default () => {
           <Farm></Farm>
           <Joinus></Joinus>
         </Container>}
-    </MainFrame >
+    </GClubFrame>
   )
 }

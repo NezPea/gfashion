@@ -8,6 +8,7 @@ import GFashionSearch from "../pages/GFashion/search/searchPage";
 import GFashion from "../pages/GFashion/Home";
 import GMall from "../pages/GMall";
 import GClub from "../pages/GClub";
+import GClubProfile from "../pages/GClub/profile/GClubProfile";
 import Test from "../pages/Test";
 import Login from "../pages/user/login";
 import Register from "../pages/user/register";
@@ -31,7 +32,8 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     />
     <Route path={`/${lang}/test`} component={Test} />
     <Route path={`/${lang}/gmall`} component={GMall} />
-    <Route path={`/${lang}/gclub`} component={GClub} />
+    <Route path={`/${lang}/gclub/profile`} component={GClubProfile} />
+    <Route exact path={`/${lang}/gclub`} component={GClub} />
     <Route path={`/${lang}/login`} component={Login} />
     <Route path={`/${lang}/register`} component={Register} />
     <Route path={`/${lang}/find-password`} component={FindPassword} />
