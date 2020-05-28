@@ -1,6 +1,7 @@
 import { ResourceKey } from 'i18next'
 
 import { I18N_NS as user } from '../../pages/user/_i18n'
+import { I18N_NS as gfashion } from '../../pages/GFashion/_i18n'
 
 /* Example:
   type Namespaces =
@@ -10,5 +11,7 @@ import { I18N_NS as user } from '../../pages/user/_i18n'
   | typeof module4
   | typeof module5
  */
-type Namespaces = typeof user
+type Namespaces =
+  | typeof user
+  | typeof gfashion
 export type Spec = Record<Namespaces, ResourceKey>
