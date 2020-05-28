@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Link, Typography, List, ListItem } from '@material-ui/core';
-import './index.css';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

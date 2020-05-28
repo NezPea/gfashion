@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       [theme.breakpoints.down("xl")]: {
         padding: theme.spacing(20, 0),
-        height: 1046
+        height: 825
       },
       [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(16, 0),
-        height: 800
+        height: 680
       },
       [theme.breakpoints.down("md")]: {
         padding: theme.spacing(12, 0),
-        height: 600
+        height: 580
       }
     },
     headline: {
