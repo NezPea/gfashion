@@ -2,12 +2,8 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { GridList, GridListTile, Typography } from '@material-ui/core';
 import { RecommendedProductProps } from '../../../app/types';
-// import product1 from '../../assets/images/product1.jpg';
-// import product2 from '../../assets/images/product2.jpg';
-// import product3 from '../../assets/images/product3.jpg';
-// import product4 from '../../assets/images/product4.jpg';
-// import product5 from '../../assets/images/product5.jpg';
-// import product6 from '../../assets/images/product6.jpg';
+import { useTranslation } from 'react-i18next';
+import { I18N, I18N_NS } from '../_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -91,6 +87,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const RecommendedProducts: React.FunctionComponent<RecommendedProductProps> = ({ products = [] }) => {
   const classes = useStyles();
+  const { t } = useTranslation(I18N_NS);
+
   const featuredProducts = products.filter(p => p.isFeatured);
   const otherProducts = products.filter(p => !p.isFeatured)
 
@@ -100,11 +98,13 @@ export const RecommendedProducts: React.FunctionComponent<RecommendedProductProp
         <div className={classes.headline}>
           <div className={classes.surroundingLine}></div>
           <Typography className={classes.sectionTitle} align='center'>
-            Best Products
-        </Typography>
+            {t(I18N.home.recommendedProducts.title)}
+          </Typography>
           <div className={classes.surroundingLine}></div>
         </div>
-        <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
+        <Typography className={classes.sectionDescription}>
+          {t(I18N.home.recommendedProducts.description)}
+        </Typography>
         <div className={classes.productsContainer}>
           <GridList spacing={12} cols={2} cellHeight={400} className={classes.productsFeatured}>
             {
