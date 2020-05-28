@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Link, Typography, List, ListItem } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
+import { I18N, I18N_NS } from '../../pages/GFashion/_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -62,6 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Footer() {
   const classes = useStyles()
+  const { t } = useTranslation(I18N_NS);
 
   return (
     <div className={classes.root}>
@@ -70,7 +73,7 @@ export default function Footer() {
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>联系我们</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.contactUs._self)}</Typography>
               </ListItem>
               <ListItem>
                 <Typography className={classes.content}>vog@gmail.com</Typography>
@@ -83,40 +86,40 @@ export default function Footer() {
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>帮助</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.help._self)}</Typography>
               </ListItem>
               <ListItem>
-                <Link className={classes.content}>常见问题</Link>
-              </ListItem>
-            </List>
-          </div>
-          <div className={classes.group}>
-            <List>
-              <ListItem>
-                <Typography className={classes.title}>关于我们</Typography>
-              </ListItem>
-              <ListItem>
-                <Link className={classes.content}>企业介绍</Link>
+                <Link className={classes.content}>{t(I18N._common.footer.help.commonProblem)}</Link>
               </ListItem>
             </List>
           </div>
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>政策与法规</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.aboutUs._self)}</Typography>
               </ListItem>
               <ListItem>
-                <Link className={classes.content}>隐私协议</Link>
-              </ListItem>
-              <ListItem>
-                <Link className={classes.content}>用户协议</Link>
+                <Link className={classes.content}>{t(I18N._common.footer.aboutUs.introduction)}</Link>
               </ListItem>
             </List>
           </div>
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>语言</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.policiesAndRules._self)}</Typography>
+              </ListItem>
+              <ListItem>
+                <Link className={classes.content}>{t(I18N._common.footer.policiesAndRules.privacyAgreement)}</Link>
+              </ListItem>
+              <ListItem>
+                <Link className={classes.content}>{t(I18N._common.footer.policiesAndRules.userAgreement)}</Link>
+              </ListItem>
+            </List>
+          </div>
+          <div className={classes.group}>
+            <List>
+              <ListItem>
+                <Typography className={classes.title}>{t(I18N._common.footer.language._self)}</Typography>
               </ListItem>
               <ListItem>
                 <Link className={classes.content}>中文简体</Link>
@@ -133,13 +136,13 @@ export default function Footer() {
         <div className={classes.end}>
           <List>
             <ListItem>
-              <Link className={classes.quickLink}>加入Gclub</Link>
+              <Link className={classes.quickLink}>{t(I18N._common.footer.otherLinks.joinGclub)}</Link>
             </ListItem>
             <ListItem>
-              <Link className={classes.quickLink}>入驻Gfashion</Link>
+              <Link className={classes.quickLink}>{t(I18N._common.footer.otherLinks.settleGfashion)}</Link>
             </ListItem>
             <ListItem>
-              <Link className={classes.quickLink}>入驻Gmall</Link>
+              <Link className={classes.quickLink}>{t(I18N._common.footer.otherLinks.settleGmall)}</Link>
             </ListItem>
           </List>
         </div>

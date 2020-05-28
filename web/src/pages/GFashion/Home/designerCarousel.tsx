@@ -148,7 +148,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
               <Typography className='designer-name'>{m.name}</Typography>
               <Typography className='designer-brand'>{m.cooperatingBrands[0]}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
           </Box>
         </Slide>
       )
