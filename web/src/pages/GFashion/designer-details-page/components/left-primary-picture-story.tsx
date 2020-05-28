@@ -8,7 +8,7 @@ class LeftPrimaryPictureStory extends React.Component {
             <div className="story-container-3">
                 <div className="primary-picture-container-3">
                     <div className="primary-picture-second-container-3">
-                        <img className="primary-picture-3" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
+                        <img className="primary-picture-3" src='http://localhost:3004/grey-wide.png' alt="one"></img>
                     </div>
                 </div>
                 <div className="text-and-little-pictures-container-3">
@@ -25,16 +25,16 @@ class LeftPrimaryPictureStory extends React.Component {
                         </div>
                         <div className="little-pictures-3">
                             <div className="little-picture-container-3">
-                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
+                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one"></img>
                             </div>
                             <div className="little-picture-container-3">
-                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
+                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one"></img>
                             </div>
                             <div className="little-picture-container-3">
-                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
+                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one"></img>
                             </div>
                             <div className="little-picture-container-3">
-                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
+                                <img className="little-picture-3" src='http://localhost:3004/grey-wide.png' alt="one"></img>
                             </div>
                         </div>
                     </div>
