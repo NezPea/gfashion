@@ -54,9 +54,6 @@ const useStyles = makeStyles((theme: Theme) =>
     ,changeAvatarButton: {
 
     }
-    ,textfield: {
-      width: "200px"
-    }
     , notchedOutline: {
       borderWidth: "1px",
       borderColor: "black !important",
@@ -70,11 +67,10 @@ const MyProfileSubmitButton = styled(Button) ({
   background: 'rgba(85, 85, 85, 1)',
   color: 'white',
   height: 50,
-  width: '200px',
   padding: '0px'
 });
 
-const MyAccount: FunctionComponent = () => {
+const MyProfile: FunctionComponent = () => {
   const classes = useStyles();
   const { t, i18n } = useTranslation(I18N_NS);
   i18n.changeLanguage('zh'); // haha temp
@@ -91,6 +87,7 @@ const MyAccount: FunctionComponent = () => {
           <div className={classes.formLabel}>
             <p><span>{t(I18N.my_profile.avatar)}</span></p>
           </div>
+
           <Box display="flex" flexDirection={"row"} alignItems={"flex-end"}>
             <Avatar src={require(`../../../assets/images/g-icon.png`)} className={classes.avatar} />
             <Box width={"20px"}/>
@@ -100,11 +97,13 @@ const MyAccount: FunctionComponent = () => {
               <span>{t(I18N.my_profile.change)}</span>
             </Button>
           </Box>
+
+
           <Box height={"20px"}/>
           <div className={classes.formLabel}>
             <p><span>{t(I18N.my_profile.surname)}</span></p>
           </div>
-          <div className="container">
+
           <TextField required
                      id={"text-surname"}
                      aria-describedby={"my-profile-surname"}
@@ -117,14 +116,14 @@ const MyAccount: FunctionComponent = () => {
                      InputLabelProps={{
                        shrink: true,
                      }}
-                     className={classes.textfield}
+                     className="container"
                      />
-          </div>
+
           <Box height={"20px"}/>
           <div className={classes.formLabel}>
             <p><span>{t(I18N.my_profile.ownname)}</span></p>
           </div>
-          <div className="container">
+
           <TextField required
                      id={"text-ownname"}
                      aria-describedby={"my-profile-ownname"}
@@ -137,16 +136,16 @@ const MyAccount: FunctionComponent = () => {
                      InputLabelProps={{
                        shrink: true
                      }}
+                     className="container"
                      />
-          </div>
+
           <Box height={"60px"}/>
-          <div className="container">
+
           <MyProfileSubmitButton variant="contained" disableElevation
                   aria-describedby={"my-profile-save"}
           >
             {t(I18N.my_profile.save)}
           </MyProfileSubmitButton>
-          </div>
 
         </form>
       </Box>
@@ -154,7 +153,7 @@ const MyAccount: FunctionComponent = () => {
   );
 };
 
-export default MyAccount;
+export default MyProfile;
 
 
 

@@ -10,7 +10,7 @@ import Test from "../pages/Test";
 import Login from "../pages/user/login";
 import Register from "../pages/user/register";
 import FindPassword from "../pages/user/find-password";
-import MyProfile from "../pages/user/my-profile";
+import MyProfile from "../pages/user/MyProfile";
 const NotFound = () => {
   return (
     <div>
