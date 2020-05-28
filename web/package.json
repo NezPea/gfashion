@@ -23,6 +23,7 @@
     "add": "^2.0.6",
     "axios": "^0.19.2",
     "formik": "^2.1.4",
+    "http-proxy-middleware": "^1.0.4",
     "i18next": "^19.4.5",
     "key-path-mirror": "^1.0.5",
     "pure-react-carousel": "^1.27.1",

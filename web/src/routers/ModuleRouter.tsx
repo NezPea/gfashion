@@ -12,6 +12,7 @@ import Test from "../pages/Test";
 import Login from "../pages/user/login";
 import Register from "../pages/user/register";
 import FindPassword from "../pages/user/find-password";
+import Article from '../pages/GClub/article/Article'
 
 const NotFound = () => {
   return (
@@ -35,6 +36,7 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     <Route path={`/${lang}/search/:searchTerm`} component={GFashionSearch} />
     <Route path={`/${lang}/category/:categoryId`} component={GFashionProductListing} />
     <Route path={`/${lang}/product/:productId`} component={GFashionProduct} />
+    <Route path={`/${lang}/article`} component={Article} />
     <Route component={NotFound} />
   </Switch>
 );
