@@ -9,86 +9,86 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
 
     render() {
         return (
-            <div className="designer-details-page">
-                <div className="top">
-                    <div className="background-container">
-                        <img className="background-picture"></img>
+            <div className="designer-details-page-1">
+                <div className="top-1">
+                    <div className="background-container-1">
+                        <img className="background-picture-1"></img>
                     </div>
-                    <div className="header"></div>
-                    <div className="designer-profile-container">
-                        <div className="designer-profile-background">
-                            <div className="row-1-background"></div>
-                            <div className="row-2-background"></div>
+                    <div className="header-1"></div>
+                    <div className="designer-profile-container-1">
+                        <div className="designer-profile-background-1">
+                            <div className="row-1-background-1"></div>
+                            <div className="row-2-background-1"></div>
                         </div>
-                        <div className="designer-profile-min-spacing"></div>
-                        <div className="designer-profile-second-container">
-                            <div className="designer-profile">
-                                <div className="row-1">
-                                    <div className="photo-space"></div>
-                                    <div className="text-profile">
-                                        <div className="designer-name">Pierre Hardy</div>
-                                        <div className="space-between"></div>
-                                        <div className="designer-description">
+                        <div className="designer-profile-min-spacing-1"></div>
+                        <div className="designer-profile-second-container-1">
+                            <div className="designer-profile-1">
+                                <div className="row-1-1">
+                                    <div className="photo-space-1"></div>
+                                    <div className="text-profile-1">
+                                        <div className="designer-name-1">Pierre Hardy</div>
+                                        <div className="space-between-1"></div>
+                                        <div className="designer-description-1">
                                             {'Turn to covetable Balmain womenswear for a vampish approach to feminine glamour. Military-inspired tailoring'}
                                             {' lends instant impact to tuxedo dresses and mini skirts, alongside signature blazer jackets.'}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row-2">
-                                    <div className="photo-space"></div>
-                                    <div className="brands">
+                                <div className="row-2-1">
+                                    <div className="photo-space-1"></div>
+                                    <div className="brands-1">
                                         {
                                             Array.from(Array(4).keys()).map(_ => (
-                                                <div className="brand-container-with-margin-right">
-                                                    <div className="brand">
-                                                        <div className="brand-logo-container">
-                                                            <img className="brand-logo"></img>
+                                                <div className="brand-container-with-margin-right-1">
+                                                    <div className="brand-1">
+                                                        <div className="brand-logo-container-1">
+                                                            <img className="brand-logo-1"></img>
                                                         </div>
-                                                        <div className="brand-name"></div>
+                                                        <div className="brand-name-1"></div>
                                                     </div>
                                                 </div>
                                             ))
                                         }
-                                        <div className="brand-container-without-margin-right">
-                                            <div className="brand">
-                                                <div className="brand-logo-container">
-                                                    <img className="brand-logo"></img>
+                                        <div className="brand-container-without-margin-right-1">
+                                            <div className="brand-1">
+                                                <div className="brand-logo-container-1">
+                                                    <img className="brand-logo-1"></img>
                                                 </div>
-                                                <div className="brand-name"></div>
+                                                <div className="brand-name-1"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="photo-frame">
-                                    <img className="photo"></img>
+                                <div className="photo-frame-1">
+                                    <img className="photo-1"></img>
                                 </div>
                             </div>
                         </div>
-                        <div className="designer-profile-min-spacing"></div>
+                        <div className="designer-profile-min-spacing-1"></div>
                     </div>
                 </div>
-                <div className="content-container">
-                    <div className="content-spacing"></div>
-                    <div className="content">
-                        <div className="designer-stories">
-                            <div className="designer-story-container">
+                <div className="content-container-1">
+                    <div className="content-spacing-1"></div>
+                    <div className="content-1">
+                        <div className="designer-stories-1">
+                            <div className="designer-story-container-1">
                                 <LeftPrimaryPictureStory />
                             </div>
-                            <div className="designer-story-container">
+                            <div className="designer-story-container-1">
                                 <LeftRectanglePrimaryPictureStory />
                             </div>
-                            <div className="designer-story-container">
+                            <div className="designer-story-container-1">
                                 <OneMediaStory />
                             </div>
-                            <div className="designer-story-container">
+                            <div className="designer-story-container-1">
                                 <RightPrimaryPictureStory />
                             </div>
                         </div>
-                        {/* <div className="featured-products"></div> */}
+                        {/* <div className="featured-products-1"></div> */}
                     </div>
-                    <div className="content-spacing"></div>
+                    <div className="content-spacing-1"></div>
                 </div>
-                {/* <div className="footer"></div> */}
+                {/* <div className="footer-1"></div> */}
             </div>
         )
     }
