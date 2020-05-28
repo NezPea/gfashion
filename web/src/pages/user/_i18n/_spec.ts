@@ -24,4 +24,12 @@ export const _spec = {
     _self: '',
     create_acct: ''
   }
-}
+  ,my_profile: {
+    _self: '',
+    avatar: '',
+    change: '',
+    surname: '',
+    ownname: '',
+    save: ''
+  }
+};

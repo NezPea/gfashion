@@ -104,6 +104,7 @@ export default function PrimarySearchAppBar() {
     setAnchorEl(event.currentTarget);
   };
 
+
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
@@ -115,6 +116,15 @@ export default function PrimarySearchAppBar() {
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleProfileMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+
+    // Peter:
+    // Todo: should change to whatever routing method
+    window.location.href = '/my-profile';
   };
 
   // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
@@ -130,7 +140,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );

@@ -26,4 +26,13 @@ export const en: typeof _spec = {
     _self: 'Register',
     create_acct: 'Register'
   }
-}
+  ,my_profile: {
+    _self: 'Profile',
+    avatar: 'Avatar *',
+    change: 'Change',
+    surname: 'Surname *',
+    ownname: 'Ownname *',
+    save: 'Save'
+  }
+
+};

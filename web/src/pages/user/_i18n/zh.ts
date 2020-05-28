@@ -26,4 +26,12 @@ export const zh: typeof _spec = {
     _self: '注册',
     create_acct: '创建账户'
   }
-}
+  ,my_profile: {
+    _self: '个人信息',
+    avatar: '头像 *',
+    change: '修改',
+    surname: '姓氏 *',
+    ownname: '名字 *',
+    save: '保存'
+  }
+};

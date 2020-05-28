@@ -10,6 +10,7 @@ import Test from "../pages/Test";
 import Login from "../pages/user/login";
 import Register from "../pages/user/register";
 import FindPassword from "../pages/user/find-password";
+import MyProfile from "../pages/user/my-profile";
 const NotFound = () => {
   return (
     <div>
@@ -30,6 +31,7 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     <Route path={`/${lang}/search/:searchTerm`} component={GFashionSearch} />
     <Route path={`/${lang}/category/:categoryId`} component={GFashionProductListing} />
     <Route path={`/${lang}/product/:productId`} component={GFashionProduct} />
+    <Route path={`/${lang}/my-profile`} component={MyProfile} />
     <Route component={NotFound} />
   </Switch>
 );
