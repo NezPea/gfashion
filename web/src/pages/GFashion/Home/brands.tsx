@@ -179,7 +179,7 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
               <Typography className='brand-name'>{b.name}</Typography>
               <Typography className='brand-country'>{b.country}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
           </div>
         </Slide>
       )

@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       [theme.breakpoints.down("xl")]: {
         padding: theme.spacing(20, 0),
-        height: 1046
+        height: 825
       },
       [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(16, 0),
-        height: 800
+        height: 680
       },
       [theme.breakpoints.down("md")]: {
         padding: theme.spacing(12, 0),
-        height: 600
+        height: 580
       }
     },
     headline: {
@@ -148,7 +148,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
               <Typography className='designer-name'>{m.name}</Typography>
               <Typography className='designer-brand'>{m.cooperatingBrands[0]}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
           </Box>
         </Slide>
       )

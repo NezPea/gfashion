@@ -117,10 +117,6 @@ const useStyles = makeStyles((theme: Theme) =>
 export default () => {
   const classes = useStyles();
   const { t } = useTranslation(I18N_NS)
-  console.log(I18N);
-  console.log(t(I18N.home.banner.himalayaCoin));
-
-
 
   return (
     <div className={classes.root}>
