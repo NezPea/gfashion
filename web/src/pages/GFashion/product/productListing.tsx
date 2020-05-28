@@ -91,33 +91,33 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const generateQuery = (categoryId: string, queryValues: QueryString.ParsedQuery<string>) => {
-  let query = `?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]=${categoryId}&searchCriteria[filter_groups][0][filters][0][condition_type]=eq`;
+  let query = `?category_id,${categoryId},eq`;
   Object.entries(queryValues).map(([key, value]) => {
     switch (key.toLowerCase()) {
       case 'page':
-        query += `&searchCriteria[currentPage]=${value}`;
+        query += `&currentPage=${value}`;
         break;
       case 'pagesize':
-        query += `&searchCriteria[pageSize]=${value}`;
+        query += `pageSize=${value}`;
         break;
       case 'sort':
         let sort = (value as string).split('-');
         if (sort.length === 2) {
-          query += `&searchCriteria[sortOrders][0][field]=${sort[0]}&searchCriteria[sortOrders][0][direction]=${sort[1]}`;
+          query += `&sortField=${sort[0]}&sortDirection=${sort[1]}`;
         }
         break;
       default:
-        query += `&searchCriteria[filter_groups][3][filters][0][field]=${key}&searchCriteria[filter_groups][3][filters][0][value]=${value}&searchCriteria[filter_groups][3][filters][0][condition_type]=eq`
+        query += `&${key},${value},eq`
         break;
     }
     return null
   })
 
   if (!queryValues.pageSize) {
-    query += `&searchCriteria[pageSize]=20`;
+    query += `&pageSize=20`;
   }
 
-  return encodeURIComponent(query)
+  return query
 };
 
 const GFashionProductListing = ({ match, location }: { match: any, location: any }) => {
