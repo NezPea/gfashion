@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.footer,
       padding: '50px 20px 30px 20px'
     },
     links: {
@@ -41,6 +41,22 @@ const useStyles = makeStyles((theme: Theme) =>
       cursor: 'pointer',
       color: '#be9c63',
       fontSize: '14px'
+    },
+    group: {
+      marginRight: '4rem',
+      fontFamily: 'PingFangSC',
+      '&:last-child': {
+        marginRight: 0
+      }
+    },
+    end: {
+      fontFamily: 'PingFangSC'
+    },
+    copyright: {
+      marginTop: theme.spacing(6),
+      fontFamily: 'PingFangSC',
+      fontSize: '0.75rem',
+      color: '#888'
     }
   }),
 );
@@ -52,7 +68,7 @@ export default function Footer() {
     <div className={classes.root}>
       <div className={classes.links}>
         <div className="start">
-          <div className="group">
+          <div className={classes.group}>
             <List>
               <ListItem>
                 <Typography className={classes.title}>联系我们</Typography>
@@ -65,7 +81,7 @@ export default function Footer() {
               </ListItem>
             </List>
           </div>
-          <div className="group">
+          <div className={classes.group}>
             <List>
               <ListItem>
                 <Typography className={classes.title}>帮助</Typography>
@@ -75,7 +91,7 @@ export default function Footer() {
               </ListItem>
             </List>
           </div>
-          <div className="group">
+          <div className={classes.group}>
             <List>
               <ListItem>
                 <Typography className={classes.title}>关于我们</Typography>
@@ -85,7 +101,7 @@ export default function Footer() {
               </ListItem>
             </List>
           </div>
-          <div className="group">
+          <div className={classes.group}>
             <List>
               <ListItem>
                 <Typography className={classes.title}>政策与法规</Typography>
@@ -98,7 +114,7 @@ export default function Footer() {
               </ListItem>
             </List>
           </div>
-          <div className="group">
+          <div className={classes.group}>
             <List>
               <ListItem>
                 <Typography className={classes.title}>语言</Typography>
@@ -115,7 +131,7 @@ export default function Footer() {
             </List>
           </div>
         </div>
-        <div className="end">
+        <div className={classes.end}>
           <List>
             <ListItem>
               <Link className={classes.quickLink}>加入Gclub</Link>
@@ -129,7 +145,7 @@ export default function Footer() {
           </List>
         </div>
       </div>
-      <div className="copyright">Copyright &copy; 2020 VOG. All rights reserved.</div>
+      <div className={classes.copyright}>Copyright &copy; 2020 VOG. All rights reserved.</div>
     </div>
   )
 }
