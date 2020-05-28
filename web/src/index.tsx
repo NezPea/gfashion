@@ -6,6 +6,7 @@ import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import './assets/fonts/Lobster 1.4.otf';
+import './i18n'
 
 ReactDOM.render(
   <React.StrictMode>

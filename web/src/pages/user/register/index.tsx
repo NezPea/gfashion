@@ -8,7 +8,10 @@ import {
   Typography,
   TextField
 } from "@material-ui/core";
+import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 import MainFrame from "../../../components/MainFrame";
+import { I18N, I18N_NS } from '../_i18n'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -23,43 +26,46 @@ const useStyles = makeStyles(() =>
 );
 const Register: FunctionComponent = () => {
   const classes = useStyles();
-  //   const lang = "cn";
+  const { t } = useTranslation(I18N_NS)
   return (
     <MainFrame>
+      <Helmet>
+        <title>{t(I18N.reg._self)}</title>
+      </Helmet>
       <Box display="flex" justifyContent="center">
         <Box width="40%" display="flex" flexDirection="column">
-          <h2>创建账户</h2>
+          <h2>{t(I18N.reg._self)}</h2>
           <Tabs value={0}>
-            <Tab label="手机号码" />
-            <Tab label="邮箱" />
+            <Tab label={t(I18N._common.phone_num)} />
+            <Tab label={t(I18N._common.email)} />
           </Tabs>
           <TextField
             className={classes.textField}
-            label="phone"
+            label={t(I18N._common.phone_num)}
             variant="outlined"
           />
 
-          <h3>验证码</h3>
+          <h3>{t(I18N._common.ver_code._self)}</h3>
           <Box display="flex" justifyContent="space-between">
             <TextField
               className={classes.captcha}
-              label="phone"
+              label={t(I18N._common.phone_num)}
               variant="outlined"
             />
             <Button variant="contained" color="primary" disableElevation>
-              获取验证码
+            {t(I18N._common.ver_code.send)}
             </Button>
           </Box>
-          <h3>密码</h3>
+          <h3>{t(I18N._common.password._self)}</h3>
           <TextField
             className={classes.textField}
-            label="password"
+            label={t(I18N._common.password._self)}
             type="password"
             variant="outlined"
           />
-          <Typography>至少8个字符</Typography>
+          <Typography>{t(I18N._common.password.at_least_8_chars)}</Typography>
           <Button variant="contained" color="primary" disableElevation>
-            创建用户
+            {t(I18N.reg.create_acct)}
           </Button>
         </Box>
       </Box>

@@ -168,8 +168,6 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
 
   const buildSlides = () => {
     return brands.map((b, i) => {
-      console.log(b);
-
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <div className={classes.slideBox}>
