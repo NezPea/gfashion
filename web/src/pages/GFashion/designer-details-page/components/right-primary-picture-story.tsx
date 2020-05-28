@@ -16,23 +16,23 @@ class RightPrimaryPictureStory extends React.Component {
                         <div className="description-5"></div>
                         <div className="little-pictures-5">
                             <div className="little-picture-container-5">
-                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png'></img>
+                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
                             </div>
                             <div className="little-picture-container-5">
-                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png'></img>
+                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
                             </div>
                             <div className="little-picture-container-5">
-                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png'></img>
+                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
                             </div>
                             <div className="little-picture-container-5">
-                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png'></img>
+                                <img className="little-picture-5" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="primary-picture-container-5">
                     <div className="primary-picture-second-container-5">
-                        <img className="primary-picture-5" src='http://localhost:3004/grey-wide.png'></img>
+                        <img className="primary-picture-5" src='http://localhost:3004/grey-wide.png' alt="one picture"></img>
                     </div>
                 </div>
             </div>

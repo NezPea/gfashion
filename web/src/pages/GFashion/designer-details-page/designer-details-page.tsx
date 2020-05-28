@@ -12,7 +12,7 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
             <div className="designer-details-page-1">
                 <div className="top-1">
                     <div className="background-container-1">
-                        <img className="background-picture-1"></img>
+                        <img className="background-picture-1" alt="one picture"></img>
                     </div>
                     <div className="header-1"></div>
                     <div className="designer-profile-container-1">
@@ -42,7 +42,7 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                                                 <div className="brand-container-with-margin-right-1">
                                                     <div className="brand-1">
                                                         <div className="brand-logo-container-1">
-                                                            <img className="brand-logo-1"></img>
+                                                            <img className="brand-logo-1" alt="one picture"></img>
                                                         </div>
                                                         <div className="brand-name-1"></div>
                                                     </div>
@@ -52,7 +52,7 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                                         <div className="brand-container-without-margin-right-1">
                                             <div className="brand-1">
                                                 <div className="brand-logo-container-1">
-                                                    <img className="brand-logo-1"></img>
+                                                    <img className="brand-logo-1" alt="one picture"></img>
                                                 </div>
                                                 <div className="brand-name-1"></div>
                                             </div>
@@ -60,7 +60,7 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                                     </div>
                                 </div>
                                 <div className="photo-frame-1">
-                                    <img className="photo-1"></img>
+                                    <img className="photo-1" alt="one picture"></img>
                                 </div>
                             </div>
                         </div>
