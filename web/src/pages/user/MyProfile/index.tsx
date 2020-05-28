@@ -37,7 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
       top: "152px",
     },
     formTitle: {
-      fontSize: "20px"
+      fontSize: "20px",
+      fontWeight: "bold",
     },
     formLabel: {
       fontSize: "16px"
@@ -66,14 +67,13 @@ const useStyles = makeStyles((theme: Theme) =>
 const MyProfileSubmitButton = styled(Button) ({
   background: 'rgba(85, 85, 85, 1)',
   color: 'white',
-  height: 50,
+  height: 40,
   padding: '0px'
 });
 
 const MyProfile: FunctionComponent = () => {
   const classes = useStyles();
-  const { t, i18n } = useTranslation(I18N_NS);
-  i18n.changeLanguage('zh'); // haha temp
+  const { t  } = useTranslation(I18N_NS);
   return (
     <MainFrame>
       <Helmet>
@@ -82,12 +82,15 @@ const MyProfile: FunctionComponent = () => {
       <Box display="flex" flexDirection="column" className={classes.formHolder}>
         <form className={classes.form} noValidate autoComplete="off">
           <div className={classes.formTitle}>
-            <p><span>{t(I18N.my_profile._self)}</span></p>
-          </div>
-          <div className={classes.formLabel}>
-            <p><span>{t(I18N.my_profile.avatar)}</span></p>
+            <span>{t(I18N.my_profile._self)}</span>
           </div>
 
+          <Box height={"30px"}/>
+          <div className={classes.formLabel}>
+            <span>{t(I18N.my_profile.avatar)}</span>
+          </div>
+
+          <Box height={"10px"}/>
           <Box display="flex" flexDirection={"row"} alignItems={"flex-end"}>
             <Avatar src={require(`../../../assets/images/g-icon.png`)} className={classes.avatar} />
             <Box width={"20px"}/>
@@ -99,11 +102,10 @@ const MyProfile: FunctionComponent = () => {
           </Box>
 
 
-          <Box height={"20px"}/>
+          <Box height={"50px"}/>
           <div className={classes.formLabel}>
-            <p><span>{t(I18N.my_profile.surname)}</span></p>
+            <span>{t(I18N.my_profile.surname)}</span>
           </div>
-
           <TextField required
                      id={"text-surname"}
                      aria-describedby={"my-profile-surname"}
@@ -119,9 +121,9 @@ const MyProfile: FunctionComponent = () => {
                      className="container"
                      />
 
-          <Box height={"20px"}/>
+          <Box height={"30px"}/>
           <div className={classes.formLabel}>
-            <p><span>{t(I18N.my_profile.ownname)}</span></p>
+            <span>{t(I18N.my_profile.ownname)}</span>
           </div>
 
           <TextField required
