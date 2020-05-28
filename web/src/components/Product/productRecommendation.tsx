@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectProduct } from '../../app/slices/productsSlice';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { CarouselProvider, Slider, Slide, Image, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, Image } from 'pure-react-carousel';
 import LoadingFailed from '../../components/Common/loadingFailed';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -29,15 +29,15 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: '20px',
       height: 'auto'
     },
-    slidePrev: {
-      position: 'absolute',
-      top: 'calc(50% - 8px)'
-    },
-    slideNext: {
-      position: 'absolute',
-      top: 'calc(50% - 8px)',
-      right: 0
-    }
+    // slidePrev: {
+    //   position: 'absolute',
+    //   top: 'calc(50% - 8px)'
+    // },
+    // slideNext: {
+    //   position: 'absolute',
+    //   top: 'calc(50% - 8px)',
+    //   right: 0
+    // }
   }),
 );
 
@@ -71,8 +71,8 @@ const ProductRecommendation = () => {
             <Slider className={classes.slider}>
               {buildSlides()}
             </Slider>
-            <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
-            <ButtonNext className={classes.slideNext}>next</ButtonNext>
+            {/* <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
+            <ButtonNext className={classes.slideNext}>next</ButtonNext> */}
           </CarouselProvider>
         </div>
       ) : (
