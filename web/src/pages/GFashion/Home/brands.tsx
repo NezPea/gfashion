@@ -6,6 +6,8 @@ import { Slide, CarouselProvider, Slider, ButtonBack, ButtonNext } from 'pure-re
 import { ChevronRight, ChevronLeft } from '@material-ui/icons';
 import MockVideo from '../../../assets/images/mock_video.jpg';
 import { Models } from './imageAssets';
+import { useTranslation } from 'react-i18next';
+import { I18N, I18N_NS } from '../_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -165,6 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) => {
   const classes = useStyles();
+  const { t } = useTranslation(I18N_NS)
 
   const buildSlides = () => {
     return brands.map((b, i) => {
@@ -176,7 +179,7 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
               <Typography className='brand-name'>{b.name}</Typography>
               <Typography className='brand-country'>{b.country}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
           </div>
         </Slide>
       )
@@ -188,11 +191,13 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
       <div className={classes.headline}>
         <div className={classes.surroundingLine}></div>
         <Typography className={classes.sectionTitle} align='center'>
-          Brands
+          {t(I18N.home.recommendedBrands.title)}
         </Typography>
         <div className={classes.surroundingLine}></div>
       </div>
-      <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
+      <Typography className={classes.sectionDescription}>
+        {t(I18N.home.recommendedBrands.description)}
+      </Typography>
       <CarouselProvider
         naturalSlideWidth={320}
         naturalSlideHeight={320}

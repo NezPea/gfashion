@@ -5,6 +5,8 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import { DesignersProps } from '../../../app/types';
+import { useTranslation } from 'react-i18next';
+import { I18N, I18N_NS } from '../_i18n';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -15,15 +17,15 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       [theme.breakpoints.down("xl")]: {
         padding: theme.spacing(20, 0),
-        height: 1046
+        height: 825
       },
       [theme.breakpoints.down("lg")]: {
         padding: theme.spacing(16, 0),
-        height: 800
+        height: 680
       },
       [theme.breakpoints.down("md")]: {
         padding: theme.spacing(12, 0),
-        height: 600
+        height: 580
       }
     },
     headline: {
@@ -134,6 +136,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ designers = [] }) => {
   const classes = useStyles();
+  const { t } = useTranslation(I18N_NS);
 
   const buildSlides = () => {
     return designers.map((m, i) => {
@@ -145,7 +148,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
               <Typography className='designer-name'>{m.name}</Typography>
               <Typography className='designer-brand'>{m.cooperatingBrands[0]}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
           </Box>
         </Slide>
       )
@@ -157,11 +160,11 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
       <div className={classes.headline}>
         <div className={classes.surroundingLine}></div>
         <Typography className={classes.sectionTitle} align='center'>
-          Genius DESIGNERS
+          {t(I18N.home.recommendedDesigners.title)}
         </Typography>
         <div className={classes.surroundingLine}></div>
       </div>
-      <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
+      <Typography className={classes.sectionDescription}>{t(I18N.home.recommendedDesigners.description)}</Typography>
       <CarouselProvider
         naturalSlideWidth={320}
         naturalSlideHeight={320}

@@ -1,0 +1,248 @@
+.designer-details-page-1 {
+    position: relative;
+    width: 100vm;
+    background-color: #a0a0a0;
+}
+
+.top-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.background-container-1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.header-1 {
+    position: relative;
+    height: 5.124rem;
+}
+
+.designer-profile-container-1 {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    background-color: #c0c0c0;
+}
+
+.designer-profile-min-spacing-1 {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 1.000rem;
+}
+
+.designer-profile-second-container-1 {
+    position: relative;
+    display: flex;
+    flex-shrink: 1;
+    width: 92.875rem;
+}
+
+.designer-profile-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 46.438rem;
+    max-width: 61.062rem;
+}
+
+.row-1-1 {
+    position: relative;
+    display: flex;
+    height: 21.504rem;
+    background-color: #909090;
+}
+
+.photo-space-1 {
+    position: relative;
+    width: 17.250rem;
+}
+
+.text-profile-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 12.120rem;
+    width: 0;
+    height: 6.936rem;
+    flex-grow: 1;
+    background-color: #404040;
+}
+
+.designer-name-1 {
+    position: relative;
+    height: 2.500rem;
+    font-family: Montserrat;
+    font-size: 2.496rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.space-between-1 {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    background-color: #707070;
+}
+
+.designer-description-1 {
+    position: relative;
+    height: 3.125rem;
+    font-family: SFUIDisplay;
+    font-size: 0.936rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.row-2-1 {
+    position: relative;
+    display: flex;
+}
+
+.brands-1 {
+    position: relative;
+    display: flex;
+    width: 0;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    background-color: #707070;
+}
+
+.row-2-background-1 {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+}
+
+.brand-container-with-margin-right-1 {
+    position: relative;
+    margin-right: 3.563rem;
+}
+
+.brand-container-without-margin-right-1 {
+    position: relative;
+}
+
+.brand-1 {
+    position: relative;
+    padding-top: 2.652rem;
+    padding-bottom: 1.875rem;
+    width: 5.256rem;
+    background-color: #606060;
+}
+
+.brand-logo-container-1 {
+    position: relative;
+    margin-bottom: 0.875rem;
+    width: 5.256rem;
+    height: 5.256rem;
+    background-color: #404040;
+    border-radius: 100%;
+}
+
+.brand-name-1 {
+    position: relative;
+    width: 5.256rem;
+    height: 2.304rem;
+    background-color: #303030;
+}
+
+.photo-frame-1 {
+    position: absolute;
+    top: 9.624rem;
+    left: 0rem;
+    width: 15.000rem;
+    height: 15.000rem;
+    background-color: #404040;
+    border-radius: 100%;
+}
+
+.designer-profile-background-1 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+}
+
+.row-1-background-1 {
+    position: relative;
+    height: 21.504rem;
+}
+
+.row-2-background-1 {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 12.000rem;
+    background-color: #909090;
+}
+
+.content-container-1 {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.content-spacing-1 {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 3.750rem;
+}
+
+.content-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-shrink: 1;
+    width: 87.500rem;
+}
+
+.designer-stories-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.designer-story-container-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 4.992rem;
+    background-color: #909090;
+}
+
+.featured-products-1 {
+    position: relative;
+    height: 699px;
+}
+
+.footer-1 {
+    position: relative;
+    height: 298px;
+}

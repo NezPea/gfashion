@@ -1,12 +1,12 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import { TypeBackground } from '@material-ui/core/styles/createPalette';
+import { PayloadAction } from "@reduxjs/toolkit";
+import { TypeBackground } from "@material-ui/core/styles/createPalette";
 /**
  *  gclub
  */
 export interface gclub {
   name?: string;
   email: string;
-  isLoading: boolean,
+  isLoading: boolean;
 }
 
 export interface UserInfo {
@@ -45,6 +45,30 @@ export interface ProductAttribute {
   attribute_code: string;
 }
 
+export interface ProductExtensionAttributes {
+  configurable_product_options: Array<ProductConfigurableOption>;
+  attribute_code: string;
+}
+
+export interface ProductConfigurableOption {
+  id: number;
+  attribute_id: string;
+  label: string;
+  position: number;
+  values: Array<ProductConfigurableOptionValues>;
+}
+
+export interface ProductConfigurableOptionValues {
+  value_index: number;
+  value: ProductConfigurableOptionValue;
+}
+
+export interface ProductConfigurableOptionValue {
+  id: string;
+  name: string;
+  isChecked: string;
+}
+
 export interface ProductLink {
   link_type: string;
   file: string;
@@ -66,6 +90,7 @@ export interface ProductDetail {
   custom_attributes: Array<ProductAttribute>;
   designer_link: string;
   product_links: Array<ProductLink>;
+  extension_attributes?: ProductExtensionAttributes | null;
 }
 
 export interface ProductState {
@@ -110,7 +135,7 @@ export interface AxiosMiddlewareActionMeta {
 
 export interface AxiosMiddlewareActionError {
   data: any;
-  status: number
+  status: number;
 }
 
 export interface HomepageProduct {

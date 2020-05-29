@@ -5,6 +5,8 @@ import GIcon from '../../../assets/images/g-icon.png';
 import HIcon from '../../../assets/images/h-icon.png';
 import JoinGclub from '../../../assets/images/join-gclub.svg';
 import Banner from '../../../assets/images/home_banner.jpg';
+import { useTranslation } from 'react-i18next';
+import { I18N, I18N_NS } from '../_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -114,6 +116,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default () => {
   const classes = useStyles();
+  const { t } = useTranslation(I18N_NS)
 
   return (
     <div className={classes.root}>
@@ -122,11 +125,15 @@ export default () => {
       <div className={classes.gates}>
         <div className={classes.gateBox}>
           <Avatar src={HIcon} className={classes.gateIcon}></Avatar>
-          <Typography align='center' className='himaCoin'>Himalaya Coin</Typography>
+          <Typography align='center' className='himaCoin'>
+            {t(I18N.home.banner.himalayaCoin)}
+          </Typography>
         </div>
         <div className={classes.gateBox}>
           <Avatar src={GIcon} className={classes.gateIcon}></Avatar>
-          <Typography align='center' className='gDollar'>G-dollar</Typography>
+          <Typography align='center' className='gDollar'>
+            {t(I18N.home.banner.gDollar)}
+          </Typography>
         </div>
       </div>
     </div>
