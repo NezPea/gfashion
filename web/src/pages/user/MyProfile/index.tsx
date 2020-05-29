@@ -2,7 +2,7 @@
  * Created by Peter on 2020-05-27
  */
 
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import {
   Box,
   Avatar,
@@ -74,13 +74,29 @@ const MyProfileSubmitButton = styled(Button) ({
 const MyProfile: FunctionComponent = () => {
   const classes = useStyles();
   const { t  } = useTranslation(I18N_NS);
+
+  const [surname, setSurname] = useState('');
+  const [ownname, setOwnname] = useState('');
+
+  const handleSurnameChange = (event: any) => setSurname(event.target.value);
+  const handleOwnnameChange = (event: any) => setOwnname(event.target.value);
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    // todo:
+    // submit to or do nothing.
+  };
+
   return (
     <MainFrame>
       <Helmet>
         <title>{t(I18N.my_profile._self)}</title>
       </Helmet>
       <Box display="flex" flexDirection="column" className={classes.formHolder}>
-        <form className={classes.form} noValidate autoComplete="off">
+        <form className={classes.form} noValidate autoComplete="off"
+          onSubmit={handleSubmit}
+        >
           <div className={classes.formTitle}>
             <span>{t(I18N.my_profile._self)}</span>
           </div>
@@ -109,6 +125,8 @@ const MyProfile: FunctionComponent = () => {
           <TextField required
                      id={"text-surname"}
                      aria-describedby={"my-profile-surname"}
+                     onChange={handleSurnameChange}
+                     value={surname}
                      variant={"outlined"}
                      InputProps={{
                        classes: {
@@ -129,6 +147,8 @@ const MyProfile: FunctionComponent = () => {
           <TextField required
                      id={"text-ownname"}
                      aria-describedby={"my-profile-ownname"}
+                     onChange={handleOwnnameChange}
+                     value={ownname}
                      variant={"outlined"}
                      InputProps={{
                        classes: {
@@ -145,6 +165,7 @@ const MyProfile: FunctionComponent = () => {
 
           <MyProfileSubmitButton variant="contained" disableElevation
                   aria-describedby={"my-profile-save"}
+                                 type="submit"
           >
             {t(I18N.my_profile.save)}
           </MyProfileSubmitButton>
