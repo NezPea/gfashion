@@ -27,11 +27,20 @@ export const zh: typeof _spec = {
     create_acct: '创建账户'
   }
   ,my_profile: {
-    _self: '个人信息',
-    avatar: '头像 *',
-    change: '修改',
-    surname: '姓氏 *',
-    ownname: '名字 *',
-    save: '保存'
+    _self: '账号信息',
+    // avatar: '头像',
+    editprofile: '编辑账户信息',
+    surname: '姓',
+    ownname: '名字',
+    changepassword: '更改密码',
+    currentpassword: '当前密码',
+    newpassword: '新密码',
+    confirmpassword: '确认新密码 ',
+    strength: '密码强度：',
+    nopassword: '无密码',
+    weakpassword: '弱',
+    mediumpassword: '中等',
+    strongpassword: '强',
+    save: '保存',
   }
 };

@@ -26,10 +26,21 @@ export const _spec = {
   }
   ,my_profile: {
     _self: '',
-    avatar: '',
-    change: '',
+    // avatar: '',
+    editprofile: '',
     surname: '',
     ownname: '',
-    save: ''
+    changepassword: '',
+    currentpassword: '',
+    newpassword: '',
+    confirmpassword: '',
+    strength: '',
+    nopassword: '',
+    weakpassword: '',
+    mediumpassword: '',
+    strongpassword: '',
+    save: '',
+
+
   }
 };

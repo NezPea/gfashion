@@ -28,11 +28,20 @@ export const en: typeof _spec = {
   }
   ,my_profile: {
     _self: 'Profile',
-    avatar: 'Avatar *',
-    change: 'Change',
-    surname: 'Surname *',
-    ownname: 'Ownname *',
-    save: 'Save'
+    // avatar: 'Avatar *',
+    editprofile: 'Edit Profile',
+    surname: 'Surname',
+    ownname: 'Ownname',
+    changepassword: 'Change Password',
+    currentpassword: 'Current Password',
+    newpassword: 'New Password',
+    confirmpassword: 'Confirm Password',
+    strength: 'Strength:',
+    nopassword: 'Empty',
+    weakpassword: 'Weak',
+    mediumpassword: 'Medium',
+    strongpassword: 'Strong',
+    save: 'Save',
   }
 
 };

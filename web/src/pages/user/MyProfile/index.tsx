@@ -18,16 +18,9 @@ import "./index.css"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    card: {
-      width: "400px"
-    },
     title: {
       color: "#fff",
       backgroundColor: theme.palette.text.secondary
-    },
-    cardContent: {
-      display: "flex",
-      flexFlow: "column"
     },
     form: {
       display: "flex",
@@ -46,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
     formHolder: {
       paddingLeft: "58px",
       paddingTop: "88px",
-      maxWidth: "260px",
+      maxWidth: "900px",
     }
     ,avatar: {
       width: "77px",
@@ -103,7 +96,6 @@ const MyProfile: FunctionComponent = () => {
 
           <Box height={"30px"}/>
           <div className={classes.formLabel}>
-            <span>{t(I18N.my_profile.avatar)}</span>
           </div>
 
           <Box height={"10px"}/>
@@ -113,7 +105,6 @@ const MyProfile: FunctionComponent = () => {
             <Button className={classes.changeAvatarButton}
                     aria-describedby={"my-profile-change-avatar"}
             >
-              <span>{t(I18N.my_profile.change)}</span>
             </Button>
           </Box>
 

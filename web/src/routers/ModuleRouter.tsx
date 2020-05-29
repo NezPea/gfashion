@@ -9,7 +9,7 @@ import GFashion from "../pages/GFashion/Home";
 import GMall from "../pages/GMall";
 import GClub from "../pages/GClub";
 import GClubProfile from "../pages/GClub/profile/GClubProfile";
-import Test from "../pages/Test";
+// import Test from "../pages/Test";
 import Login from "../pages/user/login";
 import Register from "../pages/user/register";
 import FindPassword from "../pages/user/find-password";
@@ -32,7 +32,7 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
       path={`/${lang}/designer/:id`}
       component={DesignerDetailsPageDesktop}
     />
-    <Route path={`/${lang}/test`} component={Test} />
+    {/*<Route path={`/${lang}/test`} component={Test} />*/}
     <Route path={`/${lang}/gmall`} component={GMall} />
     <Route path={`/${lang}/gclub/profile`} component={GClubProfile} />
     <Route exact path={`/${lang}/gclub`} component={GClub} />
