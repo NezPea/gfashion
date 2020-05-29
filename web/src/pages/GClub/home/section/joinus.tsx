@@ -1,9 +1,9 @@
 // import useState next to FunctionComponent
 import React, { FunctionComponent } from 'react';
 // import { Link } from "react-router-dom";
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, Button } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { banner } from './types'
+import { banner } from '../../types'
 // our components props accept a number for the initial value
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -40,7 +40,9 @@ const Article: FunctionComponent<banner> = () => {
       container
       className={classes.banner}
     >
-      <Typography variant='h2' align='center'>G Community</Typography>
+      <Typography variant='h2' align='center'>Join US today</Typography>
+      <br />
+      <Button>Join</Button>
       {/* <Link to='/' className={classes.link}>go to home</Link> */}
     </Grid>
   </>
