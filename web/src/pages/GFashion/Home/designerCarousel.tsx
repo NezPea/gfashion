@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import { DesignersProps } from '../../../app/types';
 import { useTranslation } from 'react-i18next';
-import { I18N, I18N_NS } from '../_i18n';
+import { I18N, I18N_NS } from './_i18n';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 

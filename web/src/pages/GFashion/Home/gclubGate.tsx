@@ -3,10 +3,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, Avatar } from '@material-ui/core';
 import GIcon from '../../../assets/images/g-icon.png';
 import HIcon from '../../../assets/images/h-icon.png';
-import JoinGclub from '../../../assets/images/join-gclub.svg';
+import joinGclub from '../../../assets/images/join-gclub.svg';
 import Banner from '../../../assets/images/home_banner.jpg';
 import { useTranslation } from 'react-i18next';
-import { I18N, I18N_NS } from '../_i18n';
+import { I18N, I18N_NS } from './_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

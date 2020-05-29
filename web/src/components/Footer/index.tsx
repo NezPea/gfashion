@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Link, Typography, List, ListItem } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import { I18N, I18N_NS } from '../../pages/GFashion/_i18n';
+import { I18N, I18N_NS } from '../../pages/GFashion/Home/_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
