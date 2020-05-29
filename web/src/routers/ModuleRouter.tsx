@@ -1,27 +1,26 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
-import DesignerDetailsPageDesktop from "../pages/GFashion/designer-details-page/designer-details-page";
-import GFashionProduct from "../pages/GFashion/product/product";
-import GFashionProductListing from "../pages/GFashion/product/productListing";
-import GFashionSearch from "../pages/GFashion/search/searchPage";
-import GFashion from "../pages/GFashion/Home";
-import GMall from "../pages/GMall";
-import GClub from "../pages/GClub";
-import GClubProfile from "../pages/GClub/profile/GClubProfile";
-import Test from "../pages/Test";
-import Login from "../pages/user/login";
-import Register from "../pages/user/register";
-import FindPassword from "../pages/user/find-password";
-import Article from "../pages/GClub/article/Article";
+import DesignerDetailsPageDesktop from '../pages/GFashion/designer-details-page/designer-details-page'
+import GFashionProduct from '../pages/GFashion/product/product'
+import GFashionProductListing from '../pages/GFashion/product/productListing'
+import GFashionSearch from '../pages/GFashion/search/searchPage'
+import GFashion from '../pages/GFashion/Home'
+import GMall from '../pages/GMall'
+import GClub from '../pages/GClub'
+import GClubProfile from '../pages/GClub/profile/GClubProfile'
+import Login from '../pages/user/login'
+import Register from '../pages/user/register'
+import FindPassword from '../pages/user/find-password'
+import Article from '../pages/GClub/article/Article'
 
 const NotFound = () => {
   return (
     <div>
       <h1>Notfound page</h1>
     </div>
-  );
-};
+  )
+}
 
 const ModuleRouter = ({ lang }: { lang: string }) => (
   <Switch>
@@ -30,7 +29,6 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
       path={`/${lang}/designer/:id`}
       component={DesignerDetailsPageDesktop}
     />
-    <Route path={`/${lang}/test`} component={Test} />
     <Route path={`/${lang}/gmall`} component={GMall} />
     <Route path={`/${lang}/gclub/profile`} component={GClubProfile} />
     <Route exact path={`/${lang}/gclub`} component={GClub} />
@@ -46,6 +44,6 @@ const ModuleRouter = ({ lang }: { lang: string }) => (
     <Route path={`/${lang}/article`} component={Article} />
     <Route component={NotFound} />
   </Switch>
-);
+)
 
-export default ModuleRouter;
+export default ModuleRouter
