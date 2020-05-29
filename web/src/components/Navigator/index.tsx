@@ -6,8 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import DrawerList from './drawerList';
-import GnewLogo from '../../assets/images/Gnews.png';
-import GtvLogo from '../../assets/images/GTV.png';
+import GIcon from '../../assets/images/g_icon.png'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,11 +50,19 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
     },
     brotherLink: {
-      color: 'red',
+      color: '#A6978D',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      marginRight: theme.spacing(2)
+      marginRight: 'calc(45px + 1vw)',
+      fontFamily: 'Montserrat',
+      fontSize: 24,
+      textDecoration: 'none',
+      '& .g-icon': {
+        marginRight: theme.spacing(0.5),
+        width: 20,
+        height: 20
+      }
     },
     inputRoot: {
       color: 'inherit',
@@ -200,10 +207,10 @@ export default function PrimarySearchAppBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <a className={classes.brotherLink} href="https://gtv.org" target="_blank" rel="noopener noreferrer">
-              <img alt='GTV' src={GtvLogo} className={classes.glink}/>
+              <img alt='G' src={GIcon} className='g-icon' />TV
             </a>
             <a className={classes.brotherLink} href="https://gnews.org" target="_blank" rel="noopener noreferrer">
-              <img alt='GNEWS' src={GnewLogo} className={classes.glink}/>
+              <img alt='G' src={GIcon} className='g-icon' />NEWS
             </a>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={6} color="secondary">
