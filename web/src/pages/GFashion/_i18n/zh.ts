@@ -2,52 +2,52 @@ import { _spec } from './_spec'
 
 export const zh: typeof _spec = {
   _common: {
-    followButtonText: '关注',
+    follow_button_text: '关注',
     header: {
-      searchPlaceholder: '搜索'
+      search_place_holder: '搜索'
     },
     footer: {
-      contactUs: {
+      contact_us: {
         _self: '联系我们'
       },
       help: {
         _self: '帮助',
-        commonProblem: '常见问题'
+        common_problem: '常见问题'
       },
-      aboutUs: {
+      about_us: {
         _self: '关于我们',
         introduction: '企业介绍'
       },
-      policiesAndRules: {
+      policies_and_rules: {
         _self: '政策与法规',
-        privacyAgreement: '隐私协议',
-        userAgreement: '用户协议'
+        privacy_agreement: '隐私协议',
+        user_agreement: '用户协议'
       },
       language: {
         _self: '语言'
       },
-      otherLinks: {
-        joinGclub: '加入Gclub',
-        settleGfashion: '入驻Gfashion',
-        settleGmall: '入驻Gmall'
+      other_links: {
+        join_gclub: '加入Gclub',
+        settle_gfashion: '入驻Gfashion',
+        settle_gmall: '入驻Gmall'
       }
     }
   },
   home: {
     _self: 'Gfashion 主页',
     banner: {
-      himalayaCoin: '喜马拉雅币',
-      gDollar: 'G币'
+      himalaya_coin: '喜马拉雅币',
+      g_dollar: 'G币'
     },
-    recommendedDesigners: {
+    recommended_designers: {
       title: '天才设计师',
       description: '细节细节细节细节细节细节细节细节'
     },
-    recommendedBrands: {
+    recommended_brands: {
       title: '推荐品牌',
       description: '细节细节细节细节细节细节细节细节'
     },
-    recommendedProducts: {
+    recommended_products: {
       title: '精选好货',
       description: '细节细节细节细节细节细节细节细节'
     }

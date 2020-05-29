@@ -1,51 +1,51 @@
 export const _spec = {
   _common: {
-    followButtonText: '',
+    follow_button_text: '',
     header: {
-      searchPlaceholder: ''
+      search_place_holder: ''
     },
     footer: {
-      contactUs: {
+      contact_us: {
         _self: ''
       },
       help: {
         _self: '',
-        commonProblem: ''
+        common_problem: ''
       },
-      aboutUs: {
+      about_us: {
         _self: '',
         introduction: ''
       },
-      policiesAndRules: {
+      policies_and_rules: {
         _self: '',
-        privacyAgreement: '',
-        userAgreement: ''
+        privacy_agreement: '',
+        user_agreement: ''
       },
       language: {
         _self: ''
       },
-      otherLinks: {
-        joinGclub: '',
-        settleGfashion: '',
-        settleGmall: ''
+      other_links: {
+        join_gclub: '',
+        settle_gfashion: '',
+        settle_gmall: ''
       }
     }
   },
   home: {
     _self: '',
     banner: {
-      himalayaCoin: '',
-      gDollar: ''
+      himalaya_coin: '',
+      g_dollar: ''
     },
-    recommendedDesigners: {
+    recommended_designers: {
       title: '',
       description: ''
     },
-    recommendedBrands: {
+    recommended_brands: {
       title: '',
       description: ''
     },
-    recommendedProducts: {
+    recommended_products: {
       title: '',
       description: ''
     }

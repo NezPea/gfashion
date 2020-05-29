@@ -73,7 +73,7 @@ export default function Footer() {
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>{t(I18N._common.footer.contactUs._self)}</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.contact_us._self)}</Typography>
               </ListItem>
               <ListItem>
                 <Typography className={classes.content}>vog@gmail.com</Typography>
@@ -89,30 +89,30 @@ export default function Footer() {
                 <Typography className={classes.title}>{t(I18N._common.footer.help._self)}</Typography>
               </ListItem>
               <ListItem>
-                <Link className={classes.content}>{t(I18N._common.footer.help.commonProblem)}</Link>
+                <Link className={classes.content}>{t(I18N._common.footer.help.common_problem)}</Link>
               </ListItem>
             </List>
           </div>
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>{t(I18N._common.footer.aboutUs._self)}</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.about_us._self)}</Typography>
               </ListItem>
               <ListItem>
-                <Link className={classes.content}>{t(I18N._common.footer.aboutUs.introduction)}</Link>
+                <Link className={classes.content}>{t(I18N._common.footer.about_us.introduction)}</Link>
               </ListItem>
             </List>
           </div>
           <div className={classes.group}>
             <List>
               <ListItem>
-                <Typography className={classes.title}>{t(I18N._common.footer.policiesAndRules._self)}</Typography>
+                <Typography className={classes.title}>{t(I18N._common.footer.policies_and_rules._self)}</Typography>
               </ListItem>
               <ListItem>
-                <Link className={classes.content}>{t(I18N._common.footer.policiesAndRules.privacyAgreement)}</Link>
+                <Link className={classes.content}>{t(I18N._common.footer.policies_and_rules.privacy_agreement)}</Link>
               </ListItem>
               <ListItem>
-                <Link className={classes.content}>{t(I18N._common.footer.policiesAndRules.userAgreement)}</Link>
+                <Link className={classes.content}>{t(I18N._common.footer.policies_and_rules.user_agreement)}</Link>
               </ListItem>
             </List>
           </div>
@@ -136,13 +136,13 @@ export default function Footer() {
         <div className={classes.end}>
           <List>
             <ListItem>
-              <Link className={classes.quickLink}>{t(I18N._common.footer.otherLinks.joinGclub)}</Link>
+              <Link className={classes.quickLink}>{t(I18N._common.footer.other_links.join_gclub)}</Link>
             </ListItem>
             <ListItem>
-              <Link className={classes.quickLink}>{t(I18N._common.footer.otherLinks.settleGfashion)}</Link>
+              <Link className={classes.quickLink}>{t(I18N._common.footer.other_links.settle_gfashion)}</Link>
             </ListItem>
             <ListItem>
-              <Link className={classes.quickLink}>{t(I18N._common.footer.otherLinks.settleGmall)}</Link>
+              <Link className={classes.quickLink}>{t(I18N._common.footer.other_links.settle_gmall)}</Link>
             </ListItem>
           </List>
         </div>

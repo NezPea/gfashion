@@ -121,18 +121,18 @@ export default () => {
   return (
     <div className={classes.root}>
       <img alt='banner' src={Banner} className={classes.banner} />
-      <img alt='title' src={JoinGclub} className={classes.sectionTitle} />
+      <img alt='title' src={joinGclub} className={classes.sectionTitle} />
       <div className={classes.gates}>
         <div className={classes.gateBox}>
           <Avatar src={HIcon} className={classes.gateIcon}></Avatar>
           <Typography align='center' className='himaCoin'>
-            {t(I18N.home.banner.himalayaCoin)}
+            {t(I18N.home.banner.himalaya_coin)}
           </Typography>
         </div>
         <div className={classes.gateBox}>
           <Avatar src={GIcon} className={classes.gateIcon}></Avatar>
           <Typography align='center' className='gDollar'>
-            {t(I18N.home.banner.gDollar)}
+            {t(I18N.home.banner.g_dollar)}
           </Typography>
         </div>
       </div>

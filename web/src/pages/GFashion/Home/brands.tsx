@@ -179,7 +179,7 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
               <Typography className='brand-name'>{b.name}</Typography>
               <Typography className='brand-country'>{b.country}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.follow_button_text)}</Button>
           </div>
         </Slide>
       )
@@ -191,12 +191,12 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
       <div className={classes.headline}>
         <div className={classes.surroundingLine}></div>
         <Typography className={classes.sectionTitle} align='center'>
-          {t(I18N.home.recommendedBrands.title)}
+          {t(I18N.home.recommended_brands.title)}
         </Typography>
         <div className={classes.surroundingLine}></div>
       </div>
       <Typography className={classes.sectionDescription}>
-        {t(I18N.home.recommendedBrands.description)}
+        {t(I18N.home.recommended_brands.description)}
       </Typography>
       <CarouselProvider
         naturalSlideWidth={320}

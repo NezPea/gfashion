@@ -148,7 +148,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
               <Typography className='designer-name'>{m.name}</Typography>
               <Typography className='designer-brand'>{m.cooperatingBrands[0]}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.followButtonText)}</Button>
+            <Button variant='contained' color='secondary' className='action-follow'>{t(I18N._common.follow_button_text)}</Button>
           </Box>
         </Slide>
       )
@@ -160,11 +160,11 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
       <div className={classes.headline}>
         <div className={classes.surroundingLine}></div>
         <Typography className={classes.sectionTitle} align='center'>
-          {t(I18N.home.recommendedDesigners.title)}
+          {t(I18N.home.recommended_designers.title)}
         </Typography>
         <div className={classes.surroundingLine}></div>
       </div>
-      <Typography className={classes.sectionDescription}>{t(I18N.home.recommendedDesigners.description)}</Typography>
+      <Typography className={classes.sectionDescription}>{t(I18N.home.recommended_designers.description)}</Typography>
       <CarouselProvider
         naturalSlideWidth={320}
         naturalSlideHeight={320}

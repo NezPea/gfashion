@@ -2,52 +2,52 @@ import { _spec } from './_spec'
 
 export const en: typeof _spec = {
   _common: {
-    followButtonText: 'Follow',
+    follow_button_text: 'Follow',
     header: {
-      searchPlaceholder: 'Search'
+      search_place_holder: 'Search'
     },
     footer: {
-      contactUs: {
+      contact_us: {
         _self: 'Contact us'
       },
       help: {
         _self: 'Help',
-        commonProblem: 'Common problem'
+        common_problem: 'Common problem'
       },
-      aboutUs: {
+      about_us: {
         _self: 'About us',
         introduction: 'Introduction'
       },
-      policiesAndRules: {
+      policies_and_rules: {
         _self: 'Policies',
-        privacyAgreement: 'Privacy',
-        userAgreement: 'User agreement'
+        privacy_agreement: 'Privacy',
+        user_agreement: 'User agreement'
       },
       language: {
         _self: 'Language'
       },
-      otherLinks: {
-        joinGclub: 'Join Gclub',
-        settleGfashion: 'Settle in Gfashion',
-        settleGmall: 'Settle in Gmall'
+      other_links: {
+        join_gclub: 'Join Gclub',
+        settle_gfashion: 'Settle in Gfashion',
+        settle_gmall: 'Settle in Gmall'
       }
     }
   },
   home: {
     _self: 'Gfashion home',
     banner: {
-      himalayaCoin: 'Himalaya Coin',
-      gDollar: 'G-dollar'
+      himalaya_coin: 'Himalaya Coin',
+      g_dollar: 'G-dollar'
     },
-    recommendedDesigners: {
+    recommended_designers: {
       title: 'Gunius DESIGNERS',
       description: 'something details something details something details'
     },
-    recommendedBrands: {
+    recommended_brands: {
       title: 'Brands',
       description: 'something details something details something details'
     },
-    recommendedProducts: {
+    recommended_products: {
       title: 'Best Products',
       description: 'something details something details something details'
     }

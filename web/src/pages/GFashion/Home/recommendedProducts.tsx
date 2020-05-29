@@ -98,12 +98,12 @@ export const RecommendedProducts: React.FunctionComponent<RecommendedProductProp
         <div className={classes.headline}>
           <div className={classes.surroundingLine}></div>
           <Typography className={classes.sectionTitle} align='center'>
-            {t(I18N.home.recommendedProducts.title)}
+            {t(I18N.home.recommended_products.title)}
           </Typography>
           <div className={classes.surroundingLine}></div>
         </div>
         <Typography className={classes.sectionDescription}>
-          {t(I18N.home.recommendedProducts.description)}
+          {t(I18N.home.recommended_products.description)}
         </Typography>
         <div className={classes.productsContainer}>
           <GridList spacing={12} cols={2} cellHeight={400} className={classes.productsFeatured}>
