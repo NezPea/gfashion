@@ -1,7 +1,9 @@
 import React from 'react';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, SwipeableDrawer } from '@material-ui/core';
-import { AccountCircle, ShoppingCart } from '@material-ui/icons';
+import { AccountCircle, ShoppingCart, ExpandMore } from '@material-ui/icons';
+import ShoppingCartImg from '../../assets/images/shopping_cart.svg';
+import ProfileImg from '../../assets/images/profile.svg';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -94,18 +96,31 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'flex',
       },
     },
-    glink: {
-      marginRight: '2rem',
-      height: '1.25rem'
+    languageSelection: {
+      '& .text': {
+        width: '1.25rem',
+        height: '1.25rem',
+        border: '1px solid #222',
+        borderRadius: '0.625rem',
+        fontSize: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      color: '#222',
+      borderRadius: 8
     }
   }),
 );
+
+// const availableLangs = ['EN', 'ZH', 'FR', 'JA']
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false);
+  // const [currentLanguage, setCurrentLanguage] = useState('EN')
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -215,20 +230,31 @@ export default function PrimarySearchAppBar() {
             <a className={classes.brotherLink} href="https://gnews.org" target="_blank" rel="noopener noreferrer">
               <img alt='G' src={GIcon} className='g-icon' />NEWS
             </a>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <IconButton aria-label="shopping cart" color="inherit">
               <Badge badgeContent={6} color="secondary">
-                <ShoppingCart />
+                <img src={ShoppingCartImg} alt='shopping cart' />
+              </Badge>
+            </IconButton>
+            <IconButton
+              aria-label="show profile"
+              color="inherit"
+              onClick={handleProfileMenuOpen}
+              aria-controls={menuId}
+              aria-haspopup="true"
+            >
+              <Badge badgeContent={3} color="secondary">
+                <img src={ProfileImg} alt='user profile' />
               </Badge>
             </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
+              className={classes.languageSelection}
             >
-              <AccountCircle />
+              <div className='text'>
+                EN
+              </div>
+              <ExpandMore />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
