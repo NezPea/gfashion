@@ -10,6 +10,9 @@ import GIcon from '../../assets/images/g_icon.png'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    appBar: {
+      boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)'
+    },
     grow: {
       flexGrow: 1,
     },
@@ -177,7 +180,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar>
+      <AppBar className={classes.appBar}>
         <Toolbar>
           <IconButton
             edge="start"
