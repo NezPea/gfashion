@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 // import { Link } from "react-router-dom";
 import { Grid, Typography, Paper } from '@material-ui/core'
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { stories } from './types'
+import { stories } from '../../types'
 // our components props accept a number for the initial value
 
 const useStyles = makeStyles((theme) =>

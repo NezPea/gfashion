@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
 import DesignerDetailsPageDesktop from "../pages/GFashion/designer-details-page/designer-details-page";
 import GFashionProduct from "../pages/GFashion/product/product";
@@ -21,8 +21,8 @@ const NotFound = () => {
     <div>
       <h1>Notfound page</h1>
     </div>
-  );
-};
+  )
+}
 
 const ModuleRouter = ({ lang }: { lang: string }) => {
   i18next.changeLanguage(lang)
@@ -52,4 +52,4 @@ const ModuleRouter = ({ lang }: { lang: string }) => {
   );
 }
 
-export default ModuleRouter;
+export default ModuleRouter

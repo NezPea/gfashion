@@ -4,15 +4,15 @@
 
 There are various front-end i18n solutions while most of them can be categorized into 2 genres:
 
-* Compilation-based. Such as [i18n-webpack-plugin](https://www.npmjs.com/package/i18n-webpack-plugin).
+* Compilation-based. e.g. [i18n-webpack-plugin](https://www.npmjs.com/package/i18n-webpack-plugin).
 
-* Runtime-based. Such as [react-intl](https://www.npmjs.com/package/react-intl).
+* Runtime-based. e.g. [react-intl](https://www.npmjs.com/package/react-intl).
 
 Runtime-based solution prevails in many aspects because of its simplicity and flexibility. Among the most popular libs, [i18next](https://github.com/i18next/i18next) might be the [best choice](https://www.i18next.com/overview/comparison-to-others) so that [react-i18next](https://github.com/i18next/react-i18next) is introduced.
 
 ## Quickstart
 
-Please skim [Quick start | react-i18next](https://react.i18next.com/guides/quick-start).
+Please skim through [Quick start | react-i18next](https://react.i18next.com/guides/quick-start).
 
 ## Our patterns
 
@@ -22,7 +22,7 @@ After doing some researches, we figured out a better approach to handle resource
 
 ### Any *resources* should be modular
 
-For example, there is an `_i18n` folder in `user` module which is self-explained.
+For example, there is an `_i18n` folder in `user` module which is self-explanatory.
 
 ```bash
 _i18n
@@ -32,17 +32,35 @@ _i18n
   └── zh.ts      # Chinese translation file
 ```
 
-Tips: please don't forget to import your modular resources in `src/i18n/resources`.
+( Tips: please don't forget to import your modular resources in `src/i18n/resources`. )
 
 ### Any resources should be spec-ed
 
-At the moment we have `en` and `zh`, both are derived from `_spec` and guarded by `typeof`. By doing this, any further refactoring is effortless.
+At the moment we have `en` and `zh`, both are derived from `_spec` and **guarded** by `typeof`. By doing this, any further refactoring is effortless.
 
-**NEVER use string literals.** `t('trans_key') <- impossible to refactor by IDE intellisense`
+**NEVER use string literals.**
+
+```ts
+t('trans_key') // impossible to refactor by IDE intellisense
+```
 
 ### Any *keys* should be in `snake_case`
 
 This enables us to easily distinguish a translation key from a variable name (usually in `camelCase`).
+
+```ts
+// Bad
+export const _spec = {
+  pleaseEnterYourEmail: '',
+  pleaseEnterYourPwd: ''
+}
+
+// Good
+export const _spec = {
+  please_enter_your_email: '',
+  please_enter_your_pwd: ''
+}
+```
 
 ### Avoid ES6 destructuring
 
@@ -107,9 +125,9 @@ export const en: typeof _spec = {
 }
 ```
 
-### Avoid missing accessibility (a11y) labels `aria-`
+### Avoid missing accessibility (a11y) `aria-*` labels
 
-Not only for the people in need (with a screen reader) but also potential unit / integration testing in the future.
+Not only for the people in need (with a screen reader) but also for potential unit / integration testings in the future.
 
 ### Use English as the primary language during development
 
