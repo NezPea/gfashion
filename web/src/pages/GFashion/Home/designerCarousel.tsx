@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         '& .designer-brand': {
           fontFamily: `Helvetica`,
-          fontSize: `1.125rem`
+          fontSize: `1.0625rem`
         }
       },
       '& .action-follow': {
@@ -191,7 +191,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
             <div className="designer-info">
               <Typography className="designer-name">{m.name}</Typography>
               <Typography className="designer-brand">
-                {m.cooperatingBrands[0]}
+                {`${m.cooperatingBrands[0]} designer`}
               </Typography>
             </div>
             <Button
