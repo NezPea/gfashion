@@ -15,8 +15,8 @@ RUN npm install
 
 # copy codes and build
 COPY . /usr/src/app/
-RUN npm run build
+RUN yarn build
 
 # start app
-CMD ["npm", "run", "serve"]
+CMD ["yarn", "run", "serve"]
 EXPOSE 5000

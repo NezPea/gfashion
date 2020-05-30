@@ -3,10 +3,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, Avatar } from '@material-ui/core';
 import GIcon from '../../../assets/images/g-icon.png';
 import HIcon from '../../../assets/images/h-icon.png';
-import JoinGclub from '../../../assets/images/join-gclub.svg';
+import joinGclub from '../../../assets/images/join-gclub.svg';
 import Banner from '../../../assets/images/home_banner.jpg';
 import { useTranslation } from 'react-i18next';
-import { I18N, I18N_NS } from '../_i18n';
+import { I18N, I18N_NS } from './_i18n';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -121,18 +121,18 @@ export default () => {
   return (
     <div className={classes.root}>
       <img alt='banner' src={Banner} className={classes.banner} />
-      <img alt='title' src={JoinGclub} className={classes.sectionTitle} />
+      <img alt='title' src={joinGclub} className={classes.sectionTitle} />
       <div className={classes.gates}>
         <div className={classes.gateBox}>
           <Avatar src={HIcon} className={classes.gateIcon}></Avatar>
           <Typography align='center' className='himaCoin'>
-            {t(I18N.home.banner.himalayaCoin)}
+            {t(I18N.home.banner.himalaya_coin)}
           </Typography>
         </div>
         <div className={classes.gateBox}>
           <Avatar src={GIcon} className={classes.gateIcon}></Avatar>
           <Typography align='center' className='gDollar'>
-            {t(I18N.home.banner.gDollar)}
+            {t(I18N.home.banner.g_dollar)}
           </Typography>
         </div>
       </div>
