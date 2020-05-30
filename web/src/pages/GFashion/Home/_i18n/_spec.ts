@@ -43,7 +43,11 @@ export const _spec = {
     },
     recommended_brands: {
       title: '',
-      description: ''
+      description: '',
+      newLaunch_label: '',
+      launch_title: '',
+      launch_description: '',
+      shop_link: ''
     },
     recommended_products: {
       title: '',

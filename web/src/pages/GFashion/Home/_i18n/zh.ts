@@ -45,7 +45,11 @@ export const zh: typeof _spec = {
     },
     recommended_brands: {
       title: '推荐品牌',
-      description: '细节细节细节细节细节细节细节细节'
+      description: '细节细节细节细节细节细节细节细节',
+      newLaunch_label: '新品发布',
+      launch_title: `香奈儿 2020`,
+      launch_description: '香奈儿（Chanel）创意总监乔纳森·安德森（Jonathan Anderson）与保拉（Paula）的伊维萨（Ibiza）进行了最新的合作，他说：“这是一个令人愉悦，不可否认的逃避现实的系列。” 球杆扎染T恤，夏天准备的帆布鞋和最好的皮包，承载着我们对美好时光的希望。',
+      shop_link: '选购系列'
     },
     recommended_products: {
       title: '精选好货',

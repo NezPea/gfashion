@@ -214,12 +214,12 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
       </CarouselProvider>
       <div className={classes.newLaunch}>
         <div className='text'>
-          <Typography variant='subtitle2'>New Launch</Typography>
+          <Typography variant='subtitle2'>{t(I18N.home.recommended_brands.newLaunch_label)}</Typography>
           <div>
-            <Typography className={classes.launchTitle}>Chanel's 2020</Typography>
-            <Typography className={classes.launchBody}>“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.</Typography>
+            <Typography className={classes.launchTitle}>{t(I18N.home.recommended_brands.launch_title)}</Typography>
+            <Typography className={classes.launchBody}>{t(I18N.home.recommended_brands.launch_description)}</Typography>
           </div>
-          <Link color='secondary'>Shop the Collection</Link>
+          <Link color='secondary'>{t(I18N.home.recommended_brands.shop_link)}</Link>
         </div>
         <img src={MockVideo} alt="mock video" />
       </div>

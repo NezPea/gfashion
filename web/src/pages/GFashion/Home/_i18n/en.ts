@@ -45,7 +45,11 @@ export const en: typeof _spec = {
     },
     recommended_brands: {
       title: 'Brands',
-      description: 'something details something details something details'
+      description: 'something details something details something details',
+      newLaunch_label: 'New Launch',
+      launch_title: `Chanel's 2020`,
+      launch_description: '“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.',
+      shop_link: 'Shop the Collection'
     },
     recommended_products: {
       title: 'Best Products',
