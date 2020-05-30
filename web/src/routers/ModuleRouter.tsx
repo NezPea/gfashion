@@ -14,7 +14,7 @@ import Login from "../pages/user/login";
 import Register from "../pages/user/register";
 import FindPassword from "../pages/user/find-password";
 import Article from "../pages/GClub/article/Article";
-import MyProfile from "../pages/user/MyProfileV2";
+import MyProfile from "../pages/user/MyProfile";
 
 
 const NotFound = () => {

@@ -25,8 +25,10 @@ const BlueCheckbox = withStyles({
   checked: {},
 })((props: CheckboxProps) => <Checkbox color="default" {...props} />);
 
-const MyProfileBasic = ({onEnablePasswordClick} :
-                                             {onEnablePasswordClick : (value:boolean)=>void}) => {
+const MyProfileBasic = ({onEnablePasswordClick, onDataChange} :
+                       { onEnablePasswordClick : (value:boolean)=>void,
+                        onDataChange : (ownname:string, surname:string)=>void}
+                        ) => {
 
   const [enablePassword, setEnablePassword] = useState(false);
   const [ownname, setOwnname] = useState('');
@@ -41,8 +43,14 @@ const MyProfileBasic = ({onEnablePasswordClick} :
     onEnablePasswordClick(event.target.checked);
   };
 
-  const handleOwnnameChange = (event:any)=> setOwnname(event.target.value);
-  const handleSurnameChange = (event:any)=> setSurname(event.target.value);
+  const handleOwnnameChange = (event:any)=> {
+    setOwnname(event.target.value);
+    onDataChange(event.target.value, surname);
+  };
+  const handleSurnameChange = (event:any)=> {
+    setSurname(event.target.value);
+    onDataChange(ownname, event.target.value);
+  };
 
   return (
     <Box className="subFormBox">

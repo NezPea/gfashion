@@ -1,84 +1,71 @@
 /**
- * Created by Peter on 2020-05-27
+ * Created by Peter on 2020-05-29
  */
-
-import React, { FunctionComponent, useState } from "react";
-import {
-  Box,
-  Avatar,
-  TextField,
-  Button,
-} from "@material-ui/core";
-import { Helmet } from 'react-helmet-async'
-import { useTranslation } from 'react-i18next'
+import React, {FunctionComponent} from "react";
 import MainFrame from "../../../components/MainFrame";
 import { I18N, I18N_NS } from '../_i18n'
-import {createStyles, makeStyles, Theme, styled} from "@material-ui/core/styles";
-import "./index.css"
+import {Helmet} from "react-helmet-async";
+import {useTranslation} from "react-i18next";
+import {createStyles, makeStyles, styled} from "@material-ui/core/styles";
+import {Box, Button} from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
+import MyProfileBasic from "./MyProfileBasic";
+import MyProfilePassword from "./MyProfilePassword";
+
+const useStyle = makeStyles( () =>
   createStyles({
-    title: {
-      color: "#fff",
-      backgroundColor: theme.palette.text.secondary
+    container: {
+      display: 'grid',
+      gridTemplateColumns: '2',
+      gridGap: '20px',
     },
+
     form: {
       display: "flex",
-      flexFlow: "column",
-
-      left: "58px",
-      top: "152px",
+      flexFlow: "row",
+      width: "100%",
+      paddingLeft: "40px",
+      paddingTop: "50px",
+    },
+    formBox: {
+    },
+    subFormBox: {
+      display: "flex",
+      flexDirection: "column",
+      maxWidth: "380px",
+      minWidth: "200px",
+      width: "40%",
     },
     formTitle: {
-      fontSize: "20px",
+      fontSize: "26px",
       fontWeight: "bold",
     },
-    formLabel: {
-      fontSize: "16px"
-    },
-    formHolder: {
-      paddingLeft: "58px",
-      paddingTop: "88px",
-      maxWidth: "900px",
-    }
-    ,avatar: {
-      width: "77px",
-      height: "77px",
-    }
-    ,changeAvatarButton: {
-
-    }
-    , notchedOutline: {
-      borderWidth: "1px",
-      borderColor: "black !important",
-    }
 
 
   })
 );
 
 const MyProfileSubmitButton = styled(Button) ({
-  background: 'rgba(85, 85, 85, 1)',
+  background: 'rgba(102, 153, 204, 1)',
   color: 'white',
   height: 40,
+  width: 150,
   padding: '0px'
 });
 
 const MyProfile: FunctionComponent = () => {
-  const classes = useStyles();
+  const classes = useStyle();
   const { t  } = useTranslation(I18N_NS);
 
-  const [surname, setSurname] = useState('');
-  const [ownname, setOwnname] = useState('');
+  const handleEnablePasswordClick = () => {
+  };
 
-  const handleSurnameChange = (event: any) => setSurname(event.target.value);
-  const handleOwnnameChange = (event: any) => setOwnname(event.target.value);
+  const handleBasicDataChange = (ownname:string, surname:string) => {
+    console.log('haha temp ' + ownname + ' ' + surname);
+  };
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-
-    // todo:
-    // submit to or do nothing.
+  const handlePasswordDataChange = (oldPassword:string, newPassword:string, confirmPassword:string) => {
+    console.log('haha temp ' + oldPassword + ' ' + newPassword + ' ' + confirmPassword);
   };
 
   return (
@@ -86,88 +73,35 @@ const MyProfile: FunctionComponent = () => {
       <Helmet>
         <title>{t(I18N.my_profile._self)}</title>
       </Helmet>
-      <Box display="flex" flexDirection="column" className={classes.formHolder}>
-        <form className={classes.form} noValidate autoComplete="off"
-          onSubmit={handleSubmit}
-        >
+      <form className={classes.form} noValidate autoComplete="off" >
+        <Box display="flex" flexDirection="column" width={"100%"} className={classes.formBox}>
           <div className={classes.formTitle}>
-            <span>{t(I18N.my_profile._self)}</span>
+            <span>{t(I18N.my_profile.editprofile)}</span>
           </div>
+          <Box height="5px"/>
 
-          <Box height={"30px"}/>
-          <div className={classes.formLabel}>
-          </div>
+          <Box display="flex" flexDirection="row" flexWrap="wrap" >
+            <MyProfileBasic onEnablePasswordClick={handleEnablePasswordClick}
+              onDataChange={handleBasicDataChange}
+            />
 
-          <Box height={"10px"}/>
-          <Box display="flex" flexDirection={"row"} alignItems={"flex-end"}>
-            <Avatar src={require(`../../../assets/images/g-icon.png`)} className={classes.avatar} />
-            <Box width={"20px"}/>
-            <Button className={classes.changeAvatarButton}
-                    aria-describedby={"my-profile-change-avatar"}
-            >
-            </Button>
+            <MyProfilePassword onDataChange={handlePasswordDataChange}/>
           </Box>
 
-
-          <Box height={"50px"}/>
-          <div className={classes.formLabel}>
-            <span>{t(I18N.my_profile.surname)}</span>
-          </div>
-          <TextField required
-                     id={"text-surname"}
-                     aria-describedby={"my-profile-surname"}
-                     onChange={handleSurnameChange}
-                     value={surname}
-                     variant={"outlined"}
-                     InputProps={{
-                       classes: {
-                         notchedOutline: classes.notchedOutline
-                       }
-                     }}
-                     InputLabelProps={{
-                       shrink: true,
-                     }}
-                     className="container"
-                     />
-
-          <Box height={"30px"}/>
-          <div className={classes.formLabel}>
-            <span>{t(I18N.my_profile.ownname)}</span>
-          </div>
-
-          <TextField required
-                     id={"text-ownname"}
-                     aria-describedby={"my-profile-ownname"}
-                     onChange={handleOwnnameChange}
-                     value={ownname}
-                     variant={"outlined"}
-                     InputProps={{
-                       classes: {
-                         notchedOutline: classes.notchedOutline
-                       }
-                     }}
-                     InputLabelProps={{
-                       shrink: true
-                     }}
-                     className="container"
-                     />
-
-          <Box height={"60px"}/>
-
+          <Box height="40px"/>
           <MyProfileSubmitButton variant="contained" disableElevation
-                  aria-describedby={"my-profile-save"}
+                                 aria-describedby={"my-profile-save"}
                                  type="submit"
           >
             {t(I18N.my_profile.save)}
           </MyProfileSubmitButton>
+        </Box>
 
-        </form>
-      </Box>
+      </form>
+
     </MainFrame>
   );
+
 };
 
 export default MyProfile;
-
-
-

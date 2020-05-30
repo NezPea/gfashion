@@ -13,25 +13,28 @@ import {PasswordMeter} from "password-meter";
 import "./index.css"
 
 
-const MyProfilePassword = ({}) => {
+const MyProfilePassword = ({onDataChange}
+  :{onDataChange :(oldPassword:string, newPassword:string, confirmPassword:string)=>void}) => {
+  const { t  } = useTranslation(I18N_NS);
 
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [passwordStrengthResult, setPasswordStrengthResult] = useState('');
+  const [passwordStrengthResult, setPasswordStrengthResult] = useState(t(I18N.my_profile.emptypassword));
 
 
-  const { t  } = useTranslation(I18N_NS);
 
-  const handleCurrentPasswordChange = (event:any)=> setCurrentPassword(event.target.value);
-  const handleNewPasswordChange = (event:any)=> {
-    var newValue = event.target.value;
-    setNewPassword(newValue);
-    if (!newValue || newValue.length == 0) {
+  const handleCurrentPasswordChange = (event:any)=> {
+    setCurrentPassword(event.target.value);
+    onDataChange(event.target.value, newPassword, confirmPassword);
+  };
+
+  function adjustNewPasswordStrength(newValue:string) {
+    if (!newValue || newValue.length === 0) {
       setPasswordStrengthResult(t(I18N.my_profile.emptypassword));
 
     } else {
-      var checkResult = new PasswordMeter().getResult(newValue);
+      const checkResult = new PasswordMeter().getResult(newValue);
       if (checkResult.percent < 50) {
         setPasswordStrengthResult(t(I18N.my_profile.weakpassword));
       } else if (checkResult.percent < 85) {
@@ -40,18 +43,29 @@ const MyProfilePassword = ({}) => {
         setPasswordStrengthResult(t(I18N.my_profile.strongpassword));
       }
     }
+  }
+
+  const handleNewPasswordChange = (event:any)=> {
+    const newValue = event.target.value;
+    setNewPassword(newValue);
+    onDataChange(currentPassword, event.target.value, confirmPassword);
+    adjustNewPasswordStrength(newValue);
   };
-  const handleConfirmPasswordChange = (event:any)=> setConfirmPassword(event.target.value);
+
+  const handleConfirmPasswordChange = (event:any)=> {
+    setConfirmPassword(event.target.value);
+    onDataChange(currentPassword, newPassword, event.target.value);
+  };
 
   return (
     <Box className="subFormBox">
-      <Box className="fieldVerticalMargin" />
+      <Box className="fieldVerticalMargin"/>
       <div className="subTitle">
         <span>{t(I18N.my_profile.changepassword)}</span>
       </div>
       <Box className="fieldInnerVerticalMargin"/>
       <Divider/>
-      <Box className="fieldVerticalMargin" />
+      <Box className="fieldVerticalMargin"/>
       <div className="subField">
         <span>{t(I18N.my_profile.currentpassword)}</span>
         <span className="requiredSign"> *</span>
@@ -84,7 +98,7 @@ const MyProfilePassword = ({}) => {
                  InputProps={{classes: {notchedOutline: "containerOutline"}}}
                  InputLabelProps={{shrink: true,}}
                  className="container"/>
-      <Box display="flex" flexDirection={"row"} className="passwordStrenthContainer">
+      <Box display="flex" flexDirection={"row"} className="passwordStrengthContainer">
         <span>{t(I18N.my_profile.passwordStrength)}</span>
         <span>{passwordStrengthResult}</span>
       </Box>
@@ -108,9 +122,8 @@ const MyProfilePassword = ({}) => {
                  className="container"/>
 
     </Box>
-
-
   );
+
 
 };
 
