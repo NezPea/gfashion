@@ -2,8 +2,7 @@
  * Created by Peter on 2020-05-29
  */
 
-import React, { FunctionComponent, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import {useTranslation} from "react-i18next";
 import {I18N, I18N_NS} from "../_i18n";
 import {
@@ -12,27 +11,9 @@ import {
   Checkbox, withStyles,
   colors,
 } from "@material-ui/core";
-import {createStyles, makeStyles,} from "@material-ui/core/styles";
 import {CheckboxProps} from "@material-ui/core/Checkbox";
 
 import "./index.css"
-
-
-const useStyle = makeStyles( () =>
-  createStyles({
-    box: {
-      display: "flex",
-      flexDirection: "column",
-      maxWidth: "400px",
-    },
-    formTitle: {
-      fontSize: "26px",
-      fontWeight: "bold",
-    },
-
-
-  })
-);
 
 const BlueCheckbox = withStyles({
   root: {
@@ -44,10 +25,8 @@ const BlueCheckbox = withStyles({
   checked: {},
 })((props: CheckboxProps) => <Checkbox color="default" {...props} />);
 
-
-
-const MyProfileBasic: FunctionComponent = ({}, {}) => {
-  const classes = useStyle();
+const MyProfileBasic = ({onEnablePasswordClick} :
+                                             {onEnablePasswordClick : (value:boolean)=>void}) => {
 
   const [enablePassword, setEnablePassword] = useState(false);
   const [ownname, setOwnname] = useState('');
@@ -59,18 +38,15 @@ const MyProfileBasic: FunctionComponent = ({}, {}) => {
   const handlePasswordChecked = (event:React.ChangeEvent<HTMLInputElement>) => {
     setEnablePassword(event.target.checked);
     // props.onEnablePasswordClick(event.target.checked);
-    // onEnablePasswordClick(event.target.checked);
+    onEnablePasswordClick(event.target.checked);
   };
 
   const handleOwnnameChange = (event:any)=> setOwnname(event.target.value);
   const handleSurnameChange = (event:any)=> setSurname(event.target.value);
 
   return (
-    <Box className={classes.box}>
-      <div className={classes.formTitle}>
-        <span>{t(I18N.my_profile.editprofile)}</span>
-      </div>
-      <Box height="24px"/>
+    <Box className="subFormBox">
+      <Box className="fieldVerticalMargin" />
       <div className="subTitle">
         <span>{t(I18N.my_profile._self)}</span>
       </div>
@@ -120,8 +96,9 @@ const MyProfileBasic: FunctionComponent = ({}, {}) => {
                  }}
                  className="container"
       />
-      <Box height="24px"/>
+      <Box height="30px"/>
       <FormControlLabel
+
         control={
           <BlueCheckbox checked={enablePassword}
           onChange={handlePasswordChecked}
@@ -134,10 +111,5 @@ const MyProfileBasic: FunctionComponent = ({}, {}) => {
   );
 
 };
-
-MyProfileBasic.propTypes = {
-  onEnablePasswordClick : PropTypes.func.isRequired
-};
-
 
 export default MyProfileBasic;

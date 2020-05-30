@@ -15,6 +15,15 @@
   font-size: 12px;
 }
 
+.passwordStrenthContainer {
+  height: 24px;
+  font-size: 14px;
+  background-color: lightgrey;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+}
+
 .containerOutline {
   border-width: 1px;
   border-color: lightgrey !important;
@@ -24,6 +33,9 @@
 .subTitle {
   font-size: 20px;
   font-weight: normal;
+  white-space: nowrap;
+
+
 }
 
 .subField {
@@ -42,3 +54,13 @@
 .fieldInnerVerticalMargin {
   height: 5px;
 }
+
+.subFormBox {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  min-width: 200px;
+  width: 40%;
+  margin-right: 30px
+}
+
