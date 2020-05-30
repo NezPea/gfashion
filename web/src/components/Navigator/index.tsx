@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, SwipeableDrawer } from '@material-ui/core';
 import { AccountCircle, ShoppingCart, ExpandMore } from '@material-ui/icons';
@@ -7,8 +7,12 @@ import ProfileImg from '../../assets/images/profile.svg';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { AVAILABLE_LANGS } from '../../i18n/consts';
 import DrawerList from './drawerList';
-import GIcon from '../../assets/images/g_icon.png'
+import GIcon from '../../assets/images/g_icon.png';
+import i18next from 'i18next';
+import { useLocation, useHistory } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -117,13 +121,21 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false);
+  const [langsAnchorEl, setLangsAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   // const [currentLanguage, setCurrentLanguage] = useState('EN')
 
+  const isLangsMenuOpen = Boolean(langsAnchorEl)
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const location = useLocation();
+  const history = useHistory();
+
+  const handleLangsMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setLangsAnchorEl(event.currentTarget)
+  }
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -142,7 +154,40 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleLanguageChange = (lang: string) => {
+    return () => {
+      setLangsAnchorEl(null)
+      i18next.changeLanguage(lang, () => {
+        let pathSplits = location.pathname.split('/');
+        pathSplits[1] = lang;
+        history.replace(pathSplits.join('/'))
+      })
+
+    }
+  }
+
   // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
+
+  const langsMenuId = 'primary-search-languages-menu';
+  const renderLangsMenu = (
+    <Menu
+      anchorEl={langsAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={langsMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isLangsMenuOpen}
+      onClose={handleMenuClose}
+    >
+      {
+        AVAILABLE_LANGS.map((lang, i) => {
+          return (
+            <MenuItem key={i} onClick={handleLanguageChange(lang.key)}>{lang.label}</MenuItem>
+          )
+        })
+      }
+    </Menu>
+  );
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -250,9 +295,10 @@ export default function PrimarySearchAppBar() {
               edge="end"
               aria-label="account of current user"
               className={classes.languageSelection}
+              onClick={handleLangsMenuOpen}
             >
               <div className='text'>
-                EN
+                {i18next.language.toUpperCase()}
               </div>
               <ExpandMore />
             </IconButton>
@@ -278,6 +324,7 @@ export default function PrimarySearchAppBar() {
       >
         <DrawerList />
       </SwipeableDrawer>
+      {renderLangsMenu}
       {renderMobileMenu}
       {renderMenu}
     </div>
