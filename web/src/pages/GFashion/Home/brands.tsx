@@ -8,7 +8,6 @@ import MockVideo from '../../../assets/images/mock_video.jpg';
 import { Models } from './imageAssets';
 import { useTranslation } from 'react-i18next';
 import { I18N, I18N_NS } from './_i18n';
-import i18next from 'i18next';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
