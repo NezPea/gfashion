@@ -95,6 +95,37 @@ export const homeRecommendationsSlice = createSlice({
             : [action.payload]
         } as HomeRecommendations
       }
+    },
+    unfollowBrand: (state, action: PayloadAction<HomepageBrand, string>) => {
+      let following = state.recommendations?.followingBrands
+
+      return {
+        recommendations: {
+          ...state.recommendations,
+          followingBrands: following
+            ? following.filter(f => {
+                return f.id !== action.payload.id
+              })
+            : []
+        } as HomeRecommendations
+      }
+    },
+    unfollowDesigner: (
+      state,
+      action: PayloadAction<HomepageDesigner, string>
+    ) => {
+      let following = state.recommendations?.followingDesigners
+
+      return {
+        recommendations: {
+          ...state.recommendations,
+          followingDesigners: following
+            ? following.filter(f => {
+                return f.id !== action.payload.id
+              })
+            : []
+        } as HomeRecommendations
+      }
     }
   }
 })
@@ -104,7 +135,9 @@ export const {
   success,
   fail,
   followBrand,
-  followDesigner
+  followDesigner,
+  unfollowBrand,
+  unfollowDesigner
 } = homeRecommendationsSlice.actions
 
 export const fetchHomeRecommendations = (payload: AxiosRequestConfig) => (
@@ -126,6 +159,16 @@ export const doFollowDesigner = (payload: HomepageDesigner) => (
   dispatch: any
 ) => {
   dispatch({ type: followDesigner, payload })
+}
+
+export const doUnfollowBrand = (payload: HomepageBrand) => (dispatch: any) => {
+  dispatch({ type: unfollowBrand, payload })
+}
+
+export const doUnfollowDesigner = (payload: HomepageDesigner) => (
+  dispatch: any
+) => {
+  dispatch({ type: unfollowDesigner, payload })
 }
 
 export const selectHomeRecommendations = (state: RootState) =>

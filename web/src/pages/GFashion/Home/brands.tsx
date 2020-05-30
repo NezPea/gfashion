@@ -19,7 +19,10 @@ import { Models } from './imageAssets'
 import { useTranslation } from 'react-i18next'
 import { I18N, I18N_NS } from './_i18n'
 import { useDispatch } from 'react-redux'
-import { doFollowBrand } from '../../../app/slices/homeRecommendationsSlice'
+import {
+  doFollowBrand,
+  doUnfollowBrand
+} from '../../../app/slices/homeRecommendationsSlice'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -202,6 +205,12 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
     }
   }
 
+  const unfollow = (brand: HomepageBrand) => {
+    return () => {
+      dispatch(doUnfollowBrand(brand))
+    }
+  }
+
   const buildSlides = () => {
     return brands.map((b, i) => {
       const isFollowing: Boolean = !!followingBrandsMap[`${b.id}`]
@@ -220,7 +229,7 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
               variant={isFollowing ? 'contained' : 'outlined'}
               color="secondary"
               className="action-follow"
-              onClick={follow(b)}>
+              onClick={isFollowing ? unfollow(b) : follow(b)}>
               {isFollowing
                 ? t(I18N._common.following_button_text)
                 : t(I18N._common.follow_button_text)}

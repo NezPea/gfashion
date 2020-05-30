@@ -19,7 +19,10 @@ import { useTranslation } from 'react-i18next'
 import { I18N, I18N_NS } from './_i18n'
 
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import { doFollowDesigner } from 'src/app/slices/homeRecommendationsSlice'
+import {
+  doFollowDesigner,
+  doUnfollowDesigner
+} from 'src/app/slices/homeRecommendationsSlice'
 import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -162,9 +165,15 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
     {}
   )
 
-  const follow = (brand: HomepageDesigner) => {
+  const follow = (designer: HomepageDesigner) => {
     return () => {
-      dispatch(doFollowDesigner(brand))
+      dispatch(doFollowDesigner(designer))
+    }
+  }
+
+  const unfollow = (designer: HomepageDesigner) => {
+    return () => {
+      dispatch(doUnfollowDesigner(designer))
     }
   }
 
@@ -189,7 +198,7 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
               variant="contained"
               color="secondary"
               className="action-follow"
-              onClick={follow(m)}>
+              onClick={isFollowing ? unfollow(m) : follow(m)}>
               {isFollowing
                 ? t(I18N._common.following_button_text)
                 : t(I18N._common.follow_button_text)}
