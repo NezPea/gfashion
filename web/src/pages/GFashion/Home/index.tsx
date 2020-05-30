@@ -9,7 +9,7 @@ import { RecommendedProducts } from './recommendedProducts';
 import { selectHomeRecommendations, fetchHomeRecommendations } from '../../../app/slices/homeRecommendationsSlice';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { I18N, I18N_NS } from '../_i18n';
+import { I18N, I18N_NS } from './_i18n';
 
 export default () => {
   const home = useSelector(selectHomeRecommendations);
