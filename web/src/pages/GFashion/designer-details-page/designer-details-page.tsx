@@ -4,6 +4,7 @@ import LeftPrimaryPictureStory from './components/left-primary-picture-story';
 import LeftRectanglePrimaryPictureStory from './components/left-rectangle-primary-picture-story';
 import OneMediaStory from './components/one-media-story';
 import RightPrimaryPictureStory from './components/right-primary-picture-story';
+import Header from './components/header';
 
 class DesignerDetailsPageDesktop extends React.Component<any, any> {
 
@@ -14,7 +15,9 @@ class DesignerDetailsPageDesktop extends React.Component<any, any> {
                     <div className="background-container-1">
                         <img className="background-picture-1" alt="one"></img>
                     </div>
-                    <div className="header-1"></div>
+                    <div className="header-1">
+                        <Header />
+                    </div>
                     <div className="designer-profile-container-1">
                         <div className="designer-profile-background-1">
                             <div className="row-1-background-1"></div>
