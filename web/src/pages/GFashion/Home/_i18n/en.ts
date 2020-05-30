@@ -41,7 +41,7 @@ export const en: typeof _spec = {
       g_dollar: 'G-dollar'
     },
     recommended_designers: {
-      title: 'Gunius DESIGNERS',
+      title: 'Genius DESIGNERS',
       description: 'something details something details something details'
     },
     recommended_brands: {
