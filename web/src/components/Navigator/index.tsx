@@ -127,7 +127,7 @@ export default function PrimarySearchAppBar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   // const [currentLanguage, setCurrentLanguage] = useState('EN')
 
-  const isLangsMenuOpen = Boolean(langsAnchorEl)
+  const isLangsMenuOpen = Boolean(langsAnchorEl);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const location = useLocation();
@@ -135,7 +135,7 @@ export default function PrimarySearchAppBar() {
 
   const handleLangsMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setLangsAnchorEl(event.currentTarget)
-  }
+  };
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -154,9 +154,14 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleProfileClose = () => {
+    handleMenuClose();
+    window.location.href = "/my-profile";
+  };
+
   const handleLanguageChange = (lang: string) => {
     return () => {
-      setLangsAnchorEl(null)
+      setLangsAnchorEl(null);
       i18next.changeLanguage(lang, () => {
         let pathSplits = location.pathname.split('/');
         pathSplits[1] = lang;
@@ -164,7 +169,7 @@ export default function PrimarySearchAppBar() {
       })
 
     }
-  }
+  };
 
   // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
@@ -200,7 +205,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
