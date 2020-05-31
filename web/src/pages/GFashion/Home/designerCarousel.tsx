@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Typography, Box, Button } from '@material-ui/core'
 import {
@@ -23,6 +23,7 @@ import {
   doFollowDesigner,
   doUnfollowDesigner
 } from 'src/app/slices/homeRecommendationsSlice'
+import useResponsiveSlideNumber from '../../../hooks/useResponsiveSlideNumber'
 import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -164,6 +165,8 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
   const classes = useStyles()
   const { t } = useTranslation(I18N_NS)
   const dispatch = useDispatch()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const slideNumber = useResponsiveSlideNumber(carouselRef)
 
   const followingDesignersMap: FollowingDesignersMap = followingDesigners.reduce(
     (acc: FollowingDesignersMap, cur: HomepageDesigner) => {
@@ -229,25 +232,27 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
       <Typography className={classes.sectionDescription}>
         {t(I18N.home.recommended_designers.description)}
       </Typography>
-      <CarouselProvider
-        naturalSlideWidth={320}
-        naturalSlideHeight={320}
-        totalSlides={designers ? designers.length : 5}
-        visibleSlides={6}
-        orientation="horizontal"
-        className={classes.carouselProvider}>
-        <Slider style={{ overflow: 'visible' }}>{buildSlides()}</Slider>
-        <div className={`${classes.slideButtonWrapper} prev`}>
-          <ButtonBack className={`${classes.slideButton}`}>
-            <ChevronLeft />
-          </ButtonBack>
-        </div>
-        <div className={`${classes.slideButtonWrapper} next`}>
-          <ButtonNext className={`${classes.slideButton}`}>
-            <ChevronRight />
-          </ButtonNext>
-        </div>
-      </CarouselProvider>
+      <div ref={carouselRef}>
+        <CarouselProvider
+          naturalSlideWidth={320}
+          naturalSlideHeight={320}
+          totalSlides={designers ? designers.length : 5}
+          visibleSlides={slideNumber + 1}
+          orientation="horizontal"
+          className={classes.carouselProvider}>
+          <Slider style={{ overflow: 'visible' }}>{buildSlides()}</Slider>
+          <div className={`${classes.slideButtonWrapper} prev`}>
+            <ButtonBack className={`${classes.slideButton}`}>
+              <ChevronLeft />
+            </ButtonBack>
+          </div>
+          <div className={`${classes.slideButtonWrapper} next`}>
+            <ButtonNext className={`${classes.slideButton}`}>
+              <ChevronRight />
+            </ButtonNext>
+          </div>
+        </CarouselProvider>
+      </div>
     </div>
   )
 }

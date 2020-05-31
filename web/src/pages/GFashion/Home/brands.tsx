@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Typography, Avatar, Button, Link } from '@material-ui/core'
 import {
@@ -23,6 +23,7 @@ import {
   doFollowBrand,
   doUnfollowBrand
 } from '../../../app/slices/homeRecommendationsSlice'
+import useResponsiveSlideNumber from '../../../hooks/useResponsiveSlideNumber'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -79,7 +80,6 @@ const useStyles = makeStyles((theme: Theme) =>
     avatar: {
       width: '132px',
       height: '132px',
-      marginBottom: theme.spacing(2),
       overflow: 'hidden',
       filter: `grayscale(100%)`
     },
@@ -198,6 +198,8 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
   const classes = useStyles()
   const { t } = useTranslation(I18N_NS)
   const dispatch = useDispatch()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const slideNumber = useResponsiveSlideNumber(carouselRef)
 
   const followingBrandsMap: FollowingBrandsMap = followingBrands.reduce(
     (acc: FollowingBrandsMap, cur: HomepageBrand) => {
@@ -260,27 +262,29 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
       <Typography className={classes.sectionDescription}>
         {t(I18N.home.recommended_brands.description)}
       </Typography>
-      <CarouselProvider
-        naturalSlideWidth={320}
-        naturalSlideHeight={320}
-        totalSlides={brands ? brands.length : 5}
-        visibleSlides={5}
-        orientation="horizontal"
-        className={classes.carouselProvider}>
-        <Slider style={{ overflow: 'hidden', height: 300 }}>
-          {buildSlides()}
-        </Slider>
-        <div className={`${classes.slideButtonWrapper} prev`}>
-          <ButtonBack className={`${classes.slideButton}`}>
-            <ChevronLeft />
-          </ButtonBack>
-        </div>
-        <div className={`${classes.slideButtonWrapper} next`}>
-          <ButtonNext className={`${classes.slideButton}`}>
-            <ChevronRight />
-          </ButtonNext>
-        </div>
-      </CarouselProvider>
+      <div ref={carouselRef}>
+        <CarouselProvider
+          naturalSlideWidth={320}
+          naturalSlideHeight={320}
+          totalSlides={brands ? brands.length : 5}
+          visibleSlides={slideNumber}
+          orientation="horizontal"
+          className={classes.carouselProvider}>
+          <Slider style={{ overflow: 'hidden', height: 300 }}>
+            {buildSlides()}
+          </Slider>
+          <div className={`${classes.slideButtonWrapper} prev`}>
+            <ButtonBack className={`${classes.slideButton}`}>
+              <ChevronLeft />
+            </ButtonBack>
+          </div>
+          <div className={`${classes.slideButtonWrapper} next`}>
+            <ButtonNext className={`${classes.slideButton}`}>
+              <ChevronRight />
+            </ButtonNext>
+          </div>
+        </CarouselProvider>
+      </div>
       <div className={classes.newLaunch}>
         <div className="text">
           <Typography variant="subtitle2">
