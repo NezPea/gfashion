@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>G币未选中</title>
+    <g id="523" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-导航菜单" transform="translate(-44.000000, -180.000000)">
+            <g id="左侧菜单-英文">
+                <g id="编组-34" transform="translate(13.000000, 115.000000)">
+                    <g id="编组-25" transform="translate(1.000000, 60.000000)">
+                        <g id="G币未选中" transform="translate(30.000000, 5.000000)">
+                            <path d="M20,10 C20,15.523 15.523,20 10,20 C4.477,20 0,15.523 0,10 C0,4.477 4.477,0 10,0 C15.523,0 20,4.477 20,10 L20,10 Z" id="Shape" fill="#656565"></path>
+                            <path d="M10,1.5 C7.652725,1.5 5.52772287,2.45135891 3.98954089,3.98954089 C2.45135891,5.52772287 1.5,7.652725 1.5,10 C1.5,12.347275 2.45135891,14.4722771 3.98954089,16.0104591 C5.52772287,17.5486411 7.652725,18.5 10,18.5 C12.347275,18.5 14.4722771,17.5486411 16.0104591,16.0104591 C17.5486411,14.4722771 18.5,12.347275 18.5,10 C18.5,7.652725 17.5486411,5.52772287 16.0104591,3.98954089 C14.4722771,2.45135891 12.347275,1.5 10,1.5 Z" id="Shape" stroke="#FFFFFF"></path>
+                            <text id="G" font-family="Helvetica" font-size="12" font-weight="normal" line-spacing="10" fill="#FFFFFF">
+                                <tspan x="5" y="16">G</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
