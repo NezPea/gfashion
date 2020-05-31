@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   List,
   Divider,
@@ -8,10 +8,20 @@ import {
   Collapse,
   Avatar
 } from '@material-ui/core'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
 import { Add, Remove } from '@material-ui/icons'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
+import HimalayaIconActive from '../../assets/images/himalaya_icon_active.png'
+import HimalayaIconInactive from '../../assets/images/himalaya_icon_inactive.png'
+import GdollarIconActive from '../../assets/images/gdollar_icon_active.png'
+import GdollarIconInactive from '../../assets/images/gdollar_icon_inactive.png'
+import GclubIconActive from '../../assets/images/gclub_icon_active.png'
+import GclubIconInactive from '../../assets/images/gclub_icon_inactive.png'
+import GmallIconActive from '../../assets/images/gmall_icon_active.png'
+import GmallIconInactive from '../../assets/images/gmall_icon_inactive.png'
+import GtvIconActive from '../../assets/images/gtv_icon_active.png'
+import GtvIconInactive from '../../assets/images/gtv_icon_inactive.png'
+import GnewsIconActive from '../../assets/images/gnews_icon_active.png'
+import GnewsIconInactive from '../../assets/images/gnews_icon_inactive.png'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,23 +61,103 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export default function DrawerList() {
-  const [open, setOpen] = React.useState(true)
-  const [gfWomenOpen, setGfWomenOpen] = React.useState(false)
-  const [gfMenOpen, setGfMenOpen] = React.useState(false)
-  const [gfOthersOpen, setGfOthersOpen] = React.useState(true)
-  const [gfFollowingOpen, setGfFollowingOpen] = React.useState(true)
+  const [himalayaCoinOpen, setHimalayaCoinOpen] = useState(false)
+  const [gdollarOpen, setGdollarOpen] = useState(false)
+  const [gclubOpen, setGclubOpen] = useState(false)
+  const [gmallOpen, setGmallOpen] = useState(false)
+  const [gtvOpen, setGtvOpen] = useState(false)
+  const [gnewsOpen, setGnewsOpen] = useState(false)
+  const [open, setOpen] = useState(true)
+  const [gfWomenOpen, setGfWomenOpen] = useState(false)
+  const [gfMenOpen, setGfMenOpen] = useState(false)
+  const [gfOthersOpen, setGfOthersOpen] = useState(true)
+  const [gfFollowingOpen, setGfFollowingOpen] = useState(true)
 
   const classes = useStyles()
+
+  const itemsBefore = [
+    {
+      name: 'himalaya',
+      label: 'Himalaya Coin',
+      iconActive: HimalayaIconActive,
+      iconInactive: HimalayaIconInactive,
+      isOpen: himalayaCoinOpen,
+      switchOpenState: () => {
+        setHimalayaCoinOpen(!himalayaCoinOpen)
+      }
+    },
+    {
+      name: 'gdollar',
+      label: 'G-Dollar',
+      iconActive: GdollarIconActive,
+      iconInactive: GdollarIconInactive,
+      isOpen: gdollarOpen,
+      switchOpenState: () => {
+        setGdollarOpen(!gdollarOpen)
+      }
+    },
+    {
+      name: 'gclub',
+      label: 'Gclub',
+      iconActive: GclubIconActive,
+      iconInactive: GclubIconInactive,
+      isOpen: gclubOpen,
+      switchOpenState: () => {
+        setGclubOpen(!gclubOpen)
+      }
+    }
+  ]
+  // ['Gmail', 'GTV', 'Gnews']
+  const itemsAfter = [
+    {
+      name: 'gmall',
+      label: 'Gmall',
+      iconActive: GmallIconActive,
+      iconInactive: GmallIconInactive,
+      isOpen: gmallOpen,
+      switchOpenState: () => {
+        setGmallOpen(!gmallOpen)
+      }
+    },
+    {
+      name: 'gtv',
+      label: 'GTV',
+      iconActive: GtvIconActive,
+      iconInactive: GtvIconInactive,
+      isOpen: gtvOpen,
+      switchOpenState: () => {
+        setGtvOpen(!gtvOpen)
+      }
+    },
+    {
+      name: 'gnews',
+      label: 'Gnews',
+      iconActive: GnewsIconActive,
+      iconInactive: GnewsIconInactive,
+      isOpen: gnewsOpen,
+      switchOpenState: () => {
+        setGnewsOpen(!gnewsOpen)
+      }
+    }
+  ]
 
   return (
     <div className={classes.list} role="presentation">
       <List>
-        {['Himalaya Coin', 'G-Dollar', 'Gclub'].map((text, index) => (
-          <ListItem button key={text}>
+        {itemsBefore.map((item, index) => (
+          <ListItem
+            button
+            key={index}
+            onClick={item.switchOpenState}
+            className={`${classes.mainListItem} ${item.isOpen ? 'open' : ''}`}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <Avatar
+                variant="rounded"
+                className={classes.mainListItemIcon}
+                src={item.isOpen ? item.iconActive : item.iconInactive}
+              />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={item.label} />
           </ListItem>
         ))}
       </List>
@@ -85,7 +175,7 @@ export default function DrawerList() {
               className={classes.mainListItemIcon}
               src={require(`../../assets/images/gfashion_icon_${
                 open ? '' : 'in'
-              }active.svg`)}
+              }active.png`)}
             />
           </ListItemIcon>
           <ListItemText primary={'Gfashion'} />
@@ -165,7 +255,7 @@ export default function DrawerList() {
               <ListItemIcon className={classes.followingItem}>
                 <Avatar
                   className="icon"
-                  src={require(`../../assets/images/following_icon.svg`)}
+                  src={require(`../../assets/images/following_icon.png`)}
                 />
               </ListItemIcon>
               <ListItemText primary="Following" />
@@ -185,12 +275,20 @@ export default function DrawerList() {
       </List>
       <Divider />
       <List>
-        {['Gmail', 'GTV', 'Gnews'].map((text, index) => (
-          <ListItem button key={text}>
+        {itemsAfter.map((item, index) => (
+          <ListItem
+            button
+            key={index}
+            onClick={item.switchOpenState}
+            className={`${classes.mainListItem} ${item.isOpen ? 'open' : ''}`}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <Avatar
+                variant="rounded"
+                className={classes.mainListItemIcon}
+                src={item.isOpen ? item.iconActive : item.iconInactive}
+              />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={item.label} />
           </ListItem>
         ))}
       </List>
