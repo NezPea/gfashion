@@ -83,12 +83,12 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: 'hidden',
       filter: `grayscale(100%)`
     },
-    slideButton: {
+    slideButtonWrapper: {
       width: theme.spacing(5),
-      height: theme.spacing(5),
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #e4e4e4',
-      outline: 'none',
+      height: theme.spacing(6),
+      display: 'inline-flex',
+      alignItems: 'center',
+      borderBottom: '1px solid #e4e4e4',
       position: 'absolute',
       top: '50%',
       marginTop: -20,
@@ -98,6 +98,13 @@ const useStyles = makeStyles((theme: Theme) =>
       '&.next': {
         right: 0
       }
+    },
+    slideButton: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
+      backgroundColor: theme.palette.common.white,
+      border: '1px solid #e4e4e4',
+      outline: 'none'
     },
     slideBox: {
       display: 'flex',
@@ -262,12 +269,16 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
         <Slider style={{ overflow: 'hidden', height: 300 }}>
           {buildSlides()}
         </Slider>
-        <ButtonBack className={`${classes.slideButton} prev`}>
-          <ChevronLeft />
-        </ButtonBack>
-        <ButtonNext className={`${classes.slideButton} next`}>
-          <ChevronRight />
-        </ButtonNext>
+        <div className={`${classes.slideButtonWrapper} prev`}>
+          <ButtonBack className={`${classes.slideButton}`}>
+            <ChevronLeft />
+          </ButtonBack>
+        </div>
+        <div className={`${classes.slideButtonWrapper} next`}>
+          <ButtonNext className={`${classes.slideButton}`}>
+            <ChevronRight />
+          </ButtonNext>
+        </div>
       </CarouselProvider>
       <div className={classes.newLaunch}>
         <div className="text">

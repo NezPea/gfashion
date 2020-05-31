@@ -81,12 +81,12 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: 'visible',
       filter: `grayscale(100%)`
     },
-    slideButton: {
+    slideButtonWrapper: {
       width: theme.spacing(5),
-      height: theme.spacing(5),
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #e4e4e4',
-      outline: 'none',
+      height: theme.spacing(6),
+      display: 'inline-flex',
+      alignItems: 'center',
+      borderBottom: '1px solid #e4e4e4',
       '&.prev': {
         marginTop: theme.spacing(5),
         marginLeft: 'calc(50% - 64px)'
@@ -94,6 +94,13 @@ const useStyles = makeStyles((theme: Theme) =>
       '&.next': {
         marginLeft: theme.spacing(6)
       }
+    },
+    slideButton: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
+      backgroundColor: theme.palette.common.white,
+      border: '1px solid #e4e4e4',
+      outline: 'none'
     },
     slideBox: {
       display: 'flex',
@@ -229,12 +236,16 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
         orientation="horizontal"
         className={classes.carouselProvider}>
         <Slider style={{ overflow: 'visible' }}>{buildSlides()}</Slider>
-        <ButtonBack className={`${classes.slideButton} prev`}>
-          <ChevronLeft />
-        </ButtonBack>
-        <ButtonNext className={`${classes.slideButton} next`}>
-          <ChevronRight />
-        </ButtonNext>
+        <div className={`${classes.slideButtonWrapper} prev`}>
+          <ButtonBack className={`${classes.slideButton}`}>
+            <ChevronLeft />
+          </ButtonBack>
+        </div>
+        <div className={`${classes.slideButtonWrapper} next`}>
+          <ButtonNext className={`${classes.slideButton}`}>
+            <ChevronRight />
+          </ButtonNext>
+        </div>
       </CarouselProvider>
     </div>
   )
