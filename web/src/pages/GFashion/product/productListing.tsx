@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme: Theme) =>
     categoryTitle: {
       color: theme.palette.secondary.main,
       fontSize: '28px',
-      margin: 0
+      margin: 0,
+      paddingLeft: theme.spacing(2)
     },
     productHeader: {
       color: theme.palette.text.secondary,
@@ -163,6 +164,21 @@ const GFashionProductListing = ({
     }
   }
 
+  const handleFilterAdd = (filters: QueryString.ParsedQuery<string>) => {
+    setProductArray([])
+    setQueryState({
+      ...queryState,
+      ...filters
+    })
+  }
+
+  const handleRemoveFilter = (code: string) => {
+    let query = { ...queryState }
+    delete query[code]
+    setProductArray([])
+    setQueryState(query)
+  }
+
   useEffect(() => {
     if (categoryId) {
       let queryRequest = generateQuery(categoryId, queryState)
@@ -198,10 +214,14 @@ const GFashionProductListing = ({
               spacing={3}
               justify="center"
               className={classes.header}>
-              <Grid item xs={3}>
-                <h2 className={classes.categoryTitle}>家具</h2>
+              <Grid item xs={5} md={3}>
+                <h2 className={classes.categoryTitle}>
+                  {productListResult.detail
+                    ? productListResult.detail.category_name
+                    : ''}
+                </h2>
               </Grid>
-              <Grid item xs={9} className={classes.productHeader}>
+              <Grid item xs={7} md={9} className={classes.productHeader}>
                 {productListResult.detail
                   ? productListResult.detail.total_count
                   : 0}{' '}
@@ -234,7 +254,10 @@ const GFashionProductListing = ({
               justify="center"
               className={classes.content}>
               <Grid item xs={3}>
-                <Filter />
+                <Filter
+                  onFilterAdd={handleFilterAdd}
+                  onFilterRemove={handleRemoveFilter}
+                />
               </Grid>
               <Grid item xs={9}>
                 <ProductGrid products={productArray} />
