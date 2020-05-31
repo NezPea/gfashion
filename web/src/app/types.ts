@@ -180,10 +180,12 @@ export interface HomeRecommendationsState {
 
 export interface DesignersProps {
   designers: Array<HomepageDesigner> | undefined
+  followingDesigners: Array<HomepageDesigner> | undefined
 }
 
 export interface BrandsProps {
   brands: Array<HomepageBrand> | undefined
+  followingBrands: Array<HomepageBrand> | undefined
 }
 export interface RecommendedProductProps {
   products: Array<HomepageProduct> | undefined
@@ -200,4 +202,12 @@ export interface gclubTokenState {
   isLoading?: boolean
   jwtToken?: string
   error?: object | string
+}
+
+export interface FollowingBrandsMap {
+  [key: string]: HomepageBrand
+}
+
+export interface FollowingDesignersMap {
+  [key: string]: HomepageDesigner
 }

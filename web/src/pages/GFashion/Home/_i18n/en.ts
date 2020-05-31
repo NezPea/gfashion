@@ -3,6 +3,7 @@ import { _spec } from './_spec'
 export const en: typeof _spec = {
   _common: {
     follow_button_text: 'Follow',
+    following_button_text: 'Following',
     header: {
       search_place_holder: 'Search'
     },
@@ -37,10 +38,10 @@ export const en: typeof _spec = {
     _self: 'Gfashion home',
     banner: {
       himalaya_coin: 'Himalaya Coin',
-      g_dollar: 'G-dollar'
+      g_dollar: 'G Dollar'
     },
     recommended_designers: {
-      title: 'Gunius DESIGNERS',
+      title: 'Genius DESIGNERS',
       description: 'something details something details something details'
     },
     recommended_brands: {

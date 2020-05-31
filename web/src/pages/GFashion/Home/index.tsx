@@ -39,8 +39,11 @@ export default () => {
           <GclubGate />
           <DesignerCarousel
             designers={home.recommendations?.recommendedDesigners}
+            followingDesigners={home.recommendations?.followingDesigners}
           />
-          <Brands brands={home.recommendations?.recommendedBrands}></Brands>
+          <Brands
+            brands={home.recommendations?.recommendedBrands}
+            followingBrands={home.recommendations?.followingBrands}></Brands>
           <RecommendedProducts
             products={home.recommendations?.recommendedProducts}
           />

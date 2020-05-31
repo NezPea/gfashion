@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Typography, Box, Button } from '@material-ui/core'
 import {
@@ -10,11 +10,21 @@ import {
 } from 'pure-react-carousel'
 import Avatar from '@material-ui/core/Avatar'
 import { ChevronLeft, ChevronRight } from '@material-ui/icons'
-import { DesignersProps } from '../../../app/types'
+import {
+  DesignersProps,
+  HomepageDesigner,
+  FollowingDesignersMap
+} from '../../../app/types'
 import { useTranslation } from 'react-i18next'
 import { I18N, I18N_NS } from './_i18n'
 
 import 'pure-react-carousel/dist/react-carousel.es.css'
+import {
+  doFollowDesigner,
+  doUnfollowDesigner
+} from 'src/app/slices/homeRecommendationsSlice'
+import useResponsiveSlideNumber from '../../../hooks/useResponsiveSlideNumber'
+import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -72,12 +82,12 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: 'visible',
       filter: `grayscale(100%)`
     },
-    slideButton: {
+    slideButtonWrapper: {
       width: theme.spacing(5),
-      height: theme.spacing(5),
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #e4e4e4',
-      outline: 'none',
+      height: theme.spacing(6),
+      display: 'inline-flex',
+      alignItems: 'center',
+      borderBottom: '1px solid #e4e4e4',
       '&.prev': {
         marginTop: theme.spacing(5),
         marginLeft: 'calc(50% - 64px)'
@@ -85,6 +95,13 @@ const useStyles = makeStyles((theme: Theme) =>
       '&.next': {
         marginLeft: theme.spacing(6)
       }
+    },
+    slideButton: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
+      backgroundColor: theme.palette.common.white,
+      border: '1px solid #e4e4e4',
+      outline: 'none'
     },
     slideBox: {
       display: 'flex',
@@ -109,7 +126,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         '& .designer-brand': {
           fontFamily: `Helvetica`,
-          fontSize: `1.125rem`
+          fontSize: `1.0625rem`
         }
       },
       '& .action-follow': {
@@ -120,7 +137,8 @@ const useStyles = makeStyles((theme: Theme) =>
         width: '100%',
         fontSize: 12,
         padding: 0,
-        borderRadius: 0
+        borderRadius: 0,
+        textTransform: 'none'
       },
       '&:hover': {
         zIndex: 3,
@@ -141,13 +159,38 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
-  designers = []
+  designers = [],
+  followingDesigners = []
 }) => {
   const classes = useStyles()
   const { t } = useTranslation(I18N_NS)
+  const dispatch = useDispatch()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const slideNumber = useResponsiveSlideNumber(carouselRef)
+
+  const followingDesignersMap: FollowingDesignersMap = followingDesigners.reduce(
+    (acc: FollowingDesignersMap, cur: HomepageDesigner) => {
+      acc[`${cur.id}`] = cur
+      return acc
+    },
+    {}
+  )
+
+  const follow = (designer: HomepageDesigner) => {
+    return () => {
+      dispatch(doFollowDesigner(designer))
+    }
+  }
+
+  const unfollow = (designer: HomepageDesigner) => {
+    return () => {
+      dispatch(doUnfollowDesigner(designer))
+    }
+  }
 
   const buildSlides = () => {
     return designers.map((m, i) => {
+      const isFollowing: Boolean = !!followingDesignersMap[`${m.id}`]
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <Box className={classes.slideBox}>
@@ -159,14 +202,17 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
             <div className="designer-info">
               <Typography className="designer-name">{m.name}</Typography>
               <Typography className="designer-brand">
-                {m.cooperatingBrands[0]}
+                {`${m.cooperatingBrands[0]} designer`}
               </Typography>
             </div>
             <Button
               variant="contained"
               color="secondary"
-              className="action-follow">
-              {t(I18N._common.follow_button_text)}
+              className="action-follow"
+              onClick={isFollowing ? unfollow(m) : follow(m)}>
+              {isFollowing
+                ? t(I18N._common.following_button_text)
+                : t(I18N._common.follow_button_text)}
             </Button>
           </Box>
         </Slide>
@@ -186,21 +232,27 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
       <Typography className={classes.sectionDescription}>
         {t(I18N.home.recommended_designers.description)}
       </Typography>
-      <CarouselProvider
-        naturalSlideWidth={320}
-        naturalSlideHeight={320}
-        totalSlides={designers ? designers.length : 5}
-        visibleSlides={6}
-        orientation="horizontal"
-        className={classes.carouselProvider}>
-        <Slider style={{ overflow: 'visible' }}>{buildSlides()}</Slider>
-        <ButtonBack className={`${classes.slideButton} prev`}>
-          <ChevronLeft />
-        </ButtonBack>
-        <ButtonNext className={`${classes.slideButton} next`}>
-          <ChevronRight />
-        </ButtonNext>
-      </CarouselProvider>
+      <div ref={carouselRef}>
+        <CarouselProvider
+          naturalSlideWidth={320}
+          naturalSlideHeight={320}
+          totalSlides={designers ? designers.length : 5}
+          visibleSlides={slideNumber + 1}
+          orientation="horizontal"
+          className={classes.carouselProvider}>
+          <Slider style={{ overflow: 'visible' }}>{buildSlides()}</Slider>
+          <div className={`${classes.slideButtonWrapper} prev`}>
+            <ButtonBack className={`${classes.slideButton}`}>
+              <ChevronLeft />
+            </ButtonBack>
+          </div>
+          <div className={`${classes.slideButtonWrapper} next`}>
+            <ButtonNext className={`${classes.slideButton}`}>
+              <ChevronRight />
+            </ButtonNext>
+          </div>
+        </CarouselProvider>
+      </div>
     </div>
   )
 }

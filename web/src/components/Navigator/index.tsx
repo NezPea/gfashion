@@ -149,6 +149,10 @@ export default function PrimarySearchAppBar() {
     setLangsAnchorEl(event.currentTarget)
   }
 
+  const handleLangsMenuClose = () => {
+    setLangsAnchorEl(null)
+  }
+
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -164,11 +168,6 @@ export default function PrimarySearchAppBar() {
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget)
-  }
-
-  const handleProfileClose = () => {
-    handleMenuClose()
-    window.location.href = '/my-profile'
   }
 
   const handleLanguageChange = (lang: string) => {
@@ -193,7 +192,7 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isLangsMenuOpen}
-      onClose={handleMenuClose}>
+      onClose={handleLangsMenuClose}>
       {AVAILABLE_LANGS.map((lang, i) => {
         return (
           <MenuItem key={i} onClick={handleLanguageChange(lang.key)}>
@@ -214,7 +213,7 @@ export default function PrimarySearchAppBar() {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
       onClose={handleMenuClose}>
-      <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   )
@@ -299,7 +298,7 @@ export default function PrimarySearchAppBar() {
               NEWS
             </a>
             <IconButton aria-label="shopping cart" color="inherit">
-              <Badge badgeContent={6} color="secondary">
+              <Badge badgeContent={6} color="error">
                 <img src={ShoppingCartImg} alt="shopping cart" />
               </Badge>
             </IconButton>
@@ -309,7 +308,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               aria-controls={menuId}
               aria-haspopup="true">
-              <Badge badgeContent={3} color="secondary">
+              <Badge badgeContent={3} color="error">
                 <img src={ProfileImg} alt="user profile" />
               </Badge>
             </IconButton>

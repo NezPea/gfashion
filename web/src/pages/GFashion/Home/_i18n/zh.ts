@@ -3,6 +3,7 @@ import { _spec } from './_spec'
 export const zh: typeof _spec = {
   _common: {
     follow_button_text: '关注',
+    following_button_text: '关注中',
     header: {
       search_place_holder: '搜索'
     },

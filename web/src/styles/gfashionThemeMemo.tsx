@@ -1,9 +1,9 @@
-import React from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import createGfashionTheme from './createGfashionTheme';
+import React from 'react'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import createGfashionTheme from './createGfashionTheme'
 
 export default () => {
-  const isDarkModePrefered = useMediaQuery('(prefers-color-scheme: dark)');
+  const isDarkModePrefered = useMediaQuery('(prefers-color-scheme: dark)')
 
   return React.useMemo(() => {
     return createGfashionTheme({
@@ -19,6 +19,9 @@ export default () => {
           main: '#be9c63',
           contrastText: '#fff'
         },
+        error: {
+          main: '#ec1541'
+        },
         background: {
           default: '#fbf7f4',
           paper: '#fff',
@@ -28,7 +31,7 @@ export default () => {
           designerHeaderDeeper: '#7b6e64'
         },
         // ... and we will overrides more default colors at here
-        type: isDarkModePrefered ? 'dark' : 'light',
+        type: isDarkModePrefered ? 'dark' : 'light'
       },
       typography: {
         homeSectionTitle: {
@@ -41,25 +44,28 @@ export default () => {
         homeSectionDescription: {
           fontSize: '1rem',
           fontFamily: 'Georgia',
-          fontWeight: "normal",
+          fontWeight: 'normal',
           letterSpacing: 1,
           color: '#222'
         },
         fontFamily: [
+          'Montserrat',
+          'Georgia',
+          'Helvetica',
+          'SeaweedScript',
+          'Lobster 1.4',
           '-apple-system',
           'BlinkMacSystemFont',
           '"Segoe UI"',
           'Roboto',
-          '"Helvetica Neue"',
+          'STSongti-SC',
           'Arial',
-          'Georgia',
-          'Lobster 1.4',
           'sans-serif',
           '"Apple Color Emoji"',
           '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
-        ].join(','),
-      },
-    });
+          '"Segoe UI Symbol"'
+        ].join(',')
+      }
+    })
   }, [isDarkModePrefered])
 }

@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Typography, Avatar, Button, Link } from '@material-ui/core'
-import { BrandsProps } from '../../../app/types'
+import {
+  BrandsProps,
+  HomepageBrand,
+  FollowingBrandsMap
+} from '../../../app/types'
 import {
   Slide,
   CarouselProvider,
@@ -14,6 +18,12 @@ import MockVideo from '../../../assets/images/mock_video.jpg'
 import { Models } from './imageAssets'
 import { useTranslation } from 'react-i18next'
 import { I18N, I18N_NS } from './_i18n'
+import { useDispatch } from 'react-redux'
+import {
+  doFollowBrand,
+  doUnfollowBrand
+} from '../../../app/slices/homeRecommendationsSlice'
+import useResponsiveSlideNumber from '../../../hooks/useResponsiveSlideNumber'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -70,16 +80,15 @@ const useStyles = makeStyles((theme: Theme) =>
     avatar: {
       width: '132px',
       height: '132px',
-      marginBottom: theme.spacing(2),
       overflow: 'hidden',
       filter: `grayscale(100%)`
     },
-    slideButton: {
+    slideButtonWrapper: {
       width: theme.spacing(5),
-      height: theme.spacing(5),
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #e4e4e4',
-      outline: 'none',
+      height: theme.spacing(6),
+      display: 'inline-flex',
+      alignItems: 'center',
+      borderBottom: '1px solid #e4e4e4',
       position: 'absolute',
       top: '50%',
       marginTop: -20,
@@ -89,6 +98,13 @@ const useStyles = makeStyles((theme: Theme) =>
       '&.next': {
         right: 0
       }
+    },
+    slideButton: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
+      backgroundColor: theme.palette.common.white,
+      border: '1px solid #e4e4e4',
+      outline: 'none'
     },
     slideBox: {
       display: 'flex',
@@ -118,7 +134,11 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .action-follow': {
         fontSize: 12,
         borderRadius: 0,
-        marginTop: theme.spacing(2)
+        marginTop: theme.spacing(2),
+        textTransform: 'none',
+        '&:hover': {
+          backgroundColor: 'rgba(190, 156, 99, 0.2)'
+        }
       }
     },
     newLaunch: {
@@ -172,13 +192,38 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export const Brands: React.FunctionComponent<BrandsProps> = ({
-  brands = []
+  brands = [],
+  followingBrands = []
 }) => {
   const classes = useStyles()
   const { t } = useTranslation(I18N_NS)
+  const dispatch = useDispatch()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const slideNumber = useResponsiveSlideNumber(carouselRef)
+
+  const followingBrandsMap: FollowingBrandsMap = followingBrands.reduce(
+    (acc: FollowingBrandsMap, cur: HomepageBrand) => {
+      acc[`${cur.id}`] = cur
+      return acc
+    },
+    {}
+  )
+
+  const follow = (brand: HomepageBrand) => {
+    return () => {
+      dispatch(doFollowBrand(brand))
+    }
+  }
+
+  const unfollow = (brand: HomepageBrand) => {
+    return () => {
+      dispatch(doUnfollowBrand(brand))
+    }
+  }
 
   const buildSlides = () => {
     return brands.map((b, i) => {
+      const isFollowing: Boolean = !!followingBrandsMap[`${b.id}`]
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <div className={classes.slideBox}>
@@ -191,10 +236,13 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
               <Typography className="brand-country">{b.country}</Typography>
             </div>
             <Button
-              variant="contained"
+              variant={isFollowing ? 'contained' : 'outlined'}
               color="secondary"
-              className="action-follow">
-              {t(I18N._common.follow_button_text)}
+              className="action-follow"
+              onClick={isFollowing ? unfollow(b) : follow(b)}>
+              {isFollowing
+                ? t(I18N._common.following_button_text)
+                : t(I18N._common.follow_button_text)}
             </Button>
           </div>
         </Slide>
@@ -214,23 +262,29 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({
       <Typography className={classes.sectionDescription}>
         {t(I18N.home.recommended_brands.description)}
       </Typography>
-      <CarouselProvider
-        naturalSlideWidth={320}
-        naturalSlideHeight={320}
-        totalSlides={brands ? brands.length : 5}
-        visibleSlides={5}
-        orientation="horizontal"
-        className={classes.carouselProvider}>
-        <Slider style={{ overflow: 'hidden', height: 300 }}>
-          {buildSlides()}
-        </Slider>
-        <ButtonBack className={`${classes.slideButton} prev`}>
-          <ChevronLeft />
-        </ButtonBack>
-        <ButtonNext className={`${classes.slideButton} next`}>
-          <ChevronRight />
-        </ButtonNext>
-      </CarouselProvider>
+      <div ref={carouselRef}>
+        <CarouselProvider
+          naturalSlideWidth={320}
+          naturalSlideHeight={320}
+          totalSlides={brands ? brands.length : 5}
+          visibleSlides={slideNumber}
+          orientation="horizontal"
+          className={classes.carouselProvider}>
+          <Slider style={{ overflow: 'hidden', height: 300 }}>
+            {buildSlides()}
+          </Slider>
+          <div className={`${classes.slideButtonWrapper} prev`}>
+            <ButtonBack className={`${classes.slideButton}`}>
+              <ChevronLeft />
+            </ButtonBack>
+          </div>
+          <div className={`${classes.slideButtonWrapper} next`}>
+            <ButtonNext className={`${classes.slideButton}`}>
+              <ChevronRight />
+            </ButtonNext>
+          </div>
+        </CarouselProvider>
+      </div>
       <div className={classes.newLaunch}>
         <div className="text">
           <Typography variant="subtitle2">
