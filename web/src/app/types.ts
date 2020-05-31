@@ -77,6 +77,7 @@ export interface ProductLink {
   name: string
   position: number
   sku: string
+  price: number
 }
 
 export interface ProductDetail {
