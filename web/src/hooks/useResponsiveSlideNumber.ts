@@ -6,6 +6,9 @@ export default (ref: any) => {
   const calcVisibleSlideNumber: Function = () => {
     if (ref && ref.current) {
       const { width } = ref.current.getBoundingClientRect()
+      if (width >= 2300) {
+        return 7
+      }
       if (width >= 1800) {
         return 6
       }
