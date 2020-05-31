@@ -135,6 +135,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: 12,
         borderRadius: 0,
         marginTop: theme.spacing(2),
+        textTransform: 'none',
         '&:hover': {
           backgroundColor: 'rgba(190, 156, 99, 0.2)'
         }

@@ -136,7 +136,8 @@ const useStyles = makeStyles((theme: Theme) =>
         width: '100%',
         fontSize: 12,
         padding: 0,
-        borderRadius: 0
+        borderRadius: 0,
+        textTransform: 'none'
       },
       '&:hover': {
         zIndex: 3,
