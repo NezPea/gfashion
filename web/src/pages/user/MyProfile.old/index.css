@@ -8,6 +8,6 @@
   top: -6px;
 }
 
-.container label[data-shrink="true"] {
+.container label[data-shrink='true'] {
   top: 0;
 }

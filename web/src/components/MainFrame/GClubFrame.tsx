@@ -1,16 +1,16 @@
-import React from 'react';
-import GClubNav from '../Navigator/GClubNav';
-import Footer from '../Footer';
-import { Container } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React from 'react'
+import GClubNav from '../Navigator/GClubNav'
+import Footer from '../Footer'
+import { Container } from '@material-ui/core'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      padding: theme.spacing(8, 0),
+      padding: theme.spacing(8, 0)
     }
-  }),
-);
+  })
+)
 
 const GClubFrame = (props: any) => {
   const classes = useStyles()
@@ -24,4 +24,4 @@ const GClubFrame = (props: any) => {
   )
 }
 
-export default GClubFrame;
+export default GClubFrame

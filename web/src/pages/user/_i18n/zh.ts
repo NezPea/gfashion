@@ -25,8 +25,8 @@ export const zh: typeof _spec = {
   reg: {
     _self: '注册',
     create_acct: '创建账户'
-  }
-  ,my_profile: {
+  },
+  my_profile: {
     _self: '账号信息',
     // avatar: '头像',
     editprofile: '编辑账户信息',
@@ -41,6 +41,6 @@ export const zh: typeof _spec = {
     weakpassword: '弱',
     mediumpassword: '中等',
     strongpassword: '强',
-    save: '保存',
+    save: '保存'
   }
-};
+}

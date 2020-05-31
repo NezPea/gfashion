@@ -11,7 +11,5 @@ import { I18N_NS as home } from '../../pages/GFashion/Home/_i18n'
   | typeof module4
   | typeof module5
  */
-type Namespaces =
-  | typeof user
-  | typeof home
+type Namespaces = typeof user | typeof home
 export type Spec = Record<Namespaces, ResourceKey>

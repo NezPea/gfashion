@@ -1,5 +1,5 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React from 'react'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import './listitem.css'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -9,38 +9,36 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     stateSuccess: {
-      backgroundColor: '#00B438',
-
+      backgroundColor: '#00B438'
     },
     stateError: {
       backgroundColor: '#FF0000'
     }
-
-  }),
-);
+  })
+)
 
 const CommunityListItem = ({ message }: { message: any }) => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     message && (
       <div className={`${classes.root} listitem-con`}>
-        <div className="listitem-title" >
+        <div className="listitem-title">
           <div>
-            <span className={`tips ${message.state ? 'state-success ' : 'state-error'}`}>&nbsp;</span>
+            <span
+              className={`tips ${
+                message.state ? 'state-success ' : 'state-error'
+              }`}>
+              &nbsp;
+            </span>
           </div>
           <div className={`title-contant`}>
             <span className="title">{message.title}</span>
             <span>{message.time}</span>
           </div>
-
-
         </div>
-
-
       </div>
     )
-
   )
 }
 
-export default CommunityListItem;
+export default CommunityListItem

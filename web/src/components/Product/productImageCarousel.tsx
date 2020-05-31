@@ -1,47 +1,47 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { selectProduct } from "../../app/slices/productsSlice";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectProduct } from '../../app/slices/productsSlice'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
   CarouselProvider,
   Slider,
   Slide,
   ImageWithZoom,
   Dot
-} from "pure-react-carousel";
-import LoadingFailed from "../../components/Common/loadingFailed";
-import "pure-react-carousel/dist/react-carousel.es.css";
+} from 'pure-react-carousel'
+import LoadingFailed from '../../components/Common/loadingFailed'
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     thumbnailContainer: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      width: "110px",
-      "& button": {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      width: '110px',
+      '& button': {
         border: 0,
         padding: 0,
-        marginBottom: "20px",
-        marginRight: "30px"
+        marginBottom: '20px',
+        marginRight: '30px'
       }
     },
     thumbnail: {
       backgroundColor: theme.palette.action.disabledBackground,
-      maxWidth: "65px",
-      maxHeight: "80px"
+      maxWidth: '65px',
+      maxHeight: '80px'
     },
     slider: {
-      width: "calc(100% - 110px)"
+      width: 'calc(100% - 110px)'
     },
     image: {
       backgroundColor: theme.palette.action.disabledBackground
     },
     carousel: {
-      display: "flex",
-      width: "100%",
-      height: "100%",
-      position: "relative"
+      display: 'flex',
+      width: '100%',
+      height: '100%',
+      position: 'relative'
     }
     // slidePrev: {
     //   position: 'absolute',
@@ -54,11 +54,11 @@ const useStyles = makeStyles((theme: Theme) =>
     //   right: 0
     // }
   })
-);
+)
 
 const ProductImageCarousel = () => {
-  const classes = useStyles();
-  let product = useSelector(selectProduct);
+  const classes = useStyles()
+  let product = useSelector(selectProduct)
 
   const buildPreview = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
@@ -66,9 +66,9 @@ const ProductImageCarousel = () => {
         <Dot key={i} slide={i}>
           <img src={m.file} alt={m.label} className={classes.thumbnail} />
         </Dot>
-      );
-    });
-  };
+      )
+    })
+  }
 
   const buildSlides = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
@@ -76,9 +76,9 @@ const ProductImageCarousel = () => {
         <Slide key={i} index={i}>
           <ImageWithZoom src={m.file} className={classes.image} />
         </Slide>
-      );
-    });
-  };
+      )
+    })
+  }
 
   return product.detail &&
     product.detail?.media_gallery_entries &&
@@ -89,8 +89,7 @@ const ProductImageCarousel = () => {
       totalSlides={product.detail?.media_gallery_entries.length!}
       visibleSlides={1}
       infinite={true}
-      className={classes.carousel}
-    >
+      className={classes.carousel}>
       <div className={classes.thumbnailContainer}>{buildPreview()}</div>
       <Slider className={classes.slider}>{buildSlides()}</Slider>
       {/* <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
@@ -98,7 +97,7 @@ const ProductImageCarousel = () => {
     </CarouselProvider>
   ) : (
     <LoadingFailed />
-  );
-};
+  )
+}
 
-export default ProductImageCarousel;
+export default ProductImageCarousel
