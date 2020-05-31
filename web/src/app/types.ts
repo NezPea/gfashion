@@ -121,6 +121,7 @@ export interface ProductListAttribute {
   avavilable_filters: Array<FilterDetail>
   search_criteria: SearchCriteria
   items: Array<ProductDetail>
+  category_name: string
   total_count: number
 }
 
