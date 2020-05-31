@@ -9,19 +9,21 @@ import {
   Avatar
 } from '@material-ui/core'
 import { Add, Remove } from '@material-ui/icons'
+import { useSelector } from 'react-redux'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import HimalayaIconActive from '../../assets/images/himalaya_icon_active.png'
-import HimalayaIconInactive from '../../assets/images/himalaya_icon_inactive.png'
-import GdollarIconActive from '../../assets/images/gdollar_icon_active.png'
-import GdollarIconInactive from '../../assets/images/gdollar_icon_inactive.png'
-import GclubIconActive from '../../assets/images/gclub_icon_active.png'
-import GclubIconInactive from '../../assets/images/gclub_icon_inactive.png'
-import GmallIconActive from '../../assets/images/gmall_icon_active.png'
-import GmallIconInactive from '../../assets/images/gmall_icon_inactive.png'
-import GtvIconActive from '../../assets/images/gtv_icon_active.png'
-import GtvIconInactive from '../../assets/images/gtv_icon_inactive.png'
-import GnewsIconActive from '../../assets/images/gnews_icon_active.png'
-import GnewsIconInactive from '../../assets/images/gnews_icon_inactive.png'
+import HimalayaIconActive from 'src/assets/images/himalaya_icon_active.png'
+import HimalayaIconInactive from 'src/assets/images/himalaya_icon_inactive.png'
+import GdollarIconActive from 'src/assets/images/gdollar_icon_active.png'
+import GdollarIconInactive from 'src/assets/images/gdollar_icon_inactive.png'
+import GclubIconActive from 'src/assets/images/gclub_icon_active.png'
+import GclubIconInactive from 'src/assets/images/gclub_icon_inactive.png'
+import GmallIconActive from 'src/assets/images/gmall_icon_active.png'
+import GmallIconInactive from 'src/assets/images/gmall_icon_inactive.png'
+import GtvIconActive from 'src/assets/images/gtv_icon_active.png'
+import GtvIconInactive from 'src/assets/images/gtv_icon_inactive.png'
+import GnewsIconActive from 'src/assets/images/gnews_icon_active.png'
+import GnewsIconInactive from 'src/assets/images/gnews_icon_inactive.png'
+import { selectHomeRecommendations } from 'src/app/slices/homeRecommendationsSlice'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,6 +53,14 @@ const useStyles = makeStyles((theme: Theme) =>
         height: 19
       }
     },
+    followingsItem: {
+      minWidth: 25,
+      marginLeft: -25,
+      '& .icon': {
+        width: 18,
+        height: 18
+      }
+    },
     mainListItem: {
       '&.open': {
         backgroundColor: '#2C2C2C',
@@ -74,6 +84,7 @@ export default function DrawerList() {
   const [gfFollowingOpen, setGfFollowingOpen] = useState(true)
 
   const classes = useStyles()
+  const home = useSelector(selectHomeRecommendations)
 
   const itemsBefore = [
     {
@@ -107,7 +118,7 @@ export default function DrawerList() {
       }
     }
   ]
-  // ['Gmail', 'GTV', 'Gnews']
+
   const itemsAfter = [
     {
       name: 'gmall',
@@ -173,7 +184,7 @@ export default function DrawerList() {
           <ListItemIcon>
             <Avatar
               className={classes.mainListItemIcon}
-              src={require(`../../assets/images/gfashion_icon_${
+              src={require(`src/assets/images/gfashion_icon_${
                 open ? '' : 'in'
               }active.png`)}
             />
@@ -255,19 +266,37 @@ export default function DrawerList() {
               <ListItemIcon className={classes.followingItem}>
                 <Avatar
                   className="icon"
-                  src={require(`../../assets/images/following_icon.png`)}
+                  src={require(`src/assets/images/following_icon.png`)}
                 />
               </ListItemIcon>
               <ListItemText primary="Following" />
             </ListItem>
             <Collapse in={gfFollowingOpen} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <ListItem button className={classes.nestedThird}>
-                  <ListItemText secondary="Women" />
-                </ListItem>
-                <ListItem button className={classes.nestedThird}>
-                  <ListItemText secondary="Women" />
-                </ListItem>
+                {home.recommendations?.followingBrands.map((fb, i) => {
+                  return (
+                    <ListItem button className={classes.nestedThird} key={i}>
+                      <ListItemIcon className={classes.followingsItem}>
+                        <Avatar className="icon" src={fb.photoUrl}>
+                          {fb.name[0]}
+                        </Avatar>
+                      </ListItemIcon>
+                      <ListItemText secondary={fb.name} />
+                    </ListItem>
+                  )
+                })}
+                {home.recommendations?.followingDesigners.map((fd, i) => {
+                  return (
+                    <ListItem button className={classes.nestedThird} key={i}>
+                      <ListItemIcon className={classes.followingsItem}>
+                        <Avatar className="icon" src={fd.photoUrl}>
+                          {fd.name[0]}
+                        </Avatar>
+                      </ListItemIcon>
+                      <ListItemText secondary={fd.name} />
+                    </ListItem>
+                  )
+                })}
               </List>
             </Collapse>
           </List>
