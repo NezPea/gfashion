@@ -147,7 +147,11 @@ export default function PrimarySearchAppBar() {
 
   const handleLangsMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setLangsAnchorEl(event.currentTarget)
-  };
+  }
+
+  const handleLangsMenuClose = () => {
+    setLangsAnchorEl(null)
+  }
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
@@ -166,21 +170,16 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget)
   }
 
-  const handleProfileClose = () => {
-    handleMenuClose();
-    window.location.href = "/my-profile";
-  };
-
   const handleLanguageChange = (lang: string) => {
     return () => {
-      setLangsAnchorEl(null);
+      setLangsAnchorEl(null)
       i18next.changeLanguage(lang, () => {
         let pathSplits = location.pathname.split('/')
         pathSplits[1] = lang
         history.replace(pathSplits.join('/'))
       })
     }
-  };
+  }
 
   // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
@@ -193,7 +192,7 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isLangsMenuOpen}
-      onClose={handleMenuClose}>
+      onClose={handleLangsMenuClose}>
       {AVAILABLE_LANGS.map((lang, i) => {
         return (
           <MenuItem key={i} onClick={handleLanguageChange(lang.key)}>
