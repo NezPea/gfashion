@@ -38,7 +38,7 @@ export default (ref: any) => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [ref])
 
   return showingSlides
 }
