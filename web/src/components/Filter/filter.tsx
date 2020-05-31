@@ -17,6 +17,8 @@ import Checkbox from '@material-ui/core/Checkbox'
 import Chip from '@material-ui/core/Chip'
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Remove'
+import { useTranslation } from 'react-i18next'
+import { I18N, I18N_NS } from '../../pages/GFashion/product/_i18n'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -116,6 +118,7 @@ const Filter = ({
   onFilterRemove: (code: string) => void
 }) => {
   const classes = useStyles()
+  const { t } = useTranslation(I18N_NS)
   let productList = useSelector(selectProductList)
 
   const addFilter = (code: string, value: string) => {
@@ -130,7 +133,7 @@ const Filter = ({
 
   return (
     <div className={classes.root}>
-      <div className={classes.filterDesc}>按以下条件筛选:</div>
+      <div className={classes.filterDesc}>{t(I18N.product.filter.title)}</div>
       <div className={classes.filterContainer}>
         {productList.detail &&
           productList.detail.avavilable_filters &&
