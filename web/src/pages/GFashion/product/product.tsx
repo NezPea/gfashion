@@ -1,48 +1,48 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
   selectProduct,
   fetchProductDetail
-} from "../../../app/slices/productsSlice";
-import MainFrame from "../../../components/MainFrame";
-import LoadingSpinner from "../../../components/Common/loadingSpinner";
-import ProductImageCarousel from "../../../components/Product/productImageCarousel";
-import ProductInfoPanel from "../../../components/Product/productInfoPanel";
-import ProductRecommendation from "../../../components/Product/productRecommendation";
-import { Grid } from "@material-ui/core";
+} from '../../../app/slices/productsSlice'
+import MainFrame from '../../../components/MainFrame'
+import LoadingSpinner from '../../../components/Common/loadingSpinner'
+import ProductImageCarousel from '../../../components/Product/productImageCarousel'
+import ProductInfoPanel from '../../../components/Product/productInfoPanel'
+import ProductRecommendation from '../../../components/Product/productRecommendation'
+import { Grid } from '@material-ui/core'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       paddingTop: theme.spacing(5),
       paddingBottom: theme.spacing(7),
-      maxWidth: "1400px",
-      margin: "auto"
+      maxWidth: '1400px',
+      margin: 'auto'
     },
     spinner: {
-      display: "inline-block",
+      display: 'inline-block',
       margin: `${theme.spacing(10)}px auto`,
-      position: "relative",
-      left: "calc(50% - 50px)"
+      position: 'relative',
+      left: 'calc(50% - 50px)'
     },
     description: {
       backgroundColor: theme.palette.background.paper,
       color: theme.palette.text.secondary,
-      padding: "20px 40px"
+      padding: '20px 40px'
     },
     row: {
       marginTop: theme.spacing(5)
     }
   })
-);
+)
 
 const GFashionProduct = ({ match }: { match: any }) => {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const productId = match && match.params && match.params.productId;
-  let product = useSelector(selectProduct);
-  let productDesc = "";
+  const classes = useStyles()
+  const dispatch = useDispatch()
+  const productId = match && match.params && match.params.productId
+  let product = useSelector(selectProduct)
+  let productDesc = ''
 
   useEffect(() => {
     if (productId) {
@@ -50,9 +50,9 @@ const GFashionProduct = ({ match }: { match: any }) => {
         fetchProductDetail({
           url: `/products/${productId}`
         })
-      );
+      )
     }
-  }, [dispatch, productId]);
+  }, [dispatch, productId])
 
   if (
     product.detail &&
@@ -61,13 +61,13 @@ const GFashionProduct = ({ match }: { match: any }) => {
   ) {
     product.detail.custom_attributes.map(item => {
       switch (item.attribute_code) {
-        case "description":
-          productDesc = item.value;
-          return null;
+        case 'description':
+          productDesc = item.value
+          return null
         default:
-          return null;
+          return null
       }
-    });
+    })
   }
 
   return (
@@ -88,8 +88,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
                 <Grid item xs={12}>
                   <div
                     className={classes.description}
-                    dangerouslySetInnerHTML={{ __html: productDesc }}
-                  ></div>
+                    dangerouslySetInnerHTML={{ __html: productDesc }}></div>
                 </Grid>
               </Grid>
             )}
@@ -100,7 +99,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
             </Grid>
           </div>
         ) : (
-          "Failed to load data"
+          'Failed to load data'
         )
       ) : (
         <div className={classes.spinner}>
@@ -108,7 +107,7 @@ const GFashionProduct = ({ match }: { match: any }) => {
         </div>
       )}
     </MainFrame>
-  );
-};
+  )
+}
 
-export default GFashionProduct;
+export default GFashionProduct

@@ -1,7 +1,14 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { HomeRecommendationsState, AxiosMiddlewareActionMeta, AxiosMiddlewareActionError } from '../types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '../store'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
+import {
+  HomeRecommendationsState,
+  AxiosMiddlewareActionMeta,
+  AxiosMiddlewareActionError,
+  HomepageBrand,
+  HomeRecommendations,
+  HomepageDesigner
+} from '../types'
 
 const initialState: HomeRecommendationsState = {
   recommendations: null,
@@ -19,7 +26,15 @@ export const homeRecommendationsSlice = createSlice({
       }
     },
     success: {
-      reducer: (_, action: PayloadAction<AxiosResponse, string, AxiosMiddlewareActionMeta, AxiosMiddlewareActionError>) => {
+      reducer: (
+        _,
+        action: PayloadAction<
+          AxiosResponse,
+          string,
+          AxiosMiddlewareActionMeta,
+          AxiosMiddlewareActionError
+        >
+      ) => {
         return {
           recommendations: action.payload.data
         }
@@ -33,7 +48,15 @@ export const homeRecommendationsSlice = createSlice({
       }
     },
     fail: {
-      reducer: (_, action: PayloadAction<AxiosResponse, string, AxiosMiddlewareActionMeta, AxiosMiddlewareActionError>) => {
+      reducer: (
+        _,
+        action: PayloadAction<
+          AxiosResponse,
+          string,
+          AxiosMiddlewareActionMeta,
+          AxiosMiddlewareActionError
+        >
+      ) => {
         return {
           error: action.error
         }
@@ -45,13 +68,81 @@ export const homeRecommendationsSlice = createSlice({
           error
         }
       }
+    },
+    followBrand: (state, action: PayloadAction<HomepageBrand, string>) => {
+      let following = state.recommendations?.followingBrands
+
+      return {
+        recommendations: {
+          ...state.recommendations,
+          followingBrands: following
+            ? following.concat([action.payload])
+            : [action.payload]
+        } as HomeRecommendations
+      }
+    },
+    followDesigner: (
+      state,
+      action: PayloadAction<HomepageDesigner, string>
+    ) => {
+      let following = state.recommendations?.followingDesigners
+
+      return {
+        recommendations: {
+          ...state.recommendations,
+          followingDesigners: following
+            ? following.concat([action.payload])
+            : [action.payload]
+        } as HomeRecommendations
+      }
+    },
+    unfollowBrand: (state, action: PayloadAction<HomepageBrand, string>) => {
+      let following = state.recommendations?.followingBrands
+
+      return {
+        recommendations: {
+          ...state.recommendations,
+          followingBrands: following
+            ? following.filter(f => {
+                return f.id !== action.payload.id
+              })
+            : []
+        } as HomeRecommendations
+      }
+    },
+    unfollowDesigner: (
+      state,
+      action: PayloadAction<HomepageDesigner, string>
+    ) => {
+      let following = state.recommendations?.followingDesigners
+
+      return {
+        recommendations: {
+          ...state.recommendations,
+          followingDesigners: following
+            ? following.filter(f => {
+                return f.id !== action.payload.id
+              })
+            : []
+        } as HomeRecommendations
+      }
     }
   }
 })
 
-export const { request, success, fail } = homeRecommendationsSlice.actions;
+export const {
+  request,
+  success,
+  fail,
+  followBrand,
+  followDesigner,
+  unfollowBrand,
+  unfollowDesigner
+} = homeRecommendationsSlice.actions
 
-export const fetchHomeRecommendations = (payload: AxiosRequestConfig) => (dispatch: any) => {
+export const fetchHomeRecommendations = (payload: AxiosRequestConfig) => (
+  dispatch: any
+) => {
   dispatch({
     types: [request, success, fail],
     payload: {
@@ -60,6 +151,27 @@ export const fetchHomeRecommendations = (payload: AxiosRequestConfig) => (dispat
   })
 }
 
-export const selectHomeRecommendations = (state: RootState) => state.homeRecommendations;
+export const doFollowBrand = (payload: HomepageBrand) => (dispatch: any) => {
+  dispatch({ type: followBrand, payload })
+}
 
-export default homeRecommendationsSlice.reducer;
+export const doFollowDesigner = (payload: HomepageDesigner) => (
+  dispatch: any
+) => {
+  dispatch({ type: followDesigner, payload })
+}
+
+export const doUnfollowBrand = (payload: HomepageBrand) => (dispatch: any) => {
+  dispatch({ type: unfollowBrand, payload })
+}
+
+export const doUnfollowDesigner = (payload: HomepageDesigner) => (
+  dispatch: any
+) => {
+  dispatch({ type: unfollowDesigner, payload })
+}
+
+export const selectHomeRecommendations = (state: RootState) =>
+  state.homeRecommendations
+
+export default homeRecommendationsSlice.reducer

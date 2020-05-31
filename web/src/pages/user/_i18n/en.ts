@@ -25,8 +25,8 @@ export const en: typeof _spec = {
   reg: {
     _self: 'Register',
     create_acct: 'Register'
-  }
-  ,my_profile: {
+  },
+  my_profile: {
     _self: 'Profile',
     // avatar: 'Avatar *',
     editprofile: 'Edit Profile',
@@ -41,7 +41,6 @@ export const en: typeof _spec = {
     weakpassword: 'Weak',
     mediumpassword: 'Medium',
     strongpassword: 'Strong',
-    save: 'Save',
+    save: 'Save'
   }
-
-};
+}

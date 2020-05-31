@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import React, { FunctionComponent } from 'react'
+import { createStyles, makeStyles } from '@material-ui/core/styles'
 import {
   Box,
   Button,
@@ -7,25 +7,25 @@ import {
   Tab,
   Typography,
   TextField
-} from "@material-ui/core";
-import { Helmet } from 'react-helmet-async';
+} from '@material-ui/core'
+import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import MainFrame from "../../../components/MainFrame";
+import MainFrame from '../../../components/MainFrame'
 import { I18N, I18N_NS } from '../_i18n'
 
 const useStyles = makeStyles(() =>
   createStyles({
     captcha: {
-      flex: "1",
-      margin: "0 16px 0 0"
+      flex: '1',
+      margin: '0 16px 0 0'
     },
     textField: {
-      marginBottom: "10px"
+      marginBottom: '10px'
     }
   })
-);
+)
 const Register: FunctionComponent = () => {
-  const classes = useStyles();
+  const classes = useStyles()
   const { t } = useTranslation(I18N_NS)
   return (
     <MainFrame>
@@ -70,6 +70,6 @@ const Register: FunctionComponent = () => {
         </Box>
       </Box>
     </MainFrame>
-  );
-};
-export default Register;
+  )
+}
+export default Register

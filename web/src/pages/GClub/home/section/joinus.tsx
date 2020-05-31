@@ -1,8 +1,8 @@
 // import useState next to FunctionComponent
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react'
 // import { Link } from "react-router-dom";
 import { Grid, Typography, Button } from '@material-ui/core'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { banner } from '../../types'
 // our components props accept a number for the initial value
 
@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       flexDirection: 'column'
     }
-  }),
-);
+  })
+)
 const Article: FunctionComponent<banner> = () => {
   // since we pass a number here, clicks is going to be a number.
   // setClicks is a function that accepts either a number or a function returning
@@ -35,16 +35,17 @@ const Article: FunctionComponent<banner> = () => {
   // })
   const classes = useStyles()
 
-  return <>
-    <Grid
-      container
-      className={classes.banner}
-    >
-      <Typography variant='h2' align='center'>Join US today</Typography>
-      <br />
-      <Button>Join</Button>
-      {/* <Link to='/' className={classes.link}>go to home</Link> */}
-    </Grid>
-  </>
+  return (
+    <>
+      <Grid container className={classes.banner}>
+        <Typography variant="h2" align="center">
+          Join US today
+        </Typography>
+        <br />
+        <Button>Join</Button>
+        {/* <Link to='/' className={classes.link}>go to home</Link> */}
+      </Grid>
+    </>
+  )
 }
-export default Article;
+export default Article

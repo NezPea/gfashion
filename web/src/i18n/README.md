@@ -4,9 +4,9 @@
 
 There are various front-end i18n solutions while most of them can be categorized into 2 genres:
 
-* Compilation-based. e.g. [i18n-webpack-plugin](https://www.npmjs.com/package/i18n-webpack-plugin).
+- Compilation-based. e.g. [i18n-webpack-plugin](https://www.npmjs.com/package/i18n-webpack-plugin).
 
-* Runtime-based. e.g. [react-intl](https://www.npmjs.com/package/react-intl).
+- Runtime-based. e.g. [react-intl](https://www.npmjs.com/package/react-intl).
 
 Runtime-based solution prevails in many aspects because of its simplicity and flexibility. Among the most popular libs, [i18next](https://github.com/i18next/i18next) might be the [best choice](https://www.i18next.com/overview/comparison-to-others) so that [react-i18next](https://github.com/i18next/react-i18next) is introduced.
 
@@ -16,11 +16,11 @@ Please skim through [Quick start | react-i18next](https://react.i18next.com/guid
 
 ## Our patterns
 
-i18next provides an official plugin [i18next-http-backend](https://www.i18next.com/how-to/add-or-load-translations) which implies the file structure of translation files (a.k.a. ***resources***). However, this is hardly a decent solution from maintainability and scalability perspective.
+i18next provides an official plugin [i18next-http-backend](https://www.i18next.com/how-to/add-or-load-translations) which implies the file structure of translation files (a.k.a. **_resources_**). However, this is hardly a decent solution from maintainability and scalability perspective.
 
 After doing some researches, we figured out a better approach to handle resources by leveraging TypeScript's `typeof`. (Please note, we could still use `i18next-http-backend` after compilation with some tweaks :)
 
-### Any *resources* should be modular
+### Any _resources_ should be modular
 
 For example, there is an `_i18n` folder in `user` module which is self-explanatory.
 
@@ -44,7 +44,7 @@ At the moment we have `en` and `zh`, both are derived from `_spec` and **guarded
 t('trans_key') // impossible to refactor by IDE intellisense
 ```
 
-### Any *keys* should be in `snake_case`
+### Any _keys_ should be in `snake_case`
 
 This enables us to easily distinguish a translation key from a variable name (usually in `camelCase`).
 
@@ -72,7 +72,10 @@ t(I18N.user.login.notice)
 t(I18N.user.login.submit)
 
 // Succinct but hard to refactor / search
-const { _common: { username, password }, login: { notice, submit } } = I18N.user
+const {
+  _common: { username, password },
+  login: { notice, submit }
+} = I18N.user
 t(username)
 t(password)
 t(notice)
@@ -135,4 +138,4 @@ English translation text is usually longer than its Chinese counterpart and is m
 
 ## Resources
 
-* [i18next documentation](https://www.i18next.com/)
+- [i18next documentation](https://www.i18next.com/)

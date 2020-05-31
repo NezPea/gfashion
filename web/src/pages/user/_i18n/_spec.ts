@@ -23,8 +23,8 @@ export const _spec = {
   reg: {
     _self: '',
     create_acct: ''
-  }
-  ,my_profile: {
+  },
+  my_profile: {
     _self: '',
     // avatar: '',
     editprofile: '',
@@ -39,8 +39,6 @@ export const _spec = {
     weakpassword: '',
     mediumpassword: '',
     strongpassword: '',
-    save: '',
-
-
+    save: ''
   }
-};
+}
