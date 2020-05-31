@@ -1,13 +1,9 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { GridList, GridListTile, Typography } from '@material-ui/core';
-import { RecommendedProductProps } from '../../../app/types';
-// import product1 from '../../assets/images/product1.jpg';
-// import product2 from '../../assets/images/product2.jpg';
-// import product3 from '../../assets/images/product3.jpg';
-// import product4 from '../../assets/images/product4.jpg';
-// import product5 from '../../assets/images/product5.jpg';
-// import product6 from '../../assets/images/product6.jpg';
+import React from 'react'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { GridList, GridListTile, Typography } from '@material-ui/core'
+import { RecommendedProductProps } from '../../../app/types'
+import { useTranslation } from 'react-i18next'
+import { I18N, I18N_NS } from './_i18n'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,27 +11,27 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       display: 'flex',
       justifyContent: 'center',
-      [theme.breakpoints.down("xl")]: {
+      [theme.breakpoints.down('xl')]: {
         padding: theme.spacing(20, 0),
         minHeight: 1046
       },
-      [theme.breakpoints.down("lg")]: {
+      [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(16, 0),
         minHeight: 800
       },
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down('md')]: {
         padding: theme.spacing(12, 0),
         minHeight: 600
       }
     },
     contentContainer: {
-      [theme.breakpoints.down("xl")]: {
+      [theme.breakpoints.down('xl')]: {
         width: 1404
       },
-      [theme.breakpoints.down("lg")]: {
+      [theme.breakpoints.down('lg')]: {
         width: 1200
       },
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down('md')]: {
         width: 800
       }
     },
@@ -86,12 +82,16 @@ const useStyles = makeStyles((theme: Theme) =>
         width: '100%'
       }
     }
-  }),
-);
+  })
+)
 
-export const RecommendedProducts: React.FunctionComponent<RecommendedProductProps> = ({ products = [] }) => {
-  const classes = useStyles();
-  const featuredProducts = products.filter(p => p.isFeatured);
+export const RecommendedProducts: React.FunctionComponent<RecommendedProductProps> = ({
+  products = []
+}) => {
+  const classes = useStyles()
+  const { t } = useTranslation(I18N_NS)
+
+  const featuredProducts = products.filter(p => p.isFeatured)
   const otherProducts = products.filter(p => !p.isFeatured)
 
   return (
@@ -99,38 +99,50 @@ export const RecommendedProducts: React.FunctionComponent<RecommendedProductProp
       <div className={classes.contentContainer}>
         <div className={classes.headline}>
           <div className={classes.surroundingLine}></div>
-          <Typography className={classes.sectionTitle} align='center'>
-            Best Products
-        </Typography>
+          <Typography className={classes.sectionTitle} align="center">
+            {t(I18N.home.recommended_products.title)}
+          </Typography>
           <div className={classes.surroundingLine}></div>
         </div>
-        <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
+        <Typography className={classes.sectionDescription}>
+          {t(I18N.home.recommended_products.description)}
+        </Typography>
         <div className={classes.productsContainer}>
-          <GridList spacing={12} cols={2} cellHeight={400} className={classes.productsFeatured}>
-            {
-              featuredProducts.map((fp, i) => {
-                return (
-                  <GridListTile key={i} className={classes.featuredTile}>
-                    <div className={classes.tileContent}>
-                      <img src={require(`../../../assets/images/${fp.name}.jpg`)} alt='product' />
-                    </div>
-                  </GridListTile>
-                )
-              })
-            }
+          <GridList
+            spacing={12}
+            cols={2}
+            cellHeight={400}
+            className={classes.productsFeatured}>
+            {featuredProducts.map((fp, i) => {
+              return (
+                <GridListTile key={i} className={classes.featuredTile}>
+                  <div className={classes.tileContent}>
+                    <img
+                      src={require(`../../../assets/images/${fp.name}.jpg`)}
+                      alt="product"
+                    />
+                  </div>
+                </GridListTile>
+              )
+            })}
           </GridList>
-          <GridList spacing={12} cols={2} cellHeight={200} className={classes.products}>
-            {
-              otherProducts.map((op, i) => {
-                return (
-                  <GridListTile key={i}>
-                    <div className={classes.tileContent}>
-                      <img src={require(`../../../assets/images/${op.name}.jpg`)} alt='product' />
-                    </div>
-                  </GridListTile>
-                )
-              })
-            }
+          <GridList
+            spacing={12}
+            cols={2}
+            cellHeight={200}
+            className={classes.products}>
+            {otherProducts.map((op, i) => {
+              return (
+                <GridListTile key={i}>
+                  <div className={classes.tileContent}>
+                    <img
+                      src={require(`../../../assets/images/${op.name}.jpg`)}
+                      alt="product"
+                    />
+                  </div>
+                </GridListTile>
+              )
+            })}
           </GridList>
         </div>
       </div>

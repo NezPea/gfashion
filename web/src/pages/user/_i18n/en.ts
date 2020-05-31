@@ -25,5 +25,22 @@ export const en: typeof _spec = {
   reg: {
     _self: 'Register',
     create_acct: 'Register'
+  },
+  my_profile: {
+    _self: 'Profile',
+    // avatar: 'Avatar *',
+    editprofile: 'Edit Profile',
+    surname: 'Surname',
+    ownname: 'Ownname',
+    changepassword: 'Change Password',
+    currentpassword: 'Current Password',
+    newpassword: 'New Password',
+    confirmpassword: 'Confirm Password',
+    passwordStrength: 'Strength:',
+    emptypassword: 'Empty',
+    weakpassword: 'Weak',
+    mediumpassword: 'Medium',
+    strongpassword: 'Strong',
+    save: 'Save'
   }
 }

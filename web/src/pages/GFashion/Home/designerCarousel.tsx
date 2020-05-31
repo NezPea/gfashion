@@ -1,29 +1,37 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Box, Button } from '@material-ui/core';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import Avatar from '@material-ui/core/Avatar';
-import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import { DesignersProps } from '../../../app/types';
+import React from 'react'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { Typography, Box, Button } from '@material-ui/core'
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext
+} from 'pure-react-carousel'
+import Avatar from '@material-ui/core/Avatar'
+import { ChevronLeft, ChevronRight } from '@material-ui/icons'
+import { DesignersProps } from '../../../app/types'
+import { useTranslation } from 'react-i18next'
+import { I18N, I18N_NS } from './_i18n'
 
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
-      [theme.breakpoints.down("xl")]: {
+      [theme.breakpoints.down('xl')]: {
         padding: theme.spacing(20, 0),
-        height: 1046
+        height: 825
       },
-      [theme.breakpoints.down("lg")]: {
+      [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(16, 0),
-        height: 800
+        height: 680
       },
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down('md')]: {
         padding: theme.spacing(12, 0),
-        height: 600
+        height: 580
       }
     },
     headline: {
@@ -123,29 +131,43 @@ const useStyles = makeStyles((theme: Theme) =>
         cursor: `default`
       },
       '&:hover .action-follow': {
-        visibility: 'visible',
+        visibility: 'visible'
       },
       '&:hover .avatar': {
         filter: `none`
       }
     }
-  }),
-);
+  })
+)
 
-export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ designers = [] }) => {
-  const classes = useStyles();
+export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({
+  designers = []
+}) => {
+  const classes = useStyles()
+  const { t } = useTranslation(I18N_NS)
 
   const buildSlides = () => {
     return designers.map((m, i) => {
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <Box className={classes.slideBox}>
-            <Avatar src={require(`../../../assets/images/designer${i % 6 + 1}.png`)} variant='rounded' className={`${classes.avatar} avatar`} />
-            <div className='designer-info'>
-              <Typography className='designer-name'>{m.name}</Typography>
-              <Typography className='designer-brand'>{m.cooperatingBrands[0]}</Typography>
+            <Avatar
+              src={require(`../../../assets/images/designer${(i % 6) + 1}.png`)}
+              variant="rounded"
+              className={`${classes.avatar} avatar`}
+            />
+            <div className="designer-info">
+              <Typography className="designer-name">{m.name}</Typography>
+              <Typography className="designer-brand">
+                {m.cooperatingBrands[0]}
+              </Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              className="action-follow">
+              {t(I18N._common.follow_button_text)}
+            </Button>
           </Box>
         </Slide>
       )
@@ -156,26 +178,29 @@ export const DesignerCarousel: React.FunctionComponent<DesignersProps> = ({ desi
     <div className={classes.root}>
       <div className={classes.headline}>
         <div className={classes.surroundingLine}></div>
-        <Typography className={classes.sectionTitle} align='center'>
-          Genius DESIGNERS
+        <Typography className={classes.sectionTitle} align="center">
+          {t(I18N.home.recommended_designers.title)}
         </Typography>
         <div className={classes.surroundingLine}></div>
       </div>
-      <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
+      <Typography className={classes.sectionDescription}>
+        {t(I18N.home.recommended_designers.description)}
+      </Typography>
       <CarouselProvider
         naturalSlideWidth={320}
         naturalSlideHeight={320}
         totalSlides={designers ? designers.length : 5}
         visibleSlides={6}
         orientation="horizontal"
-        className={classes.carouselProvider}
-      >
-        <Slider style={{ overflow: 'visible' }}>
-          {buildSlides()}
-        </Slider>
-        <ButtonBack className={`${classes.slideButton} prev`}><ChevronLeft /></ButtonBack>
-        <ButtonNext className={`${classes.slideButton} next`}><ChevronRight /></ButtonNext>
+        className={classes.carouselProvider}>
+        <Slider style={{ overflow: 'visible' }}>{buildSlides()}</Slider>
+        <ButtonBack className={`${classes.slideButton} prev`}>
+          <ChevronLeft />
+        </ButtonBack>
+        <ButtonNext className={`${classes.slideButton} next`}>
+          <ChevronRight />
+        </ButtonNext>
       </CarouselProvider>
-    </div >
+    </div>
   )
 }

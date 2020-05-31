@@ -6,7 +6,7 @@
  */
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { DEFAULT_LANG } from './consts'
+import { DEFAULT_LANG, AVAILABLE_LANGS_SIMPLE } from './consts'
 import { resources } from './resources'
 
 i18next
@@ -16,6 +16,7 @@ i18next
     lng: DEFAULT_LANG,
     fallbackLng: DEFAULT_LANG,
     // debug: true,
+    whitelist: AVAILABLE_LANGS_SIMPLE,
     interpolation: {
       escapeValue: false // not needed for React as it escapes by default
     }

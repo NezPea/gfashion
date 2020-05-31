@@ -1,9 +1,9 @@
 // import useState next to FunctionComponent
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react'
 // import { Link } from "react-router-dom";
-import { Grid, Typography } from '@material-ui/core'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { banner } from './types'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { community } from '../../types'
+import List from './List'
 // our components props accept a number for the initial value
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      width: '100%'
     },
     link: {
       margin: theme.spacing(1)
@@ -23,9 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       flexDirection: 'column'
     }
-  }),
-);
-const Article: FunctionComponent<banner> = () => {
+  })
+)
+const Community: FunctionComponent<community> = () => {
   // since we pass a number here, clicks is going to be a number.
   // setClicks is a function that accepts either a number or a function returning
   // a number
@@ -35,14 +36,12 @@ const Article: FunctionComponent<banner> = () => {
   // })
   const classes = useStyles()
 
-  return <>
-    <Grid
-      container
-      className={classes.banner}
-    >
-      <Typography variant='h2' align='center'>G Community</Typography>
-      {/* <Link to='/' className={classes.link}>go to home</Link> */}
-    </Grid>
-  </>
+  return (
+    <>
+      <div className={classes.root}>
+        <List></List>
+      </div>
+    </>
+  )
 }
-export default Article;
+export default Community

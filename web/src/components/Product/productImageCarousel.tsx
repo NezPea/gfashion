@@ -1,10 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectProduct } from '../../app/slices/productsSlice';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { CarouselProvider, Slider, Slide, ImageWithZoom, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import LoadingFailed from '../../components/Common/loadingFailed';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectProduct } from '../../app/slices/productsSlice'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ImageWithZoom,
+  Dot
+} from 'pure-react-carousel'
+import LoadingFailed from '../../components/Common/loadingFailed'
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         border: 0,
         padding: 0,
         marginBottom: '20px',
-        marginRight: '30px',
+        marginRight: '30px'
       }
     },
     thumbnail: {
@@ -29,30 +35,30 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 'calc(100% - 110px)'
     },
     image: {
-      backgroundColor: theme.palette.action.disabledBackground,
+      backgroundColor: theme.palette.action.disabledBackground
     },
     carousel: {
       display: 'flex',
       width: '100%',
       height: '100%',
       position: 'relative'
-    },
-    slidePrev: {
-      position: 'absolute',
-      top: 'calc(50% - 8px)',
-      left: '110px'
-    },
-    slideNext: {
-      position: 'absolute',
-      top: 'calc(50% - 8px)',
-      right: 0
     }
-  }),
-);
+    // slidePrev: {
+    //   position: 'absolute',
+    //   top: 'calc(50% - 8px)',
+    //   left: '110px'
+    // },
+    // slideNext: {
+    //   position: 'absolute',
+    //   top: 'calc(50% - 8px)',
+    //   right: 0
+    // }
+  })
+)
 
 const ProductImageCarousel = () => {
-  const classes = useStyles();
-  let product = useSelector(selectProduct);
+  const classes = useStyles()
+  let product = useSelector(selectProduct)
 
   const buildPreview = () => {
     return product.detail?.media_gallery_entries.map((m, i) => {
@@ -74,30 +80,24 @@ const ProductImageCarousel = () => {
     })
   }
 
-  return (
-    (product.detail && product.detail?.media_gallery_entries && product.detail?.media_gallery_entries.length) ?
-      (
-        <CarouselProvider
-          naturalSlideWidth={520}
-          naturalSlideHeight={640}
-          totalSlides={product.detail?.media_gallery_entries.length!}
-          visibleSlides={1}
-          infinite={true}
-          className={classes.carousel}
-        >
-          <div className={classes.thumbnailContainer}>
-            {buildPreview()}
-          </div>
-          <Slider className={classes.slider}>
-            {buildSlides()}
-          </Slider>
-          <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
-          <ButtonNext className={classes.slideNext}>next</ButtonNext>
-        </CarouselProvider>
-      ) : (
-        <LoadingFailed />
-      )
+  return product.detail &&
+    product.detail?.media_gallery_entries &&
+    product.detail?.media_gallery_entries.length ? (
+    <CarouselProvider
+      naturalSlideWidth={520}
+      naturalSlideHeight={640}
+      totalSlides={product.detail?.media_gallery_entries.length!}
+      visibleSlides={1}
+      infinite={true}
+      className={classes.carousel}>
+      <div className={classes.thumbnailContainer}>{buildPreview()}</div>
+      <Slider className={classes.slider}>{buildSlides()}</Slider>
+      {/* <ButtonBack className={classes.slidePrev}>prev</ButtonBack>
+          <ButtonNext className={classes.slideNext}>next</ButtonNext> */}
+    </CarouselProvider>
+  ) : (
+    <LoadingFailed />
   )
 }
 
-export default ProductImageCarousel;
+export default ProductImageCarousel

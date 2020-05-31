@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { selectProduct, fetchProductDetail } from '../../../app/slices/productsSlice';
-import MainFrame from '../../../components/MainFrame';
-import ProductImageCarousel from '../../../components/Product/productImageCarousel';
-import ProductInfoPanel from '../../../components/Product/productInfoPanel';
-import ProductRecommendation from '../../../components/Product/productRecommendation';
-import { Grid } from '@material-ui/core';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import {
+  selectProduct,
+  fetchProductDetail
+} from '../../../app/slices/productsSlice'
+import MainFrame from '../../../components/MainFrame'
+import LoadingSpinner from '../../../components/Common/loadingSpinner'
+import ProductImageCarousel from '../../../components/Product/productImageCarousel'
+import ProductInfoPanel from '../../../components/Product/productInfoPanel'
+import ProductRecommendation from '../../../components/Product/productRecommendation'
+import { Grid } from '@material-ui/core'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,77 +20,92 @@ const useStyles = makeStyles((theme: Theme) =>
       maxWidth: '1400px',
       margin: 'auto'
     },
+    spinner: {
+      display: 'inline-block',
+      margin: `${theme.spacing(10)}px auto`,
+      position: 'relative',
+      left: 'calc(50% - 50px)'
+    },
     description: {
       backgroundColor: theme.palette.background.paper,
       color: theme.palette.text.secondary,
-      padding: '20px 40px',
+      padding: '20px 40px'
     },
     row: {
       marginTop: theme.spacing(5)
-    },
-  }),
-);
+    }
+  })
+)
 
 const GFashionProduct = ({ match }: { match: any }) => {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const productId = match && match.params && match.params.productId;
-  let product = useSelector(selectProduct);
+  const classes = useStyles()
+  const dispatch = useDispatch()
+  const productId = match && match.params && match.params.productId
+  let product = useSelector(selectProduct)
   let productDesc = ''
 
   useEffect(() => {
     if (productId) {
-      dispatch(fetchProductDetail({
-        //url: '/product' // local mock data
-        url: `/products/${productId}`
-      }));
+      dispatch(
+        fetchProductDetail({
+          url: `/products/${productId}`
+        })
+      )
     }
-  }, [dispatch, productId]);
+  }, [dispatch, productId])
 
-  if (product.detail && product.detail.custom_attributes && product.detail.custom_attributes.length) {
-    product.detail.custom_attributes
-      .map((item) => {
-        switch (item.attribute_code) {
-          case 'description':
-            productDesc = item.value;
-            return null;
-          default:
-            return null;
-        }
-      })
+  if (
+    product.detail &&
+    product.detail.custom_attributes &&
+    product.detail.custom_attributes.length
+  ) {
+    product.detail.custom_attributes.map(item => {
+      switch (item.attribute_code) {
+        case 'description':
+          productDesc = item.value
+          return null
+        default:
+          return null
+      }
+    })
   }
 
   return (
     <MainFrame>
-      {
-        !product.isLoading && (
-          product.detail ? (
-            <div className={classes.root}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={7}>
-                  <ProductImageCarousel />
-                </Grid>
-                <Grid item xs={12} md={5}>
-                  <ProductInfoPanel />
-                </Grid>
+      {!product.isLoading ? (
+        product.detail ? (
+          <div className={classes.root}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={7}>
+                <ProductImageCarousel />
               </Grid>
-              {
-                productDesc && productDesc.length &&
-                <Grid container spacing={3} className={classes.row}>
-                  <Grid item xs={12}>
-                    <div className={classes.description} >{productDesc}</div>
-                  </Grid>
-                </Grid>
-              }
+              <Grid item xs={12} md={5}>
+                <ProductInfoPanel />
+              </Grid>
+            </Grid>
+            {productDesc && productDesc.length && (
               <Grid container spacing={3} className={classes.row}>
                 <Grid item xs={12}>
-                  <ProductRecommendation />
+                  <div
+                    className={classes.description}
+                    dangerouslySetInnerHTML={{ __html: productDesc }}></div>
                 </Grid>
               </Grid>
-            </div>
-          ) : 'Failed to load data'
+            )}
+            <Grid container spacing={3} className={classes.row}>
+              <Grid item xs={12}>
+                <ProductRecommendation />
+              </Grid>
+            </Grid>
+          </div>
+        ) : (
+          'Failed to load data'
         )
-      }
+      ) : (
+        <div className={classes.spinner}>
+          <LoadingSpinner />
+        </div>
+      )}
     </MainFrame>
   )
 }

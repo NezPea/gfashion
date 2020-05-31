@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React, { FunctionComponent } from 'react'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
   Box,
   Card,
@@ -9,37 +9,37 @@ import {
   CardHeader,
   CardContent,
   TextField
-} from "@material-ui/core";
-import { Helmet } from 'react-helmet'
+} from '@material-ui/core'
+import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import MainFrame from "../../../components/MainFrame";
+import MainFrame from '../../../components/MainFrame'
 import { I18N, I18N_NS } from '../_i18n'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
-      width: "400px"
+      width: '400px'
     },
     cardContent: {
-      display: "flex",
-      flexFlow: "column"
+      display: 'flex',
+      flexFlow: 'column'
     },
     title: {
-      color: "#fff",
+      color: '#fff',
       backgroundColor: theme.palette.text.secondary
     },
     form: {
-      display: "flex",
-      flexFlow: "column"
+      display: 'flex',
+      flexFlow: 'column'
     },
     textField: {
-      marginBottom: "10px"
+      marginBottom: '10px'
     },
     login: {}
   })
-);
+)
 const Login: FunctionComponent = () => {
-  const classes = useStyles();
+  const classes = useStyles()
   const { t, i18n } = useTranslation(I18N_NS)
   return (
     <MainFrame>
@@ -65,7 +65,9 @@ const Login: FunctionComponent = () => {
                 variant="outlined"
               />
             </form>
-            <Link href={`/${i18n.language}/find-password`}>{t(I18N.find_pwd._self)}?</Link>
+            <Link href={`/${i18n.language}/find-password`}>
+              {t(I18N.find_pwd._self)}?
+            </Link>
             <Divider variant="inset" />
             <Button variant="contained" color="primary" disableElevation>
               {t(I18N.login._self)}
@@ -74,6 +76,6 @@ const Login: FunctionComponent = () => {
         </Card>
       </Box>
     </MainFrame>
-  );
-};
-export default Login;
+  )
+}
+export default Login

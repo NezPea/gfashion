@@ -1,24 +1,30 @@
-import React from 'react';
-import { useLocation, BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import React from 'react'
+import {
+  useLocation,
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+import i18next from 'i18next'
 
-import ModuleRouter from './ModuleRouter';
+import ModuleRouter from './ModuleRouter'
 
 const LangRedirect = () => {
-  const location = useLocation();
-  // TODO: detect language or use pre-selected language
-  return <Redirect to={`/cn${location.pathname}`} />
+  const location = useLocation()
+  return <Redirect to={`/${i18next.language}${location.pathname}`} />
 }
 
 function AppRouter() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={`/cn`} render={() => <ModuleRouter lang='cn' />} />
-        <Route path={`/en`} render={() => <ModuleRouter lang='en' />} />
-        <Route path="*" render={() => <LangRedirect/>} />
+        <Route path={`/zh`} render={() => <ModuleRouter lang="zh" />} />
+        <Route path={`/en`} render={() => <ModuleRouter lang="en" />} />
+        <Route path="*" render={() => <LangRedirect />} />
       </Switch>
     </BrowserRouter>
-  );
+  )
 }
 
-export default AppRouter;
+export default AppRouter

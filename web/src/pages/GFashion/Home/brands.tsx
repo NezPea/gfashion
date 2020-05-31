@@ -1,28 +1,36 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography, Avatar, Button, Link } from '@material-ui/core';
-import { BrandsProps } from '../../../app/types';
-import { Slide, CarouselProvider, Slider, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import { ChevronRight, ChevronLeft } from '@material-ui/icons';
-import MockVideo from '../../../assets/images/mock_video.jpg';
-import { Models } from './imageAssets';
+import React from 'react'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { Typography, Avatar, Button, Link } from '@material-ui/core'
+import { BrandsProps } from '../../../app/types'
+import {
+  Slide,
+  CarouselProvider,
+  Slider,
+  ButtonBack,
+  ButtonNext
+} from 'pure-react-carousel'
+import { ChevronRight, ChevronLeft } from '@material-ui/icons'
+import MockVideo from '../../../assets/images/mock_video.jpg'
+import { Models } from './imageAssets'
+import { useTranslation } from 'react-i18next'
+import { I18N, I18N_NS } from './_i18n'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       backgroundColor: theme.palette.background.default,
       margin: 'auto',
-      [theme.breakpoints.down("xl")]: {
+      [theme.breakpoints.down('xl')]: {
         padding: theme.spacing(20, 0),
         minHeight: 1046,
         width: 1404
       },
-      [theme.breakpoints.down("lg")]: {
+      [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(16, 0),
         minHeight: 800,
         width: 1200
       },
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down('md')]: {
         padding: theme.spacing(12, 0),
         minHeight: 600,
         width: 800
@@ -160,23 +168,34 @@ const useStyles = makeStyles((theme: Theme) =>
       color: `#888`,
       fontFamily: 'Helvetica'
     }
-  }),
-);
+  })
+)
 
-export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) => {
-  const classes = useStyles();
+export const Brands: React.FunctionComponent<BrandsProps> = ({
+  brands = []
+}) => {
+  const classes = useStyles()
+  const { t } = useTranslation(I18N_NS)
 
   const buildSlides = () => {
     return brands.map((b, i) => {
       return (
         <Slide key={i} index={i} className={classes.slide}>
           <div className={classes.slideBox}>
-            <Avatar src={require(`../../../assets/images/${b.name.toLowerCase()}.svg`)} className={`${classes.avatar} avatar`} />
-            <div className='designer-info'>
-              <Typography className='brand-name'>{b.name}</Typography>
-              <Typography className='brand-country'>{b.country}</Typography>
+            <Avatar
+              src={require(`../../../assets/images/${b.name.toLowerCase()}.svg`)}
+              className={`${classes.avatar} avatar`}
+            />
+            <div className="designer-info">
+              <Typography className="brand-name">{b.name}</Typography>
+              <Typography className="brand-country">{b.country}</Typography>
             </div>
-            <Button variant='contained' color='secondary' className='action-follow'>Follow</Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              className="action-follow">
+              {t(I18N._common.follow_button_text)}
+            </Button>
           </div>
         </Slide>
       )
@@ -187,46 +206,55 @@ export const Brands: React.FunctionComponent<BrandsProps> = ({ brands = [] }) =>
     <div className={classes.root}>
       <div className={classes.headline}>
         <div className={classes.surroundingLine}></div>
-        <Typography className={classes.sectionTitle} align='center'>
-          Brands
+        <Typography className={classes.sectionTitle} align="center">
+          {t(I18N.home.recommended_brands.title)}
         </Typography>
         <div className={classes.surroundingLine}></div>
       </div>
-      <Typography className={classes.sectionDescription}>Something details something details something details</Typography>
+      <Typography className={classes.sectionDescription}>
+        {t(I18N.home.recommended_brands.description)}
+      </Typography>
       <CarouselProvider
         naturalSlideWidth={320}
         naturalSlideHeight={320}
         totalSlides={brands ? brands.length : 5}
         visibleSlides={5}
         orientation="horizontal"
-        className={classes.carouselProvider}
-      >
+        className={classes.carouselProvider}>
         <Slider style={{ overflow: 'hidden', height: 300 }}>
           {buildSlides()}
         </Slider>
-        <ButtonBack className={`${classes.slideButton} prev`}><ChevronLeft /></ButtonBack>
-        <ButtonNext className={`${classes.slideButton} next`}><ChevronRight /></ButtonNext>
+        <ButtonBack className={`${classes.slideButton} prev`}>
+          <ChevronLeft />
+        </ButtonBack>
+        <ButtonNext className={`${classes.slideButton} next`}>
+          <ChevronRight />
+        </ButtonNext>
       </CarouselProvider>
       <div className={classes.newLaunch}>
-        <div className='text'>
-          <Typography variant='subtitle2'>New Launch</Typography>
+        <div className="text">
+          <Typography variant="subtitle2">
+            {t(I18N.home.recommended_brands.newLaunch_label)}
+          </Typography>
           <div>
-            <Typography className={classes.launchTitle}>Chanel's 2020</Typography>
-            <Typography className={classes.launchBody}>“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.</Typography>
+            <Typography className={classes.launchTitle}>
+              {t(I18N.home.recommended_brands.launch_title)}
+            </Typography>
+            <Typography className={classes.launchBody}>
+              {t(I18N.home.recommended_brands.launch_description)}
+            </Typography>
           </div>
-          <Link color='secondary'>Shop the Collection</Link>
+          <Link color="secondary">
+            {t(I18N.home.recommended_brands.shop_link)}
+          </Link>
         </div>
         <img src={MockVideo} alt="mock video" />
       </div>
       <div className={classes.models}>
-        {
-          Models.map((m, i) => {
-            return (
-              <img src={m} alt='model' key={i} />
-            )
-          })
-        }
+        {Models.map((m, i) => {
+          return <img src={m} alt="model" key={i} />
+        })}
       </div>
-    </div >
+    </div>
   )
 }
