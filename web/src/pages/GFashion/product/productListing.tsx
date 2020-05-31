@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import QueryString from 'query-string'
+import { useTranslation } from 'react-i18next'
+import { I18N, I18N_NS } from './_i18n'
 import { ProductDetail } from '../../../app/types'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
@@ -133,6 +135,7 @@ const GFashionProductListing = ({
 }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
+  const { t } = useTranslation(I18N_NS)
   const [productArray, setProductArray] = useState<ProductDetail[]>([])
   const [queryState, setQueryState] = useState<QueryString.ParsedQuery<string>>(
     QueryString.parse(location.search)
@@ -222,10 +225,11 @@ const GFashionProductListing = ({
                 </h2>
               </Grid>
               <Grid item xs={7} md={9} className={classes.productHeader}>
-                {productListResult.detail
-                  ? productListResult.detail.total_count
-                  : 0}{' '}
-                Products found
+                {t(I18N.product.total_count, {
+                  totalCount: productListResult.detail
+                    ? productListResult.detail.total_count
+                    : 0
+                })}
                 <FormControl
                   variant="outlined"
                   className={classes.dropdownControl}>
@@ -240,10 +244,18 @@ const GFashionProductListing = ({
                     classes={{
                       root: classes.dropdownInput
                     }}>
-                    <option value="popularity-desc">按销量 (从高到低)</option>
-                    <option value="popularity-asc">按销量 (从低到高)</option>
-                    <option value="price-desc">按价格 (从高到低)</option>
-                    <option value="price-asc">按价格 (从低到高)</option>
+                    <option value="popularity-desc">
+                      {t(I18N.product.sort.popularity_desc)}
+                    </option>
+                    <option value="popularity-asc">
+                      {t(I18N.product.sort.popularity_asc)}
+                    </option>
+                    <option value="price-desc">
+                      {t(I18N.product.sort.price_desc)}
+                    </option>
+                    <option value="price-asc">
+                      {t(I18N.product.sort.price_asc)}
+                    </option>
                   </Select>
                 </FormControl>
               </Grid>
