@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 export default (ref: any) => {
   const [showingSlides, setShowingSlides] = useState<number>(5)
 
-  const calcVisibleSlideNumber: Function = () => {
+  const calcVisibleSlideNumber = () => {
     if (ref && ref.current) {
       const { width } = ref.current.getBoundingClientRect()
       if (width >= 2300) {
