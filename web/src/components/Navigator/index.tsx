@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
-import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, SwipeableDrawer } from '@material-ui/core';
-import { AccountCircle, ShoppingCart, ExpandMore } from '@material-ui/icons';
-import ShoppingCartImg from '../../assets/images/shopping_cart.svg';
-import ProfileImg from '../../assets/images/profile.svg';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import { AVAILABLE_LANGS } from '../../i18n/consts';
-import DrawerList from './drawerList';
-import GIcon from '../../assets/images/g_icon.png';
-import i18next from 'i18next';
-import { useLocation, useHistory } from 'react-router-dom';
-
+import React, { useState } from 'react'
+import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles'
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase,
+  Badge,
+  MenuItem,
+  Menu,
+  SwipeableDrawer
+} from '@material-ui/core'
+import { AccountCircle, ShoppingCart, ExpandMore } from '@material-ui/icons'
+import ShoppingCartImg from '../../assets/images/shopping_cart.svg'
+import ProfileImg from '../../assets/images/profile.svg'
+import MenuIcon from '@material-ui/icons/Menu'
+import SearchIcon from '@material-ui/icons/Search'
+import MoreIcon from '@material-ui/icons/MoreVert'
+import { AVAILABLE_LANGS } from '../../i18n/consts'
+import DrawerList from './drawerList'
+import GIcon from '../../assets/images/g_icon.png'
+import i18next from 'i18next'
+import { useLocation, useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,25 +29,25 @@ const useStyles = makeStyles((theme: Theme) =>
       boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)'
     },
     grow: {
-      flexGrow: 1,
+      flexGrow: 1
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(2)
     },
     title: {
       display: 'block',
       fontFamily: `'Lobster 1.4'`,
       fontSize: '2rem',
       [theme.breakpoints.down('sm')]: {
-        display: 'none',
-      },
+        display: 'none'
+      }
     },
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 1),
       '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 1),
+        backgroundColor: fade(theme.palette.common.white, 1)
       },
       color: '#888',
       marginRight: theme.spacing(2),
@@ -46,8 +55,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 'auto',
       [theme.breakpoints.down('sm')]: {
         marginLeft: 0,
-        width: '100%',
-      },
+        width: '100%'
+      }
     },
     searchIcon: {
       padding: theme.spacing(0, 2),
@@ -56,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
       pointerEvents: 'none',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     brotherLink: {
       color: '#A6978D',
@@ -74,7 +83,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     inputRoot: {
-      color: 'inherit',
+      color: 'inherit'
     },
     inputInput: {
       color: '#888',
@@ -85,20 +94,20 @@ const useStyles = makeStyles((theme: Theme) =>
       transition: theme.transitions.create('width'),
       width: '20ch',
       [theme.breakpoints.down('md')]: {
-        width: '100%',
-      },
+        width: '100%'
+      }
     },
     sectionDesktop: {
       display: 'flex',
       [theme.breakpoints.down('md')]: {
-        display: 'none',
-      },
+        display: 'none'
+      }
     },
     sectionMobile: {
       display: 'none',
       [theme.breakpoints.down('md')]: {
-        display: 'flex',
-      },
+        display: 'flex'
+      }
     },
     languageSelection: {
       '& .text': {
@@ -114,66 +123,67 @@ const useStyles = makeStyles((theme: Theme) =>
       color: '#222',
       borderRadius: 8
     }
-  }),
-);
+  })
+)
 
 // const availableLangs = ['EN', 'ZH', 'FR', 'JA']
 
 export default function PrimarySearchAppBar() {
-  const classes = useStyles();
-  const [langsAnchorEl, setLangsAnchorEl] = useState<null | HTMLElement>(null);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
-  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const classes = useStyles()
+  const [langsAnchorEl, setLangsAnchorEl] = useState<null | HTMLElement>(null)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [
+    mobileMoreAnchorEl,
+    setMobileMoreAnchorEl
+  ] = useState<null | HTMLElement>(null)
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false)
   // const [currentLanguage, setCurrentLanguage] = useState('EN')
 
-  const isLangsMenuOpen = Boolean(langsAnchorEl);
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const location = useLocation();
-  const history = useHistory();
+  const isLangsMenuOpen = Boolean(langsAnchorEl)
+  const isMenuOpen = Boolean(anchorEl)
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
+  const location = useLocation()
+  const history = useHistory()
 
   const handleLangsMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setLangsAnchorEl(event.currentTarget)
-  };
+  }
+
+  const handleLangsMenuClose = () => {
+    setLangsAnchorEl(null)
+  }
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+    setMobileMoreAnchorEl(null)
+  }
 
   const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+    setAnchorEl(null)
+    handleMobileMenuClose()
+  }
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const handleProfileClose = () => {
-    handleMenuClose();
-    window.location.href = "/my-profile";
-  };
+    setMobileMoreAnchorEl(event.currentTarget)
+  }
 
   const handleLanguageChange = (lang: string) => {
     return () => {
-      setLangsAnchorEl(null);
+      setLangsAnchorEl(null)
       i18next.changeLanguage(lang, () => {
-        let pathSplits = location.pathname.split('/');
-        pathSplits[1] = lang;
+        let pathSplits = location.pathname.split('/')
+        pathSplits[1] = lang
         history.replace(pathSplits.join('/'))
       })
-
     }
-  };
+  }
 
   // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
-  const langsMenuId = 'primary-search-languages-menu';
+  const langsMenuId = 'primary-search-languages-menu'
   const renderLangsMenu = (
     <Menu
       anchorEl={langsAnchorEl}
@@ -182,19 +192,18 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isLangsMenuOpen}
-      onClose={handleMenuClose}
-    >
-      {
-        AVAILABLE_LANGS.map((lang, i) => {
-          return (
-            <MenuItem key={i} onClick={handleLanguageChange(lang.key)}>{lang.label}</MenuItem>
-          )
-        })
-      }
+      onClose={handleLangsMenuClose}>
+      {AVAILABLE_LANGS.map((lang, i) => {
+        return (
+          <MenuItem key={i} onClick={handleLanguageChange(lang.key)}>
+            {lang.label}
+          </MenuItem>
+        )
+      })}
     </Menu>
-  );
+  )
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = 'primary-search-account-menu'
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -203,14 +212,13 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
+      onClose={handleMenuClose}>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
-  );
+  )
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = 'primary-search-account-menu-mobile'
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -219,8 +227,7 @@ export default function PrimarySearchAppBar() {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
+      onClose={handleMobileMenuClose}>
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -234,14 +241,13 @@ export default function PrimarySearchAppBar() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
-        >
+          color="inherit">
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
     </Menu>
-  );
+  )
 
   return (
     <div className={classes.grow}>
@@ -252,8 +258,9 @@ export default function PrimarySearchAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={() => { setIsDrawerOpen(true) }}
-          >
+            onClick={() => {
+              setIsDrawerOpen(true)
+            }}>
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
@@ -267,22 +274,32 @@ export default function PrimarySearchAppBar() {
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput,
+                input: classes.inputInput
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <a className={classes.brotherLink} href="https://gtv.org" target="_blank" rel="noopener noreferrer">
-              <img alt='G' src={GIcon} className='g-icon' />TV
+            <a
+              className={classes.brotherLink}
+              href="https://gtv.org"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img alt="G" src={GIcon} className="g-icon" />
+              TV
             </a>
-            <a className={classes.brotherLink} href="https://gnews.org" target="_blank" rel="noopener noreferrer">
-              <img alt='G' src={GIcon} className='g-icon' />NEWS
+            <a
+              className={classes.brotherLink}
+              href="https://gnews.org"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img alt="G" src={GIcon} className="g-icon" />
+              NEWS
             </a>
             <IconButton aria-label="shopping cart" color="inherit">
-              <Badge badgeContent={6} color="secondary">
-                <img src={ShoppingCartImg} alt='shopping cart' />
+              <Badge badgeContent={6} color="error">
+                <img src={ShoppingCartImg} alt="shopping cart" />
               </Badge>
             </IconButton>
             <IconButton
@@ -290,21 +307,17 @@ export default function PrimarySearchAppBar() {
               color="inherit"
               onClick={handleProfileMenuOpen}
               aria-controls={menuId}
-              aria-haspopup="true"
-            >
-              <Badge badgeContent={3} color="secondary">
-                <img src={ProfileImg} alt='user profile' />
+              aria-haspopup="true">
+              <Badge badgeContent={3} color="error">
+                <img src={ProfileImg} alt="user profile" />
               </Badge>
             </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"
               className={classes.languageSelection}
-              onClick={handleLangsMenuOpen}
-            >
-              <div className='text'>
-                {i18next.language.toUpperCase()}
-              </div>
+              onClick={handleLangsMenuOpen}>
+              <div className="text">{i18next.language.toUpperCase()}</div>
               <ExpandMore />
             </IconButton>
           </div>
@@ -314,24 +327,26 @@ export default function PrimarySearchAppBar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
               <MoreIcon />
             </IconButton>
           </div>
         </Toolbar>
       </AppBar>
       <SwipeableDrawer
-        anchor={"left"}
+        anchor={'left'}
         open={isDrawerOpen}
-        onClose={() => { setIsDrawerOpen(false) }}
-        onOpen={() => { console.log('opened') }}
-      >
+        onClose={() => {
+          setIsDrawerOpen(false)
+        }}
+        onOpen={() => {
+          console.log('opened')
+        }}>
         <DrawerList />
       </SwipeableDrawer>
       {renderLangsMenu}
       {renderMobileMenu}
       {renderMenu}
     </div>
-  );
+  )
 }
