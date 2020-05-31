@@ -1,6 +1,13 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Header from './header'
+import designerPhoto from 'src/assets/images/designer4.png'
+import topBackground from 'src/assets/images/top-background.png'
+import hermes from 'src/assets/images/hermes.svg'
+import balmain from 'src/assets/images/balmain.svg'
+import chanel from 'src/assets/images/chanel.svg'
+import chaumet from 'src/assets/images/chaumet.svg'
+import brioni from 'src/assets/images/brioni.svg'
 
 class _Top extends React.Component<any> {
 
@@ -11,7 +18,7 @@ class _Top extends React.Component<any> {
         return (
             <div className={classes['top-container']}>
                 <div className='background-container'>
-                    <img className='background-picture' alt='one'></img>
+                    <img className='background-picture' src={topBackground} alt='one'></img>
                 </div>
                 <div className='header'>
                     <Header />
@@ -38,30 +45,50 @@ class _Top extends React.Component<any> {
                             <div className='row-2'>
                                 <div className='photo-space'></div>
                                 <div className='brands'>
-                                    {
-                                        Array.from(Array(4).keys()).map(_ => (
-                                            <div className='brand-container-with-margin-right'>
-                                                <div className='brand'>
-                                                    <div className='brand-logo-container'>
-                                                        <img className='brand-logo' alt='one'></img>
-                                                    </div>
-                                                    <div className='brand-name'></div>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                    <div className='brand-container-without-margin-right'>
+                                    <div className='brand-container'>
                                         <div className='brand'>
                                             <div className='brand-logo-container'>
-                                                <img className='brand-logo' alt='one'></img>
+                                                <img className='brand-logo' src={hermes} alt='one'></img>
                                             </div>
-                                            <div className='brand-name'></div>
+                                            <div className='brand-name'>{'HERMES'}</div>
+                                        </div>
+                                    </div>
+                                    <div className='brand-container'>
+                                        <div className='brand'>
+                                            <div className='brand-logo-container'>
+                                                <img className='brand-logo' src={balmain} alt='one'></img>
+                                            </div>
+                                            <div className='brand-name'>{'Balmain'}</div>
+                                        </div>
+                                    </div>
+                                    <div className='brand-container'>
+                                        <div className='brand'>
+                                            <div className='brand-logo-container'>
+                                                <img className='brand-logo' src={chanel} alt='one'></img>
+                                            </div>
+                                            <div className='brand-name'>{'CHANEL'}</div>
+                                        </div>
+                                    </div>
+                                    <div className='brand-container'>
+                                        <div className='brand'>
+                                            <div className='brand-logo-container'>
+                                                <img className='brand-logo' src={chaumet} alt='one'></img>
+                                            </div>
+                                            <div className='brand-name'>{'CHAUMET'}</div>
+                                        </div>
+                                    </div>
+                                    <div className='brand-container'>
+                                        <div className='brand'>
+                                            <div className='brand-logo-container'>
+                                                <img className='brand-logo' src={brioni} alt='one'></img>
+                                            </div>
+                                            <div className='brand-name'>{'Brioni'}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className='photo-frame'>
-                                <img className='photo' alt='one'></img>
+                                <img className='photo' src={designerPhoto} alt='one'></img>
                             </div>
                         </div>
                     </div>
@@ -84,6 +111,12 @@ const Top = withStyles({
             bottom: '0',
             left: '0',
             right: '0',
+            '& .background-picture': {
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+            }
         },
         '& .header': {
             position: 'relative',
@@ -93,7 +126,6 @@ const Top = withStyles({
             position: 'relative',
             display: 'flex',
             width: '100vw',
-            backgroundColor: '#c0c0c0',
             '& .designer-profile-background': {
                 position: 'absolute',
                 display: 'flex',
@@ -110,7 +142,7 @@ const Top = withStyles({
                     flexGrow: 1,
                     flexShrink: 0,
                     height: '12.000rem',
-                    backgroundColor: '#909090',
+                    backgroundColor: '#7b6e64'
                 },
             },
             '& .designer-profile-min-spacing': {
@@ -137,7 +169,6 @@ const Top = withStyles({
                         position: 'relative',
                         display: 'flex',
                         height: '21.504rem',
-                        backgroundColor: '#909090',
                         '& .photo-space': {
                             position: 'relative',
                             width: '17.250rem',
@@ -152,7 +183,6 @@ const Top = withStyles({
                             height: '6.936rem',
                             flexGrow: 1,
                             flexShrink: 0,
-                            backgroundColor: '#404040',
                             '& .designer-name': {
                                 position: 'relative',
                                 height: '2.500rem',
@@ -169,12 +199,11 @@ const Top = withStyles({
                                 position: 'relative',
                                 flexGrow: 1,
                                 flexShrink: 0,
-                                backgroundColor: '#707070',
                             },
                             '& .designer-description': {
                                 position: 'relative',
                                 height: '3.125rem',
-                                fontFamily: 'SFUIDisplay',
+                                fontFamily: 'Roboto',
                                 fontSize: '0.936rem',
                                 fontWeight: 500,
                                 fontStretch: 'normal',
@@ -200,45 +229,64 @@ const Top = withStyles({
                             flexGrow: 1,
                             flexShrink: 0,
                             flexWrap: 'wrap',
-                            backgroundColor: '#707070',
-                            '& .brand-container-with-margin-right': {
+                            '& .brand-container': {
                                 position: 'relative',
                                 marginRight: '3.563rem',
                             },
-                            '& .brand-container-without-margin-right': {
-                                position: 'relative',
+                            '& .brand-container:last-child': {
+                                marginRight: '0'
                             },
                             '& .brand': {
                                 position: 'relative',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
                                 paddingTop: '2.652rem',
                                 paddingBottom: '1.875rem',
                                 width: '5.256rem',
-                                backgroundColor: '#606060',
                                 '& .brand-logo-container': {
                                     position: 'relative',
                                     marginBottom: '0.875rem',
                                     width: '5.256rem',
                                     height: '5.256rem',
-                                    backgroundColor: '#404040',
                                     borderRadius: '100%',
+                                    '& .brand-logo': {
+                                        position: 'absolute',
+                                        width: '100%',
+                                        height: '100%',
+                                        borderRadius: '100%',
+                                        objectFit: 'cover'
+                                    }
                                 },
                                 '& .brand-name': {
                                     position: 'relative',
-                                    width: '5.256rem',
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: 'bold',
+                                    fontSize: '0.750rem',
                                     height: '2.304rem',
-                                    backgroundColor: '#303030',
                                 },
                             },
                         },
                     },
                     '& .photo-frame': {
                         position: 'absolute',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         top: '9.624rem',
                         left: '0rem',
                         width: '15.000rem',
                         height: '15.000rem',
-                        backgroundColor: '#404040',
-                        borderRadius: '100%',
+                        '& .photo': {
+                            position: 'relative',
+                            width: '14.600rem',
+                            height: '14.600rem',
+                            borderStyle: 'solid',
+                            borderRadius: '100%',
+                            borderWidth: '0.2rem',
+                            borderColor: '#ffffff',
+                            objectFit: 'cover'
+                        }
                     }
                 }
             }

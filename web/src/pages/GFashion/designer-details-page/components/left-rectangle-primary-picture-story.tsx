@@ -1,5 +1,8 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import story2primary from 'src/assets/images/story-2-primary.png'
+import story2little1 from 'src/assets/images/story-2-little.png'
+import story2little2 from 'src/assets/images/story-2-little-2.png'
 
 class _LeftRectanglePrimaryPictureStory extends React.Component<any> {
 
@@ -11,7 +14,7 @@ class _LeftRectanglePrimaryPictureStory extends React.Component<any> {
             <div className={classes['story-container']}>
                 <div className='primary-picture-container'>
                     <div className='primary-picture-second-container'>
-                        <img className='primary-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                        <img className='primary-picture' src={story2primary} alt='one'></img>
                     </div>
                 </div>
                 <div className='text-and-little-pictures-container'>
@@ -24,10 +27,10 @@ class _LeftRectanglePrimaryPictureStory extends React.Component<any> {
                         <div className='description'></div>
                         <div className='little-pictures'>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story2little1} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story2little2} alt='one'></img>
                             </div>
                         </div>
                     </div>
@@ -50,7 +53,6 @@ const LeftRectanglePrimaryPictureStory = withStyles({
             flexShrink: 0,
             width: '43.750rem',
             height: '43.750rem',
-            backgroundColor: '#808080',
 
             '& .primary-picture-second-container': {
                 position: 'absolute',
@@ -59,7 +61,6 @@ const LeftRectanglePrimaryPictureStory = withStyles({
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#454545',
 
                 '& .primary-picture': {
                     position: 'absolute',
@@ -76,7 +77,6 @@ const LeftRectanglePrimaryPictureStory = withStyles({
             flexShrink: '0',
             width: '28.812rem',
             height: '43.750rem',
-            backgroundColor: '#757575',
 
             '& .text-and-little-pictures': {
                 position: 'absolute',
@@ -89,12 +89,10 @@ const LeftRectanglePrimaryPictureStory = withStyles({
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#707070',
 
                 '& .title': {
                     position: 'relative',
                     height: '11.250rem',
-                    backgroundColor: '#404040',
                     width: '308px',
                     fontFamily: 'Georgia',
                     fontSize: '40px',
@@ -109,7 +107,6 @@ const LeftRectanglePrimaryPictureStory = withStyles({
                 '& .description': {
                     position: 'relative',
                     height: '5.625rem',
-                    backgrounColor: '#404040',
                     fontFamily: 'SFUIDisplay',
                     fontSize: '14px',
                     fontWeight: 'normal',
@@ -124,7 +121,6 @@ const LeftRectanglePrimaryPictureStory = withStyles({
                     position: 'relative',
                     display: 'flex',
                     height: '6.250rem',
-                    backgroundColor: '#505050',
 
                     '& .little-picture-container': {
                         position: 'relative',

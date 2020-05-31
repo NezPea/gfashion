@@ -103,7 +103,7 @@ const Footer = withStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.footer,
       padding: '50px 20px 30px 20px',
       '& .group': {
         marginRight: '4rem',

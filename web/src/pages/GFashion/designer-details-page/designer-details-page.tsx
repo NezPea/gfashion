@@ -5,6 +5,12 @@ import LeftRectanglePrimaryPictureStory from './components/left-rectangle-primar
 import OneMediaStory from './components/one-media-story'
 import RightPrimaryPictureStory from './components/right-primary-picture-story'
 import Top from './components/top'
+import Footer from 'src/components/Footer'
+import product1 from 'src/assets/images/featured-product-1.png'
+import product2 from 'src/assets/images/featured-product-2.png'
+import product3 from 'src/assets/images/featured-product-3.png'
+import product4 from 'src/assets/images/featured-product-4.png'
+import ProductCardTest from './components/product-card-test'
 
 class _DesignerDetailsPageDesktop extends React.Component<any> {
 
@@ -32,11 +38,53 @@ class _DesignerDetailsPageDesktop extends React.Component<any> {
                                 <RightPrimaryPictureStory />
                             </div>
                         </div>
-                        {/* <div className='featured-products'></div> */}
+                        <div className='featured-products'>
+                            <div className='title-container'>
+                                <div className='title'>{'Products'}</div>
+                            </div>
+                            <div className='products'>
+                                <div className='product-container'>
+                                    <ProductCardTest product={{
+                                        name: 'HERMES',
+                                        file: product1,
+                                        oneLineDescription: 'Denim Double-Breasted Blazer',
+                                        price: '2500'
+                                    }} />
+                                </div>
+                                <div className='spacing'></div>
+                                <div className='product-container'>
+                                    <ProductCardTest product={{
+                                        name: 'HERMES',
+                                        file: product2,
+                                        oneLineDescription: 'Denim Double-Breasted Blazer',
+                                        price: '2500'
+                                    }} />
+                                </div>
+                                <div className='spacing'></div>
+                                <div className='product-container'>
+                                    <ProductCardTest product={{
+                                        name: 'BALMAIN',
+                                        file: product3,
+                                        oneLineDescription: 'Denim Double-Breasted Blazer',
+                                        price: '2500'
+                                    }} />
+                                </div>
+                                <div className='spacing'></div>
+                                <div className='product-container'>
+                                    <ProductCardTest product={{
+                                        name: 'BALMAIN',
+                                        file: product4,
+                                        oneLineDescription: 'Denim Double-Breasted Blazer',
+                                        price: '2500'
+                                    }} />
+                                </div>
+                                <div className='spacing'></div>
+                            </div>
+                        </div>
                     </div>
                     <div className='content-spacing'></div>
                 </div>
-                {/* <div className='footer'></div> */}
+                <Footer />
             </div>
         )
     }
@@ -46,11 +94,11 @@ const DesignerDetailsPageDesktop = withStyles({
     'designer-details-page': {
         position: 'relative',
         width: '100vm',
-        backgroundColor: '#a0a0a0',
         '& .content-container': {
             position: 'relative',
             display: 'flex',
             alignItems: 'stretch',
+            backgroundColor: '#fbf7f4',
             '& .content-spacing': {
                 position: 'relative',
                 flexGrow: 1,
@@ -75,20 +123,51 @@ const DesignerDetailsPageDesktop = withStyles({
                         flexDirection: 'column',
                         alignItems: 'stretch',
                         marginTop: '4.992rem',
-                        backgroundColor: '#909090',
+                        backgroundColor: '#ffffff'
                     },
                 },
             },
         },
         '& .featured-products': {
             position: 'relative',
-            height: '699px',
-        },
-        '& .footer': {
-            position: 'relative',
-            height: '298px',
-        },
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            '& .title-container': {
+                position: 'relative',
+                height: '8.500rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                '& .title': {
+                    position: 'relative',
+                    fontFamily: 'Roboto',
+                    fontWeight: '600',
+                    color: '#222222'
+                }
+            },
+            '& .products': {
+                position: 'relative',
+                display: 'flex',
+                flexWrap: 'wrap',
+                minWidth: '43.750rem',
+                '& .product-container': {
+                    width: '19.500rem',
+                    height: '35.188rem'
+                },
+                '& .spacing': {
+                    width: '3.125rem',
+                    height: '35.188rem'
+                },
+                '& .spacing:last-child': {
+                    width: '0',
+                    height: '0'
+                }
+            }
+        }
     }
 })(_DesignerDetailsPageDesktop)
 
 export default DesignerDetailsPageDesktop
+
+//minimum screen width 820px

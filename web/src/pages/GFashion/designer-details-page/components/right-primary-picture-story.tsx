@@ -1,5 +1,11 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import story4primary from 'src/assets/images/story-4-primary.png'
+import story4little1 from 'src/assets/images/story-4-little.png'
+import story4little2 from 'src/assets/images/story-4-little-2.png'
+import story4little3 from 'src/assets/images/story-4-little-3.png'
+import story4little4 from 'src/assets/images/story-4-little-4.png'
+import playIcon from 'src/assets/images/play.png'
 
 class _RightPrimaryPictureStory extends React.Component<any> {
 
@@ -19,23 +25,24 @@ class _RightPrimaryPictureStory extends React.Component<any> {
                         <div className='description'></div>
                         <div className='little-pictures'>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story4little1} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story4little2} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story4little3} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story4little4} alt='one'></img>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='primary-picture-container'>
                     <div className='primary-picture-second-container'>
-                        <img className='primary-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                        <img className='primary-picture' src={story4primary} alt='one'></img>
+                        <img className='play-icon' src={playIcon} alt='playIcon'></img>
                     </div>
                 </div>
             </div>
@@ -54,7 +61,6 @@ const RightPrimaryPictureStory = withStyles({
             flexShrink: 0,
             width: '43.750rem',
             height: '43.750rem',
-            backgroundColor: '#757575',
             '& .text-and-little-pictures': {
                 position: 'absolute',
                 display: 'flex',
@@ -66,11 +72,9 @@ const RightPrimaryPictureStory = withStyles({
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#707070',
                 '& .title': {
                     position: 'relative',
                     height: '11.250rem',
-                    backgroundColor: '#404040',
                     width: '420px',
                     fontFamily: 'Georgia',
                     fontSize: '40px',
@@ -84,7 +88,6 @@ const RightPrimaryPictureStory = withStyles({
                 '& .description': {
                     position: 'relative',
                     height: '5.625rem',
-                    backgroundColor: '#404040',
                     width: '378px',
                     fontFamily: 'SFUIDisplay',
                     fontSize: '14px',
@@ -99,7 +102,6 @@ const RightPrimaryPictureStory = withStyles({
                     position: 'relative',
                     display: 'flex',
                     height: '6.250rem',
-                    backgroundColor: '#505050',
                     '& .little-picture-container': {
                         position: 'relative',
                         width: '6.250rem',
@@ -121,20 +123,24 @@ const RightPrimaryPictureStory = withStyles({
             flexShrink: 0,
             width: '43.750rem',
             height: '43.750rem',
-            backgroundColor: '#808080',
             '& .primary-picture-second-container': {
                 position: 'absolute',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 margin: '3.125rem',
                 left: '0',
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#454545',
                 '& .primary-picture': {
                     position: 'absolute',
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
+                },
+                '& .play-icon': {
+                    position: 'relative'
                 }
             }
         }

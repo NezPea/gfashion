@@ -1,5 +1,10 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import story1primary from 'src/assets/images/story-1-primary.png'
+import story1little1 from 'src/assets/images/story-1-little-1.png'
+import story1little2 from 'src/assets/images/story-1-little-2.png'
+import story1little3 from 'src/assets/images/story-1-little-3.png'
+import story1little4 from 'src/assets/images/story-1-little4.png'
 
 class _LeftPrimaryPictureStory extends React.Component<any> {
 
@@ -10,7 +15,7 @@ class _LeftPrimaryPictureStory extends React.Component<any> {
             <div className={classes['story-container']}>
                 <div className='primary-picture-container'>
                     <div className='primary-picture-second-container'>
-                        <img className='primary-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                        <img className='primary-picture' src={story1primary} alt='one'></img>
                     </div>
                 </div>
                 <div className='text-and-little-pictures-container'>
@@ -27,16 +32,16 @@ class _LeftPrimaryPictureStory extends React.Component<any> {
                         </div>
                         <div className='little-pictures'>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story1little1} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story1little2} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story1little3} alt='one'></img>
                             </div>
                             <div className='little-picture-container'>
-                                <img className='little-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                                <img className='little-picture' src={story1little4} alt='one'></img>
                             </div>
                         </div>
                     </div>
@@ -57,7 +62,6 @@ const LeftPrimaryPictureStory = withStyles({
             flexShrink: 0,
             width: '43.750rem',
             height: '43.750rem',
-            backgroundColor: '#808080',
             '& .primary-picture-second-container': {
                 position: 'absolute',
                 margin: '3.125rem',
@@ -65,7 +69,6 @@ const LeftPrimaryPictureStory = withStyles({
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#454545',
                 '& .primary-picture': {
                     position: 'absolute',
                     width: '100%',
@@ -80,7 +83,6 @@ const LeftPrimaryPictureStory = withStyles({
             flexShrink: 0,
             width: '43.750rem',
             height: '43.750rem',
-            backgroundColor: '#757575',
             '& .text-and-little-pictures': {
                 position: 'absolute',
                 display: 'flex',
@@ -92,11 +94,9 @@ const LeftPrimaryPictureStory = withStyles({
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#707070',
                 '& .title': {
                     position: 'relative',
                     height: '11.250rem',
-                    backgroundColor: '#404040',
                     width: '26.250rem',
                     fontFamily: 'Georgia',
                     fontSize: '40px',
@@ -110,10 +110,9 @@ const LeftPrimaryPictureStory = withStyles({
                 '& .description': {
                     position: 'relative',
                     height: '5.625rem',
-                    backgroundColor: '#404040',
                     width: '23.625rem',
-                    fontfamily: 'SFUIDisplay',
-                    fontSize: '14px',
+                    fontfamily: 'Roboto',
+                    fontSize: '0.875rem',
                     fontWeight: 'normal',
                     fontStretch: 'normal',
                     fontStyle: 'normal',
@@ -125,7 +124,6 @@ const LeftPrimaryPictureStory = withStyles({
                     position: 'relative',
                     display: 'flex',
                     height: '6.250rem',
-                    backgroundColor: '#505050',
                     '& .little-picture-container': {
                         position: 'relative',
                         width: '6.250rem',

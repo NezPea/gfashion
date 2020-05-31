@@ -1,5 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import story3primary from 'src/assets/images/story-3-primary.png'
+import playIcon from 'src/assets/images/play.png'
 
 class _OneMediaStory extends React.Component<any> {
 
@@ -11,7 +13,8 @@ class _OneMediaStory extends React.Component<any> {
             <div className={classes['story-container']}>
                 <div className='primary-picture-container'>
                     <div className='primary-picture-second-container'>
-                        <img className='primary-picture' src='http://localhost:3004/grey-wide.png' alt='one'></img>
+                        <img className='primary-picture' src={story3primary} alt='one'></img>
+                        <img className='play-icon' src={playIcon} alt='playIcon'></img>
                     </div>
                 </div>
             </div>
@@ -29,21 +32,25 @@ const OneMediaStory = withStyles({
             flexShrink: 0,
             width: '43.750rem',
             height: '43.750rem',
-            backgroundColor: '#808080',
             '& .primary-picture-second-container': {
                 position: 'absolute',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 margin: '3.125rem',
                 left: '0',
                 top: '0',
                 right: '0',
                 bottom: '0',
-                backgroundColor: '#454545',
                 '& .primary-picture': {
                     position: 'absolute',
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
                 },
+                '& .play-icon': {
+                    position: 'relative'
+                }
             },
         },
     }
