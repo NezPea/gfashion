@@ -26,8 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       borderTop: `1px solid ${theme.palette.divider}`,
-      paddingTop: theme.spacing(4),
-      paddingLeft: theme.spacing(2)
+      paddingTop: theme.spacing(4)
     },
     noMargin: {
       margin: '0 !important'
@@ -38,7 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     filterDesc: {
       fontSize: '20px',
-      marginBottom: theme.spacing(4)
+      marginBottom: theme.spacing(4),
+      padding: `0 ${theme.spacing(2)}px`
     },
     filterContainer: {
       width: '100%'
@@ -71,6 +71,11 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column'
     },
+    filterTitle: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
+    },
     options: {
       display: 'flex',
       flexDirection: 'column'
@@ -89,13 +94,13 @@ const useStyles = makeStyles((theme: Theme) =>
 const summaryStyles = {
   root: {
     minHeight: '40px',
-    padding: '0',
     '&$expanded': {
       minHeight: '40px'
     }
   },
   content: {
     margin: '4px 0',
+    overflow: 'hidden',
     '&$expanded': {
       margin: '4px 0'
     }
@@ -157,7 +162,7 @@ const Filter = ({
                     root: classes.filterSummary,
                     expanded: classes.filterSummaryExpanded
                   }}>
-                  <div>{filter.name}</div>
+                  <div className={classes.filterTitle}>{filter.name}</div>
                 </CompactExpansionPanelSummary>
                 <ExpansionPanelDetails>
                   <div className={classes.filterDetails}>

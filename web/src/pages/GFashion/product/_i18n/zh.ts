@@ -11,6 +11,8 @@ export const zh: typeof _spec = {
     },
     filter: {
       title: '按以下条件筛选:'
-    }
+    },
+    no_product: '没有找到任何商品',
+    home_page_link: '返回首页'
   }
 }

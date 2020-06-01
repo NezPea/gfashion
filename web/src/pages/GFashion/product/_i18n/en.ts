@@ -11,6 +11,8 @@ export const en: typeof _spec = {
     },
     filter: {
       title: 'Filter by:'
-    }
+    },
+    no_product: 'No product found',
+    home_page_link: 'Go back to homepage'
   }
 }
