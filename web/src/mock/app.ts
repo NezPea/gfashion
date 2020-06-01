@@ -1,9 +1,22 @@
-import express from 'express'
-import { mountRoutes } from './routes'
+import 'reflect-metadata'
+// https://github.com/typestack/routing-controllers
+import { createExpressServer } from 'routing-controllers'
 
-export const app = express()
+import { CustomersController } from './controllers/customers'
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+const controllers = [CustomersController]
 
-mountRoutes(app)
+export const app = createExpressServer({
+  classTransformer: true, // enable request payload validation by class-transform + class-validation
+  validation: {
+    whitelist: true, // required when `forbidNonWhitelisted: true`
+    forbidNonWhitelisted: true, // avoid sending unwanted fields to the API
+    forbidUnknownValues: true, // avoid sending unknown values to the API
+    validationError: {
+      // less verbose err msg
+      target: false,
+      value: false
+    }
+  },
+  controllers
+})
