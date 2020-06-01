@@ -211,3 +211,8 @@ export interface FollowingBrandsMap {
 export interface FollowingDesignersMap {
   [key: string]: HomepageDesigner
 }
+
+export interface accountState {
+  isLoading?: boolean
+  error?: object | string
+}

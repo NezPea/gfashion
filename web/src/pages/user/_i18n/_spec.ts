@@ -40,5 +40,14 @@ export const _spec = {
     mediumpassword: '',
     strongpassword: '',
     save: ''
+  },
+  account: {
+    _self: '',
+    my_account: '',
+    profile: '',
+    safety: '',
+    my_order: '',
+    my_favorites: '',
+    my_address: ''
   }
 }

@@ -14,6 +14,9 @@ import Register from '../pages/user/register'
 import FindPassword from '../pages/user/find-password'
 import MyProfile from '../pages/user/MyProfile'
 import Article from '../pages/GClub/article/Article'
+import Account from '../pages/user/account'
+import ResetPassword from '../pages/user/reset-password'
+import ResetEmail from '../pages/user/reset-email'
 import i18next from 'i18next'
 
 const NotFound = () => {
@@ -47,6 +50,9 @@ const ModuleRouter = ({ lang }: { lang: string }) => {
       />
       <Route path={`/${lang}/product/:productId`} component={GFashionProduct} />
       <Route path={`/${lang}/article`} component={Article} />
+      <Route path={`/${lang}/account`} component={Account} />
+      <Route path={`/${lang}/reset-password`} component={ResetPassword} />
+      <Route path={`/${lang}/reset-email`} component={ResetEmail} />
       <Route component={NotFound} />
     </Switch>
   )

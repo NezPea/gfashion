@@ -11,6 +11,7 @@ import productListReducer from './slices/productListSlice'
 import gclubReducer from './slices/gclubSlice'
 import homeRecommendationsReducer from './slices/homeRecommendationsSlice'
 import gclubTokenReducer from './slices/gclubTokenSlice'
+import accountSlice from './slices/accountSlice'
 import logger from 'redux-logger'
 import axios from 'axios'
 import axiosMiddleware from 'redux-axios-middleware'
@@ -32,7 +33,8 @@ const rootReducer = combineReducers({
   productList: productListReducer,
   gclub: gclubReducer,
   homeRecommendations: homeRecommendationsReducer,
-  gclubToken: gclubTokenReducer
+  gclubToken: gclubTokenReducer,
+  account: accountSlice
 })
 
 export const store = configureStore({
