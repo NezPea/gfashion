@@ -72,10 +72,11 @@ const useStyles = makeStyles((theme: Theme) =>
     optionWrap: {
       marginTop: theme.spacing(3),
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      flexFlow: 'wrap'
     },
     option: {
-      marginRight: theme.spacing(2),
+      margin: `0 ${theme.spacing(2)}px ${theme.spacing(2)}px 0`,
       cursor: 'pointer',
       border: '1px solid transparent',
       '&.active': {
@@ -155,10 +156,12 @@ const ProductInfoPanel = () => {
 
   const buildProductOptions = () => {
     return product.detail?.extension_attributes?.configurable_product_options?.map(
-      option => {
+      (option, optionIndex) => {
         // @workaround according option id apart from color option
         return option.id === 171 ? (
-          <div className={`${classes.panelItem} ${classes.options}`}>
+          <div
+            key={optionIndex}
+            className={`${classes.panelItem} ${classes.options}`}>
             <label className={`${classes.label}`}>{option.label}</label>
             <div className={`${classes.optionWrap}`}>
               {option?.values?.map((item, index) => (
@@ -174,7 +177,9 @@ const ProductInfoPanel = () => {
             </div>
           </div>
         ) : (
-          <div className={`${classes.panelItem} ${classes.options}`}>
+          <div
+            key={optionIndex}
+            className={`${classes.panelItem} ${classes.options}`}>
             <label className={`${classes.label}`}>{option.label}</label>
             <div className={`${classes.optionWrap}`}>
               {option?.values.map((item, index) => (
