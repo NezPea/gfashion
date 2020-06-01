@@ -121,7 +121,7 @@ const generateQuery = (
   })
 
   if (!queryValues.pageSize) {
-    query += `&pageSize=20`
+    query += `&pageSize=21`
   }
 
   return query
