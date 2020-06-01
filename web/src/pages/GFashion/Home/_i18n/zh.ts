@@ -35,7 +35,7 @@ export const zh: typeof _spec = {
     }
   },
   home: {
-    _self: 'Gfashion 主页',
+    _self: '主页 | Gfashion',
     banner: {
       himalaya_coin: '喜马拉雅币',
       g_dollar: 'G币'

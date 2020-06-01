@@ -30,7 +30,7 @@ const Register: FunctionComponent = () => {
   return (
     <MainFrame>
       <Helmet>
-        <title>{t(I18N.reg._self)}</title>
+        <title>{t(I18N.reg._seo.title)}</title>
       </Helmet>
       <Box display="flex" justifyContent="center">
         <Box width="40%" display="flex" flexDirection="column">

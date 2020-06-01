@@ -44,7 +44,7 @@ const Login: FunctionComponent = () => {
   return (
     <MainFrame>
       <Helmet>
-        <title>{t(I18N.login._self)}</title>
+        <title>{t(I18N.login._seo.title)}</title>
       </Helmet>
       <Box display="flex" flexDirection="row-reverse">
         <Card className={classes.card}>

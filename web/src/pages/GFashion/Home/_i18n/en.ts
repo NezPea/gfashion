@@ -35,7 +35,7 @@ export const en: typeof _spec = {
     }
   },
   home: {
-    _self: 'Gfashion home',
+    _self: 'Gfashion',
     banner: {
       himalaya_coin: 'Himalaya Coin',
       g_dollar: 'G Dollar'

@@ -5,28 +5,46 @@ export const zh: typeof _spec = {
     phone_num: '手机号码',
     email: '电子邮箱',
     ver_code: {
+      _seo: {
+        title: '验证码 | GFashion'
+      },
       _self: '验证码',
       send: '获取验证码'
     },
     password: {
+      _seo: {
+        title: '密码 | GFashion'
+      },
       _self: '密码',
       at_least_8_chars: '至少 8 位字符'
     }
   },
   find_pwd: {
+    _seo: {
+      title: '忘记密码 | GFashion'
+    },
     _self: '忘记密码',
     pls_enter_reg_phone: '请输入您注册时所使用的手机号码',
     submit: '提交'
   },
   login: {
+    _seo: {
+      title: '登录 | GFashion'
+    },
     _self: '登录',
     email_or_phone_num: '电子邮箱或手机号码'
   },
   reg: {
+    _seo: {
+      title: '注册 | GFashion'
+    },
     _self: '注册',
     create_acct: '创建账户'
   },
   my_profile: {
+    _seo: {
+      title: '账号信息 | GFashion'
+    },
     _self: '账号信息',
     // avatar: '头像',
     editprofile: '编辑账户信息',

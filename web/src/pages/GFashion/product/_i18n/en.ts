@@ -2,7 +2,11 @@ import { _spec } from './_spec'
 
 export const en: typeof _spec = {
   product: {
+    _seo: {
+      title: 'GFashion'
+    },
     total_count: '{{totalCount}} Products found',
+    load_more: 'Load more',
     sort: {
       price_desc: 'Price Descending',
       price_asc: 'Price Ascending',

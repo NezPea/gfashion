@@ -30,7 +30,7 @@ const FindPassword: FunctionComponent = () => {
   return (
     <MainFrame>
       <Helmet>
-        <title>{t(I18N.find_pwd._self)}</title>
+        <title>{t(I18N.find_pwd._seo.title)}</title>
       </Helmet>
       <Box display="flex" justifyContent="center">
         <Box width="40%" display="flex" flexDirection="column">
