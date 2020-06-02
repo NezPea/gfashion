@@ -9,7 +9,7 @@
     "build:staging": "env-cmd -f .env.staging npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:API": "json-server ./mock/mock-db.json --routes ./mock/routes.json --watch --port 5005",
+    "mock:API": "json-server ./mock/mock-db.js --routes ./mock/routes.json --watch --port 5005",
     "serve": "serve -s build",
     "format": "prettier"
   },
@@ -53,6 +53,7 @@
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "env-cmd": "^10.1.0",
+    "faker": "^4.1.0",
     "http-proxy-middleware": "^1.0.4",
     "husky": "^4.2.5",
     "json-server": "^0.16.1",
