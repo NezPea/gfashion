@@ -1,16 +1,6 @@
 const faker = require('faker')
 
 module.exports = () => {
-  const data = {
-    homepage: {
-      recommendedBrands: [],
-      recommendedDesigners: [],
-      recommendedProducts: [],
-      followingBrands: [],
-      followingDesigners: []
-    },
-  }
-
   let products = [1, 2, 3, 4, 5, 6].map((n) => {
     return {
       "id": n,
