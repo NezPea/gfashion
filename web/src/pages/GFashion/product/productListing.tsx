@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import QueryString from 'query-string'
+import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { I18N, I18N_NS } from './_i18n'
 import { ProductDetail } from '../../../app/types'
@@ -120,7 +121,7 @@ const generateQuery = (
   })
 
   if (!queryValues.pageSize) {
-    query += `&pageSize=20`
+    query += `&pageSize=21`
   }
 
   return query
@@ -208,6 +209,14 @@ const GFashionProductListing = ({
 
   return (
     <MainFrameFullWidth>
+      <Helmet>
+        <title>
+          {productListResult.detail
+            ? productListResult.detail.category_name + ' | '
+            : ''}
+          {t(I18N.product._seo.title)}
+        </title>
+      </Helmet>
       {productArray.length ? (
         <div className={classes.root}>
           <div className={classes.banner}></div>

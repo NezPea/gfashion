@@ -73,7 +73,7 @@ const MyProfile: FunctionComponent = () => {
   return (
     <MainFrame>
       <Helmet>
-        <title>{t(I18N.my_profile._self)}</title>
+        <title>{t(I18N.my_profile._seo.title)}</title>
       </Helmet>
       <form className={classes.form} noValidate autoComplete="off">
         <Box

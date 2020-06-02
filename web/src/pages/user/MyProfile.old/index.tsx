@@ -80,7 +80,7 @@ const MyProfile: FunctionComponent = () => {
   return (
     <MainFrame>
       <Helmet>
-        <title>{t(I18N.my_profile._self)}</title>
+        <title>{t(I18N.my_profile._seo.title)}</title>
       </Helmet>
       <Box display="flex" flexDirection="column" className={classes.formHolder}>
         <form
