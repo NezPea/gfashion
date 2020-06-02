@@ -1,32 +1,41 @@
-import React from 'react';
-import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, IconButton, Typography, Badge, MenuItem, Menu, SwipeableDrawer } from '@material-ui/core';
-import { AccountCircle, ShoppingCart, Apps } from '@material-ui/icons';
-import MenuIcon from '@material-ui/icons/Menu';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import GClubDrawerList from './GClubDrawerList';
+import React from 'react'
+import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles'
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Badge,
+  MenuItem,
+  Menu,
+  SwipeableDrawer
+} from '@material-ui/core'
+import { AccountCircle, ShoppingCart, Apps } from '@material-ui/icons'
+import MenuIcon from '@material-ui/icons/Menu'
+import MoreIcon from '@material-ui/icons/MoreVert'
+import GClubDrawerList from './GClubDrawerList'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     grow: {
-      flexGrow: 1,
+      flexGrow: 1
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(2)
     },
     title: {
       display: 'block',
       fontFamily: `'Lobster 1.4'`,
       [theme.breakpoints.down('sm')]: {
-        display: 'none',
-      },
+        display: 'none'
+      }
     },
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 1),
       '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 1),
+        backgroundColor: fade(theme.palette.common.white, 1)
       },
       color: '#888',
       marginRight: theme.spacing(2),
@@ -34,8 +43,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 'auto',
       [theme.breakpoints.down('sm')]: {
         marginLeft: 0,
-        width: '100%',
-      },
+        width: '100%'
+      }
     },
     searchIcon: {
       padding: theme.spacing(0, 2),
@@ -44,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
       pointerEvents: 'none',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     brotherLink: {
       color: 'red',
@@ -54,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2)
     },
     inputRoot: {
-      color: 'inherit',
+      color: 'inherit'
     },
     inputInput: {
       color: '#888',
@@ -64,51 +73,54 @@ const useStyles = makeStyles((theme: Theme) =>
       transition: theme.transitions.create('width'),
       width: '20ch',
       [theme.breakpoints.down('md')]: {
-        width: '100%',
-      },
+        width: '100%'
+      }
     },
     sectionDesktop: {
       display: 'flex',
       [theme.breakpoints.down('md')]: {
-        display: 'none',
-      },
+        display: 'none'
+      }
     },
     sectionMobile: {
       display: 'none',
       [theme.breakpoints.down('md')]: {
-        display: 'flex',
-      },
-    },
-  }),
-);
+        display: 'flex'
+      }
+    }
+  })
+)
 
 const GClubNav = () => {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false);
+  const classes = useStyles()
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [
+    mobileMoreAnchorEl,
+    setMobileMoreAnchorEl
+  ] = React.useState<null | HTMLElement>(null)
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false)
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const isMenuOpen = Boolean(anchorEl)
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+    setMobileMoreAnchorEl(null)
+  }
 
   const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+    setAnchorEl(null)
+    handleMobileMenuClose()
+  }
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+    setMobileMoreAnchorEl(event.currentTarget)
+  }
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = 'primary-search-account-menu'
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -117,14 +129,13 @@ const GClubNav = () => {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
+      onClose={handleMenuClose}>
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
-  );
+  )
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = 'primary-search-account-menu-mobile'
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -133,8 +144,7 @@ const GClubNav = () => {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
+      onClose={handleMobileMenuClose}>
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -148,14 +158,13 @@ const GClubNav = () => {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
-        >
+          color="inherit">
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
     </Menu>
-  );
+  )
 
   return (
     <div className={classes.grow}>
@@ -166,8 +175,9 @@ const GClubNav = () => {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={() => { setIsDrawerOpen(true) }}
-          >
+            onClick={() => {
+              setIsDrawerOpen(true)
+            }}>
             <MenuIcon />
           </IconButton>
           <div className={classes.grow} />
@@ -187,8 +197,7 @@ const GClubNav = () => {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
               <AccountCircle />
             </IconButton>
           </div>
@@ -198,25 +207,27 @@ const GClubNav = () => {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
               <MoreIcon />
             </IconButton>
           </div>
         </Toolbar>
       </AppBar>
       <SwipeableDrawer
-        anchor={"left"}
+        anchor={'left'}
         open={isDrawerOpen}
-        onClose={() => { setIsDrawerOpen(false) }}
-        onOpen={() => { console.log('opened') }}
-      >
+        onClose={() => {
+          setIsDrawerOpen(false)
+        }}
+        onOpen={() => {
+          console.log('opened')
+        }}>
         <GClubDrawerList />
       </SwipeableDrawer>
       {renderMobileMenu}
       {renderMenu}
     </div>
-  );
+  )
 }
 
-export default GClubNav;
+export default GClubNav

@@ -1,6 +1,7 @@
 export const _spec = {
   _common: {
     follow_button_text: '',
+    following_button_text: '',
     header: {
       search_place_holder: ''
     },

@@ -22,10 +22,10 @@ const NotFound = () => {
       <h1>Notfound page</h1>
     </div>
   )
-};
+}
 
 const ModuleRouter = ({ lang }: { lang: string }) => {
-  i18next.changeLanguage(lang);
+  i18next.changeLanguage(lang)
   return (
     <Switch>
       <Route exact path={`/${lang}/`} component={GFashion} />
@@ -50,6 +50,6 @@ const ModuleRouter = ({ lang }: { lang: string }) => {
       <Route component={NotFound} />
     </Switch>
   )
-};
+}
 
 export default ModuleRouter

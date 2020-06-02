@@ -3,6 +3,7 @@ import { _spec } from './_spec'
 export const en: typeof _spec = {
   _common: {
     follow_button_text: 'Follow',
+    following_button_text: 'Following',
     header: {
       search_place_holder: 'Search'
     },
@@ -37,10 +38,10 @@ export const en: typeof _spec = {
     _self: 'Gfashion home',
     banner: {
       himalaya_coin: 'Himalaya Coin',
-      g_dollar: 'G-dollar'
+      g_dollar: 'G Dollar'
     },
     recommended_designers: {
-      title: 'Gunius DESIGNERS',
+      title: 'Genius DESIGNERS',
       description: 'something details something details something details'
     },
     recommended_brands: {
@@ -48,7 +49,8 @@ export const en: typeof _spec = {
       description: 'something details something details something details',
       newLaunch_label: 'New Launch',
       launch_title: `Chanel's 2020`,
-      launch_description: '“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.',
+      launch_description:
+        '“This is a happy, undeniably escapist collection,” says Chanel creative director, Jonathan Anderson, of his latest capsule collaboration with Paula’s Ibiza. Cue tie-dye tees, summer-ready espadrilles and the very best bags to carry our hopes of better times to come.',
       shop_link: 'Shop the Collection'
     },
     recommended_products: {

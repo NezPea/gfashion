@@ -10,7 +10,7 @@
   font-size: 12px;
 }
 
-.container label[data-shrink="true"] {
+.container label[data-shrink='true'] {
   top: 0;
   font-size: 12px;
 }
@@ -29,13 +29,10 @@
   border-color: lightgrey !important;
 }
 
-
 .subTitle {
   font-size: 20px;
   font-weight: normal;
   white-space: nowrap;
-
-
 }
 
 .subField {
@@ -61,6 +58,5 @@
   max-width: 380px;
   min-width: 200px;
   width: 40%;
-  margin-right: 30px
+  margin-right: 30px;
 }
-
