@@ -10,7 +10,7 @@ import {
   selectProductList,
   fetchProductList
 } from '../../../app/slices/productListSlice'
-import { Grid, FormControl, Select } from '@material-ui/core'
+import { Grid, FormControl, Select, Link } from '@material-ui/core'
 import MainFrameFullWidth from '../../../components/MainFrame'
 import ProductGrid from '../../../components/Product/productGrid'
 import Filter from '../../../components/Filter/filter'
@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: `${theme.spacing(10)}px auto`,
       position: 'relative',
       left: 'calc(50% - 50px)'
+    },
+    emptyPage: {
+      margin: `${theme.spacing(10)}px auto`,
+      textAlign: 'center'
     },
     banner: {
       backgroundImage: `url(${banner})`,
@@ -79,6 +83,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     row: {
       marginTop: theme.spacing(5)
+    },
+    homeLink: {
+      cursor: 'pointer'
     },
     loadMore: {
       backgroundColor: 'transparent',
@@ -136,7 +143,7 @@ const GFashionProductListing = ({
 }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const { t } = useTranslation(I18N_NS)
+  const { t, i18n } = useTranslation(I18N_NS)
   const [productArray, setProductArray] = useState<ProductDetail[]>([])
   const [queryState, setQueryState] = useState<QueryString.ParsedQuery<string>>(
     QueryString.parse(location.search)
@@ -294,10 +301,24 @@ const GFashionProductListing = ({
             </Grid>
           </div>
         </div>
-      ) : (
+      ) : productListResult.isLoading ? (
         <div className={classes.spinner}>
           <LoadingSpinner />
         </div>
+      ) : (
+        !productListResult.detail && (
+          <div className={classes.emptyPage}>
+            <h2>{t(I18N.product.no_product)}</h2>
+            <Link
+              href={`/${i18n.language}/`}
+              color="secondary"
+              classes={{
+                root: classes.homeLink
+              }}>
+              {t(I18N.product.home_page_link)}
+            </Link>
+          </div>
+        )
       )}
     </MainFrameFullWidth>
   )

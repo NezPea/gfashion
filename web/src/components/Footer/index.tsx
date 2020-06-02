@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     title: {
-      color: '#222222',
+      color: theme.palette.text.primary,
       fontSize: '14px',
       fontWeight: 500
     },

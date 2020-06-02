@@ -13,6 +13,8 @@ export const _spec = {
     },
     filter: {
       title: ''
-    }
+    },
+    no_product: '',
+    home_page_link: ''
   }
 }

@@ -81,6 +81,8 @@ export interface ProductLink {
 }
 
 export interface ProductDetail {
+  sku: string
+  file: string
   purchase_number_limit: string
   media_gallery_entries: Array<ProductImage>
   price: string

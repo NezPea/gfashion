@@ -1,5 +1,9 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React from 'react'
+import { Link } from '@material-ui/core'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { useTranslation } from 'react-i18next'
+import { I18N_NS } from '../../pages/GFashion/product/_i18n'
+import { ProductDetail } from '../../app/types'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,12 +21,16 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       height: '310px',
-      width: '310px',
+      width: '310px'
+    },
+    link: {
+      color: theme.palette.text.primary,
+      display: 'block',
+      margin: 'auto'
     },
     image: {
       maxHeight: '300px',
-      maxWidth: '300px',
-      margin: 'auto'
+      maxWidth: '300px'
     },
     title: {
       fontSize: '18px',
@@ -33,28 +41,40 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '18px',
       textAlign: 'center'
     }
-  }),
-);
+  })
+)
 
-const ProductCard = ({ product }: { product: any }) => {
-  const classes = useStyles();
+const ProductCard = ({ product }: { product: ProductDetail }) => {
+  const classes = useStyles()
+  const { i18n } = useTranslation(I18N_NS)
 
   return (
-    product &&
-    (
+    product && (
       <div className={classes.root}>
         <div className={classes.imageContainer}>
-          <img
-            src={product.file ? 'https://www.gfashion2020.tk/media/catalog/product' + product.file : ''}
-            alt={product.name}
-            className={classes.image}>
-          </img>
+          <Link
+            href={`/${i18n.language}/product/${product.sku}`}
+            classes={{ root: classes.link }}>
+            <img
+              src={
+                product.file
+                  ? 'https://www.gfashion2020.tk/media/catalog/product' +
+                    product.file
+                  : ''
+              }
+              alt={product.name}
+              className={classes.image}></img>
+          </Link>
         </div>
-        <h2 className={classes.title}>{product.name}</h2>
+        <Link
+          href={`/${i18n.language}/product/${product.sku}`}
+          classes={{ root: classes.link }}>
+          <h2 className={classes.title}>{product.name}</h2>
+        </Link>
         <div className={classes.price}>${product.price}</div>
       </div>
     )
   )
 }
 
-export default ProductCard;
+export default ProductCard

@@ -30,6 +30,9 @@ export default () => {
           designerHeaderLighter: '#978a80',
           designerHeaderDeeper: '#7b6e64'
         },
+        text: {
+          primary: '#222222'
+        },
         // ... and we will overrides more default colors at here
         type: isDarkModePrefered ? 'dark' : 'light'
       },
