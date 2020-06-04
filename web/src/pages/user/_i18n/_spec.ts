@@ -40,5 +40,13 @@ export const _spec = {
     mediumpassword: '',
     strongpassword: '',
     save: ''
+  },
+  my_favorites: {
+    _self: '',
+    stores: '',
+    wishes: '',
+    designers: '',
+    removetext: '',
   }
+
 }

@@ -78,7 +78,7 @@ const MyProfilePassword = ({
         required
         type="password"
         id={'text-current-password'}
-        aria-describedby={'my-profile-current-password'}
+        aria-label={'my-profile-current-password'}
         onChange={handleCurrentPasswordChange}
         value={currentPassword}
         variant={'outlined'}
@@ -97,7 +97,7 @@ const MyProfilePassword = ({
         required
         type="password"
         id={'text-newpassword'}
-        aria-describedby={'my-profile-new-password'}
+        aria-label={'my-profile-new-password'}
         onChange={handleNewPasswordChange}
         value={newPassword}
         variant={'outlined'}
@@ -109,8 +109,12 @@ const MyProfilePassword = ({
         display="flex"
         flexDirection={'row'}
         className="passwordStrengthContainer">
-        <span>{t(I18N.my_profile.passwordStrength)}</span>
-        <span>{passwordStrengthResult}</span>
+        <span aria-describedby={"strengthresult"}
+              aria-label={"password-strength"}
+        >
+          {t(I18N.my_profile.passwordStrength)}
+        </span>
+        <span id={"strengthresult"}>{passwordStrengthResult}</span>
       </Box>
 
       <Box className="fieldVerticalMargin" />
@@ -123,7 +127,7 @@ const MyProfilePassword = ({
         required
         type="password"
         id={'text-confirmpassword'}
-        aria-describedby={'my-profile-confirm-password'}
+        aria-label={'my-profile-confirm-password'}
         onChange={handleConfirmPasswordChange}
         value={confirmPassword}
         variant={'outlined'}

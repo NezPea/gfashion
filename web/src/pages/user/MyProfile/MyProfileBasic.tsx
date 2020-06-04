@@ -75,7 +75,7 @@ const MyProfileBasic = ({
       <TextField
         required
         id={'text-ownname'}
-        aria-describedby={'my-profile-ownname'}
+        aria-label={'my-profile-ownname'}
         onChange={handleOwnnameChange}
         value={ownname}
         variant={'outlined'}
@@ -98,7 +98,7 @@ const MyProfileBasic = ({
       <TextField
         required
         id={'text-surname'}
-        aria-describedby={'my-profile-surname'}
+        aria-label={'my-profile-surname'}
         onChange={handleSurnameChange}
         value={surname}
         variant={'outlined'}
@@ -118,6 +118,7 @@ const MyProfileBasic = ({
           <BlueCheckbox
             checked={enablePassword}
             onChange={handlePasswordChecked}
+            aria-label={"check-if-change-password"}
             color="primary"
           />
         }

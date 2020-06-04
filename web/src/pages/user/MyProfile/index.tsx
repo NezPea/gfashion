@@ -40,7 +40,7 @@ const useStyle = makeStyles(() =>
       fontWeight: 'bold'
     }
   })
-)
+);
 
 const MyProfileSubmitButton = styled(Button)({
   background: 'rgba(102, 153, 204, 1)',
@@ -48,17 +48,17 @@ const MyProfileSubmitButton = styled(Button)({
   height: 40,
   width: 150,
   padding: '0px'
-})
+});
 
 const MyProfile: FunctionComponent = () => {
-  const classes = useStyle()
-  const { t } = useTranslation(I18N_NS)
+  const classes = useStyle();
+  const { t } = useTranslation(I18N_NS);
 
-  const handleEnablePasswordClick = () => {}
+  const handleEnablePasswordClick = () => {};
 
   const handleBasicDataChange = (ownname: string, surname: string) => {
     console.log('haha temp ' + ownname + ' ' + surname)
-  }
+  };
 
   const handlePasswordDataChange = (
     oldPassword: string,
@@ -68,7 +68,7 @@ const MyProfile: FunctionComponent = () => {
     console.log(
       'haha temp ' + oldPassword + ' ' + newPassword + ' ' + confirmPassword
     )
-  }
+  };
 
   return (
     <MainFrame>
@@ -99,7 +99,7 @@ const MyProfile: FunctionComponent = () => {
           <MyProfileSubmitButton
             variant="contained"
             disableElevation
-            aria-describedby={'my-profile-save'}
+            aria-label={'my-profile-save'}
             type="submit">
             {t(I18N.my_profile.save)}
           </MyProfileSubmitButton>
@@ -107,6 +107,6 @@ const MyProfile: FunctionComponent = () => {
       </form>
     </MainFrame>
   )
-}
+};
 
 export default MyProfile

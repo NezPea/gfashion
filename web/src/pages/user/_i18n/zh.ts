@@ -42,5 +42,13 @@ export const zh: typeof _spec = {
     mediumpassword: '中等',
     strongpassword: '强',
     save: '保存'
+  },
+  my_favorites: {
+    _self: '我的收藏',
+    stores: '店铺',
+    wishes: '心愿单',
+    designers: '设计师',
+    removetext: '取消收藏',
   }
+
 }

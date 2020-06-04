@@ -12,6 +12,7 @@ import GClubProfile from '../pages/GClub/profile/GClubProfile'
 import Login from '../pages/user/login'
 import Register from '../pages/user/register'
 import FindPassword from '../pages/user/find-password'
+import MyFavorites from "../pages/user/MyFavorites";
 import MyProfile from '../pages/user/MyProfile'
 import Article from '../pages/GClub/article/Article'
 import i18next from 'i18next'
@@ -39,7 +40,8 @@ const ModuleRouter = ({ lang }: { lang: string }) => {
       <Route path={`/${lang}/login`} component={Login} />
       <Route path={`/${lang}/register`} component={Register} />
       <Route path={`/${lang}/find-password`} component={FindPassword} />
-      <Route path={`/${lang}/my-profile`} component={MyProfile} />
+      <Route path={`/${lang}/myprofile`} component={MyProfile} />
+      <Route path={`/${lang}/myfavorites`} component={MyFavorites} />
       <Route path={`/${lang}/search/:searchTerm`} component={GFashionSearch} />
       <Route
         path={`/${lang}/category/:categoryId`}

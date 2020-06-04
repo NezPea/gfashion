@@ -42,5 +42,12 @@ export const en: typeof _spec = {
     mediumpassword: 'Medium',
     strongpassword: 'Strong',
     save: 'Save'
+  },
+  my_favorites: {
+    _self: 'Favorites',
+    stores: 'Stores',
+    wishes: 'Wishes',
+    designers: 'Designers',
+    removetext: 'Remove',
   }
-}
+};
