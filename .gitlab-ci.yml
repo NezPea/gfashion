@@ -32,22 +32,26 @@ package-frontend:
   only:
   - web-dev
 
-package-frontend-dev3:
-  <<: *docker_build_tmpl
+regversion:
+  image: 939023048332.dkr.ecr.us-east-1.amazonaws.com/ops/regversion:059c89fb
+  stage: package 
+  script: /regversion
   variables:
-    REPOSITORY: 'gfashion/frontend-dev3'
-    DOCKERFILE_PATH: 'web/Dockerfile'
-    BUILD_CONTEXT: 'web'
+    REPO_NAME: 'gfashion'
+    ENDPOINT: 'http://api.chatops.dev2.gfashion2020.tk/version/record/add'
+    TOKEN: 'aWTUTKfApdKiU4d'
   tags: 
   - docker
   only:
   - web-dev
+
 
 deploy:
   image: curlimages/curl
   stage: deploy
   script:
   - curl remotecall.dev2.gfashion2020.tk/upgrade_frontend/${CI_COMMIT_SHORT_SHA} -X POST -H TOKEN:aWTUTKfApdKiU4d -v
+  - curl -H TOKEN:aWTUTKfApdKiU4d http://api.chatops.dev2.gfashion2020.tk/msg/hook/707658231291576331 -d "----> New version deployed on dev2 ${CI_COMMIT_BRANCH}:${CI_COMMIT_SHORT_SHA}<----" -v
   only:
   - web-dev
   tags:
